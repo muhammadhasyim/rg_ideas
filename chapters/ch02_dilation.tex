@@ -1,0 +1,630 @@
+%===============================================================================
+\chapter{Flows on Parameter Space and Their Transseries Extensions}
+\label{ch:flows}
+%===============================================================================
+
+\marginnote{Chapter 1 showed \emph{that} parameters run and \emph{that} perturbation series diverge with structure. This chapter explains \emph{how} parameters flow through the language of vector fields on parameter space, and how the full parameter space includes transseries coordinates from the beginning.}
+
+In Chapter~\ref{ch:scale}, we saw that the anharmonic oscillator's amplitude and phase become functions of time when we properly handle secular terms. We also saw that perturbative coefficients grow factorially and that the Borel plane provides a second geometric arena for understanding this divergence. But where do these running parameters ``live''? And what governs their evolution? And how do the perturbative parameters connect to the non-perturbative information encoded in the Borel plane?
+
+The answer is beautiful and more complete than traditional treatments suggest. Running parameters trace out trajectories in a \textbf{parameter space}. The RG equations define a \emph{flow} on this space through a vector field whose integral curves are the paths theories take as we change scale. Fixed points of this flow are scale-invariant theories. But the full story requires recognizing that perturbative parameter space is actually a submanifold of a larger space that includes \textbf{transseries parameters} from the beginning. The structure is that of a \textbf{Lie group acting on an extended manifold}.
+
+This chapter develops these geometric ideas through two examples. The \textbf{anharmonic oscillator} continues from Chapter 1 and is now viewed as a flow in $(A, \phi)$ space with implicit transseries structure. The \textbf{1D $\phi^4$ field theory} introduces \emph{statistical} RG, where we integrate out short-wavelength fluctuations rather than average over fast dynamics. Both examples exhibit the same geometric structure, and both have beta functions that are secretly transseries.
+
+%-------------------------------------------------------------------------------
+\section{Parameter Space as a Manifold}
+\label{sec:parameter_space}
+%-------------------------------------------------------------------------------
+
+Every physical model depends on parameters including masses, coupling constants, and initial conditions. The space of all possible parameter values is the \textbf{parameter space}. Different fields use different names for this concept. Physicists speak of ``parameter space'' in general settings, ``theory space'' in QFT, ``coupling space'' in statistical mechanics, and ``bifurcation diagrams'' in dynamics. All refer to the same mathematical structure.
+
+\marginnote{Different fields use different names. Parameter space, theory space, coupling space, and bifurcation diagram all refer to the same concept.}
+
+\subsection{Examples of Parameter Spaces}
+
+\textbf{The anharmonic oscillator.} The relevant parameters for long-time behavior are the amplitude $A$ and phase $\phi$. These form a two-dimensional parameter space:
+\begin{equation}
+\mathcal{M}_{\text{osc}} = \{(A, \phi) : A \geq 0, \, \phi \in [0, 2\pi)\}
+\end{equation}
+This is a half-cylinder (or a cone if we identify $\phi$ when $A = 0$).
+
+\textbf{The $\phi^4$ field theory.} The Lagrangian
+\begin{equation}
+\mathcal{L} = \frac{1}{2}(\partial\phi)^2 + \frac{r}{2}\phi^2 + \frac{\lambda}{4}\phi^4
+\end{equation}
+has two parameters, namely the mass $r$ and coupling $\lambda$. The parameter space is:
+\begin{equation}
+\mathcal{M}_{\phi^4} = \{(r, \lambda) : \lambda > 0\}
+\end{equation}
+We require $\lambda > 0$ for the potential to be bounded below.
+
+\textbf{General viewpoint.} We think of parameter space as a \emph{manifold}, which is a smooth space that locally looks like $\mathbb{R}^n$. The parameters $(g^1, g^2, \ldots, g^n)$ are coordinates on this manifold.
+
+\subsection{The Extended Parameter Space}
+
+\marginnote{Perturbative parameter space is a submanifold of a larger space that includes transseries parameters.}
+
+The parameter spaces described above are the \textbf{perturbative} parameter spaces. They include only the parameters that appear in the classical action or leading-order equations. But as we saw in Chapter~\ref{ch:scale}, perturbation series diverge and their complete meaning involves transseries that include exponentially suppressed sectors.
+
+The \textbf{extended parameter space} includes additional coordinates $\sigma_n$ that control the weight of each non-perturbative sector. For the oscillator, the extended space might be $(A, \phi, \sigma)$ where $\sigma$ measures the contribution from complex-time instanton sectors. For $\phi^4$ theory, the extended space is $(r, \lambda, \sigma_1, \sigma_2, \ldots)$ where $\sigma_k$ weights the $k$-instanton sector.
+
+This extension is not optional or exotic. It is required for a complete description of the physics. The perturbative submanifold $\sigma_n = 0$ is special in the sense that perturbation theory operates there, but it is not the full theory space. The RG acts on the complete extended manifold.
+
+\subsection{Scale Transformations as Motion}
+
+\marginnote{Scale transformations move us through parameter space. The trajectory is called an \textbf{RG flow}.}
+
+The key insight is that changing the scale at which we observe a system corresponds to \emph{moving through parameter space}. A theory that appears simple at one scale may look complicated at another. This is the same theory, just described with different effective coordinates.
+
+For the oscillator, as time increases, $\phi$ increases because the phase accumulates. The trajectory in $(A, \phi)$ space is:
+\begin{equation}
+A(t) = A_0, \qquad \phi(t) = \phi_0 + \frac{3\lambda A_0^2}{8\omega_0}t
+\end{equation}
+This is a horizontal line at constant $A$, wrapping around in the $\phi$ direction.
+
+For field theory, as we integrate out high-momentum modes (zoom out), the effective couplings change. The trajectory in $(r, \lambda)$ space encodes how the theory ``flows'' under coarse-graining. The transseries parameters $\sigma_n$ also flow, though their flow is invisible in perturbation theory until we cross a Stokes line.
+
+%-------------------------------------------------------------------------------
+\section{The Beta Function as a Vector Field}
+\label{sec:beta_function}
+%-------------------------------------------------------------------------------
+
+The RG equations from Chapter~\ref{ch:scale} have a geometric interpretation. They define a \textbf{vector field} on parameter space.
+
+\subsection{From Equations to Geometry}
+
+The RG equations for the oscillator were:
+\begin{equation}
+\frac{dA}{dt} = 0, \qquad \frac{d\phi}{dt} = \frac{3\lambda A^2}{8\omega_0}
+\end{equation}
+
+\marginnote{The \textbf{beta function} $\boldsymbol{\beta}$ tells us the ``velocity'' through parameter space as we change scale.}
+
+These define a vector field on $(A, \phi)$ space:
+\begin{equation}
+\boldsymbol{\beta} = \beta^A \frac{\partial}{\partial A} + \beta^\phi \frac{\partial}{\partial \phi} = 0 \cdot \frac{\partial}{\partial A} + \frac{3\lambda A^2}{8\omega_0} \frac{\partial}{\partial \phi}
+\end{equation}
+
+At each point, $\boldsymbol{\beta}$ gives the direction and rate of motion as the scale parameter increases. The components $\beta^A = 0$ and $\beta^\phi = 3\lambda A^2/(8\omega_0)$ are called \textbf{beta functions}.
+
+\subsection{Why ``Beta Function''?}
+
+\marginnote{The name comes from QFT, where $\beta(\lambda) = \mu \,d\lambda/d\mu$ describes how couplings run with the renormalization scale $\mu$.}
+
+In quantum field theory, the beta function $\beta(\lambda)$ was introduced by Gell-Mann and Low in 1954 to describe how the electromagnetic coupling constant runs with energy. The name stuck, even in contexts far from QFT.
+
+In general, if $g^i$ are coordinates on parameter space and $\ell$ is a scale parameter (time, log of momentum cutoff, or similar), the beta functions are:
+\begin{equation}
+\beta^i(g) = \frac{dg^i}{d\ell}
+\end{equation}
+
+The collection of beta functions forms a vector field:
+\begin{equation}
+\boldsymbol{\beta} = \beta^i(g) \frac{\partial}{\partial g^i}
+\end{equation}
+
+\subsection{The Full Transseries Beta Function}
+
+\marginnote{The beta function itself is a transseries with perturbative and non-perturbative sectors.}
+
+The beta functions written above are the \textbf{perturbative} beta functions. They are computed order by order in the coupling constant and form asymptotic series that diverge with Gevrey-1 structure. The \textbf{full} beta function is a transseries:
+\begin{equation}
+\beta^i_{\text{full}}(g) = \beta^i_{\text{pert}}(g) + \sum_{n=1}^\infty \sigma^n e^{-nS/g}\beta^{i,(n)}(g)
+\end{equation}
+where $\beta^i_{\text{pert}}$ is the perturbative piece that includes all orders in $g$, the exponentials $e^{-nS/g}$ weight the $n$-instanton sectors, and each $\beta^{i,(n)}$ is itself an asymptotic series.
+
+For the anharmonic oscillator, the perturbative beta function for the phase is $\beta^\phi_{\text{pert}} = 3\lambda A^2/(8\omega_0) + O(\lambda^2)$. This receives exponentially suppressed corrections from instanton sectors:
+\begin{equation}
+\beta^\phi_{\text{full}} = \beta^\phi_{\text{pert}} + \sigma_1 e^{-S/\lambda}\beta^{\phi,(1)} + \cdots
+\end{equation}
+These corrections are invisible to any finite order of perturbation theory but are structurally required by resurgence. The instanton action $S$ is determined by the classical structure of the problem, and the coefficients $\beta^{\phi,(n)}$ are fixed by the resurgent relations.
+
+%-------------------------------------------------------------------------------
+\section{Fixed Points: Where the Flow Stops}
+\label{sec:fixed_points_intro}
+%-------------------------------------------------------------------------------
+
+A \textbf{fixed point} is a point where all beta functions vanish:
+\begin{equation}
+\beta^i(g^*) = 0 \quad \text{for all } i
+\end{equation}
+
+At a fixed point, the system doesn't change under scale transformations. It is \textbf{scale-invariant}.
+
+\marginnote{Fixed points are the ``destinations'' of RG flows. Understanding them is key to understanding long-time or long-distance behavior.}
+
+\subsection{Fixed Points of the Oscillator}
+
+For the anharmonic oscillator, the perturbative beta functions are $\beta^A = 0$ and $\beta^\phi = 3\lambda A^2/(8\omega_0)$. Fixed points satisfy:
+\begin{equation}
+\beta^\phi = \frac{3\lambda A^2}{8\omega_0} = 0
+\end{equation}
+
+The only solution is $A = 0$, which corresponds to the oscillator at rest. This is a \textbf{trivial} fixed point because physically nothing is happening.
+
+\textbf{Physical interpretation:} An oscillator with $A > 0$ never ``reaches'' a fixed point. The phase keeps advancing forever. The interesting physics is in the \emph{flow}, not in fixed points.
+
+\subsection{Perturbative vs. Full Fixed Points}
+
+When we consider the full transseries beta function, the fixed point condition becomes:
+\begin{equation}
+\beta^i_{\text{full}}(g^*) = 0
+\end{equation}
+This is a different and richer condition than requiring the perturbative beta function to vanish.
+
+\marginnote{Non-perturbative fixed points occur where $\beta_{\text{pert}} \neq 0$ but the full $\beta_{\text{full}} = 0$.}
+
+A perturbative fixed point visible in $\beta_{\text{pert}}$ remains a fixed point of the full theory only if the exponentially suppressed corrections do not shift it. More dramatically, there may exist \textbf{non-perturbative fixed points} where $\beta_{\text{pert}}(g^*) \neq 0$ but the instanton corrections cancel the perturbative contribution so that $\beta_{\text{full}}(g^*) = 0$. Such fixed points are completely invisible to any finite order of perturbation theory, yet they can govern the physics of certain systems.
+
+\subsection{Why Fixed Points Matter}
+
+Fixed points become crucial in contexts with richer structure.
+
+In statistical mechanics, fixed points correspond to \textbf{critical points} at phase transitions where fluctuations occur on all scales. In dynamical systems, fixed points of the RG can describe \textbf{attractors} that give the long-time limits of chaotic or dissipative systems. In QFT, fixed points are \textbf{conformal field theories} that are exactly scale-invariant quantum theories.
+
+The oscillator is too simple to exhibit these phenomena. We need a new example.
+
+%-------------------------------------------------------------------------------
+\section{The 1D $\phi^4$ Field Theory}
+\label{sec:phi4}
+%-------------------------------------------------------------------------------
+
+We now introduce our second example, which is $\phi^4$ theory in one spatial dimension. This is the simplest model that exhibits non-trivial RG flow with a statistical interpretation.
+
+\marginnote{The 1D $\phi^4$ model is pedagogically ideal. Loop integrals are finite (no UV divergences), and beta functions can be computed exactly.}
+
+\subsection{The Model}
+
+Consider a scalar field $\phi(x)$ on a line of length $L$ with periodic boundary conditions. The \textbf{action} (or Euclidean Hamiltonian) is:
+\begin{equation}
+S[\phi] = \int_0^L dx \left[ \frac{1}{2}\left(\frac{d\phi}{dx}\right)^2 + \frac{r}{2}\phi^2 + \frac{\lambda}{4}\phi^4 \right]
+\label{eq:phi4_action}
+\end{equation}
+
+\marginnote{In statistical field theory, $e^{-S[\phi]}$ is the Boltzmann weight. We've set $k_BT = 1$.}
+
+Each term has a physical interpretation. The gradient term $(\partial\phi)^2$ penalizes spatial variations and provides ``stiffness.'' The mass term $r\phi^2$ with $r > 0$ confines the field near $\phi = 0$. The interaction term $\lambda\phi^4$ with $\lambda > 0$ ensures stability.
+
+The partition function is the functional integral:
+\begin{equation}
+Z = \int \mathcal{D}\phi \, e^{-S[\phi]}
+\end{equation}
+
+\subsection{Fourier Space and the UV Cutoff}
+
+With periodic boundary conditions, we decompose into Fourier modes:
+\begin{equation}
+\phi(x) = \frac{1}{\sqrt{L}} \sum_k \tilde{\phi}_k \, e^{ikx}, \qquad k = \frac{2\pi n}{L}, \; n \in \mathbb{Z}
+\end{equation}
+
+\marginnote{The UV cutoff $\Lambda$ represents ignorance of physics below the scale $\Lambda^{-1}$. In a lattice model, $\Lambda \sim \pi/a$.}
+
+Every physical theory has a shortest length scale. We impose a \textbf{UV cutoff} $\Lambda$ so that only modes with $|k| < \Lambda$ are included.
+
+In Fourier space, the action becomes:
+\begin{equation}
+S[\tilde{\phi}] = \sum_{|k|<\Lambda} \frac{1}{2}(k^2 + r)|\tilde{\phi}_k|^2 + \frac{\lambda}{4L}\sum_{k_1+k_2+k_3+k_4=0} \tilde{\phi}_{k_1}\tilde{\phi}_{k_2}\tilde{\phi}_{k_3}\tilde{\phi}_{k_4}
+\end{equation}
+
+The Gaussian (free) part is diagonal while the $\phi^4$ term couples different modes.
+
+%-------------------------------------------------------------------------------
+\section{Momentum-Shell Renormalization Group}
+\label{sec:momentum_shell}
+%-------------------------------------------------------------------------------
+
+Wilson's insight was that instead of computing $Z$ directly, we should compute how $Z$ changes when we integrate out a thin shell of high-momentum modes. This generates a flow on coupling space.
+
+\marginnote{Wilson's strategy involves integrating out fast modes, then rescaling. This generates the RG transformation.}
+
+\subsection{The Three Steps}
+
+The RG proceeds as follows.
+
+\textbf{Step 1: Divide.} Split the field into ``slow'' and ``fast'' modes:
+\begin{align}
+\phi^<(x) &= \frac{1}{\sqrt{L}} \sum_{|k| < \Lambda/b} \tilde{\phi}_k \, e^{ikx} \quad \text{(slow)} \\
+\phi^>(x) &= \frac{1}{\sqrt{L}} \sum_{\Lambda/b < |k| < \Lambda} \tilde{\phi}_k \, e^{ikx} \quad \text{(fast)}
+\end{align}
+for some $b > 1$.
+
+\textbf{Step 2: Integrate.} Perform the functional integral over fast modes $\phi^>$, obtaining an effective action for slow modes $\phi^<$.
+
+\textbf{Step 3: Rescale.} Rescale momenta ($k \to bk$) and fields to restore the original cutoff $\Lambda$.
+
+The result is new couplings $r'$ and $\lambda'$ that depend on the original $r$ and $\lambda$. Iterating gives the RG flow.
+
+\begin{workedbox}[Box 2.1: Momentum-Shell RG for 1D $\phi^4$]
+\textbf{Goal:} Derive the beta functions for $(r, \lambda)$ in 1D $\phi^4$ theory.
+
+\textbf{Step 1: Split the field.}
+Write $\phi = \phi^< + \phi^>$ where $\phi^<$ has $|k| < \Lambda/b$ and $\phi^>$ has $\Lambda/b < |k| < \Lambda$.
+
+\textbf{Step 2: Expand the action.}
+\begin{equation}
+S[\phi^< + \phi^>] = S_0[\phi^<] + S_0[\phi^>] + S_{\text{int}}[\phi^<, \phi^>]
+\end{equation}
+where $S_0$ is the Gaussian part and $S_{\text{int}}$ contains the $\phi^4$ terms.
+
+\textbf{Step 3: The partition function.}
+\begin{equation}
+Z = \int \mathcal{D}\phi^< \, e^{-S_0[\phi^<]} \underbrace{\int \mathcal{D}\phi^> \, e^{-S_0[\phi^>] - S_{\text{int}}[\phi^<, \phi^>]}}_{\equiv \, e^{-\Delta S[\phi^<]}}
+\end{equation}
+
+\textbf{Step 4: Perturbative integration over fast modes.}
+Expand $e^{-S_{\text{int}}} \approx 1 - S_{\text{int}} + \frac{1}{2}S_{\text{int}}^2 - \cdots$ and take the Gaussian average over $\phi^>$.
+
+\textbf{Step 5: The key contraction.}
+The $\phi^4$ interaction contains terms like $(\phi^<)^2(\phi^>)^2$. When we contract $\phi^>$ with itself:
+\begin{equation}
+\langle \phi^>(x)\phi^>(x) \rangle_0 = \frac{1}{L}\sum_{\Lambda/b < |k| < \Lambda} \frac{1}{k^2 + r} \equiv \delta r / (6\lambda)
+\end{equation}
+This shifts the mass term!
+
+\textbf{Step 6: Compute the shift.}
+The interaction $\frac{\lambda}{4}(\phi^< + \phi^>)^4$ contains the term $\frac{\lambda}{4} \cdot 6 \cdot (\phi^<)^2 (\phi^>)^2$ (the factor 6 counts ways to choose 2 of 4 fields to be $\phi^>$).
+
+Contracting $(\phi^>)^2$:
+\begin{equation}
+\Delta S \supset \frac{6\lambda}{4} \int dx \, (\phi^<)^2 \cdot \langle (\phi^>)^2 \rangle = \frac{3\lambda}{2} \cdot (\text{tadpole}) \cdot \int dx \, (\phi^<)^2
+\end{equation}
+
+The tadpole integral in 1D with infinitesimal shell $b = e^{d\ell} \approx 1 + d\ell$:
+\begin{equation}
+\text{tadpole} = \frac{1}{\pi} \int_{\Lambda(1-d\ell)}^{\Lambda} \frac{dk}{k^2 + r} \approx \frac{\Lambda \, d\ell}{\pi(\Lambda^2 + r)}
+\end{equation}
+
+\textbf{Step 7: The mass shift.}
+The effective mass becomes:
+\begin{equation}
+r_{\text{eff}} = r + \frac{3\lambda\Lambda}{\pi(\Lambda^2 + r)} d\ell
+\end{equation}
+
+\textbf{Step 8: Rescaling.}
+Under $k \to bk$, $x \to x/b$, the kinetic term $\int (\partial\phi)^2 dx$ is invariant if $\phi \to b^{1/2}\phi$. Then:
+\begin{equation}
+r \to b^2 r, \qquad \lambda \to b^2 \lambda
+\end{equation}
+(Both have engineering dimension 2 in units where $[k] = 1$.)
+
+\textbf{Step 9: Combine shift and rescaling.}
+With $b = 1 + d\ell$:
+\begin{align}
+r' &= (1 + 2\,d\ell)\left(r + \frac{3\lambda\Lambda}{\pi(\Lambda^2 + r)} d\ell\right) \\
+\lambda' &= (1 + 2\,d\ell)\lambda
+\end{align}
+
+\textbf{Result: The beta functions.}
+Taking $d\ell \to 0$:
+\begin{align}
+\beta_r &\equiv \frac{dr}{d\ell} = 2r + \frac{3\lambda\Lambda}{\pi(\Lambda^2 + r)} \label{eq:beta_r}\\
+\beta_\lambda &\equiv \frac{d\lambda}{d\ell} = 2\lambda \label{eq:beta_lambda}
+\end{align}
+\end{workedbox}
+
+\subsection{Interpreting the Beta Functions}
+
+The beta functions~\eqref{eq:beta_r} and \eqref{eq:beta_lambda} encode how effective parameters change as we zoom out.
+
+\textbf{The ``$2r$'' and ``$2\lambda$'' terms} come from rescaling and reflect the engineering dimensions. In units where momentum has dimension 1, both $r$ and $\lambda$ have dimension 2.
+
+\marginnote{The engineering dimension gives the ``classical'' scaling. Quantum/thermal corrections modify this.}
+
+\textbf{The tadpole correction} $3\lambda\Lambda/\pi(\Lambda^2 + r)$ in $\beta_r$ is genuinely new. It says that even if we start with $r = 0$, interactions \emph{generate} an effective mass. High-momentum fluctuations ``dress'' the mass parameter.
+
+\textbf{No correction to $\lambda$} appears at this order. Higher loops would contribute.
+
+\subsection{The Transseries Structure of the Beta Function}
+
+These perturbative beta functions are the leading terms in a transseries. The full beta function for $\lambda$ in a generic $\phi^4$ theory has the structure:
+\begin{equation}
+\beta_\lambda^{\text{full}} = 2\lambda + \text{(loop corrections)} + \sigma_1 e^{-S_{\text{inst}}/\lambda}\beta_\lambda^{(1)} + \cdots
+\end{equation}
+
+\marginnote{The perturbative beta function is itself an asymptotic series embedded in a transseries.}
+
+The loop corrections form an asymptotic series in $\lambda$ with factorially growing coefficients. These coefficients have renormalon singularities in their Borel transforms at positions $\zeta_k = k/(2\beta_1)$ determined by the one-loop beta function coefficient $\beta_1 = 2$. The exponential terms involve instanton contributions that are non-perturbative.
+
+In 1D, the structure is especially simple because there are no UV divergences and the beta functions can be computed exactly. But the Gevrey-1 structure and the transseries completion remain present.
+
+%-------------------------------------------------------------------------------
+\section{Fixed Points and Stability}
+\label{sec:fixed_point_analysis}
+%-------------------------------------------------------------------------------
+
+Let's find the fixed points of the 1D $\phi^4$ flow.
+
+\subsection{The Gaussian Fixed Point}
+
+Setting $\beta_r = \beta_\lambda = 0$:
+\begin{equation}
+\beta_\lambda = 2\lambda = 0 \implies \lambda^* = 0
+\end{equation}
+Then $\beta_r = 2r = 0$ implies $r^* = 0$.
+
+\marginnote{The \textbf{Gaussian fixed point} is the free theory with no interactions. It's called ``Gaussian'' because the path integral is Gaussian.}
+
+The unique fixed point is $(r^*, \lambda^*) = (0, 0)$, which is the \textbf{Gaussian fixed point} (free field theory).
+
+\subsection{Stability Analysis}
+
+Near a fixed point, linearize the flow:
+\begin{equation}
+\frac{d}{d\ell}\begin{pmatrix} \delta r \\ \delta\lambda \end{pmatrix} = \begin{pmatrix} \partial\beta_r/\partial r & \partial\beta_r/\partial\lambda \\ \partial\beta_\lambda/\partial r & \partial\beta_\lambda/\partial\lambda \end{pmatrix}_{(0,0)} \begin{pmatrix} \delta r \\ \delta\lambda \end{pmatrix}
+\end{equation}
+
+The stability matrix at $(0,0)$ is:
+\begin{equation}
+B = \begin{pmatrix} 2 & 3/(\pi\Lambda) \\ 0 & 2 \end{pmatrix}
+\end{equation}
+
+\marginnote{Eigenvalues $> 0$ mean the perturbation grows under RG (``relevant''). Eigenvalues $< 0$ mean it shrinks (``irrelevant'').}
+
+Both eigenvalues are $+2$. This means both directions are \textbf{unstable} in the sense that any perturbation away from $(0,0)$ grows under the RG flow.
+
+\textbf{Physical interpretation:} The free theory is unstable. Turn on any mass or coupling, and it grows under coarse-graining. There is no non-trivial fixed point in 1D.
+
+\begin{workedbox}[Box 2.2: Relevant, Irrelevant, and Marginal]
+The stability eigenvalues classify perturbations.
+
+\textbf{Relevant} ($\Delta > 0$): The perturbation grows under RG. The theory flows \emph{away} from the fixed point in this direction. Must be tuned to zero to reach the fixed point.
+
+\textbf{Irrelevant} ($\Delta < 0$): The perturbation shrinks under RG. The theory flows \emph{toward} the fixed point. These operators become negligible at long distances.
+
+\textbf{Marginal} ($\Delta = 0$): Neither grows nor shrinks (to first approximation). The fate depends on higher-order corrections.
+
+\textbf{In 1D $\phi^4$:} Both $r$ and $\lambda$ have $\Delta = 2 > 0$, so both are relevant. The Gaussian fixed point is ``doubly unstable.''
+
+\textbf{Why this matters:} In higher dimensions ($d = 4 - \epsilon$), $\lambda$ becomes marginal or irrelevant. The Wilson-Fisher fixed point emerges. But in 1D, no luck.
+\end{workedbox}
+
+%-------------------------------------------------------------------------------
+\section{Comparing the Two Examples}
+\label{sec:comparison}
+%-------------------------------------------------------------------------------
+
+We now have two complete examples of RG flows. Let's compare them systematically.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{lll}
+\toprule
+& \textbf{Anharmonic Oscillator} & \textbf{1D $\phi^4$ Theory} \\
+\midrule
+Type & Dynamical (ODE) & Statistical (field theory) \\
+Scale parameter & Time $t$ & Log-cutoff $\ell = \log(\Lambda_0/\Lambda)$ \\
+Parameter space & $(A, \phi)$ & $(r, \lambda)$ \\
+What runs & Initial conditions & Hamiltonian parameters \\
+\midrule
+$\beta^1$ & $0$ & $2r + 3\lambda\Lambda/\pi(\Lambda^2+r)$ \\
+$\beta^2$ & $3\lambda A^2/(8\omega_0)$ & $2\lambda$ \\
+\midrule
+Fixed point & $A = 0$ (trivial) & $(r,\lambda) = (0,0)$ (Gaussian) \\
+Stability & --- & Both directions unstable \\
+\midrule
+Divergence type & Gevrey-1 & Gevrey-1 \\
+Borel singularities & Instantons & Renormalons \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\marginnote{In dynamics, we ``renormalize'' where we are (initial conditions). In statistics, we ``renormalize'' what we are (the Hamiltonian).}
+
+\textbf{Key similarity:} Both exhibit the universal pattern of identifying divergence, letting parameters run, and deriving flow equations. Both have perturbative beta functions that are embedded in transseries.
+
+\textbf{Key difference:} In the oscillator, running parameters are \emph{initial conditions}. In field theory, they are \emph{couplings in the Hamiltonian}. The physics dictates what runs.
+
+\textbf{Shared structure:} Both have Gevrey-1 divergence in their perturbative expansions. The oscillator has singularities from complex-time instantons, while $\phi^4$ has renormalon singularities from RG running. Both require transseries completion for the full answer.
+
+%-------------------------------------------------------------------------------
+\section{The Dilation Group Structure}
+\label{sec:dilation_group}
+%-------------------------------------------------------------------------------
+
+Both examples share a common mathematical structure involving the \textbf{dilation group}.
+
+\subsection{Scale Transformations Form a Group}
+
+Consider scale transformations $x \to bx$ with $b > 0$. These form a group with closure ($x \to bx$ composed with $x \to cx$ gives $x \to bcx$), identity ($x \to 1 \cdot x$), inverses ($(x \to bx)^{-1} = x \to x/b$), and associativity (composition is associative).
+
+This is the multiplicative group $(\mathbb{R}^+, \times)$, also written $\mathbb{R}^+$ or $(\mathbb{R}, +)$ via logarithm.
+
+\marginnote{The dilation group is the simplest non-trivial Lie group. It is one-dimensional, abelian, and connected.}
+
+\subsection{The Lie Algebra}
+
+Every Lie group has an associated Lie algebra of infinitesimal transformations. For the dilation group, write $b = e^{\epsilon}$ for small $\epsilon$. Then:
+\begin{equation}
+x \to e^{\epsilon}x \approx x + \epsilon x = x + \epsilon \cdot x\frac{d}{dx}x = (1 + \epsilon \mathcal{D})x
+\end{equation}
+where $\mathcal{D} = x\,d/dx$ is the \textbf{generator}.
+
+\marginnote{The generator $\mathcal{D} = x\,\partial/\partial x$ is the infinitesimal dilation. Acting on $f(x)$, we get $\mathcal{D}f = xf'(x)$.}
+
+Finite transformations are recovered by exponentiation:
+\begin{equation}
+D_b = e^{(\log b)\mathcal{D}}
+\end{equation}
+
+\begin{workedbox}[Box 2.4: The Dilation Lie Algebra]
+\textbf{The dilation generator in $d$ dimensions:}
+
+In $d$ dimensions, the dilation (scaling) generator is the radial vector field:
+\begin{equation}
+\mathcal{D} = x^i \frac{\partial}{\partial x^i} = \sum_{i=1}^d x^i \partial_i
+\end{equation}
+This generates the flow $x^i \to e^\epsilon x^i$ under the exponential map.
+
+\textbf{Translations and the conformal algebra:}
+
+The translation generators are $P_i = \partial/\partial x^i$. Acting on a function:
+\begin{equation}
+P_i f(x) = \partial_i f(x), \qquad \mathcal{D} f(x) = x^j \partial_j f(x)
+\end{equation}
+
+\textbf{The fundamental commutator:}
+
+Computing $[\mathcal{D}, P_i]$ on a test function $f(x)$:
+\begin{align}
+[\mathcal{D}, P_i] f &= \mathcal{D}(P_i f) - P_i(\mathcal{D} f) \\
+&= x^j \partial_j (\partial_i f) - \partial_i (x^j \partial_j f) \\
+&= x^j \partial_j \partial_i f - \delta_i^j \partial_j f - x^j \partial_i \partial_j f \\
+&= -\partial_i f = -P_i f
+\end{align}
+
+Therefore:
+\begin{equation}
+\boxed{[\mathcal{D}, P_i] = -P_i}
+\end{equation}
+
+This says that dilations and translations \emph{don't commute}. Physically, translating then scaling differs from scaling then translating.
+
+\textbf{Matrix representation:}
+
+In $d+1$ dimensions, we can represent $\mathcal{D}$ and $P_i$ as $(d+2)\times(d+2)$ matrices acting on projective coordinates $(1, x^1, \ldots, x^d)$:
+\begin{equation}
+\mathcal{D} = \begin{pmatrix} 0 & 0 \\ 0 & I_d \end{pmatrix}, \qquad
+P_i = \begin{pmatrix} 0 & e_i^T \\ 0 & 0 \end{pmatrix}
+\end{equation}
+where $e_i$ is the $i$-th unit vector. One can verify that the matrix commutator reproduces $[\mathcal{D}, P_i] = -P_i$.
+
+\textbf{The full conformal algebra (in $d > 2$):}
+
+Including special conformal transformations $K_i$ and rotations $M_{ij}$, the algebra becomes:
+\begin{align}
+[\mathcal{D}, P_i] &= -P_i & [\mathcal{D}, K_i] &= K_i \\
+[P_i, K_j] &= 2(\delta_{ij}\mathcal{D} - M_{ij}) & [K_i, K_j] &= 0
+\end{align}
+The dilation generator acts as a ``grading operator'' where $P_i$ has grade $-1$ and $K_i$ has grade $+1$.
+\end{workedbox}
+
+\subsection{Beta Functions as Generators on Extended Space}
+
+In the RG context, the beta function $\boldsymbol{\beta}$ \emph{is} the generator of scale transformations on parameter space:
+\begin{equation}
+\boldsymbol{\beta} = \beta^i(g)\frac{\partial}{\partial g^i}
+\end{equation}
+
+The finite RG transformation from scale $\ell = 0$ to $\ell$ is:
+\begin{equation}
+R_\ell = e^{\ell \boldsymbol{\beta}}
+\end{equation}
+
+\marginnote{The RG transformation $R_\ell = e^{\ell\boldsymbol{\beta}}$ is a diffeomorphism of parameter space generated by the beta function vector field.}
+
+The collection $\{R_\ell : \ell \in \mathbb{R}\}$ forms a one-parameter group of diffeomorphisms on parameter space. This is the representation of the dilation group on theory space.
+
+On the extended parameter space including transseries coordinates, the generator becomes:
+\begin{equation}
+\boldsymbol{\beta}_{\text{ext}} = \beta^i(g)\frac{\partial}{\partial g^i} + \beta^{(\sigma_n)}(g, \sigma)\frac{\partial}{\partial \sigma_n}
+\end{equation}
+The transseries parameters $\sigma_n$ also have beta functions that describe how they evolve under scale transformations. Near Stokes lines, the $\sigma_n$ can jump discontinuously, which is the Stokes phenomenon viewed from the extended parameter space perspective.
+
+\begin{workedbox}[Box 2.3: The Lie Group Perspective]
+\textbf{The structure:}
+
+The group is the dilation group $(\mathbb{R}^+, \times) \cong (\mathbb{R}, +)$. The manifold is parameter space $\mathcal{M}$. The group acts on $\mathcal{M}$ via RG transformations. The generator $\boldsymbol{\beta}$ is the Lie algebra element. Fixed points are points invariant under the group action (zeros of $\boldsymbol{\beta}$).
+
+\textbf{For the oscillator:}
+
+The manifold is $\mathcal{M} = \{(A,\phi)\}$. The generator is $\boldsymbol{\beta} = \frac{3\lambda A^2}{8\omega_0}\frac{\partial}{\partial\phi}$. The transformation $R_t = e^{t\boldsymbol{\beta}}$ shifts $\phi$ by $\frac{3\lambda A^2}{8\omega_0}t$.
+
+\textbf{For 1D $\phi^4$:}
+
+The manifold is $\mathcal{M} = \{(r,\lambda) : \lambda > 0\}$. The generator is $\boldsymbol{\beta} = \beta_r\frac{\partial}{\partial r} + \beta_\lambda\frac{\partial}{\partial\lambda}$. The fixed point at the origin is invariant.
+
+\textbf{On the extended space:}
+
+Both examples extend to $\mathcal{M}_{\text{ext}}$ including transseries parameters $\sigma_n$. The full beta function acts on this larger space. Stokes phenomena appear as discontinuities in $\sigma_n$ when crossing Stokes lines.
+
+\textbf{Why this matters:} The Lie group framework unifies all RG applications. Different physical problems are different representations of the same underlying structure.
+\end{workedbox}
+
+%-------------------------------------------------------------------------------
+\section{Scaling Dimensions and Representations}
+\label{sec:scaling_dimensions}
+%-------------------------------------------------------------------------------
+
+A function that transforms simply under scale transformations carries a \textbf{representation} of the dilation group.
+
+\subsection{Definition}
+
+A quantity $\Phi$ has \textbf{scaling dimension} $\Delta$ if under $x \to bx$:
+\begin{equation}
+\Phi \to b^\Delta \Phi
+\end{equation}
+
+Equivalently, the generator acts as $\mathcal{D}\Phi = \Delta\Phi$. The scaling dimension is the eigenvalue of the dilation generator.
+
+\marginnote{Scaling dimensions are ``quantum numbers'' labeling how quantities transform under scale changes.}
+
+\subsection{Examples}
+
+\textbf{Length:} A length $L$ has scaling dimension $+1$ because $L \to bL$.
+
+\textbf{Momentum:} Momentum $k \sim 1/L$ has dimension $-1$ because $k \to k/b$.
+
+\textbf{The $\phi^4$ couplings:} From the rescaling analysis in Box 2.1:
+\begin{equation}
+r \to b^2 r, \qquad \lambda \to b^2 \lambda
+\end{equation}
+Both have scaling dimension $+2$. These are the \textbf{engineering dimensions}.
+
+\subsection{Anomalous Dimensions}
+
+The engineering dimensions come from dimensional analysis alone. But interactions can modify them. If a quantity has
+\begin{equation}
+\Phi \to b^{\Delta_0 + \gamma}\Phi
+\end{equation}
+where $\Delta_0$ is the engineering dimension and $\gamma$ depends on the coupling, we call $\gamma$ the \textbf{anomalous dimension}.
+
+\marginnote{Anomalous dimensions are the ``quantum corrections'' to classical scaling. They distinguish first-kind and second-kind self-similarity.}
+
+Anomalous dimensions signal that naive scaling (from dimensional analysis) is wrong because the true scaling is modified by dynamics. We'll see explicit examples when we discuss the porous medium equation in Chapter~\ref{ch:fixed_points}.
+
+In the resurgent framework, anomalous dimensions are themselves asymptotic series in the coupling with Gevrey-1 structure. Their Borel transforms have singularities encoding non-perturbative corrections to the scaling behavior.
+
+%-------------------------------------------------------------------------------
+\section{Looking Ahead}
+\label{sec:ch2_preview}
+%-------------------------------------------------------------------------------
+
+This chapter established the geometric framework with parameters living in a \textbf{manifold} (parameter space), the RG defining a \textbf{flow} on this manifold, beta functions being the \textbf{generators} of the flow, and fixed points being \textbf{scale-invariant} theories. We also introduced the crucial extension to include transseries parameters in the full theory space.
+
+\marginnote{The oscillator shows the RG mechanism. The $\phi^4$ model shows non-trivial beta functions. The porous medium will show anomalous dimensions.}
+
+Our two examples have rather simple flow structure with no non-trivial fixed points and no anomalous dimensions. The next chapters develop richer phenomena.
+
+\textbf{Chapter~\ref{ch:rg_equation}} derives the RG equation systematically and shows how the beta function arises from requiring physical predictions to be scale-independent. It also shows how the envelope method naturally produces transseries structure when the solution crosses Stokes lines.
+
+\textbf{Chapter~\ref{ch:fixed_points}} introduces our third example, the porous medium equation, which exhibits \textbf{anomalous dimensions}. These are scaling exponents that dimensional analysis cannot predict.
+
+\textbf{Chapters~\ref{ch:geometry}--\ref{ch:connections}} develop the full geometric structure of parameter space, including metrics and connections, with natural extensions to the transseries-enlarged theory space.
+
+%-------------------------------------------------------------------------------
+\section*{Summary}
+\addcontentsline{toc}{section}{Summary}
+%-------------------------------------------------------------------------------
+
+\begin{center}
+\fbox{\parbox{0.85\textwidth}{
+\textbf{Parameter space} $\mathcal{M}$ is the manifold of all possible parameter values. RG defines a flow on $\mathcal{M}$.
+
+\textbf{Extended parameter space} $\mathcal{M}_{\text{ext}}$ includes transseries parameters $\sigma_n$ that weight non-perturbative sectors. The full RG acts on this larger space.
+
+\textbf{The beta function} $\boldsymbol{\beta} = \beta^i(g)\partial/\partial g^i$ is a vector field on $\mathcal{M}$, the generator of scale transformations. The full beta function is a transseries.
+
+\textbf{Fixed points} satisfy $\beta^i(g^*) = 0$ for all $i$. These are scale-invariant theories. Non-perturbative fixed points may exist where $\beta_{\text{pert}} \neq 0$ but $\beta_{\text{full}} = 0$.
+
+\textbf{For 1D $\phi^4$ theory:}
+\begin{align}
+\beta_r &= 2r + \frac{3\lambda\Lambda}{\pi(\Lambda^2+r)} \\
+\beta_\lambda &= 2\lambda
+\end{align}
+The Gaussian fixed point $(0,0)$ is unstable (both eigenvalues $= 2$).
+
+\textbf{Scaling dimension} $\Delta$ labels representations of the dilation group where $\Phi \to b^\Delta\Phi$.
+
+\textbf{The Lie group structure:} The dilation group $(\mathbb{R}^+, \times)$ acts on parameter space via $R_\ell = e^{\ell\boldsymbol{\beta}}$. On the extended space, this action includes the flow of transseries parameters.
+}}
+\end{center}

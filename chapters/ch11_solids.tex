@@ -1,0 +1,225 @@
+%===============================================================================
+\chapter{Scaling in Solid Mechanics}
+\label{ch:solids}
+%===============================================================================
+
+Continuum mechanics provides a rich arena for the renormalization group, with phenomena ranging from the stress singularities at crack tips to the scaling laws governing fatigue failure. This chapter applies the RG recipe to solid mechanics, focusing on two examples that exemplify self-similar solutions of the second kind: the elastic wedge under concentrated loading and fatigue crack growth under cyclic loading. In both cases, dimensional analysis alone cannot determine the critical exponents, which must instead emerge from the dynamics through an eigenvalue problem analogous to computing anomalous dimensions in field theory.
+
+\marginnote{The connection between fracture mechanics and the RG was anticipated by Barenblatt's work on intermediate asymptotics, though the geometric interpretation developed here is more recent.}
+
+%-------------------------------------------------------------------------------
+\section{Step 1: Scale Hierarchy in Elastic Bodies}
+\label{sec:solids_scales}
+%-------------------------------------------------------------------------------
+
+The mechanical behavior of solids exhibits multiple characteristic scales that interact in ways amenable to RG analysis. These scales emerge from the geometry of the body, the applied loading, and the material properties.
+
+\subsection{Geometric and Material Scales}
+
+An elastic body under load exhibits behavior that depends on several length scales. The overall dimensions of the body set a macroscopic scale $L$. Geometric features such as cracks, notches, or corners introduce intermediate scales. At the microscopic level, the material itself has a characteristic scale $a$ related to grain size, dislocation spacing, or atomic structure.
+
+\marginnote{The separation between macroscopic and microscopic scales is what makes continuum mechanics possible. The RG connects these scales systematically.}
+
+When a sharp crack of length $c$ exists in a body, the crack tip introduces a stress singularity. The region very close to the tip, at distances $r \ll c$, sees only the local geometry and loading. The region far from the tip, at distances $r \gg c$, responds to the overall elastic field. The ratio $c/a$ measures how many decades separate the continuum description from the atomic scale where the singularity must be cut off.
+
+\subsection{The Elastic Wedge Problem}
+
+Consider an elastic body in the shape of a wedge with internal angle $2\alpha$, subject to a concentrated force at the apex. The distance $r$ from the apex serves as the scale parameter. Very close to the apex ($r \to 0$), the stress field exhibits a power-law singularity whose exponent depends on the wedge angle and the type of loading.
+
+Dimensional analysis suggests that the stress components should scale as $\sigma_{ij} \sim F r^{-\lambda}$ where $F$ is the applied force and $\lambda$ is an exponent. For a half-space ($\alpha = \pi$), the classical solution gives $\lambda = 1$. But for general wedge angles, dimensional analysis cannot determine $\lambda$; it must be computed from the equations of elasticity. This is the signature of a self-similar solution of the second kind.
+
+\subsection{The Fatigue Crack Problem}
+
+A different scale hierarchy appears in fatigue crack growth. Under cyclic loading, a crack advances incrementally with each load cycle. The crack growth rate $\dd c/\dd N$ (where $N$ is the number of cycles) depends on the stress intensity factor range $\Delta K$, which measures the amplitude of the singular stress field at the crack tip.
+
+\marginnote{Fatigue failure is responsible for the majority of mechanical failures in engineering practice. Understanding its scaling is of considerable practical importance.}
+
+The characteristic scales are the crack length $c$, the specimen dimension $L$, the material's microstructural scale $a$, and the cyclic loading amplitude. In the intermediate asymptotic regime where $a \ll c \ll L$, the crack growth rate follows a power law independent of the specific details of the loading geometry. This universality is the hallmark of RG fixed-point behavior.
+
+%-------------------------------------------------------------------------------
+\section{Step 2: Coarse-Graining in Elasticity}
+\label{sec:solids_coarse_grain}
+%-------------------------------------------------------------------------------
+
+The coarse-graining procedure in solid mechanics differs from that in field theory but serves the same purpose: eliminating short-distance structure to obtain an effective description at longer scales.
+
+\subsection{Similarity Transformations}
+
+For self-similar problems, coarse-graining takes the form of a similarity transformation. We rescale distances by a factor $b$ and ask how the fields must transform to preserve the governing equations. In elasticity, under $r \to br$ and $\theta \to \theta$, the displacement field transforms as
+\begin{equation}
+u_i(r, \theta) \to b^\nu u_i(r, \theta)
+\end{equation}
+where the exponent $\nu$ must be determined.
+
+\marginnote{The similarity exponent $\nu$ is the analogue of the scaling dimension in field theory. It must satisfy consistency conditions derived from the equations.}
+
+The stress and strain fields, being derivatives of displacement, transform as $\sigma_{ij} \to b^{\nu-1} \sigma_{ij}$. For the problem to admit a self-similar solution, these transformation laws must be consistent with the equations of equilibrium, compatibility, and the boundary conditions.
+
+\subsection{The Elastic Wedge Analysis}
+
+For the elastic wedge, we seek solutions of the form
+\begin{equation}
+u_r(r, \theta) = r^\nu f(\theta), \qquad u_\theta(r, \theta) = r^\nu g(\theta)
+\label{eq:wedge_ansatz}
+\end{equation}
+where $f(\theta)$ and $g(\theta)$ are angular functions to be determined. Substituting into the equilibrium equations $\nabla \cdot \sigma = 0$ yields ordinary differential equations for $f$ and $g$ that depend parametrically on $\nu$.
+
+The boundary conditions on the wedge faces ($\theta = \pm\alpha$) select particular solutions. For stress-free faces, the angular functions must satisfy homogeneous conditions. A non-trivial solution exists only for discrete values of $\nu$, determined by a transcendental eigenvalue equation involving $\alpha$ and the Poisson ratio.
+
+\subsection{Effective Description Near the Apex}
+
+The coarse-graining map in this context takes the elastic solution at scale $r$ and relates it to the solution at scale $br$. The similarity ansatz~\eqref{eq:wedge_ansatz} ensures that this relation is purely multiplicative: the field at scale $br$ is $b^\nu$ times the field at scale $r$, with the same angular dependence.
+
+This multiplicative structure is the hallmark of RG covariance. The ``effective coupling'' at each scale is encoded in the amplitude of the singular field, and the scaling exponent $\nu$ determines how this amplitude transforms. The angular functions $f(\theta)$ and $g(\theta)$ specify the ``shape'' of the fixed-point solution.
+
+%-------------------------------------------------------------------------------
+\section{Step 3: Theory Space for Fracture}
+\label{sec:solids_theory_space}
+%-------------------------------------------------------------------------------
+
+The theory space for fracture problems is parametrized by quantities that characterize the stress field near the crack tip or wedge apex. These play the role of couplings in the RG sense.
+
+\subsection{The Stress Intensity Factor}
+
+For a crack in a two-dimensional elastic body, the stress field near the tip takes the universal form
+\begin{equation}
+\sigma_{ij}(r, \theta) = \frac{K}{\sqrt{2\pi r}} f_{ij}(\theta) + O(r^0)
+\label{eq:stress_intensity}
+\end{equation}
+where $K$ is the stress intensity factor and $f_{ij}(\theta)$ are universal angular functions that depend only on the loading mode (tensile, shear, or anti-plane). The stress intensity factor $K$ is the single parameter that characterizes the singular field, regardless of the overall geometry of the body or the detailed loading.
+
+\marginnote{The stress intensity factor plays the role of a relevant coupling. Its value determines whether a crack will propagate.}
+
+In fracture mechanics terms, $K$ is an ``external'' parameter determined by the far-field loading and geometry. But from the RG perspective, $K$ is a coupling that runs with scale. The effective stress intensity at scale $r$ is $K_{\text{eff}}(r) = K/\sqrt{r}$, which grows as we zoom in toward the crack tip.
+
+\subsection{Theory Space for the Wedge}
+
+For the elastic wedge, the theory space is more complex. Multiple singular modes may exist, each with its own exponent $\nu_n$ and amplitude $A_n$. The stress field is a superposition:
+\begin{equation}
+\sigma_{ij}(r, \theta) = \sum_n A_n r^{\nu_n - 1} g^{(n)}_{ij}(\theta).
+\end{equation}
+The amplitudes $A_n$ are the ``couplings'' of the problem, and the exponents $\nu_n$ are their scaling dimensions.
+
+The most singular mode (smallest $\nu_n$) dominates as $r \to 0$. Less singular modes become increasingly irrelevant at short distances, just as irrelevant operators in field theory decay under the RG flow. The fixed-point behavior is controlled by the leading singular mode.
+
+\subsection{Material Parameters}
+
+The material enters through elastic moduli (Young's modulus $E$, Poisson ratio $\nu$) and, for fracture, through the fracture toughness $K_c$. In the linear elastic regime far from failure, these parameters are fixed and do not run with scale. Near the crack tip, however, nonlinear effects and microstructural details modify the effective material response.
+
+The fracture toughness $K_c$ represents a critical value of the stress intensity factor beyond which the crack propagates. It is determined by the energy required to create new fracture surface. The ratio $K/K_c$ is the control parameter that determines whether the system is subcritical (stable crack) or critical (propagating crack).
+
+%-------------------------------------------------------------------------------
+\section{Step 4: Beta Functions for Crack Growth}
+\label{sec:solids_beta}
+%-------------------------------------------------------------------------------
+
+The beta function for fracture problems describes how the stress field or crack geometry evolves as we change scale or, equivalently, as time progresses during crack propagation.
+
+\subsection{Static Beta Function}
+
+For the elastic wedge under fixed loading, there is no dynamical evolution; the problem is static. The ``beta function'' in this case simply encodes the scaling of the amplitude with distance from the apex:
+\begin{equation}
+\frac{\dd \ln A}{\dd \ln r} = \nu - 1.
+\end{equation}
+The exponent $\nu - 1$ is the analogue of the anomalous dimension. When $\nu < 1$, the stress diverges at the apex, corresponding to a relevant perturbation that grows toward short distances.
+
+\marginnote{Static problems have ``trivial'' beta functions that simply count the power-law exponent. The non-triviality enters through the eigenvalue determination of that exponent.}
+
+\subsection{The Paris Law}
+
+For fatigue crack growth, the dynamical evolution is captured by the Paris law, an empirical relation between crack growth rate and stress intensity factor range:
+\begin{equation}
+\frac{\dd c}{\dd N} = C (\Delta K)^m
+\label{eq:paris_law}
+\end{equation}
+where $C$ and $m$ are material constants and $\Delta K$ is the range of stress intensity factor during a load cycle. The Paris exponent $m$ typically lies between 2 and 4 for metals.
+
+The Paris law is the statement that in the intermediate asymptotic regime, crack growth rate depends only on the local stress intensity, not on the details of specimen geometry or loading history. This universality is the signature of fixed-point behavior. The exponent $m$ cannot be determined by dimensional analysis; it is an anomalous dimension arising from the microscopic physics of crack advance.
+
+\subsection{The Beta Function for Crack Length}
+
+Treating the crack length $c$ as a dynamical variable and the number of cycles $N$ as ``time,'' the Paris law becomes a beta function:
+\begin{equation}
+\beta_c \equiv \frac{\dd c}{\dd N} = C (\Delta K)^m.
+\end{equation}
+The stress intensity factor $\Delta K$ itself depends on $c$ through the geometry of the specimen. For a center crack of length $2c$ in an infinite plate under uniform far-field stress $\sigma$,
+\begin{equation}
+\Delta K = \Delta\sigma \sqrt{\pi c}.
+\end{equation}
+Substituting gives $\beta_c = C' c^{m/2}$, a power-law beta function.
+
+\marginnote{The Paris law beta function is power-law in form, analogous to the perturbative beta functions of field theory.}
+
+This beta function has no finite fixed point for $m > 0$: the crack length accelerates without bound until catastrophic failure. The ``fixed point'' behavior is instead the power-law form itself, which is maintained throughout the intermediate asymptotic regime even as $c$ grows.
+
+%-------------------------------------------------------------------------------
+\section{Step 5: Fixed Points and Critical Behavior}
+\label{sec:solids_fixed_points}
+%-------------------------------------------------------------------------------
+
+The fixed-point structure of fracture problems determines the universal features of failure.
+
+\subsection{The Wedge Eigenvalue Problem}
+
+For the elastic wedge, the scaling exponents $\nu$ are eigenvalues of a boundary-value problem. Substituting the ansatz~\eqref{eq:wedge_ansatz} into the equations of plane elasticity yields
+\begin{equation}
+\nu^2 + 2\nu(1-\cos 2\alpha) + (1 - 2\cos 2\alpha) = 0
+\end{equation}
+for anti-symmetric modes under certain boundary conditions. The solutions depend on the wedge angle $\alpha$ and cannot be determined by dimensional analysis alone.
+
+For the crack limit $\alpha = \pi$ (zero internal angle), the eigenvalue is $\nu = 1/2$, recovering the inverse-square-root stress singularity of fracture mechanics. For other angles, $\nu$ varies continuously with geometry. This continuous dependence of the exponent on a control parameter is characteristic of self-similar solutions of the second kind.
+
+\marginnote{The eigenvalue nature of the scaling exponent is the mathematical realization of anomalous dimensions. The eigenvalue problem arises from boundary conditions, not from loop corrections.}
+
+\subsection{Universality in Fatigue}
+
+The Paris law exhibits a form of universality: the power-law relation~\eqref{eq:paris_law} holds for a wide variety of materials and loading conditions, with material-specific constants $C$ and $m$. Within a given material class (say, aluminum alloys), the exponent $m$ is approximately constant even though $C$ varies with alloy composition.
+
+This universality is analogous to that of critical exponents in phase transitions. Just as the Ising model exponents are the same for uniaxial ferromagnets and liquid-gas critical points, the Paris exponent is the same for different specimens of the same material class. The ``universality class'' is determined by the dominant failure mechanism at the crack tip.
+
+\subsection{The Cohesive Zone Model}
+
+The RG structure becomes clearer in the cohesive zone model, which regularizes the crack-tip singularity by introducing a process zone of size $d$ where the material response is nonlinear. The crack tip is no longer a mathematical singularity but a region where damage accumulates according to a cohesive law.
+
+In this model, the stress intensity factor $K$ is the relevant coupling that grows toward the crack tip, while $d$ provides an ultraviolet cutoff. The scaling of $K$ with distance from the cohesive zone edge determines the fracture behavior. The Paris exponent $m$ emerges from matching the outer linear elastic solution to the inner cohesive zone solution, analogous to matching in effective field theory.
+
+%-------------------------------------------------------------------------------
+\section{Intermediate Asymptotics in Solid Mechanics}
+\label{sec:solids_intermediate}
+%-------------------------------------------------------------------------------
+
+The concept of intermediate asymptotics, developed by Barenblatt, provides the physical interpretation of RG fixed points in continuum mechanics.
+
+\subsection{The Intermediate Regime}
+
+Between the very short scales where microstructure dominates and the very long scales where finite-size effects enter, there exists an intermediate asymptotic regime where the solution is self-similar. In this regime, the details of boundary conditions and material microstructure are irrelevant; only the universal scaling behavior matters.
+
+For the elastic wedge, the intermediate regime is $a \ll r \ll L$ where $a$ is the microstructural scale and $L$ is the overall dimension. In this regime, the stress field follows the power-law form with exponent determined by the eigenvalue analysis. The microstructure at $r \sim a$ cuts off the singularity, while the finite boundaries at $r \sim L$ modify the far field, but neither affects the intermediate scaling.
+
+\marginnote{Intermediate asymptotics is the solid mechanics term for the basin of attraction of an RG fixed point.}
+
+\subsection{Barenblatt's Classification}
+
+Barenblatt distinguished two types of self-similar solutions. Solutions of the first kind have exponents fully determined by dimensional analysis; an example is the heat kernel solution $T \sim t^{-1/2} f(x/\sqrt{\kappa t})$. Solutions of the second kind have exponents that cannot be so determined; they are eigenvalues of boundary-value problems.
+
+The elastic wedge and Paris law are both self-similar solutions of the second kind. The exponents are ``anomalous'' in the sense that they encode information about the dynamics beyond dimensional counting. The RG provides the framework for computing these anomalous exponents: they are eigenvalues of the linearized flow around a fixed point.
+
+\subsection{Connection to Field Theory}
+
+The anomalous dimensions of field theory are the quantum or statistical analogues of Barenblatt's second-kind exponents. Both arise when the naive dimensional analysis fails and the true scaling must be computed dynamically. Both can be interpreted as eigenvalues: of the stability matrix in field theory, of the angular boundary-value problem in elasticity.
+
+This parallel is not coincidental. The mathematics of self-similarity is universal across physical domains. The RG provides the unifying language that connects the intermediate asymptotics of continuum mechanics to the universality of critical phenomena and the running of couplings in quantum field theory.
+
+%-------------------------------------------------------------------------------
+\section{Summary}
+\label{sec:solids_summary}
+%-------------------------------------------------------------------------------
+
+This chapter has applied the RG recipe to scaling phenomena in solid mechanics. The elastic wedge problem exemplifies self-similar solutions of the second kind, where the scaling exponent is an eigenvalue that cannot be determined by dimensional analysis alone. The angular boundary-value problem plays the role of the RG fixed-point analysis, with the eigenvalue $\nu$ determining the strength of the stress singularity.
+
+Fatigue crack growth provides a dynamical example where the Paris law serves as the beta function. The universality of the Paris exponent within material classes reflects fixed-point behavior in the space of damage models. The cohesive zone model regularizes the crack-tip singularity, providing an ultraviolet cutoff analogous to the lattice spacing in field theory.
+
+The concept of intermediate asymptotics unifies these examples. Between the microscopic scale where material discreteness matters and the macroscopic scale where boundary conditions dominate, there exists a regime of self-similar scaling controlled by RG fixed points. Barenblatt's classification into first and second kinds maps directly onto the distinction between engineering and anomalous dimensions in the RG framework.
+
+Solid mechanics thus provides another domain where the geometric RG framework applies with full force. The same five-step recipe that organized the anharmonic oscillator and will organize the remaining applications in Part II applies here as well. The mathematical unity across these diverse physical contexts is the central message of this book.
+

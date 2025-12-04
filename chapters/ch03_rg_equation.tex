@@ -1,0 +1,542 @@
+%===============================================================================
+\chapter{The Flow Equation as Resurgent Consistency}
+\label{ch:rg_equation}
+%===============================================================================
+
+\marginnote{Chapter 2 introduced the beta function as a vector field. This chapter derives it systematically from one fundamental requirement: physical predictions must be scale-independent. We will see that this consistency requirement naturally produces transseries structure.}
+
+Why do parameters run? In Chapter~\ref{ch:scale}, we saw that the anharmonic oscillator's phase accumulates to cancel secular terms. In Chapter~\ref{ch:flows}, we saw that $\phi^4$ couplings flow under coarse-graining. But what \emph{determines} how they run?
+
+The answer is a beautiful consistency requirement. \textbf{Physical predictions cannot depend on arbitrary choices of scale}. If we choose to describe a system at scale $\mu_1$ or $\mu_2$, we must get the same physical answers. This seemingly innocuous statement has profound consequences because it completely determines the beta functions. Moreover, when we examine this consistency requirement carefully through the envelope method, we see that it naturally generates the \textbf{transseries structure} of the full solution. The perturbative and non-perturbative sectors are not separate afterthoughts but emerge together from the demand that local approximations stitch together smoothly.
+
+This chapter derives the RG equation from this consistency requirement and shows how it appears in different contexts.
+
+%-------------------------------------------------------------------------------
+\section{The Callan-Symanzik Equation}
+\label{sec:callan_symanzik}
+%-------------------------------------------------------------------------------
+
+The most elegant formulation of scale independence is the \textbf{Callan-Symanzik equation}, which states that physical observables have vanishing total derivative with respect to scale.
+
+\subsection{The Setup}
+
+Consider a physical observable $\mathcal{O}$ that depends on external scales (momenta $p$, energies $E$, positions $x$, times $t$), internal parameters (couplings $g$, masses $m$), and a reference scale $\mu$ (the ``renormalization scale'').
+
+The \textbf{explicit} $\mu$-dependence comes from having chosen $\mu$ as our reference. The \textbf{implicit} $\mu$-dependence comes through the running parameters $g(\mu)$.
+
+\marginnote{The renormalization scale $\mu$ is a human choice, like choosing units. Physics cannot depend on it.}
+
+\subsection{Scale Independence}
+
+Physical predictions cannot depend on our arbitrary choice of $\mu$. Mathematically:
+\begin{equation}
+\mu\frac{d\mathcal{O}}{d\mu} = 0
+\label{eq:scale_independence}
+\end{equation}
+
+But $\mathcal{O}$ depends on $\mu$ both explicitly and through the running couplings:
+\begin{equation}
+\mu\frac{d\mathcal{O}}{d\mu} = \mu\frac{\partial\mathcal{O}}{\partial\mu}\bigg|_g + \mu\frac{\partial g^i}{\partial\mu}\frac{\partial\mathcal{O}}{\partial g^i}
+\end{equation}
+
+Define the beta functions:
+\begin{equation}
+\beta^i(g) \equiv \mu\frac{\partial g^i}{\partial\mu}
+\end{equation}
+
+\marginnote{The beta function $\beta^i = \mu\,\partial g^i/\partial\mu$ tells us how parameters change when we change the reference scale.}
+
+Then scale independence becomes:
+\begin{equation}
+\boxed{\left(\mu\frac{\partial}{\partial\mu} + \beta^i(g)\frac{\partial}{\partial g^i}\right)\mathcal{O} = 0}
+\label{eq:callan_symanzik_basic}
+\end{equation}
+
+This is the \textbf{Callan-Symanzik equation} in its simplest form.
+
+\subsection{Physical Interpretation}
+
+The Callan-Symanzik equation says that the explicit change in $\mathcal{O}$ when we vary $\mu$ must be exactly compensated by the implicit change through running couplings.
+
+\marginnote{Think of it as a ``conservation law for description.'' Different descriptions of the same physics must agree.}
+
+Geometrically, $\mathcal{O}$ is constant along the integral curves of the vector field
+\begin{equation}
+\boldsymbol{V} = \mu\frac{\partial}{\partial\mu} + \beta^i(g)\frac{\partial}{\partial g^i}
+\end{equation}
+These integral curves are the RG trajectories.
+
+%-------------------------------------------------------------------------------
+\section{Deriving the RG Equation for the Oscillator}
+\label{sec:rg_oscillator}
+%-------------------------------------------------------------------------------
+
+Let's see how this works for the anharmonic oscillator, deriving the results of Chapter~\ref{ch:scale} from scale independence.
+
+\subsection{The Observable}
+
+The physical observable is the position $x(t)$, which depends on time $t$, parameters including amplitude $A$, phase $\phi$, frequency $\omega_0$, and coupling $\lambda$, and a reference time $t_0$ (when we specify initial conditions).
+
+We can write the solution as $x(t) = A\cos(\omega_{\text{eff}} t + \phi)$ where $\omega_{\text{eff}}$ depends on $A$ and $\lambda$.
+
+\subsection{Changing the Reference Time}
+
+\marginnote{The ``renormalization scale'' for the oscillator is the initial time $t_0$. Changing $t_0$ is like choosing different units of description.}
+
+Suppose we originally specified $x(t_0) = A_0$ and $\dot{x}(t_0) = 0$. Now consider shifting the reference time to $t_0 + \delta t_0$. The physics at time $t$ cannot change. But our \emph{parameterization} of initial conditions must change.
+
+At the new reference time:
+\begin{align}
+x(t_0 + \delta t_0) &= A_0\cos(\omega_{\text{eff}}\delta t_0) \approx A_0 \\
+\dot{x}(t_0 + \delta t_0) &= -A_0\omega_{\text{eff}}\sin(\omega_{\text{eff}}\delta t_0) \approx -A_0\omega_{\text{eff}}\delta t_0
+\end{align}
+
+To maintain the same physical solution with the new reference time, we need ``new'' initial conditions $(A', \phi')$ that produce the same orbit.
+
+\begin{workedbox}[Box 3.1: Deriving the RG Equations from Consistency]
+\textbf{Goal:} Derive $dA/dt$ and $d\phi/dt$ from requiring scale-independence.
+
+\textbf{Setup:} The general solution is
+\begin{equation}
+x(t) = A\cos(\omega_{\text{eff}}(A) \cdot t + \phi)
+\end{equation}
+where $\omega_{\text{eff}}$ depends on amplitude.
+
+\textbf{Condition:} The solution must be independent of how we parameterize it. If we shift the ``initial time'' $t_0 \to t_0 + \delta t_0$, the parameters must absorb the change.
+
+\textbf{Step 1: The explicit dependence.}
+With initial conditions at $t_0$, the solution at time $t$ is:
+\begin{equation}
+x(t) = A\cos(\omega_{\text{eff}}(t - t_0) + \phi)
+\end{equation}
+
+\textbf{Step 2: Shift $t_0$.}
+\begin{equation}
+\frac{\partial x}{\partial t_0}\bigg|_{A,\phi} = A\omega_{\text{eff}}\sin(\omega_{\text{eff}}(t-t_0) + \phi)
+\end{equation}
+
+\textbf{Step 3: Compensating parameter change.}
+For $x$ to be unchanged, we need:
+\begin{equation}
+\frac{\partial x}{\partial t_0}\bigg|_{A,\phi} + \frac{dA}{dt_0}\frac{\partial x}{\partial A} + \frac{d\phi}{dt_0}\frac{\partial x}{\partial\phi} = 0
+\end{equation}
+
+\textbf{Step 4: Compute the partial derivatives.}
+\begin{align}
+\frac{\partial x}{\partial A} &= \cos(\theta) + A\frac{\partial\omega_{\text{eff}}}{\partial A}(t-t_0)\sin(\theta) \\
+\frac{\partial x}{\partial\phi} &= -A\sin(\theta)
+\end{align}
+where $\theta = \omega_{\text{eff}}(t-t_0) + \phi$.
+
+\textbf{Step 5: At $t = t_0$} (simplifying):
+\begin{align}
+\frac{\partial x}{\partial A}\bigg|_{t=t_0} &= \cos\phi \\
+\frac{\partial x}{\partial\phi}\bigg|_{t=t_0} &= -A\sin\phi \\
+\frac{\partial x}{\partial t_0}\bigg|_{t=t_0} &= 0
+\end{align}
+
+This gives trivial equations at $t = t_0$. The non-trivial information comes from the time derivative.
+
+\textbf{Step 6: The velocity condition.}
+Similarly requiring $\dot{x}$ to be unchanged gives equations involving $\omega_{\text{eff}}$. Working through (see Chapter 1), we recover:
+\begin{equation}
+\frac{dA}{dt_0} = 0, \qquad \frac{d\phi}{dt_0} = -\frac{3\lambda A^2}{8\omega_0}
+\end{equation}
+
+\textbf{Physical interpretation:} The minus sign shows that shifting $t_0$ forward requires shifting $\phi$ backward to maintain the same physical solution. Equivalently, running $t$ forward at fixed $t_0$ advances $\phi$:
+\begin{equation}
+\frac{d\phi}{dt} = +\frac{3\lambda A^2}{8\omega_0}
+\end{equation}
+\end{workedbox}
+
+%-------------------------------------------------------------------------------
+\section{The RG Equation for Field Theory}
+\label{sec:rg_field_theory}
+%-------------------------------------------------------------------------------
+
+For field theory, the Callan-Symanzik equation takes a more elaborate form because correlation functions can have anomalous dimensions.
+
+\subsection{Correlation Functions}
+
+The basic objects are \textbf{correlation functions}:
+\begin{equation}
+G_n(x_1, \ldots, x_n) = \langle \phi(x_1) \cdots \phi(x_n) \rangle
+\end{equation}
+
+In momentum space:
+\begin{equation}
+\tilde{G}_n(p_1, \ldots, p_n) = \int \prod_i d^d x_i \, e^{-i\sum p_i \cdot x_i} G_n(x_1, \ldots, x_n)
+\end{equation}
+
+\marginnote{Correlation functions are the fundamental observables in field theory. Everything else, including scattering amplitudes and thermodynamic quantities, derives from them.}
+
+\subsection{The Full Callan-Symanzik Equation}
+
+For an $n$-point correlation function:
+\begin{equation}
+\left(\mu\frac{\partial}{\partial\mu} + \beta(\lambda)\frac{\partial}{\partial\lambda} + n\gamma(\lambda)\right)\tilde{G}_n = 0
+\label{eq:cs_full}
+\end{equation}
+
+The new term $n\gamma(\lambda)$ is the \textbf{anomalous dimension}. Each field $\phi$ in the correlation function contributes a factor $\gamma$.
+
+\marginnote{The anomalous dimension $\gamma$ corrects the ``engineering'' scaling of the field. It's called ``anomalous'' because it violates naive dimensional analysis.}
+
+\subsection{Origin of the Anomalous Dimension}
+
+The field $\phi$ has engineering dimension $(d-2)/2$ in $d$ spatial dimensions. Under rescaling $x \to bx$:
+\begin{equation}
+\phi \to b^{-(d-2)/2}\phi \quad \text{(engineering)}
+\end{equation}
+
+But interactions modify this. The full scaling is:
+\begin{equation}
+\phi \to b^{-(d-2)/2 - \gamma}\phi \quad \text{(with interactions)}
+\end{equation}
+
+\begin{workedbox}[Box 3.2: Anomalous Dimensions in 1D $\phi^4$]
+\textbf{Question:} What is the anomalous dimension $\gamma$ in 1D $\phi^4$ theory?
+
+\textbf{In 1D:} The engineering dimension of $\phi$ is $(1-2)/2 = -1/2$.
+
+\textbf{At one loop:} The field renormalization comes from the self-energy diagram. In 1D, this gives:
+\begin{equation}
+\gamma = 0 + O(\lambda^2)
+\end{equation}
+
+The tadpole diagram that renormalizes $r$ doesn't contribute to field renormalization because it's momentum-independent.
+
+\textbf{Physical interpretation:} In 1D, the field doesn't acquire anomalous scaling (at one loop). This is related to the simplicity of 1D, where there are no non-trivial fixed points.
+
+\textbf{In higher dimensions:} At the Wilson-Fisher fixed point in $d = 4 - \epsilon$:
+\begin{equation}
+\gamma = \frac{\epsilon^2}{108} + O(\epsilon^3)
+\end{equation}
+This is measurable! It determines the critical exponent $\eta$ for correlation functions at phase transitions.
+\end{workedbox}
+
+%-------------------------------------------------------------------------------
+\section{Solving the RG Equation}
+\label{sec:solving_rg}
+%-------------------------------------------------------------------------------
+
+The Callan-Symanzik equation is a first-order PDE. Solving it gives the scale dependence of observables.
+
+\subsection{The Method of Characteristics}
+
+The equation
+\begin{equation}
+\left(\mu\frac{\partial}{\partial\mu} + \beta(g)\frac{\partial}{\partial g}\right)\mathcal{O} = 0
+\end{equation}
+says that $\mathcal{O}$ is constant along the \emph{characteristic curves} defined by:
+\begin{equation}
+\frac{d\mu}{1} = \frac{dg}{\beta(g)/\mu}
+\end{equation}
+
+\marginnote{The characteristics of the Callan-Symanzik equation are the RG trajectories. $\mathcal{O}$ is constant along these trajectories.}
+
+This gives the RG flow equation:
+\begin{equation}
+\mu\frac{dg}{d\mu} = \beta(g)
+\label{eq:rg_flow}
+\end{equation}
+
+Along a characteristic, $\mathcal{O}(\mu, g(\mu)) = \mathcal{O}(\mu_0, g_0)$ is constant.
+
+\subsection{The Running Coupling}
+
+Define the \textbf{running coupling} $\bar{g}(\mu; g_0, \mu_0)$ as the solution to \eqref{eq:rg_flow} with initial condition $\bar{g}(\mu_0) = g_0$:
+\begin{equation}
+\mu\frac{d\bar{g}}{d\mu} = \beta(\bar{g}), \qquad \bar{g}(\mu_0) = g_0
+\end{equation}
+
+The solution can be written implicitly:
+\begin{equation}
+\int_{g_0}^{\bar{g}(\mu)} \frac{dg'}{\beta(g')} = \log\frac{\mu}{\mu_0}
+\label{eq:running_coupling_implicit}
+\end{equation}
+
+\begin{workedbox}[Box 3.3: Running Coupling for 1D $\phi^4$]
+\textbf{The beta function:} $\beta_\lambda = 2\lambda$ (from Chapter 2).
+
+\textbf{Solving the RG equation:}
+\begin{equation}
+\mu\frac{d\lambda}{d\mu} = 2\lambda \implies \frac{d\lambda}{\lambda} = \frac{2d\mu}{\mu}
+\end{equation}
+
+\textbf{Integrating:}
+\begin{equation}
+\log\frac{\lambda(\mu)}{\lambda_0} = 2\log\frac{\mu}{\mu_0} = \log\left(\frac{\mu}{\mu_0}\right)^2
+\end{equation}
+
+\textbf{Result:}
+\begin{equation}
+\boxed{\lambda(\mu) = \lambda_0\left(\frac{\mu}{\mu_0}\right)^2}
+\end{equation}
+
+\textbf{Physical interpretation:} As we zoom out ($\mu$ decreases), $\lambda$ decreases. As we zoom in ($\mu$ increases), $\lambda$ increases. The coupling is ``relevant,'' meaning it grows toward the UV.
+
+\textbf{For $r$:} The equation $\beta_r = 2r + \cdots$ is more complicated. At leading order (ignoring the tadpole):
+\begin{equation}
+r(\mu) \approx r_0\left(\frac{\mu}{\mu_0}\right)^2
+\end{equation}
+The tadpole correction generates mass even if $r_0 = 0$.
+\end{workedbox}
+
+%-------------------------------------------------------------------------------
+\section{Asymptotic Freedom and Infrared Slavery}
+\label{sec:asymptotic}
+%-------------------------------------------------------------------------------
+
+The behavior of the running coupling as $\mu \to \infty$ (UV) or $\mu \to 0$ (IR) determines the character of the theory.
+
+\subsection{UV Behavior}
+
+If $\beta(g) < 0$ for small $g > 0$, then as $\mu \to \infty$:
+\begin{equation}
+g(\mu) \to 0
+\end{equation}
+This is \textbf{asymptotic freedom} where the theory becomes free (non-interacting) at high energies. QCD exhibits this.
+
+\marginnote{Asymptotic freedom: interactions \emph{weaken} at high energies. The theory becomes simpler in the UV.}
+
+\subsection{IR Behavior}
+
+If $\beta(g) > 0$ for small $g > 0$, then as $\mu \to 0$:
+\begin{equation}
+g(\mu) \to 0
+\end{equation}
+The theory becomes free at low energies, meaning perturbation theory gets \emph{better} at long distances.
+
+Conversely, if $\beta > 0$ for small $g$, the coupling grows in the UV. This is the situation in 1D $\phi^4$ and in QED.
+
+\subsection{The Landau Pole}
+
+When $\beta > 0$, the running coupling can diverge at a finite scale. For $\beta = bg^2$:
+\begin{equation}
+g(\mu) = \frac{g_0}{1 - bg_0\log(\mu/\mu_0)}
+\end{equation}
+
+\marginnote{The Landau pole signals a breakdown of the effective theory. New physics must enter before the pole is reached.}
+
+This diverges when $\log(\mu/\mu_0) = 1/(bg_0)$, meaning at:
+\begin{equation}
+\mu_{\text{Landau}} = \mu_0 \exp\left(\frac{1}{bg_0}\right)
+\end{equation}
+
+This \textbf{Landau pole} signals that perturbation theory breaks down. New physics must emerge.
+
+\subsection{The Resurgent Perspective on the Landau Pole}
+
+The perturbative beta function that gives the Landau pole is only part of the full story. The complete beta function is a transseries:
+\begin{equation}
+\beta_{\text{full}}(g) = \beta_{\text{pert}}(g) + \sum_{n=1}^\infty \sigma^n e^{-nS/g}\beta^{(n)}(g)
+\end{equation}
+
+\marginnote{The Landau pole is a perturbative artifact. The full transseries beta function may have different behavior.}
+
+The exponentially suppressed corrections could in principle tame the divergence, producing a well-defined theory at all scales. Whether this happens depends on the detailed structure of the resurgent relations. If the non-perturbative corrections cancel the perturbative growth near the would-be Landau pole, a \textbf{non-perturbative fixed point} emerges and the theory is UV complete without new physics.
+
+QED provides the canonical example where this question remains open. The perturbative beta function predicts a Landau pole, but the full theory may or may not have one. This is an active area of research.
+
+%-------------------------------------------------------------------------------
+\section{The Envelope Method}
+\label{sec:envelope}
+%-------------------------------------------------------------------------------
+
+There's an elegant alternative derivation of the RG equation based on the \textbf{envelope} of a family of perturbative approximations. This method reveals the deeper structure and shows how transseries arise naturally.
+
+\subsection{The Problem with Perturbation Theory}
+
+Naive perturbation theory gives:
+\begin{equation}
+x(t) = A\cos(\omega_0 t + \phi) + \lambda x_1(t) + O(\lambda^2)
+\end{equation}
+
+This is good for $t \lesssim 1/(\lambda A^2)$ but fails at longer times. The problem is that we're expanding around the \emph{wrong} solution.
+
+\marginnote{The envelope method uses a family of expansions that are each locally valid, then stitches them together.}
+
+\subsection{A Family of Approximations}
+
+For each time $\tau$, construct a local approximation valid near $t = \tau$:
+\begin{equation}
+x_\tau(t) = A(\tau)\cos(\omega_0(t-\tau) + \theta(\tau)) + O(\lambda)
+\end{equation}
+
+Here $A(\tau)$ and $\theta(\tau)$ are the ``local'' amplitude and phase at time $\tau$.
+
+\subsection{The Envelope Condition}
+
+The approximations $x_\tau(t)$ form a one-parameter family. Their \textbf{envelope} is defined by:
+\begin{equation}
+\frac{\partial x_\tau(t)}{\partial\tau}\bigg|_{t=\tau} = 0
+\end{equation}
+
+\marginnote{The envelope is the curve tangent to all members of the family. It ``stitches together'' the local approximations.}
+
+This says that at $t = \tau$, the approximation $x_\tau$ shouldn't change as we vary $\tau$. The approximations are ``tangent'' at their matching points.
+
+\begin{workedbox}[Box 3.4: Envelope Method for the Oscillator]
+\textbf{Setup:} The perturbative solution valid near $t = \tau$ is
+\begin{equation}
+x_\tau(t) = A(\tau)\cos(\omega_0(t-\tau) + \phi(\tau)) - \frac{3\lambda A^3}{8\omega_0}(t-\tau)\sin(\omega_0(t-\tau) + \phi(\tau)) + \cdots
+\end{equation}
+
+\textbf{The envelope condition:}
+\begin{equation}
+\frac{\partial x_\tau}{\partial\tau}\bigg|_{t=\tau} = 0
+\end{equation}
+
+\textbf{Computing at $t = \tau$:}
+\begin{align}
+x_\tau(\tau) &= A\cos\phi \\
+\frac{\partial x_\tau}{\partial\tau}\bigg|_{t=\tau} &= A'\cos\phi - A\phi'\sin\phi + \frac{3\lambda A^3}{8\omega_0}\sin\phi
+\end{align}
+
+\textbf{Setting to zero:} The coefficient of $\cos\phi$ gives $A' = 0$. The coefficient of $\sin\phi$ gives:
+\begin{equation}
+-A\phi' + \frac{3\lambda A^3}{8\omega_0} = 0 \implies \phi' = \frac{3\lambda A^2}{8\omega_0}
+\end{equation}
+
+\textbf{Result:} We recover the RG equations from Chapter 1! The envelope method is an alternative derivation.
+\end{workedbox}
+
+\subsection{Connection to the Callan-Symanzik Equation}
+
+The envelope condition $\partial x_\tau/\partial\tau|_{t=\tau} = 0$ is precisely the statement that $x$ is independent of the arbitrary reference time $\tau$. This is the same as the Callan-Symanzik equation with $\tau$ playing the role of $\mu$.
+
+The two approaches, scale independence and envelope, are mathematically equivalent but offer different physical intuition.
+
+%-------------------------------------------------------------------------------
+\section{The Envelope Method and Transseries}
+\label{sec:envelope_transseries}
+%-------------------------------------------------------------------------------
+
+The envelope method reveals something deeper than just the perturbative RG equations. When the local solution crosses a \textbf{Stokes line}, the stitching produces not just the perturbative beta function but automatically generates the transseries structure.
+
+\subsection{What Happens at a Stokes Line}
+
+\marginnote{When the envelope crosses a Stokes line, exponentially small sectors ``turn on'' and must be tracked for consistent stitching.}
+
+Consider a problem where the perturbative solution has exponentially small corrections that become visible near certain parameter values. The local approximation near $\tau$ might be:
+\begin{equation}
+x_\tau(t) = x_\tau^{(0)}(t) + \sigma(\tau)e^{-S/\lambda}x_\tau^{(1)}(t) + \cdots
+\end{equation}
+where $x_\tau^{(0)}$ is the perturbative piece and $x_\tau^{(1)}$ is the first non-perturbative sector.
+
+The transseries parameter $\sigma$ depends on $\tau$, and this dependence is crucial. Away from Stokes lines, $\sigma$ can be taken constant. But when the envelope crosses a Stokes line, $\sigma$ must jump discontinuously to maintain the envelope condition.
+
+\subsection{The Bridge Equation from Envelope Consistency}
+
+The envelope condition at a Stokes crossing produces a remarkable result. The requirement that the local approximations stitch together smoothly gives:
+\begin{equation}
+\Delta\sigma = S_1 \cdot \sigma^{(1)}
+\end{equation}
+where $\Delta\sigma$ is the jump in the transseries parameter and $S_1$ is the Stokes constant.
+
+\marginnote{The bridge equation of alien calculus emerges from requiring envelope consistency across Stokes lines.}
+
+This is precisely the \textbf{bridge equation} of alien calculus! The alien derivative, which measures how the resummation changes across Stokes lines, emerges naturally from the envelope method. The Stokes constant $S_1$ is the coefficient in the bridge equation:
+\begin{equation}
+\Delta_S f_0 = S_1 \cdot f_1
+\end{equation}
+relating the perturbative sector $f_0$ to the one-instanton sector $f_1$.
+
+\subsection{Running of the Transseries Parameter}
+
+Away from Stokes lines, the transseries parameter $\sigma$ has its own beta function:
+\begin{equation}
+\frac{d\sigma}{d\ell} = \beta_\sigma(g, \sigma)
+\end{equation}
+
+Near a Stokes line, this continuous evolution is interrupted by the jump $\Delta\sigma$. The full picture on the extended parameter space including $\sigma$ combines smooth flow with discontinuous Stokes jumps.
+
+\begin{workedbox}[Box 3.5: Stokes Constants and the Envelope]
+\textbf{Physical setup:} Consider a problem where the Borel transform has a singularity at $\zeta = S$.
+
+\textbf{Perturbative envelope:} The local approximation $x_\tau^{(0)}(t)$ stitches together via the envelope condition, giving the perturbative RG equations.
+
+\textbf{At a Stokes line:} When the argument of $e^{-S/\lambda}$ crosses the positive real axis, the exponentially small sector $x_\tau^{(1)}(t)$ becomes comparable to the error in $x_\tau^{(0)}$.
+
+\textbf{Modified envelope condition:}
+\begin{equation}
+\frac{\partial}{\partial\tau}\left[x_\tau^{(0)} + \sigma(\tau)e^{-S/\lambda}x_\tau^{(1)} + \cdots\right]_{t=\tau} = 0
+\end{equation}
+
+\textbf{Result:} The transseries parameter $\sigma$ must jump by the Stokes constant to maintain the envelope. The bridge equation
+\begin{equation}
+\Delta_S \tilde{f} = S_1 \cdot \partial_\sigma \tilde{f}
+\end{equation}
+emerges from consistency.
+
+\textbf{Physical meaning:} The resurgent structure is not imposed externally. It is required by the consistency of the RG, meaning that different local descriptions must agree.
+\end{workedbox}
+
+%-------------------------------------------------------------------------------
+\section{When Does the RG Apply?}
+\label{sec:when_rg}
+%-------------------------------------------------------------------------------
+
+The RG is not a universal panacea. It applies when specific conditions are met.
+
+First, \textbf{there are separated scales}. A hierarchy $\mu_{\text{IR}} \ll \mu_{\text{UV}}$ that we want to bridge must exist.
+
+Second, \textbf{there's a perturbative expansion}. We need a small parameter whose corrections we can compute.
+
+Third, \textbf{the expansion breaks down at long scales}. Secular terms, divergences, or other pathologies appear.
+
+Fourth, \textbf{the breakdown is systematic}. The divergences have a predictable structure that can be absorbed into running parameters.
+
+\marginnote{The RG works when the ``sickness'' of perturbation theory is predictable. Random failures can't be cured by renormalization.}
+
+\textbf{When it doesn't apply:} The RG does not help with strongly coupled systems that have no small parameter, finite-time singularities (blow-up), or systems without scale hierarchy.
+
+Even when the RG applies, it may not be the most efficient method. For the oscillator, the RG gives the same answer as averaging methods. For some PDEs, matched asymptotics may be more direct. The RG's power lies in its \emph{universality} because the same framework handles diverse problems with the same mathematical structure.
+
+%-------------------------------------------------------------------------------
+\section{Looking Ahead}
+\label{sec:ch3_preview}
+%-------------------------------------------------------------------------------
+
+This chapter established the RG equation
+\begin{equation}
+\mu\frac{dg^i}{d\mu} = \beta^i(g)
+\end{equation}
+from the requirement of scale independence.
+
+\marginnote{The RG equation is a \emph{consistency condition}: different descriptions of the same physics must agree.}
+
+We've seen two derivations. The Callan-Symanzik approach says that physical observables can't depend on arbitrary scale choices. The envelope approach says that local approximations must stitch together smoothly. We've also seen that the envelope method at Stokes crossings naturally produces the transseries structure and the bridge equation of alien calculus.
+
+The next chapter introduces our third example, the \textbf{porous medium equation}, which exhibits \textbf{anomalous dimensions}. There, the scaling exponents cannot be predicted by dimensional analysis and must be computed from the RG flow. This is Barenblatt's ``second kind'' self-similarity.
+
+%-------------------------------------------------------------------------------
+\section*{Summary}
+\addcontentsline{toc}{section}{Summary}
+%-------------------------------------------------------------------------------
+
+\begin{center}
+\fbox{\parbox{0.85\textwidth}{
+\textbf{The Callan-Symanzik equation:}
+\begin{equation}
+\left(\mu\frac{\partial}{\partial\mu} + \beta^i(g)\frac{\partial}{\partial g^i} + n\gamma(g)\right)G_n = 0
+\end{equation}
+expresses that physical observables are scale-independent.
+
+\textbf{The RG flow equation:}
+\begin{equation}
+\mu\frac{dg^i}{d\mu} = \beta^i(g)
+\end{equation}
+defines the running coupling.
+
+\textbf{Asymptotic behavior:}
+When $\beta < 0$, we have asymptotic freedom (free at high energy). When $\beta > 0$, the coupling grows in UV and may hit a Landau pole. The full transseries beta function may have different behavior.
+
+\textbf{The envelope method} provides an alternative derivation. RG equations ensure local approximations stitch together smoothly.
+
+\textbf{Transseries from the envelope:} When the envelope crosses Stokes lines, consistency requires the transseries parameter $\sigma$ to jump. This produces the bridge equation of alien calculus.
+
+\textbf{The anomalous dimension} $\gamma$ corrects the engineering scaling of fields, measuring how interactions modify naive dimensional analysis.
+}}
+\end{center}

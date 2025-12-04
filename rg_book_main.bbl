@@ -1,0 +1,13 @@
+\begin{thebibliography}{1}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Barenblatt(1979)]{Barenblatt1979}
+G.~I. Barenblatt.
+\newblock \emph{Similarity, Self-Similarity, and Intermediate Asymptotics}.
+\newblock Consultants Bureau, New York, 1979.
+
+\end{thebibliography}

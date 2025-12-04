@@ -1,0 +1,260 @@
+%===============================================================================
+% Scale, Symmetry, and the Renormalization Group: A Lie-Theoretic Unification
+% A Pedagogical Introduction
+%===============================================================================
+% Tufte-style LaTeX Book
+%===============================================================================
+
+\documentclass[justified,notoc]{tufte-book}
+
+%===============================================================================
+% PACKAGES
+%===============================================================================
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{bm}
+\usepackage{mathrsfs}
+\usepackage{bbold}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{arrows,decorations.pathmorphing,decorations.markings}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{booktabs}
+\usepackage{lipsum}
+\usepackage{units}
+\usepackage{fancyvrb}
+\usepackage{enumitem}
+\usepackage[most]{tcolorbox}
+
+%===============================================================================
+% TYPOGRAPHY AND COLORS
+%===============================================================================
+\definecolor{darkblue}{RGB}{0,51,102}
+\definecolor{darkgreen}{RGB}{0,102,51}
+\definecolor{darkred}{RGB}{153,0,0}
+\definecolor{lightgray}{RGB}{245,245,245}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkblue,
+    citecolor=darkgreen,
+    urlcolor=darkred
+}
+
+%===============================================================================
+% CUSTOM COMMANDS
+%===============================================================================
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\pp}{\partial}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\MM}{\mathcal{M}}
+\newcommand{\LL}{\mathcal{L}}
+\newcommand{\HH}{\mathcal{H}}
+\newcommand{\OO}{\mathcal{O}}
+\newcommand{\FF}{\mathcal{F}}
+\newcommand{\TT}{\mathcal{T}}
+\newcommand{\GG}{\mathcal{G}}
+\newcommand{\Tr}{\mathrm{Tr}}
+\newcommand{\sgn}{\mathrm{sgn}}
+\newcommand{\diag}{\mathrm{diag}}
+\newcommand{\const}{\mathrm{const}}
+\newcommand{\vev}[1]{\langle #1 \rangle}
+\newcommand{\Lie}{\mathfrak}
+\newcommand{\ad}{\mathrm{ad}}
+\newcommand{\Ad}{\mathrm{Ad}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\End}{\mathrm{End}}
+\newcommand{\Ric}{\mathrm{Ric}}
+\newcommand{\rank}{\mathrm{rank}}
+
+% Differential operators
+\newcommand{\ddt}{\frac{\dd}{\dd t}}
+\newcommand{\ddmu}{\frac{\dd}{\dd \mu}}
+\newcommand{\ppt}{\frac{\pp}{\pp t}}
+\newcommand{\ppx}{\frac{\pp}{\pp x}}
+
+% Beta function styling
+\newcommand{\betaf}{\beta}
+\newcommand{\gammaf}{\gamma}
+
+%===============================================================================
+% THEOREM ENVIRONMENTS
+%===============================================================================
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+%===============================================================================
+% WORKED EXAMPLE BOXES
+%===============================================================================
+\newtcolorbox{workedbox}[1][]{
+  enhanced,
+  breakable,
+  colback=lightgray,
+  colframe=darkblue,
+  boxrule=0.5pt,
+  left=6pt, right=6pt, top=6pt, bottom=6pt,
+  fonttitle=\bfseries\sffamily,
+  title={#1}
+}
+
+%===============================================================================
+% MARGIN NOTE STYLING
+%===============================================================================
+\setlength{\marginparsep}{1em}
+\setlength{\marginparwidth}{2in}
+
+%===============================================================================
+% DOCUMENT INFO
+%===============================================================================
+\title{Scale, Symmetry, and the\\Renormalization Group}
+\author{A Unified Treatment}
+\publisher{From Dynamical Systems to Quantum Field Theory}
+\date{\today}
+
+%===============================================================================
+% BEGIN DOCUMENT
+%===============================================================================
+\begin{document}
+
+\frontmatter
+
+%-------------------------------------------------------------------------------
+% TITLE PAGE
+%-------------------------------------------------------------------------------
+\maketitle
+
+%-------------------------------------------------------------------------------
+% COPYRIGHT/DEDICATION
+%-------------------------------------------------------------------------------
+\newpage
+\begin{fullwidth}
+~\vfill
+\thispagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{\baselineskip}
+Copyright \copyright\ \the\year
+
+\par\smallcaps{github.com/muhammadhasyim/rg\_ideas}
+
+\par\textit{First printing, \today}
+\end{fullwidth}
+
+%-------------------------------------------------------------------------------
+% TABLE OF CONTENTS
+%-------------------------------------------------------------------------------
+\tableofcontents
+\listoffigures
+\listoftables
+
+%-------------------------------------------------------------------------------
+% PREFACE
+%-------------------------------------------------------------------------------
+\chapter*{Preface}
+\addcontentsline{toc}{chapter}{Preface}
+
+This book is the culmination of years spent exploring the surprising connections between renormalization group ideas across seemingly disparate fields. My fascination began while studying Goldenfeld's \textit{Lectures on Phase Transitions and the Renormalization Group}, a text remarkable not only for its treatment of Wilsonian renormalization in statistical mechanics and field theory, but also for its exposition of Barenblatt's work on self-similar solutions in nonlinear porous media flow. That a single mathematical framework could describe both critical phenomena in magnets and the spreading of groundwater through rock struck me as deeply significant.
+
+\marginnote{Goldenfeld's book remains an essential reference for anyone seeking to understand RG beyond the confines of a single discipline.}
+
+This discovery became the impetus for a broader investigation. I began tracing the renormalization group through fluid turbulence, chaotic dynamics, and quantum field theory, finding in each case the same essential structure: a flow on a space of theories driven by changes in scale. What eventually emerged from these readings was an appreciation for the group-theoretic and geometric character of renormalization---the recognition that ``the renormalization group'' is quite literally a group (or more precisely, a semigroup) acting on a manifold of models, with the beta function as its infinitesimal generator.
+
+Why, then, write another book on this subject when Goldenfeld's treatment already exists? The answer is that Goldenfeld's presentation, excellent as it is, was deliberately simplified for pedagogical purposes and does not develop the broader abstract framework that underlies the wide applicability of renormalization group methods. Much has happened in the decades since. Kunihiro and his students took the program to its fullest potential, applying RG techniques systematically to dynamical systems and unifying virtually all singular perturbation theories---work that proceeded in parallel to Goldenfeld's own contributions. Barenblatt laid the mathematical foundations for applications to partial differential equations through his theory of intermediate asymptotics. Fluid mechanicians developed RG approaches to turbulence. And a community of mathematical physicists has explored the Lie group structure and differential geometric foundations of the renormalization group with increasing rigor. The time has come to synthesize these developments into a single cohesive treatment.
+
+The renormalization group stands as one of the most profound conceptual advances in twentieth-century physics. What began as a technical device for handling infinities in quantum electrodynamics has grown into a universal framework for understanding how physical systems behave across different scales. The same mathematical structure appears in statistical mechanics near phase transitions, in fluid turbulence, in chaotic dynamical systems, and throughout quantum field theory.
+
+\marginnote{The unity of these phenomena under a single mathematical umbrella represents a triumph of physical abstraction comparable to the unification of electricity and magnetism.}
+
+This book presents the renormalization group as a single geometric structure. The space of all possible theories or models forms a manifold, and the renormalization group generates a flow on this manifold. Fixed points of the flow correspond to scale-invariant theories. The geometry of the manifold encodes deep physical information about how theories relate to one another.
+
+Our pedagogical strategy is to develop the abstract framework in Part I while simultaneously illustrating it with a simple example that admits both dynamical and statistical interpretations. The anharmonic oscillator serves this purpose admirably. As an ordinary differential equation, it exhibits amplitude-dependent frequency and the phenomenon of secular terms in perturbation theory. As a statistical mechanics problem, the same potential defines a partition function whose perturbative expansion requires resummation. The renormalization group resolves both difficulties through the same mechanism. Part I culminates in ``The Unified Recipe,'' which distills the abstract framework into a six-step methodology where resurgent analysis is woven throughout rather than added as a final step, showing how perturbative and non-perturbative physics are inseparable aspects of a single geometric structure.
+
+Part II applies the framework and recipe developed in Part I to seven physical systems of increasing complexity. Each application chapter explicitly invokes the six-step recipe, demonstrating how the unified geometric-resurgent framework manifests in concrete calculations. The systems range from chaotic dynamics in the Lorenz equations through turbulence in fluids, fracture mechanics in solids (following Barenblatt's theory of intermediate asymptotics), phase transitions in the Ising and O(N) models, and quantum field theories including QED and the Hubbard model.
+
+\section*{Prerequisites}
+
+The reader should be familiar with undergraduate analysis and linear algebra, ordinary and partial differential equations, and elementary quantum mechanics. Some exposure to statistical mechanics and field theory will be helpful but is not strictly required. Each chapter is designed to be self-contained, developing the necessary mathematical background as the physics demands it.
+
+\section*{Notation}
+
+We use $s$ or $t$ for the scale parameter, typically the logarithm of an energy or length scale. Couplings or slow variables are denoted $g^i$ and serve as coordinates on theory space $\MM$. The beta function $\beta^i(g)$ is the vector field generating the RG flow. Scaling dimensions are denoted $\Delta$ with anomalous contributions $\gamma$. The metric on theory space is $G_{ij}$.
+
+\vspace{2\baselineskip}
+\begin{flushright}
+\textit{The Author}\\
+\today
+\end{flushright}
+
+%===============================================================================
+% MAIN MATTER
+%===============================================================================
+\mainmatter
+
+%-------------------------------------------------------------------------------
+% PART I: THE GEOMETRIC FRAMEWORK
+%-------------------------------------------------------------------------------
+\part{The Geometric Framework}
+
+\input{chapters/ch01_scale}
+\input{chapters/ch02_dilation}
+\input{chapters/ch03_rg_equation}
+\input{chapters/ch04_fixed_points}
+\input{chapters/ch05_geometry}
+\input{chapters/ch06_connections}
+\input{chapters/ch07_resurgence}
+
+%-------------------------------------------------------------------------------
+% PART II: APPLICATIONS
+%-------------------------------------------------------------------------------
+\part{Applications}
+
+\input{chapters/ch09_lorenz}
+\input{chapters/ch10_fluids}
+\input{chapters/ch11_solids}
+\input{chapters/ch12_ising}
+\input{chapters/ch13_on_model}
+\input{chapters/ch14_hubbard}
+\input{chapters/ch15_qed}
+
+%-------------------------------------------------------------------------------
+% PART III: SYNTHESIS
+%-------------------------------------------------------------------------------
+\part{Synthesis}
+
+\input{chapters/ch16_unity}
+
+%-------------------------------------------------------------------------------
+% APPENDICES
+%-------------------------------------------------------------------------------
+\input{chapters/appendix_resurgence}
+
+%===============================================================================
+% BACK MATTER
+%===============================================================================
+\backmatter
+
+%-------------------------------------------------------------------------------
+% BIBLIOGRAPHY
+%-------------------------------------------------------------------------------
+\bibliographystyle{plainnat}
+\bibliography{rg_book_refs}
+
+\end{document}

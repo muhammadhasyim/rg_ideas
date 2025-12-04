@@ -1,0 +1,498 @@
+%===============================================================================
+\chapter{Connections, Monodromy, and Stokes Phenomena}
+\label{ch:connections}
+%===============================================================================
+
+\marginnote{Chapter 5 introduced metrics on theory space. This chapter introduces \textbf{connections}, which tell us how to compare quantities at different points. The payoff is deep: Stokes phenomena in resurgent analysis are precisely monodromy in the geometric picture.}
+
+The metric tells us distances, but we need more structure to understand how quantities transform as we move through parameter space. A \textbf{connection} tells us how to ``parallel transport'' vectors, operators, and other objects from one theory to another.
+
+This chapter develops connections on theory space and reveals the central unifying insight of this book. The \textbf{Stokes automorphism} that acts on transseries when we cross Stokes lines is mathematically identical to \textbf{monodromy} around singularities in coupling-constant space. What appears as a discrete jump in one picture is a smooth path-dependent transport in another. The alien derivative of alien calculus is a generalized covariant derivative that probes directions in the extended theory space.
+
+This unification is not merely aesthetic. It provides powerful computational tools because monodromy matrices can be calculated from local data, and it explains why the Stokes constants are universal quantities independent of microscopic details.
+
+%-------------------------------------------------------------------------------
+\section{Operator Mixing Under RG}
+\label{sec:operator_mixing}
+%-------------------------------------------------------------------------------
+
+When we change the scale, operators don't just rescale. They can \textbf{mix} with each other.
+
+\subsection{The Phenomenon}
+
+Consider a set of operators $\{\mathcal{O}_a\}$ in a QFT. Under an RG transformation from scale $\mu$ to $\mu + d\mu$, each operator can acquire contributions from others:
+\begin{equation}
+\mu\frac{d\mathcal{O}_a}{d\mu} = \gamma_a{}^b(g)\,\mathcal{O}_b
+\label{eq:operator_mixing}
+\end{equation}
+
+\marginnote{Operator mixing: under RG, $\mathcal{O}_1$ can become a superposition of $\mathcal{O}_1$ and $\mathcal{O}_2$. The mixing matrix $\gamma_a{}^b$ is the ``anomalous dimension matrix.''}
+
+The matrix $\gamma_a{}^b(g)$ is the \textbf{anomalous dimension matrix}. When $\gamma$ is diagonal, each operator rescales independently. When $\gamma$ has off-diagonal elements, operators mix.
+
+\subsection{Example: Mixing in $\phi^4$ Theory}
+
+In $\phi^4$ theory, consider the operators $\phi^2$ (mass term) and $\phi^4$ (interaction). Under RG, the $\phi^4$ operator induces corrections to $\phi^2$ through tadpole diagrams. The mixing is encoded in the anomalous dimension matrix:
+\begin{equation}
+\gamma = \begin{pmatrix} \gamma_{\phi^2} & \gamma_{\phi^2 \leftarrow \phi^4} \\ 0 & \gamma_{\phi^4} \end{pmatrix}
+\end{equation}
+
+The off-diagonal element $\gamma_{\phi^2 \leftarrow \phi^4}$ is nonzero when $\phi^4$ corrections generate $\phi^2$ terms.
+
+\subsection{The Anomalous Dimension Matrix as Connection}
+
+The mixing equation~\eqref{eq:operator_mixing} has the form of \textbf{parallel transport}. The operators form a vector bundle over parameter space, and $\gamma_a{}^b$ is a connection on this bundle.
+
+\marginnote{The anomalous dimension matrix $\gamma_a{}^b$ is a \textbf{connection} on the bundle of operators over theory space.}
+
+This is not just a formal analogy. The mathematical structure is exactly that of a connection, and all the machinery of differential geometry applies.
+
+%-------------------------------------------------------------------------------
+\section{Connections on Parameter Space}
+\label{sec:connections}
+%-------------------------------------------------------------------------------
+
+Let's develop the geometry properly.
+
+\subsection{What Is a Connection?}
+
+A connection tells us how to ``parallel transport'' objects along paths. If we have a vector $V^a$ at a point $g$ in parameter space, a connection $\Gamma^a{}_{bc}$ specifies how $V^a$ changes as we move in direction $dg^b$:
+\begin{equation}
+DV^a = dV^a + \Gamma^a{}_{bc}\,dg^b\,V^c
+\end{equation}
+
+\marginnote{The covariant derivative $D$ generalizes the ordinary derivative to account for how the ``basis'' changes from point to point.}
+
+The \textbf{covariant derivative} along a direction $\partial/\partial g^b$ is:
+\begin{equation}
+\nabla_b V^a = \partial_b V^a + \Gamma^a{}_{bc}\,V^c
+\end{equation}
+
+\subsection{Parallel Transport}
+
+A vector is \textbf{parallel transported} along a curve $g(\ell)$ if:
+\begin{equation}
+\frac{DV^a}{d\ell} = \frac{dV^a}{d\ell} + \Gamma^a{}_{bc}\,\frac{dg^b}{d\ell}\,V^c = 0
+\label{eq:parallel_transport}
+\end{equation}
+
+\marginnote{Parallel transport: the vector ``doesn't change'' along the path, but what ``doesn't change'' means depends on the connection.}
+
+Given initial conditions, this ODE uniquely determines $V^a(\ell)$ along the curve.
+
+\subsection{The RG Connection}
+
+In the RG context, the relevant connection is the \textbf{anomalous dimension matrix}:
+\begin{equation}
+\Gamma^a{}_{bc} = \gamma^a{}_c \cdot \delta^{\ell}_b
+\end{equation}
+where $\delta^\ell_b$ projects onto the RG direction and $\gamma^a{}_c$ is the anomalous dimension matrix.
+
+The parallel transport equation~\eqref{eq:parallel_transport} becomes the operator mixing equation~\eqref{eq:operator_mixing}. The RG flow parallel transports operators from one scale to another.
+
+\begin{workedbox}[Box 6.1: Parallel Transport of Operators]
+\textbf{Setup:} Two operators $\mathcal{O}_1$ and $\mathcal{O}_2$ with anomalous dimension matrix:
+\begin{equation}
+\gamma = \begin{pmatrix} \gamma_{11} & \gamma_{12} \\ \gamma_{21} & \gamma_{22} \end{pmatrix}
+\end{equation}
+
+\textbf{The evolution:}
+\begin{equation}
+\mu\frac{d}{d\mu}\begin{pmatrix}\mathcal{O}_1 \\ \mathcal{O}_2\end{pmatrix} = \gamma\begin{pmatrix}\mathcal{O}_1 \\ \mathcal{O}_2\end{pmatrix}
+\end{equation}
+
+\textbf{Solution:} If $\gamma$ is constant (leading order):
+\begin{equation}
+\begin{pmatrix}\mathcal{O}_1(\mu) \\ \mathcal{O}_2(\mu)\end{pmatrix} = \left(\frac{\mu}{\mu_0}\right)^\gamma\begin{pmatrix}\mathcal{O}_1(\mu_0) \\ \mathcal{O}_2(\mu_0)\end{pmatrix}
+\end{equation}
+where $(\mu/\mu_0)^\gamma = \exp(\gamma\log(\mu/\mu_0))$ is a matrix exponential.
+
+\textbf{Diagonalization:}
+If $\gamma$ has eigenvalues $\Delta_+$ and $\Delta_-$, the eigenvectors are ``scaling operators'' with definite dimension:
+\begin{equation}
+\mathcal{O}_\pm(\mu) = \left(\frac{\mu}{\mu_0}\right)^{\Delta_\pm}\mathcal{O}_\pm(\mu_0)
+\end{equation}
+
+\textbf{Physical interpretation:} The ``natural'' operators are the scaling operators, not the original $\mathcal{O}_1$ and $\mathcal{O}_2$. These are the principal directions of the connection.
+\end{workedbox}
+
+%-------------------------------------------------------------------------------
+\section{Curvature and Path Dependence}
+\label{sec:curvature}
+%-------------------------------------------------------------------------------
+
+A connection may or may not be ``flat.'' Curvature measures the failure of parallel transport to be path-independent.
+
+\subsection{The Curvature Tensor}
+
+The \textbf{curvature tensor} is:
+\begin{equation}
+R^a{}_{bcd} = \partial_c\Gamma^a{}_{bd} - \partial_d\Gamma^a{}_{bc} + \Gamma^a{}_{ec}\Gamma^e{}_{bd} - \Gamma^a{}_{ed}\Gamma^e{}_{bc}
+\label{eq:curvature}
+\end{equation}
+
+\marginnote{Curvature measures the failure of parallel transport to be path-independent. If $R = 0$, the connection is ``flat.''}
+
+If $R^a{}_{bcd} = 0$, the connection is flat and parallel transport depends only on the endpoints, not the path.
+
+If $R \neq 0$, different paths from $A$ to $B$ give different results. This path dependence is called \textbf{holonomy}.
+
+\subsection{Monodromy}
+
+A special case of holonomy is \textbf{monodromy}: the transformation acquired by parallel transporting around a closed loop.
+
+\marginnote{Monodromy: transport around a closed loop may not return to the starting point. The failure is encoded in the monodromy matrix.}
+
+If we transport a vector $V$ around a loop $\mathcal{C}$ starting and ending at $g$, we get:
+\begin{equation}
+V^a_{\text{final}} = M^a{}_b(\mathcal{C})\,V^b_{\text{initial}}
+\end{equation}
+where $M(\mathcal{C})$ is the \textbf{monodromy matrix}.
+
+For a flat connection, $M = \mathbf{1}$ (no monodromy). For a curved connection, $M \neq \mathbf{1}$.
+
+\subsection{Monodromy from Singularities}
+
+In many physical situations, the connection is flat almost everywhere but has singularities at special points. The monodromy around these singularities is non-trivial.
+
+Consider a singularity at $g = g_*$. Parallel transport around a small loop encircling $g_*$ gives monodromy:
+\begin{equation}
+M = \mathcal{P}\exp\left(\oint_\mathcal{C} \Gamma^a{}_{bc}\,dg^b\right)
+\end{equation}
+where $\mathcal{P}$ denotes path ordering.
+
+%-------------------------------------------------------------------------------
+\section{The OPE Connection}
+\label{sec:ope_connection}
+%-------------------------------------------------------------------------------
+
+In conformal field theory, there is a natural connection related to the operator product expansion.
+
+\subsection{The Operator Product Expansion}
+
+When two operators approach each other, their product can be expanded:
+\begin{equation}
+\mathcal{O}_a(x)\mathcal{O}_b(0) = \sum_c C^c_{ab}(g)\,|x|^{\Delta_c - \Delta_a - \Delta_b}\,\mathcal{O}_c(0) + \cdots
+\label{eq:ope}
+\end{equation}
+
+\marginnote{The OPE coefficients $C^c_{ab}$ encode how operators ``multiply.'' They define a ring structure on operators.}
+
+The \textbf{OPE coefficients} $C^c_{ab}(g)$ depend on the couplings and encode the ``algebra'' of operators.
+
+\subsection{The OPE Connection}
+
+The OPE coefficients define a connection:
+\begin{equation}
+\Gamma^c_{ab}(g) = \frac{\partial C^c_{de}(g)}{\partial g^f}\cdot(\text{structure constants})
+\end{equation}
+
+The precise formula involves the structure of the CFT, but the key point is that the OPE provides a natural connection on the space of operators.
+
+\subsection{Parallel Transport and Conformal Perturbation Theory}
+
+Conformal perturbation theory studies how CFTs change when we deform by adding terms $\delta g^a\int\mathcal{O}_a$ to the action. The OPE connection tells us how operators in the original CFT relate to operators in the deformed theory.
+
+\begin{workedbox}[Box 6.2: Conformal Perturbation Theory]
+\textbf{Setup:} Start with CFT$_0$ and perturb by $\delta S = \lambda\int d^dx\,\phi^4$.
+
+\textbf{The deformed theory:} For small $\lambda$, the deformed theory is still approximately conformal with modified OPE coefficients:
+\begin{equation}
+C^c_{ab}(\lambda) = C^c_{ab}(0) + \lambda\,\delta C^c_{ab} + O(\lambda^2)
+\end{equation}
+
+\textbf{The connection:} The change $\delta C^c_{ab}$ can be computed from three-point functions in CFT$_0$:
+\begin{equation}
+\delta C^c_{ab} \sim \int d^dz\,\langle\mathcal{O}_a(x)\mathcal{O}_b(y)\phi^4(z)\mathcal{O}_c(w)\rangle_0
+\end{equation}
+
+\textbf{Path dependence:} If we deform by $\lambda_1\mathcal{O}_1 + \lambda_2\mathcal{O}_2$, the result depends on the order of deformations (path in coupling space). This is curvature.
+\end{workedbox}
+
+%-------------------------------------------------------------------------------
+\section{Stokes Phenomena as Monodromy}
+\label{sec:stokes_monodromy}
+%-------------------------------------------------------------------------------
+
+We now arrive at the central insight: Stokes phenomena in resurgent analysis are monodromy in the extended theory space.
+
+\subsection{Review of Stokes Phenomena}
+
+Recall from Chapter~\ref{ch:scale} that when we resum a divergent series using Borel-Laplace, the result depends on the direction of integration. When the coupling $g$ crosses a \textbf{Stokes line}, the resummation prescription changes discontinuously.
+
+\marginnote{Stokes phenomenon: the transseries parameter $\sigma$ jumps discontinuously when crossing a Stokes line in coupling space.}
+
+The transseries
+\begin{equation}
+\tilde{f}(g, \sigma) = f_0(g) + \sigma e^{-S/g}f_1(g) + \sigma^2 e^{-2S/g}f_2(g) + \cdots
+\end{equation}
+undergoes a transformation $\sigma \to \sigma + S_1$ when $g$ crosses a Stokes line, where $S_1$ is the Stokes constant.
+
+\subsection{The Geometric Picture}
+
+Now view this from the perspective of the extended theory space with coordinates $(g, \sigma)$.
+
+The Stokes line in the $g$-plane becomes a codimension-one surface in $(g, \sigma)$ space. As $g$ moves continuously, $\sigma$ must jump to maintain the same physical answer.
+
+But this ``jump'' is really \textbf{monodromy}! The extended parameter space has a non-trivial connection, and parallel transport around the Stokes line produces the transformation $\sigma \to \sigma + S_1$.
+
+\marginnote{The Stokes automorphism is monodromy in the extended theory space. The ``jump'' in $\sigma$ is path-dependent parallel transport.}
+
+\subsection{The Mathematical Equivalence}
+
+Let's make this precise. Consider the extended space $\mathcal{M}_{\text{ext}}$ with coordinates $(g, \sigma)$. Define a connection with:
+\begin{equation}
+\Gamma^\sigma{}_{\sigma g} = \frac{S_1}{2\pi i}\cdot\delta(\arg(g) - \theta_{\text{Stokes}})
+\end{equation}
+where the delta function is supported on the Stokes line.
+
+Parallel transport of $\sigma$ around a loop encircling the Stokes line gives:
+\begin{equation}
+\Delta\sigma = \oint\Gamma^\sigma{}_{\sigma g}\,dg = S_1
+\end{equation}
+
+The Stokes automorphism $\mathfrak{S}: \sigma \mapsto \sigma + S_1$ is precisely the monodromy matrix.
+
+\begin{workedbox}[Box 6.3: Stokes Phenomena as Monodromy]
+\textbf{Setup:} Consider the transseries $\tilde{f}(g, \sigma) = f_0(g) + \sigma e^{-S/g}f_1(g) + \cdots$ with Stokes line at $\arg(g) = 0$.
+
+\textbf{The Stokes automorphism:} Crossing the Stokes line clockwise:
+\begin{equation}
+\mathfrak{S}: \sigma \mapsto \sigma + S_1
+\end{equation}
+
+\textbf{The monodromy interpretation:}
+
+Define a flat connection on $\mathcal{M}_{\text{ext}}$ with a ``singularity'' at the Stokes line. The connection 1-form is:
+\begin{equation}
+A = S_1 \cdot \frac{dg}{g} \cdot \Theta(\text{Stokes})
+\end{equation}
+where $\Theta$ is a distributional form supported on the Stokes line.
+
+Integrating around a small loop encircling the origin:
+\begin{equation}
+M = \exp\left(\oint A\right) = \exp(S_1 \cdot 2\pi i \cdot \frac{1}{2\pi i}) = e^{S_1}
+\end{equation}
+
+For the linear action on $\sigma$, this gives $\sigma \to \sigma + S_1$.
+
+\textbf{Key insight:} The monodromy is computed from \emph{local} data near the Stokes line. But it determines the \emph{global} transformation. This is why Stokes constants are universal.
+\end{workedbox}
+
+%-------------------------------------------------------------------------------
+\section{Alien Calculus as Covariant Differentiation}
+\label{sec:alien_calculus}
+%-------------------------------------------------------------------------------
+
+The tools of alien calculus have natural interpretations in the geometric framework.
+
+\subsection{The Alien Derivative}
+
+The \textbf{alien derivative} $\Delta_\omega$ is an operator that ``probes'' the singularity at $\zeta = \omega$ in the Borel plane. It extracts the coefficient of the singularity and relates the perturbative sector to non-perturbative sectors.
+
+\marginnote{The alien derivative probes singularities in the Borel plane. It relates different sectors of the transseries.}
+
+Formally, if $\hat{f}_B(\zeta)$ has a singularity at $\zeta = \omega$:
+\begin{equation}
+\hat{f}_B(\zeta) \sim \frac{c}{(\zeta - \omega)^\alpha} + \cdots
+\end{equation}
+then $\Delta_\omega f$ extracts $c$ (roughly speaking).
+
+\subsection{The Bridge Equation}
+
+The \textbf{bridge equation} relates alien derivatives to ordinary derivatives:
+\begin{equation}
+\Delta_\omega \tilde{f} = S_\omega \cdot \partial_\sigma \tilde{f}
+\label{eq:bridge}
+\end{equation}
+where $S_\omega$ is the Stokes constant at $\omega$.
+
+This says: the alien derivative in the Borel plane is equivalent to differentiation along the transseries direction in parameter space.
+
+\subsection{Alien Derivative as Covariant Derivative}
+
+In the geometric picture, the alien derivative extends the covariant derivative to include ``non-local'' directions:
+\begin{equation}
+D_{\text{ext}} = \nabla_g + \sum_\omega e^{-\omega/g}\Delta_\omega
+\end{equation}
+
+\marginnote{The alien derivative extends the covariant derivative. Just as $\nabla_a$ probes coupling directions, $\Delta_\omega$ probes instanton directions.}
+
+The ordinary covariant derivative $\nabla_g$ differentiates along perturbative coupling directions. The alien derivatives $\Delta_\omega$ differentiate along ``instanton directions'' in the extended space.
+
+The full covariant derivative $D_{\text{ext}}$ on the extended space includes both:
+\begin{equation}
+D_{\text{ext}} V = \nabla V + \Gamma_{\text{Stokes}} V
+\end{equation}
+where $\Gamma_{\text{Stokes}}$ is the connection encoding Stokes jumps.
+
+\begin{workedbox}[Box 6.4: The Bridge Equation as Parallel Transport]
+\textbf{The bridge equation:}
+\begin{equation}
+\Delta_\omega f = S_\omega \cdot \partial_\sigma f
+\end{equation}
+
+\textbf{Geometric interpretation:}
+The alien derivative $\Delta_\omega$ probes the singularity at $\zeta = \omega$ in the Borel plane.
+
+The derivative $\partial_\sigma$ differentiates along the transseries direction.
+
+The bridge equation says these are related by the connection coefficient $S_\omega$.
+
+\textbf{In covariant derivative language:}
+\begin{equation}
+\nabla_\omega f \equiv \partial_\omega f + \Gamma^\sigma_\omega \partial_\sigma f = 0
+\end{equation}
+with $\Gamma^\sigma_\omega = -S_\omega$.
+
+This is a \textbf{flatness condition}! The transseries $f$ is ``parallel'' (covariantly constant) in the direction $\omega$.
+
+\textbf{Physical meaning:}
+The physical content is independent of how we distribute information between perturbative and non-perturbative sectors. The bridge equation is the consistency condition enforcing this.
+\end{workedbox}
+
+%-------------------------------------------------------------------------------
+\section{Scheme Independence and Gauge Transformations}
+\label{sec:scheme_independence}
+%-------------------------------------------------------------------------------
+
+Different renormalization schemes give different parameterizations of the same physics. Scheme changes are ``gauge transformations'' of the connection.
+
+\subsection{Renormalization Scheme Dependence}
+
+The beta function and anomalous dimensions depend on the renormalization scheme. In scheme $A$:
+\begin{equation}
+\beta^i_A(g_A), \quad \gamma_{A,a}{}^b(g_A)
+\end{equation}
+
+In scheme $B$, related by $g_B = g_B(g_A)$:
+\begin{equation}
+\beta^i_B(g_B), \quad \gamma_{B,a}{}^b(g_B)
+\end{equation}
+
+\marginnote{Scheme changes are coordinate transformations on theory space. Physical quantities are scheme-independent.}
+
+These are related by coordinate transformations, which is exactly how connection components transform under diffeomorphisms.
+
+\subsection{Gauge Transformations}
+
+Under a scheme change $g \to g'(g)$, the connection transforms as:
+\begin{equation}
+\Gamma'^a{}_{bc} = \frac{\partial g'^a}{\partial g^d}\frac{\partial g^e}{\partial g'^b}\frac{\partial g^f}{\partial g'^c}\Gamma^d{}_{ef} + \frac{\partial g'^a}{\partial g^d}\frac{\partial^2 g^d}{\partial g'^b\partial g'^c}
+\end{equation}
+
+This is the standard transformation law for connections. The curvature (and hence monodromy) is invariant.
+
+\subsection{Scheme Independence of Stokes Constants}
+
+The Stokes constants are \textbf{scheme-independent} because they are monodromy data. Monodromy depends only on the intrinsic geometry, not on the coordinate system.
+
+\marginnote{Stokes constants are universal because they are monodromy data, which is coordinate-independent geometric information.}
+
+This explains the remarkable universality of Stokes constants. Different microscopic theories flowing to the same fixed point have the same Stokes constants because they have the same geometry near the fixed point.
+
+%-------------------------------------------------------------------------------
+\section{The Extended Connection in Practice}
+\label{sec:extended_practice}
+%-------------------------------------------------------------------------------
+
+Let's see how the extended connection works in our three examples.
+
+\subsection{The Anharmonic Oscillator}
+
+The oscillator's parameter space $(A, \phi)$ extends to $(A, \phi, \sigma)$ including the transseries parameter.
+
+\textbf{The perturbative connection} is trivial because there's no operator mixing in this one-particle problem.
+
+\textbf{The Stokes connection} is non-trivial. When $\lambda$ continues to negative values (or equivalently when we consider complex time), a Stokes line is crossed. The transseries parameter jumps by:
+\begin{equation}
+\Delta\sigma = S_{\text{osc}}
+\end{equation}
+where $S_{\text{osc}}$ is related to the tunneling amplitude in the inverted potential.
+
+\subsection{The 1D $\phi^4$ Theory}
+
+The parameter space $(r, \lambda)$ extends to $(r, \lambda, \sigma_{\text{ren}})$ where $\sigma_{\text{ren}}$ weights the renormalon sector.
+
+\textbf{The perturbative connection} is the anomalous dimension matrix from Chapter~\ref{ch:fixed_points}.
+
+\textbf{The Stokes connection} encodes how the renormalon sector turns on. The Stokes constant is:
+\begin{equation}
+S_{\text{ren}} = \frac{1}{\beta_1} + O(1)
+\end{equation}
+where $\beta_1 = 2$ is the one-loop beta function coefficient.
+
+\subsection{The Porous Medium Equation}
+
+For the PME, the parameter is essentially $m$, and the transseries extension includes parameters $\sigma_k$ weighting sub-leading self-similar modes.
+
+\textbf{The selection of the Barenblatt exponent} corresponds to setting the transseries parameters to specific values. The ``physical'' resummation prescription that gives real exponents for real $m$ is median resummation, which corresponds to a specific value of $\sigma$.
+
+%-------------------------------------------------------------------------------
+\section{The Complete Geometric Picture}
+\label{sec:complete_picture}
+%-------------------------------------------------------------------------------
+
+We can now state the unified geometric framework.
+
+\subsection{The Full Structure}
+
+The theory space $\mathcal{M}_{\text{ext}}$ is a manifold with coordinates $(g^a, \sigma^n)$ that combine perturbative couplings with transseries parameters.
+
+\marginnote{The full picture: theory space is a fiber bundle with connection. RG is parallel transport. Stokes phenomena are monodromy.}
+
+There is a \textbf{metric} $G$ measuring distinguishability between theories. The metric extends to include components $G_{\sigma\sigma}$ that become large near Stokes lines.
+
+There is a \textbf{connection} $\Gamma$ encoding how quantities transform under RG. The connection has two parts. The first is the perturbative anomalous dimensions $\gamma_a{}^b$ governing operator mixing. The second is the Stokes connection $\Gamma^\sigma_g$ encoding jumps in transseries parameters.
+
+The \textbf{curvature} is concentrated at Stokes lines. Away from Stokes lines, the connection is flat. The \textbf{monodromy} around Stokes lines is the Stokes automorphism.
+
+\subsection{The Alien Derivative in Context}
+
+The alien derivative $\Delta_\omega$ is the ``covariant derivative in the direction of the $\omega$-singularity.'' The bridge equation $\Delta_\omega f = S_\omega\partial_\sigma f$ says this is proportional to the ordinary derivative along $\sigma$.
+
+The collection $\{\nabla_a, \Delta_\omega\}$ forms a complete basis of ``directions'' in the extended theory space. The former probe perturbative directions, and the latter probe non-perturbative directions.
+
+\subsection{Universality Revisited}
+
+The universality of critical behavior now has a geometric explanation. Systems in the same universality class have the same geometry near the fixed point, including the same connection, curvature, metric, and monodromy. All physical quantities derived from these geometric structures are therefore identical.
+
+%-------------------------------------------------------------------------------
+\section{Looking Ahead}
+\label{sec:ch6_preview}
+%-------------------------------------------------------------------------------
+
+This chapter unified the geometric and resurgent perspectives on the RG. The Stokes automorphism is monodromy, the alien derivative is a covariant derivative, and scheme independence is coordinate invariance.
+
+\marginnote{The unified picture shows that perturbative and non-perturbative physics are two aspects of a single geometric structure.}
+
+The next chapter, the final chapter of Part I, synthesizes everything into a practical methodology. The ``RG Recipe'' will show how to apply the unified framework to new problems, with full awareness of both perturbative and non-perturbative aspects from the beginning.
+
+%-------------------------------------------------------------------------------
+\section*{Summary}
+\addcontentsline{toc}{section}{Summary}
+%-------------------------------------------------------------------------------
+
+\begin{center}
+\fbox{\parbox{0.85\textwidth}{
+\textbf{Operator mixing:} Under RG, operators transform via
+\begin{equation}
+\mu\frac{d\mathcal{O}_a}{d\mu} = \gamma_a{}^b\,\mathcal{O}_b
+\end{equation}
+The matrix $\gamma_a{}^b$ is a \textbf{connection} on the bundle of operators.
+
+\textbf{Parallel transport:} Operators are parallel transported along RG trajectories. The result depends on the path (curvature) and can acquire non-trivial transformations around loops (monodromy).
+
+\textbf{Stokes phenomena = monodromy:} The Stokes automorphism $\sigma \to \sigma + S_\omega$ is monodromy around the Stokes line in the extended parameter space.
+
+\textbf{Alien derivative = covariant derivative:} The alien derivative $\Delta_\omega$ probes non-perturbative directions. The bridge equation
+\begin{equation}
+\Delta_\omega f = S_\omega\,\partial_\sigma f
+\end{equation}
+relates it to ordinary differentiation along transseries coordinates.
+
+\textbf{Scheme independence:} Renormalization schemes are coordinates. Physical quantities (monodromy, Stokes constants) are coordinate-independent.
+
+\textbf{Universality explained:} Systems in the same universality class share the same geometry near the fixed point, including all monodromy and Stokes data.
+}}
+\end{center}

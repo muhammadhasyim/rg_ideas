@@ -1,0 +1,303 @@
+%===============================================================================
+\chapter{Mathematical Toolkit}
+\label{app:toolkit}
+%===============================================================================
+
+\marginnote{This appendix collects definitions, formulas, and key results for quick reference. The material has been developed throughout Part I and is gathered here for convenience.}
+
+This appendix provides a compact reference for the mathematical tools used throughout the book. Each topic is treated in the main text and this serves as a quick-lookup resource rather than a standalone introduction.
+
+%-------------------------------------------------------------------------------
+\section{Asymptotic Series and Gevrey Classes}
+\label{app:gevrey}
+%-------------------------------------------------------------------------------
+
+\subsection{Asymptotic Expansions}
+
+A formal series $\tilde{f}(z) = \sum_{n=0}^\infty a_n z^n$ is \textbf{asymptotic} to a function $f(z)$ as $z \to 0$ if:
+\begin{equation}
+\left|f(z) - \sum_{n=0}^{N-1}a_n z^n\right| \leq C_N |z|^N
+\end{equation}
+for each $N$ and $|z|$ sufficiently small. We write $f(z) \sim \tilde{f}(z)$.
+
+\subsection{Gevrey Classes}
+
+A series is \textbf{Gevrey of order $s$} (written Gevrey-$s$) if its coefficients satisfy:
+\begin{equation}
+|a_n| \leq C \cdot K^n \cdot (n!)^s
+\end{equation}
+for some constants $C, K > 0$.
+
+\textbf{Gevrey-0:} Convergent series with $|a_n| \leq CK^n$.
+
+\textbf{Gevrey-1:} Factorially divergent with $|a_n| \leq CK^n \cdot n!$. This is the generic case in physics.
+
+\textbf{Gevrey-$s$} for $s > 1$: Faster than factorial growth, less common.
+
+%-------------------------------------------------------------------------------
+\section{Borel Transform and Laplace Transform}
+\label{app:borel_laplace}
+%-------------------------------------------------------------------------------
+
+\subsection{The Borel Transform}
+
+Given a formal series $\tilde{f}(z) = \sum_{n=0}^\infty a_n z^n$, its \textbf{Borel transform} is:
+\begin{equation}
+\hat{f}_B(\zeta) = \sum_{n=0}^\infty \frac{a_n}{n!}\zeta^n
+\end{equation}
+
+For Gevrey-1 series, the Borel transform has finite radius of convergence and can be analytically continued.
+
+\subsection{The Laplace Transform}
+
+The \textbf{Laplace transform} of $g(\zeta)$ along direction $\theta$ is:
+\begin{equation}
+\mathcal{L}_\theta[g](z) = \int_0^{e^{i\theta}\infty} e^{-\zeta/z}g(\zeta)\,d\zeta
+\end{equation}
+
+\subsection{Borel-Laplace Resummation}
+
+The \textbf{Borel sum} of $\tilde{f}$ along direction $\theta$ is:
+\begin{equation}
+\mathcal{S}_\theta[\tilde{f}](z) = \mathcal{L}_\theta[\hat{f}_B](z) = \int_0^{e^{i\theta}\infty} e^{-\zeta/z}\hat{f}_B(\zeta)\,d\zeta
+\end{equation}
+
+This recovers a function from a divergent series when no singularities obstruct the integration path.
+
+%-------------------------------------------------------------------------------
+\section{Singularities in the Borel Plane}
+\label{app:singularities}
+%-------------------------------------------------------------------------------
+
+\subsection{Types of Singularities}
+
+Common singularities in the Borel plane of physical theories include the following.
+
+\textbf{Instantons:} Singularities at $\zeta = S_{\text{inst}}$ (classical instanton action). These encode tunneling effects and typically have the form:
+\begin{equation}
+\hat{f}_B(\zeta) \sim \frac{c}{(\zeta - S)^\alpha}\log(\zeta - S) + \text{regular}
+\end{equation}
+
+\textbf{Renormalons:} Singularities at $\zeta = k/\beta_1$ (multiples of inverse one-loop beta function). These arise from factorial growth induced by RG running:
+\begin{equation}
+\hat{f}_B(\zeta) \sim \frac{1}{(1 - \beta_1\zeta)^p}
+\end{equation}
+
+\textbf{IR renormalons:} Singularities on the positive real axis, obstructing naive Borel resummation.
+
+\textbf{UV renormalons:} Singularities on the negative real axis, not obstructing resummation but encoding UV sensitivity.
+
+%-------------------------------------------------------------------------------
+\section{Stokes Phenomena}
+\label{app:stokes}
+%-------------------------------------------------------------------------------
+
+\subsection{Stokes Lines}
+
+A \textbf{Stokes line} is a direction in the $z$-plane where the integration contour for Borel-Laplace resummation crosses a singularity in the Borel plane. For a singularity at $\zeta_*$, the Stokes line occurs at:
+\begin{equation}
+\arg(z) = \arg(\zeta_*)
+\end{equation}
+
+\subsection{The Stokes Automorphism}
+
+When crossing a Stokes line, the resummation changes discontinuously. The \textbf{Stokes automorphism} $\mathfrak{S}$ acts on the transseries parameter:
+\begin{equation}
+\mathfrak{S}: \sigma \mapsto \sigma + S_\omega
+\end{equation}
+where $S_\omega$ is the \textbf{Stokes constant} associated with the singularity at $\omega$.
+
+\subsection{Stokes Constants}
+
+The Stokes constant encodes the ``residue'' of the ambiguity in crossing a singularity. It relates different sectors of the transseries and is computed from:
+\begin{equation}
+S_\omega = 2\pi i \cdot \text{Res}_\omega[\hat{f}_B]
+\end{equation}
+for simple poles, with generalizations for branch points.
+
+%-------------------------------------------------------------------------------
+\section{Transseries}
+\label{app:transseries}
+%-------------------------------------------------------------------------------
+
+\subsection{Definition}
+
+A \textbf{transseries} combines perturbative and non-perturbative sectors:
+\begin{equation}
+\tilde{f}(z, \sigma) = \sum_{k=0}^\infty \sigma^k e^{-kS/z}\hat{f}^{(k)}(z)
+\end{equation}
+where $\hat{f}^{(0)}$ is the perturbative series, $\hat{f}^{(k)}$ for $k \geq 1$ are instanton sectors, $\sigma$ is the transseries parameter, and $S$ is the instanton action.
+
+\subsection{More General Form}
+
+Multi-instanton transseries with multiple types of non-perturbative effects:
+\begin{equation}
+\tilde{f}(z, \{\sigma_i\}) = \sum_{n_1, n_2, \ldots} \prod_i \sigma_i^{n_i} e^{-(\sum_i n_i S_i)/z}\hat{f}^{(n_1, n_2, \ldots)}(z)
+\end{equation}
+
+\subsection{Reality Conditions}
+
+For real $z$, physical observables must be real. This constrains transseries parameters:
+\begin{equation}
+\text{If } \bar{\sigma} = \sigma^*, \text{ then } \overline{\tilde{f}(z, \sigma)} = \tilde{f}(\bar{z}, \bar{\sigma})
+\end{equation}
+
+%-------------------------------------------------------------------------------
+\section{Alien Calculus}
+\label{app:alien}
+%-------------------------------------------------------------------------------
+
+\subsection{The Alien Derivative}
+
+The \textbf{alien derivative} $\Delta_\omega$ probes the singularity at $\zeta = \omega$ in the Borel plane. It extracts the coefficient relating the perturbative sector to the instanton sector:
+\begin{equation}
+\Delta_\omega \hat{f}^{(0)} = S_\omega \hat{f}^{(1)}
+\end{equation}
+where $S_\omega$ is the Stokes constant.
+
+\subsection{The Bridge Equation}
+
+The alien derivative is related to ordinary differentiation along transseries directions:
+\begin{equation}
+\Delta_\omega \tilde{f} = S_\omega \cdot \frac{\partial \tilde{f}}{\partial\sigma}
+\end{equation}
+
+This is the \textbf{bridge equation}. It connects the Borel plane structure to the transseries parameter space.
+
+\subsection{Properties}
+
+The alien derivative satisfies a Leibniz rule:
+\begin{equation}
+\Delta_\omega(fg) = (\Delta_\omega f)g + f(\Delta_\omega g)
+\end{equation}
+
+Multiple alien derivatives compose:
+\begin{equation}
+\Delta_{\omega_1}\Delta_{\omega_2} = \Delta_{\omega_2}\Delta_{\omega_1}
+\end{equation}
+
+%-------------------------------------------------------------------------------
+\section{Median Resummation}
+\label{app:median}
+%-------------------------------------------------------------------------------
+
+\subsection{Lateral Resummations}
+
+When a singularity lies on the positive real axis, define:
+\begin{equation}
+\mathcal{S}_\pm[\tilde{f}](z) = \mathcal{L}_{0^\pm}[\hat{f}_B](z)
+\end{equation}
+by integrating just above or below the real axis.
+
+\subsection{The Median Resummation}
+
+The \textbf{median resummation} is the average:
+\begin{equation}
+\mathcal{S}_{\text{med}}[\tilde{f}](z) = \frac{1}{2}\left(\mathcal{S}_+[\tilde{f}] + \mathcal{S}_-[\tilde{f}]\right)
+\end{equation}
+
+This gives a real result when the singularities come in conjugate pairs.
+
+\subsection{Ambiguity Cancellation}
+
+The difference between lateral resummations is:
+\begin{equation}
+\mathcal{S}_+[\tilde{f}] - \mathcal{S}_-[\tilde{f}] = 2\pi i \cdot \text{Disc}[\hat{f}_B]
+\end{equation}
+
+For physical observables, this ambiguity must cancel against contributions from other sectors of the transseries.
+
+%-------------------------------------------------------------------------------
+\section{Beta Functions and RG Flow}
+\label{app:beta}
+%-------------------------------------------------------------------------------
+
+\subsection{Definition}
+
+The \textbf{beta function} for coupling $g^i$ is:
+\begin{equation}
+\beta^i(g) = \mu\frac{dg^i}{d\mu} = \frac{dg^i}{d\ell}
+\end{equation}
+where $\mu$ is the RG scale and $\ell = \log(\mu/\mu_0)$.
+
+\subsection{Fixed Points}
+
+A \textbf{fixed point} satisfies $\beta^i(g^*) = 0$ for all $i$.
+
+\textbf{Perturbative fixed points:} $\beta_{\text{pert}}(g^*) = 0$.
+
+\textbf{Non-perturbative fixed points:} $\beta_{\text{pert}}(g^*) \neq 0$ but $\beta_{\text{full}}(g^*) = 0$.
+
+\subsection{Stability}
+
+Near a fixed point, linearize: $\delta\dot{g}^i = B^i{}_j\delta g^j$ where $B^i{}_j = \partial\beta^i/\partial g^j|_{g^*}$.
+
+The eigenvalues $\Delta_\alpha$ of $B$ classify directions. When $\Delta_\alpha > 0$ the direction is relevant, when $\Delta_\alpha < 0$ the direction is irrelevant, and when $\Delta_\alpha = 0$ the direction is marginal.
+
+%-------------------------------------------------------------------------------
+\section{Connections and Monodromy}
+\label{app:connections}
+%-------------------------------------------------------------------------------
+
+\subsection{Connections}
+
+A \textbf{connection} $\Gamma^a{}_{bc}$ on parameter space specifies parallel transport:
+\begin{equation}
+\nabla_b V^a = \partial_b V^a + \Gamma^a{}_{bc}V^c
+\end{equation}
+
+The \textbf{curvature} measures path dependence:
+\begin{equation}
+R^a{}_{bcd} = \partial_c\Gamma^a{}_{bd} - \partial_d\Gamma^a{}_{bc} + \Gamma^a{}_{ec}\Gamma^e{}_{bd} - \Gamma^a{}_{ed}\Gamma^e{}_{bc}
+\end{equation}
+
+\subsection{Monodromy}
+
+\textbf{Monodromy} is the transformation acquired by parallel transport around a closed loop:
+\begin{equation}
+M(\mathcal{C}) = \mathcal{P}\exp\left(\oint_\mathcal{C}\Gamma^a{}_{bc}\,dg^b\right)
+\end{equation}
+
+\textbf{Stokes as monodromy:} The Stokes automorphism is monodromy around the Stokes line in extended parameter space.
+
+%-------------------------------------------------------------------------------
+\section{Key Formulas Summary}
+\label{app:formulas}
+%-------------------------------------------------------------------------------
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{ll}
+\toprule
+\textbf{Name} & \textbf{Formula} \\
+\midrule
+Gevrey-1 bound & $|a_n| \leq CK^n n!$ \\
+Borel transform & $\hat{f}_B(\zeta) = \sum_n \frac{a_n}{n!}\zeta^n$ \\
+Laplace transform & $\mathcal{L}[g](z) = \int_0^\infty e^{-\zeta/z}g(\zeta)\,d\zeta$ \\
+Borel sum & $\mathcal{S}[\tilde{f}] = \mathcal{L}[\hat{f}_B]$ \\
+Transseries & $\tilde{f} = \sum_k \sigma^k e^{-kS/z}\hat{f}^{(k)}$ \\
+Bridge equation & $\Delta_\omega\tilde{f} = S_\omega\partial_\sigma\tilde{f}$ \\
+Beta function & $\beta^i = \mu\,dg^i/d\mu$ \\
+Fixed point & $\beta^i(g^*) = 0$ \\
+Callan-Symanzik & $(\mu\partial_\mu + \beta^i\partial_i + n\gamma)G_n = 0$ \\
+Operator mixing & $\mu\,d\mathcal{O}_a/d\mu = \gamma_a{}^b\mathcal{O}_b$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+%-------------------------------------------------------------------------------
+\section{References for Further Reading}
+\label{app:references}
+%-------------------------------------------------------------------------------
+
+\subsection{Asymptotic Analysis and Resurgence}
+
+The foundational work on resurgence is Écalle's treatise on analysable functions. Accessible introductions include Costin's monograph on exponential asymptotics and the lecture notes by Mariño on resurgence in quantum field theory. The paper by Aniceto, Başar, and Schiappa provides a modern physics perspective.
+
+\subsection{Renormalization Group}
+
+Wilson's original papers remain essential reading. The textbooks by Goldenfeld, by Cardy, and by Amit and Martín-Mayor provide comprehensive treatments. For the geometric perspective, see the papers by Zamolodchikov on the c-theorem and the reviews by Komargodski.
+
+\subsection{Differential Geometry}
+
+For connections and fiber bundles in physics contexts, see the books by Nakahara and by Frankel. The information geometry perspective is developed in the book by Amari.
