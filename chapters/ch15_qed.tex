@@ -3,7 +3,7 @@
 \label{ch:qed}
 %===============================================================================
 
-Quantum electrodynamics (QED) is the relativistic quantum field theory of the electromagnetic interaction, and it was here that renormalization was first developed as a systematic procedure. This chapter applies the five-step recipe of Chapter~\ref{ch:recipe} to QED, showing how the abstract geometric framework of Part I manifests in the physical phenomenon of charge screening. The extraordinary agreement between QED predictions and experiment provides the most precise test of quantum field theory.
+Quantum electrodynamics (QED) is the relativistic quantum field theory of the electromagnetic interaction, and it was here that renormalization was first developed as a systematic procedure. This chapter applies the six-step recipe of Chapter~\ref{ch:recipe} to QED, showing how the abstract geometric framework of Part I manifests in the physical phenomenon of charge screening. The extraordinary agreement between QED predictions and experiment provides the most precise test of quantum field theory.
 
 The scale hierarchy (Step 1) ranges from the electron mass $m$ (the IR scale) through the renormalization scale $\mu$ to the UV cutoff $\Lambda$. Coarse-graining (Step 2) integrates out high-momentum modes, generating effective couplings. Theory space (Step 3) is parametrized by the fine structure constant $\alpha$ and the electron mass $m$. The beta function (Step 4) is computed from vacuum polarization, yielding $\beta_\alpha = 2\alpha^2/(3\pi) + O(\alpha^3)$. Fixed-point analysis (Step 5) reveals that $\alpha^* = 0$ is an IR-stable fixed point, explaining why electromagnetism appears weakly coupled at everyday energies.
 
@@ -278,11 +278,53 @@ The renormalization scheme choice (MS, $\overline{\text{MS}}$, on-shell, etc.) c
 The Ward identity provides additional structure, constraining the allowed coordinate transformations to preserve gauge invariance.
 
 %-------------------------------------------------------------------------------
+\section*{Exercises}
+\addcontentsline{toc}{section}{Exercises}
+%-------------------------------------------------------------------------------
+
+\begin{enumerate}
+\item \textbf{Running coupling.} Using the one-loop beta function~\eqref{eq:qed_beta}:
+\begin{enumerate}
+\item Solve for $\alpha(\mu)$ starting from $\alpha(m_e) = 1/137$.
+\item Compute $\alpha(\mu)$ at $\mu = m_Z \approx 91$ GeV.
+\item Verify that this is consistent with the measured value $\alpha(m_Z) \approx 1/128$.
+\end{enumerate}
+
+\item \textbf{Landau pole.} From equation~\eqref{eq:landau_pole}:
+\begin{enumerate}
+\item Show that $\Lambda_{\text{Landau}} \sim 10^{286}$ GeV.
+\item Compare this to the Planck scale $M_{\text{Pl}} \sim 10^{19}$ GeV.
+\item Discuss why the Landau pole is not a practical concern for QED.
+\end{enumerate}
+
+\item \textbf{Anomalous magnetic moment.} The leading contribution to the electron anomalous magnetic moment is $a_e = \alpha/(2\pi)$.
+\begin{enumerate}
+\item Compute the numerical value using $\alpha = 1/137$.
+\item The experimental value is $a_e^{\text{exp}} \approx 0.001159652$. What order in $\alpha$ is needed to achieve this precision?
+\item Discuss why higher-order calculations require sophisticated RG techniques.
+\end{enumerate}
+
+\item \textbf{Ward identity.} The Ward-Takahashi identity $Z_1 = Z_2$ relates the vertex and field renormalization constants.
+\begin{enumerate}
+\item Explain why this implies that the charge renormalization is determined solely by $Z_3$.
+\item Show that $e_{\text{phys}} = e_0 Z_3^{1/2}$ where $e_0$ is the bare charge.
+\item Discuss what would happen if $Z_1 \neq Z_2$.
+\end{enumerate}
+
+\item \textbf{(Challenge) Schwinger effect.} The pair production rate in a constant electric field is $w \propto e^{-\pi m^2/(eE)}$.
+\begin{enumerate}
+\item Estimate the critical field strength $E_c$ at which pair production becomes significant.
+\item Compare $E_c$ to laboratory-achievable electric fields.
+\item Explain why this effect is non-perturbative in $\alpha$.
+\end{enumerate}
+\end{enumerate}
+
+%-------------------------------------------------------------------------------
 \section{Summary}
 \label{sec:qed_summary}
 %-------------------------------------------------------------------------------
 
-QED demonstrates the five-step RG recipe in its original domain: relativistic quantum field theory. The scale hierarchy (Step 1) extends from the electron mass to the UV cutoff. Coarse-graining (Step 2) integrates out high-momentum virtual particles. Theory space (Step 3) is parametrized by the fine structure constant and electron mass. The beta function (Step 4), equation~\eqref{eq:qed_beta}, describes charge screening by vacuum polarization. Fixed-point analysis (Step 5) reveals that the Gaussian fixed point $\alpha^* = 0$ is an IR attractor.
+QED demonstrates the six-step RG recipe in its original domain: relativistic quantum field theory. The scale hierarchy (Step 1) extends from the electron mass to the UV cutoff. Perturbative analysis with Borel structure (Step 2) reveals renormalon singularities. Theory space (Step 3) is parametrized by the fine structure constant and electron mass, extended to include non-perturbative sectors. The beta function (Step 4), equation~\eqref{eq:qed_beta}, describes charge screening by vacuum polarization. Fixed-point analysis (Step 5) reveals that the Gaussian fixed point $\alpha^* = 0$ is an IR attractor. Physical predictions to high precision require Borel resummation (Step 6).
 
 The chapter has demonstrated every element of the geometric framework in a gauge theory setting. The running of $\alpha$ according to the beta function provides the prototypical example of a running coupling. The Landau pole indicates UV incompleteness, showing that QED cannot be valid at arbitrarily high energies. Anomalous dimensions arise from loop corrections to propagators. Ward identities from gauge invariance constrain the structure of the RG flow, providing an example of how symmetries restrict the geometry of theory space.
 

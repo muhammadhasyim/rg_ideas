@@ -619,6 +619,48 @@ To see these richer phenomena, we will develop two additional examples in the co
 These three examples form a \emph{ladder}. We use the simplest example until it cannot illustrate the concept we need, then move to the next. The oscillator suffices for secular terms, running parameters, and Gevrey-1 structure. The $\phi^4$ theory is needed for beta functions, fixed points, and renormalons. The porous medium shows anomalous dimensions and second-kind self-similarity.
 
 %-------------------------------------------------------------------------------
+\section*{Exercises}
+\addcontentsline{toc}{section}{Exercises}
+%-------------------------------------------------------------------------------
+
+\begin{enumerate}
+\item \textbf{Secular terms in the Duffing oscillator.} Consider the Duffing equation $\ddot{x} + \omega_0^2 x + \epsilon x^3 = 0$ (same as the anharmonic oscillator but with different notation). 
+\begin{enumerate}
+\item Show that naive perturbation theory gives $x_1(t) = -\frac{A^3}{32\omega_0^2}(\cos 3\omega_0 t - \cos\omega_0 t) - \frac{3A^3}{8\omega_0}t\sin\omega_0 t$.
+\item Verify that the secular term grows to order $A$ when $t \sim \omega_0/(\epsilon A^2)$.
+\item Apply the multiple-scales method to derive the RG equations and show $\omega_{\text{eff}} = \omega_0(1 + 3\epsilon A^2/(8\omega_0^2))$.
+\end{enumerate}
+
+\item \textbf{Dimensional analysis.} A ball of mass $m$ is thrown vertically with initial velocity $v_0$ in a uniform gravitational field $g$.
+\begin{enumerate}
+\item Use the Buckingham Pi theorem to show that the maximum height has the form $h_{\text{max}} = v_0^2 f(gv_0/m, \ldots)/g$ for some function $f$.
+\item Argue on physical grounds that $f$ cannot depend on $m$ (in the absence of air resistance).
+\item Verify that $h_{\text{max}} = v_0^2/(2g)$ has the correct dimensions.
+\end{enumerate}
+
+\item \textbf{Gevrey-1 structure.} Consider the formal series $\tilde{f}(\epsilon) = \sum_{n=0}^\infty (-1)^n n! \epsilon^{n+1}$.
+\begin{enumerate}
+\item Verify that this is Gevrey-1 by showing $|a_n| \leq C \cdot K^n \cdot n!$ for appropriate $C, K$.
+\item Compute the Borel transform $\hat{f}_B(\zeta)$.
+\item Identify the singularity and explain why the series has alternating signs.
+\end{enumerate}
+
+\item \textbf{The van der Pol oscillator.} The van der Pol equation $\ddot{x} - \epsilon(1-x^2)\dot{x} + x = 0$ has a limit cycle for $\epsilon > 0$.
+\begin{enumerate}
+\item Set up the multiple-scales expansion with $\tau = \epsilon t$.
+\item Show that the amplitude satisfies $dA/d\tau = A(1 - A^2/4)/2$ at leading order.
+\item Find the fixed point of this flow and interpret it physically.
+\end{enumerate}
+
+\item \textbf{(Challenge) Borel resummation.} The ground state energy of the quantum anharmonic oscillator has the asymptotic expansion $E_0 = \frac{1}{2} + \frac{3\lambda}{4} - \frac{21\lambda^2}{8} + \cdots$ with coefficients growing as $a_n \sim (-1)^{n+1} A^n n!$ for large $n$.
+\begin{enumerate}
+\item Explain why the alternating sign indicates a singularity on the negative real axis in the Borel plane.
+\item The instanton action is $S = 1/(3\lambda)$. Locate the expected Borel singularity.
+\item Discuss why Borel resummation along the positive real axis is well-defined for $\lambda > 0$.
+\end{enumerate}
+\end{enumerate}
+
+%-------------------------------------------------------------------------------
 \section*{Summary}
 \addcontentsline{toc}{section}{Summary}
 %-------------------------------------------------------------------------------

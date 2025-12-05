@@ -495,6 +495,48 @@ The Fisher-Zamolodchikov metric measures distinguishability between theories. Gr
 The next chapter introduces a richer geometric structure, namely \textbf{connections} on parameter space. Connections tell us how to ``parallel transport'' quantities from one theory to another. This leads to the key insight unifying the geometric and resurgent viewpoints: Stokes phenomena are monodromy.
 
 %-------------------------------------------------------------------------------
+\section*{Exercises}
+\addcontentsline{toc}{section}{Exercises}
+%-------------------------------------------------------------------------------
+
+\begin{enumerate}
+\item \textbf{Fisher information as a metric.} For a family of probability distributions $p(x|\theta)$ parametrized by $\theta = (\theta^1, \ldots, \theta^n)$, the Fisher information metric is $G_{ij} = \int p(x|\theta)\frac{\partial\log p}{\partial\theta^i}\frac{\partial\log p}{\partial\theta^j}\,dx$.
+\begin{enumerate}
+\item Show that $G_{ij}$ is symmetric and positive semi-definite.
+\item For the Gaussian family $p(x|\mu,\sigma) = (2\pi\sigma^2)^{-1/2}e^{-(x-\mu)^2/2\sigma^2}$, compute $G$ in the $(\mu, \sigma)$ coordinates.
+\item Verify that the Gaussian family forms a Riemannian manifold with hyperbolic geometry.
+\end{enumerate}
+
+\item \textbf{Zamolodchikov metric.} The metric on theory space near a CFT fixed point can be defined as $G_{ij} = \lim_{|x|\to 0}|x|^{2d}\langle\mathcal{O}_i(x)\mathcal{O}_j(0)\rangle$.
+\begin{enumerate}
+\item Explain why the factor $|x|^{2d}$ is needed for a finite limit.
+\item Show that marginal operators ($\Delta_i = d$) give finite contributions.
+\item Discuss why relevant operators require regularization.
+\end{enumerate}
+
+\item \textbf{c-theorem in 2D.} In two dimensions, Zamolodchikov's c-theorem states that there exists a function $c(g)$ such that $dc/d\ell \leq 0$ along RG flows.
+\begin{enumerate}
+\item At a fixed point, relate $c$ to the central charge of the Virasoro algebra.
+\item Explain how the inequality $dc/d\ell \leq 0$ implies RG flows are irreversible.
+\item Discuss how this relates to information loss under coarse-graining.
+\end{enumerate}
+
+\item \textbf{Gradient flow.} If the RG flow is gradient, $\beta^i = G^{ij}\partial_j C$ for some potential $C$.
+\begin{enumerate}
+\item Show that $dC/d\ell = G_{ij}\beta^i\beta^j \geq 0$.
+\item Conclude that $C$ is a Lyapunov function (never decreasing along flows).
+\item Explain why this implies flows cannot have limit cycles.
+\end{enumerate}
+
+\item \textbf{(Challenge) Extended metric.} Consider extending the metric to include transseries parameters $\sigma$.
+\begin{enumerate}
+\item Propose a natural extension $G_{\text{ext}}$ on $\mathcal{M}_{\text{ext}} = \{(g^i, \sigma^n)\}$.
+\item Discuss what ``distance'' means between theories differing only in $\sigma$.
+\item Relate the mixed components $G_{i\sigma}$ to the interplay between perturbative and non-perturbative sectors.
+\end{enumerate}
+\end{enumerate}
+
+%-------------------------------------------------------------------------------
 \section*{Summary}
 \addcontentsline{toc}{section}{Summary}
 %-------------------------------------------------------------------------------

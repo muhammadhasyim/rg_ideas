@@ -3,7 +3,7 @@
 \label{ch:hubbard}
 %===============================================================================
 
-The Hubbard model captures the essential physics of strongly correlated electron systems, where the interplay between electron kinetic energy and on-site repulsion produces a rich phase diagram. This chapter applies the five-step recipe of Chapter~\ref{ch:recipe} to a condensed matter system where strong correlations challenge perturbative methods and reveal the full power of RG thinking. The functional RG provides a non-perturbative approach that interpolates between weak and strong coupling.
+The Hubbard model captures the essential physics of strongly correlated electron systems, where the interplay between electron kinetic energy and on-site repulsion produces a rich phase diagram. This chapter applies the six-step recipe of Chapter~\ref{ch:recipe} to a condensed matter system where strong correlations challenge perturbative methods and reveal the full power of RG thinking. The functional RG provides a non-perturbative approach that interpolates between weak and strong coupling.
 
 The scale hierarchy (Step 1) compares the bandwidth $W \sim zt$ to the interaction strength $U$. Coarse-graining (Step 2) can proceed from weak coupling (integrating out high-energy particle-hole excitations) or strong coupling (integrating out doubly occupied states). Theory space (Step 3) includes the ratio $U/t$, the filling, and temperature. The beta functions (Step 4) are computed via perturbative or functional methods. Fixed-point analysis (Step 5) reveals multiple competing phases: Fermi liquid, Mott insulator, superconductor, and possibly strange metal.
 
@@ -208,13 +208,55 @@ where $F$ is the free energy density and $g^i$ are the couplings.
 This metric diverges at phase transitions (critical points), reflecting the singular behavior of the thermodynamic potentials.
 
 %-------------------------------------------------------------------------------
+\section*{Exercises}
+\addcontentsline{toc}{section}{Exercises}
+%-------------------------------------------------------------------------------
+
+\begin{enumerate}
+\item \textbf{Strong coupling expansion.} In the limit $U \gg t$, derive the effective Heisenberg Hamiltonian~\eqref{eq:heisenberg} using second-order perturbation theory in $t/U$.
+\begin{enumerate}
+\item Show that the superexchange coupling is $J = 4t^2/U$.
+\item Explain why the effective interaction is antiferromagnetic ($J > 0$).
+\item Discuss what happens at third order in $t/U$.
+\end{enumerate}
+
+\item \textbf{Fermi liquid stability.} For the 2D Hubbard model at weak coupling, the system is a Fermi liquid.
+\begin{enumerate}
+\item What is the quasiparticle residue $Z$ and how does it depend on $U/t$?
+\item At what coupling strength do you expect Fermi liquid theory to break down?
+\item Discuss the role of nesting in destabilizing the Fermi liquid.
+\end{enumerate}
+
+\item \textbf{Mott transition.} At half-filling, the Hubbard model undergoes a metal-insulator transition.
+\begin{enumerate}
+\item In the Brinkman-Rice picture, how does the quasiparticle weight $Z$ vanish as $U \to U_c$?
+\item In DMFT, the transition can be first-order. Sketch the phase diagram in the $(U/t, T)$ plane.
+\item Discuss the critical exponents associated with the Mott transition in mean-field theory.
+\end{enumerate}
+
+\item \textbf{Functional RG.} Consider the Wetterich equation~\eqref{eq:wetterich_hubbard} for the Hubbard model.
+\begin{enumerate}
+\item Explain the role of the regulator $R_\Lambda$.
+\item What is the initial condition for $\Gamma_\Lambda$ at $\Lambda = \Lambda_0$?
+\item How does the effective four-fermion interaction flow under the RG?
+\end{enumerate}
+
+\item \textbf{(Challenge) d-wave superconductivity.} In the 2D Hubbard model near half-filling:
+\begin{enumerate}
+\item Explain how antiferromagnetic fluctuations can mediate an effective attractive interaction.
+\item Why is d-wave pairing favored over s-wave?
+\item Relate the superconducting $T_c$ to the antiferromagnetic exchange coupling $J$.
+\end{enumerate}
+\end{enumerate}
+
+%-------------------------------------------------------------------------------
 \section{Summary}
 \label{sec:hubbard_summary}
 %-------------------------------------------------------------------------------
 
-The Hubbard model demonstrates the five-step RG recipe in strongly correlated systems where perturbation theory is insufficient. The scale hierarchy (Step 1) compares kinetic energy $t$ to interaction $U$. Coarse-graining (Step 2) can proceed perturbatively from weak or strong coupling, or non-perturbatively via functional methods. Theory space (Step 3) includes $U/t$, filling, and temperature. The beta functions (Step 4) are computed via weak-coupling RG, strong-coupling expansion, or the Wetterich equation~\eqref{eq:wetterich_hubbard}. Fixed-point analysis (Step 5) reveals competing phases: Fermi liquid, Mott insulator, superconductor, and possibly strange metal.
+The Hubbard model demonstrates the six-step RG recipe in strongly correlated systems where perturbation theory is insufficient. The scale hierarchy (Step 1) compares kinetic energy $t$ to interaction $U$. Perturbative analysis (Step 2) reveals Gevrey-1 structure in both weak and strong coupling expansions. Theory space (Step 3) includes $U/t$, filling, and temperature, extended to include non-perturbative sectors. The beta functions (Step 4) are computed via weak-coupling RG, strong-coupling expansion, or the Wetterich equation~\eqref{eq:wetterich_hubbard}. Fixed-point analysis (Step 5) reveals competing phases: Fermi liquid, Mott insulator, superconductor, and possibly strange metal. Physical predictions require proper handling of non-perturbative effects (Step 6).
 
 The competition between kinetic and potential energy scales creates a rich phase diagram with the metal-insulator (Mott) transition as its central feature. Different phases correspond to different fixed points in theory space, with phase transitions representing crossovers between basins of attraction. Emergent phenomena including magnetism and superconductivity arise naturally from the RG flow, even when they are not visible in the microscopic Hamiltonian.
 
-The Hubbard model demonstrates that the geometric RG framework extends to strongly correlated quantum systems, providing organizing principles even when perturbative calculations fail. The functional RG offers non-perturbative access to the full phase diagram, interpolating between weak and strong coupling limits. The same five-step recipe that organized the anharmonic oscillator applies here, though the implementation requires more sophisticated machinery.
+The Hubbard model demonstrates that the geometric RG framework extends to strongly correlated quantum systems, providing organizing principles even when perturbative calculations fail. The functional RG offers non-perturbative access to the full phase diagram, interpolating between weak and strong coupling limits. The same six-step recipe that organized the anharmonic oscillator applies here, though the implementation requires more sophisticated machinery.
 

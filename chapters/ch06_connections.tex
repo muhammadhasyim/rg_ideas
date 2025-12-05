@@ -469,6 +469,48 @@ This chapter unified the geometric and resurgent perspectives on the RG. The Sto
 The next chapter, the final chapter of Part I, synthesizes everything into a practical methodology. The ``RG Recipe'' will show how to apply the unified framework to new problems, with full awareness of both perturbative and non-perturbative aspects from the beginning.
 
 %-------------------------------------------------------------------------------
+\section*{Exercises}
+\addcontentsline{toc}{section}{Exercises}
+%-------------------------------------------------------------------------------
+
+\begin{enumerate}
+\item \textbf{Parallel transport.} Given a connection $\Gamma^i{}_{jk}$ on a manifold with coordinates $g^i$:
+\begin{enumerate}
+\item Write the parallel transport equation for a vector $V^i$ along a path $g^i(s)$.
+\item Show that parallel transport preserves inner products if and only if the connection is metric-compatible: $\nabla_k G_{ij} = 0$.
+\item Compute the Christoffel symbols for the 2-sphere in spherical coordinates.
+\end{enumerate}
+
+\item \textbf{Curvature.} The Riemann curvature tensor is $R^i{}_{jkl} = \partial_k\Gamma^i{}_{jl} - \partial_l\Gamma^i{}_{jk} + \Gamma^i{}_{mk}\Gamma^m{}_{jl} - \Gamma^i{}_{ml}\Gamma^m{}_{jk}$.
+\begin{enumerate}
+\item Show that $R = 0$ implies parallel transport is path-independent.
+\item For a 2D manifold, compute the Gaussian curvature $K = R_{1212}/\det(G)$.
+\item Discuss the physical interpretation of curvature in theory space.
+\end{enumerate}
+
+\item \textbf{Monodromy.} Consider parallel transport around a closed loop $\mathcal{C}$.
+\begin{enumerate}
+\item Show that for a flat connection ($R = 0$), the monodromy is trivial.
+\item For a connection with singularities (e.g., the Stokes connection), show that non-trivial monodromy can arise from paths encircling the singularity.
+\item Relate the monodromy matrix to the Stokes automorphism.
+\end{enumerate}
+
+\item \textbf{Operator mixing.} When multiple operators have the same classical dimension, they mix under RG: $\mu\,d\mathcal{O}_a/d\mu = \gamma_a{}^b\mathcal{O}_b$.
+\begin{enumerate}
+\item Show that $\gamma_a{}^b$ transforms as a connection under changes of basis.
+\item Diagonalize a simple $2\times 2$ mixing matrix and interpret the eigenvalues.
+\item Discuss the physical meaning of the eigenstates (operators of definite scaling).
+\end{enumerate}
+
+\item \textbf{(Challenge) Stokes as monodromy.} The transseries parameter $\sigma$ jumps when crossing a Stokes line: $\sigma \mapsto \sigma + S_\omega$.
+\begin{enumerate}
+\item Show that this is equivalent to monodromy around the origin in the complex coupling plane.
+\item Relate the Stokes constant $S_\omega$ to the residue of the connection at the singularity.
+\item Explain why the full transseries is single-valued despite the Stokes jumps.
+\end{enumerate}
+\end{enumerate}
+
+%-------------------------------------------------------------------------------
 \section*{Summary}
 \addcontentsline{toc}{section}{Summary}
 %-------------------------------------------------------------------------------

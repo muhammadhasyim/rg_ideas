@@ -602,6 +602,51 @@ Our two examples have rather simple flow structure with no non-trivial fixed poi
 \textbf{Chapters~\ref{ch:geometry}--\ref{ch:connections}} develop the full geometric structure of parameter space, including metrics and connections, with natural extensions to the transseries-enlarged theory space.
 
 %-------------------------------------------------------------------------------
+\section*{Exercises}
+\addcontentsline{toc}{section}{Exercises}
+%-------------------------------------------------------------------------------
+
+\begin{enumerate}
+\item \textbf{First-kind self-similarity.} The diffusion equation $\partial_t u = D\partial_x^2 u$ with initial condition $u(x,0) = \delta(x)$ has the similarity solution $u(x,t) = (4\pi Dt)^{-1/2}\exp(-x^2/4Dt)$.
+\begin{enumerate}
+\item Verify that $u$ satisfies the diffusion equation.
+\item Show that $u(x,t) = t^{-1/2}f(x/\sqrt{Dt})$ for an appropriate function $f$.
+\item Confirm that dimensional analysis predicts the exponents $\alpha = 1/2$ and $\beta = 1/2$ in $u = t^{-\alpha}f(x/t^\beta)$.
+\end{enumerate}
+
+\item \textbf{Dilation as a group action.} Consider the dilation operator $D_\lambda: f(x) \mapsto f(\lambda x)$ acting on functions.
+\begin{enumerate}
+\item Show that $D_\lambda D_\mu = D_{\lambda\mu}$, confirming the group structure.
+\item For homogeneous functions $f(\lambda x) = \lambda^\Delta f(x)$, show that $\Delta$ is the eigenvalue of the infinitesimal generator $x\frac{d}{dx}$.
+\item Relate this to the definition of scaling dimension.
+\end{enumerate}
+
+\item \textbf{Running coupling in $\phi^4$ theory.} The one-loop beta function for the $\phi^4$ coupling in $d = 4 - \epsilon$ dimensions is $\beta_\lambda = -\epsilon\lambda + 3\lambda^2/(16\pi^2)$.
+\begin{enumerate}
+\item Find the fixed points $\lambda^*$.
+\item Linearize around the non-trivial fixed point and determine whether it is UV or IR stable.
+\item Solve for $\lambda(\mu)$ and verify it interpolates between the two fixed points.
+\end{enumerate}
+
+\item \textbf{Transseries structure.} Consider a function with transseries representation $f(\epsilon) = \sum_{k=0}^\infty \sigma^k e^{-kS/\epsilon}\tilde{f}^{(k)}(\epsilon)$.
+\begin{enumerate}
+\item Explain why each sector $\tilde{f}^{(k)}$ can be expanded in powers of $\epsilon$.
+\item If $S > 0$ and $\epsilon > 0$, show that higher instanton sectors are exponentially suppressed.
+\item Discuss why the transseries parameter $\sigma$ cannot be determined from the perturbative sector alone.
+\end{enumerate}
+
+\item \textbf{(Challenge) Stokes phenomena for the Airy function.} The Airy function $\text{Ai}(x)$ has asymptotic expansion for large positive $x$:
+\begin{equation*}
+\text{Ai}(x) \sim \frac{e^{-\frac{2}{3}x^{3/2}}}{2\sqrt{\pi}x^{1/4}}\sum_{n=0}^\infty (-1)^n c_n x^{-3n/2}
+\end{equation*}
+\begin{enumerate}
+\item Identify the exponentially small term and relate it to the second linearly independent solution.
+\item Discuss how the subdominant solution becomes visible when $\arg(x)$ changes.
+\item Relate this to Stokes phenomena in the Borel plane.
+\end{enumerate}
+\end{enumerate}
+
+%-------------------------------------------------------------------------------
 \section*{Summary}
 \addcontentsline{toc}{section}{Summary}
 %-------------------------------------------------------------------------------

@@ -512,6 +512,48 @@ We've seen two derivations. The Callan-Symanzik approach says that physical obse
 The next chapter introduces our third example, the \textbf{porous medium equation}, which exhibits \textbf{anomalous dimensions}. There, the scaling exponents cannot be predicted by dimensional analysis and must be computed from the RG flow. This is Barenblatt's ``second kind'' self-similarity.
 
 %-------------------------------------------------------------------------------
+\section*{Exercises}
+\addcontentsline{toc}{section}{Exercises}
+%-------------------------------------------------------------------------------
+
+\begin{enumerate}
+\item \textbf{Callan-Symanzik equation.} For a renormalized Green function $G_n(\{p_i\}; g, \mu)$ satisfying the Callan-Symanzik equation $(\mu\partial_\mu + \beta\partial_g + n\gamma)G_n = 0$:
+\begin{enumerate}
+\item Show that at a fixed point ($\beta = 0$), $G_n$ scales as $\mu^{-n\gamma^*}$.
+\item Interpret $\gamma^*$ as an anomalous dimension.
+\item For a two-point function, derive the momentum dependence $G_2(p) \sim p^{-2+\eta}$ and relate $\eta$ to $\gamma^*$.
+\end{enumerate}
+
+\item \textbf{Beta function from the envelope method.} Consider the perturbative solution $y(t;\mu) = y_0(\mu) + \epsilon y_1(t;\mu) + O(\epsilon^2)$ where $\mu$ is an arbitrary renormalization point.
+\begin{enumerate}
+\item Demand that the envelope condition $\partial_\mu y = 0$ holds at $t = \mu$.
+\item Show this gives a relationship between $y_0'(\mu)$ and $y_1$.
+\item Identify the beta function $\beta = \mu dy_0/d\mu$ from this condition.
+\end{enumerate}
+
+\item \textbf{Flowing initial conditions.} The RG can be viewed as sliding initial conditions from $t = 0$ to $t = s$.
+\begin{enumerate}
+\item For $\dot{y} = \epsilon f(y)$ with $y(0) = y_0$, write the formal solution to $O(\epsilon)$.
+\item Define $y_s$ such that the solution starting from $(s, y_s)$ agrees with that from $(0, y_0)$ at late times.
+\item Derive the flow equation $dy_s/ds = -\epsilon f(y_s) + O(\epsilon^2)$.
+\end{enumerate}
+
+\item \textbf{Operator product expansion.} In a field theory near a fixed point, the product of two operators at nearby points can be expanded as $\mathcal{O}_i(x)\mathcal{O}_j(0) = \sum_k C_{ij}^k |x|^{\Delta_k - \Delta_i - \Delta_j}\mathcal{O}_k(0)$.
+\begin{enumerate}
+\item Verify that dimensional analysis requires the exponent $\Delta_k - \Delta_i - \Delta_j$.
+\item Show that if $\Delta_i + \Delta_j < \Delta_k$, the $k$-th term is suppressed as $x \to 0$.
+\item Relate the most singular terms to the ``fusion rules'' of the theory.
+\end{enumerate}
+
+\item \textbf{(Challenge) Full Callan-Symanzik with operators.} The full Callan-Symanzik equation for Green functions with operator insertions is $(\mu\partial_\mu + \beta\partial_g + n\gamma + \gamma_{\mathcal{O}})\langle\phi(x_1)\cdots\phi(x_n)\mathcal{O}(y)\rangle = 0$.
+\begin{enumerate}
+\item Explain the role of $\gamma_{\mathcal{O}}$ as the anomalous dimension of the operator $\mathcal{O}$.
+\item Show that at a fixed point, operator dimensions are eigenvalues of the stability matrix.
+\item Discuss how operator mixing arises when multiple operators have the same classical dimension.
+\end{enumerate}
+\end{enumerate}
+
+%-------------------------------------------------------------------------------
 \section*{Summary}
 \addcontentsline{toc}{section}{Summary}
 %-------------------------------------------------------------------------------

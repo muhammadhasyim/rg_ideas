@@ -195,7 +195,61 @@ The reader should be familiar with undergraduate analysis and linear algebra, or
 
 \section*{Notation}
 
-We use $s$ or $t$ for the scale parameter, typically the logarithm of an energy or length scale. Couplings or slow variables are denoted $g^i$ and serve as coordinates on theory space $\MM$. The beta function $\beta^i(g)$ is the vector field generating the RG flow. Scaling dimensions are denoted $\Delta$ with anomalous contributions $\gamma$. The metric on theory space is $G_{ij}$.
+We adhere to the following notational conventions throughout the book.
+
+\subsection*{Scale and Flow Parameters}
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{ll}
+$\ell$ & Scale parameter (logarithm of energy or length scale) \\
+$t$ & Time (when physical time is the flow parameter) \\
+$\mu$ & Renormalization scale (energy units) \\
+$\Lambda$ & UV cutoff (energy or momentum) \\
+$\epsilon$ & Small expansion parameter
+\end{tabular}
+\end{center}
+
+\subsection*{Parameter Space}
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{ll}
+$g^i$ & Coupling constants (coordinates on theory space $\MM$) \\
+$\sigma^n$ & Transseries parameters (coordinates on extended space $\MM_{\text{ext}}$) \\
+$\beta^i(g)$ & Beta function (vector field generating RG flow) \\
+$B^i{}_j$ & Stability matrix $\partial\beta^i/\partial g^j|_{g^*}$ at fixed point \\
+$\Delta$ & Scaling dimension (eigenvalue of stability matrix) \\
+$\gamma$ & Anomalous dimension (interaction correction to scaling) \\
+$G_{ij}$ & Metric on theory space (Fisher/Zamolodchikov) \\
+$\Gamma^i{}_{jk}$ & Connection on theory space
+\end{tabular}
+\end{center}
+
+\subsection*{Resurgence}
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{ll}
+$\tilde{f}(\epsilon)$ & Formal (divergent) power series \\
+$\hat{f}_B(\zeta)$ & Borel transform of $\tilde{f}$ \\
+$\mathcal{S}[\tilde{f}]$ & Borel sum (resummation) \\
+$\mathcal{S}_\pm$ & Lateral resummations (above/below real axis) \\
+$S_\omega$ & Stokes constant at singularity $\omega$ \\
+$\Delta_\omega$ & Alien derivative probing singularity at $\omega$ \\
+$\mathfrak{S}$ & Stokes automorphism
+\end{tabular}
+\end{center}
+
+\subsection*{Standard Symbols}
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{ll}
+$\dd$ & Differential ($\dd/\dd t$, $\dd x$) \\
+$\pp$ & Partial derivative ($\pp/\pp x$) \\
+$\RR, \CC, \ZZ, \NN$ & Real, complex, integer, natural numbers \\
+$\MM$ & Theory space (parameter manifold) \\
+$\vev{\cdot}$ & Expectation value $\langle \cdot \rangle$ \\
+$O(\epsilon^n)$ & Terms of order $\epsilon^n$ and higher
+\end{tabular}
+\end{center}
 
 \vspace{2\baselineskip}
 \begin{flushright}
@@ -219,7 +273,8 @@ We use $s$ or $t$ for the scale parameter, typically the logarithm of an energy 
 \input{chapters/ch04_fixed_points}
 \input{chapters/ch05_geometry}
 \input{chapters/ch06_connections}
-\input{chapters/ch07_resurgence}
+\input{chapters/ch07_resurgence_foundations}
+\input{chapters/ch08_recipe}
 
 %-------------------------------------------------------------------------------
 % PART II: APPLICATIONS

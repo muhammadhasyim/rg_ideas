@@ -3,7 +3,7 @@
 \label{ch:lorenz}
 %===============================================================================
 
-The Lorenz system provides our first extended application of the RG framework developed in Part I. This chapter demonstrates how the five-step recipe of Chapter~\ref{ch:recipe} applies to chaotic dynamical systems. Originally derived as a simplified model of atmospheric convection, the Lorenz equations exhibit multi-scale behavior that makes them a natural testing ground for RG methods.
+The Lorenz system provides our first extended application of the RG framework developed in Part I. This chapter demonstrates how the six-step recipe of Chapter~\ref{ch:recipe} applies to chaotic dynamical systems. Originally derived as a simplified model of atmospheric convection, the Lorenz equations exhibit multi-scale behavior that makes them a natural testing ground for RG methods.
 
 We will proceed through the recipe systematically. Step 1 identifies the temporal scale hierarchy created by the parameter $\sigma$, which separates fast velocity relaxation from slow temperature evolution. Step 2 defines coarse-graining through the slow manifold reduction. Step 3 constructs a theory space parametrized by the control parameters $\sigma$, $\rho$, and $\beta$. Step 4 derives the beta functions for slowly varying amplitudes near bifurcation points. Step 5 analyzes the fixed-point landscape, including both the simple fixed points of the flow and the strange attractor viewed as a ``fixed set.''
 
@@ -227,12 +227,24 @@ where $O_\mu$ is the observable conjugate to parameter $\mu$ and the average is 
 
 This metric encodes the sensitivity of the chaotic dynamics to parameter changes and provides a natural distance function on the space of Lorenz systems.
 
+\subsection{Connection to the Three Canonical Examples}
+
+The Lorenz system connects to each of the three canonical examples from Part I:
+
+\marginnote{Each Part II application maps to one or more canonical examples.}
+
+\textbf{Anharmonic oscillator parallel.} The amplitude equation~\eqref{eq:lorenz_amplitude} has the same structure as the RG equation for the oscillator. Both exhibit secular growth cured by running parameters. The $\lambda^2$ nonlinearity mirrors the $A^2$ dependence in the oscillator's frequency shift.
+
+\textbf{$\phi^4$ theory parallel.} The bifurcation to chaos near $\rho = \rho_c$ resembles the Wilson-Fisher fixed point. The control parameter $(\rho - \rho_c)$ plays the role of the temperature deviation $(T - T_c)$ in critical phenomena. Universal exponents emerge from linearization at the fixed point.
+
+\textbf{PME parallel.} The strange attractor's fractal dimension is an ``anomalous dimension'' not predictable from naive scaling. Like the PME exponents, it must be computed from the dynamics rather than dimensional analysis.
+
 %-------------------------------------------------------------------------------
 \section{Summary}
 \label{sec:lorenz_summary}
 %-------------------------------------------------------------------------------
 
-The Lorenz system demonstrates how the five-step RG recipe applies to chaotic dynamics. We identified the temporal scale hierarchy created by large $\sigma$ (Step 1) and defined coarse-graining through slow manifold reduction (Step 2). The theory space is parametrized by the control parameters $\sigma$, $\rho$, and $\beta$ (Step 3). The beta functions for slowly varying amplitudes, equation~\eqref{eq:lorenz_amplitude}, describe the evolution near bifurcation points (Step 4). The fixed-point analysis (Step 5) revealed both simple fixed points of the flow and the strange attractor as a ``fixed set'' with invariant measure.
+The Lorenz system demonstrates how the six-step RG recipe applies to chaotic dynamics. We identified the temporal scale hierarchy created by large $\sigma$ (Step 1) and recognized the Gevrey-1 structure of perturbative expansions (Step 2). The theory space is parametrized by the control parameters $\sigma$, $\rho$, and $\beta$, extended to include transseries parameters (Step 3). The beta functions for slowly varying amplitudes, equation~\eqref{eq:lorenz_amplitude}, describe the evolution near bifurcation points (Step 4). The fixed-point analysis (Step 5) revealed both simple fixed points of the flow and the strange attractor as a ``fixed set'' with invariant measure. Physical predictions are extracted via proper resummation (Step 6).
 
 The correspondence between dynamical systems and the RG is systematic. Fixed points of the ODE map to fixed points of the RG flow. The strange attractor supports an invariant measure analogous to a fixed-point theory. Lyapunov exponents play the role of scaling dimensions, classifying perturbations as relevant, irrelevant, or marginal. Slow manifold reduction is the dynamical analog of integrating out irrelevant operators, producing effective equations for the slow variables alone.
 

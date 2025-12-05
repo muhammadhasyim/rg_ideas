@@ -3,7 +3,7 @@
 \label{ch:on_model}
 %===============================================================================
 
-The O(N) model is the canonical example for perturbative RG in statistical field theory, and this chapter applies the five-step recipe of Chapter~\ref{ch:recipe} in detail. The model describes systems with an N-component order parameter and exhibits a rich phase structure including continuous phase transitions. By working through the recipe systematically, we will see how the abstract framework of Part I produces concrete predictions for critical exponents that have been verified experimentally.
+The O(N) model is the canonical example for perturbative RG in statistical field theory, and this chapter applies the six-step recipe of Chapter~\ref{ch:recipe} in detail. The model describes systems with an N-component order parameter and exhibits a rich phase structure including continuous phase transitions. By working through the recipe systematically, we will see how the abstract framework of Part I produces concrete predictions for critical exponents that have been verified experimentally.
 
 The scale hierarchy (Step 1) ranges from the UV cutoff $\Lambda$ (the lattice scale) to the IR correlation length $\xi$. Coarse-graining (Step 2) proceeds by integrating out high-momentum modes in thin shells, the Wilsonian approach. Theory space (Step 3) is parametrized by the mass-squared $r$ and quartic coupling $u$. The beta functions (Step 4) are computed perturbatively using the $\epsilon$-expansion. Fixed-point analysis (Step 5) reveals the Gaussian and Wilson-Fisher fixed points, with the latter controlling critical behavior in $d < 4$.
 
@@ -295,12 +295,24 @@ where $\Lambda$ is the UV cutoff and $g_*$ is the coupling at the Wilson-Fisher 
 
 The cancellation of ambiguities between the perturbative series and the mass gap sector illustrates the general principle of Chapter~\ref{ch:rg_equation}: the imaginary parts from Borel resummation must cancel against contributions from non-perturbative sectors for physical observables to be real.
 
+\subsection{Connection to the Three Canonical Examples}
+
+The O(N) model connects intimately to all three canonical examples:
+
+\marginnote{The O(N) model is the ``grown-up'' version of the Part I examples: the oscillator partition function in one dimension, the full $\phi^4$ theory in higher dimensions.}
+
+\textbf{Anharmonic oscillator parallel.} The $d = 1$, $N = 1$ limit of the O(N) model is precisely the partition function of the anharmonic oscillator. The running coupling $u(\Lambda)$ is the field-theoretic generalization of the oscillator's running frequency.
+
+\textbf{$\phi^4$ theory parallel.} The O(N) model \emph{is} $\phi^4$ theory with $N$-component fields. It directly implements all concepts from the $\phi^4$ example: the Gaussian fixed point, the Wilson-Fisher fixed point at $u^* = O(\epsilon)$, and the perturbative beta functions~\eqref{eq:beta_r}--\eqref{eq:beta_u}.
+
+\textbf{PME parallel.} Critical exponents like $\nu = 1/2 + O(\epsilon)$ and $\eta = O(\epsilon^2)$ are anomalous dimensions---they differ from their mean-field values due to fluctuations. The $\epsilon$-expansion gives predictions that must be resummed to apply at physical dimension $d = 3$ ($\epsilon = 1$), exactly as in second-kind self-similarity.
+
 %-------------------------------------------------------------------------------
 \section{Summary}
 \label{sec:on_summary}
 %-------------------------------------------------------------------------------
 
-The O(N) model demonstrates the five-step RG recipe in its natural habitat: statistical field theory near continuous phase transitions. The scale hierarchy (Step 1) extends from the microscopic cutoff $\Lambda$ to the diverging correlation length $\xi$. Coarse-graining (Step 2) integrates out momentum shells in the Wilsonian approach. Theory space (Step 3) has coordinates $(r, u)$ with the RG flow defining a vector field. The beta functions (Step 4) are computed via the $\epsilon$-expansion, yielding equations~\eqref{eq:beta_r} and~\eqref{eq:beta_u}. Fixed-point analysis (Step 5) reveals the Wilson-Fisher fixed point~\eqref{eq:wilson_fisher} with universal critical exponents.
+The O(N) model demonstrates the six-step RG recipe in its natural habitat: statistical field theory near continuous phase transitions. The scale hierarchy (Step 1) extends from the microscopic cutoff $\Lambda$ to the diverging correlation length $\xi$. Perturbative analysis with Borel structure (Step 2) reveals renormalon singularities from RG running. Theory space (Step 3) has coordinates $(r, u)$ with the RG flow defining a vector field, extended to include transseries parameters. The beta functions (Step 4) are computed via the $\epsilon$-expansion, yielding equations~\eqref{eq:beta_r} and~\eqref{eq:beta_u}. Fixed-point analysis (Step 5) reveals the Wilson-Fisher fixed point~\eqref{eq:wilson_fisher} with universal critical exponents. Physical predictions for exponents at $\epsilon = 1$ require Borel resummation (Step 6).
 
 The chapter has invoked every element of the geometric framework from Part I. Canonical scaling dimensions follow from the dilation group analysis of Chapter~\ref{ch:flows}. Beta functions emerge from scale covariance as developed in Chapter~\ref{ch:rg_equation}. Fixed points and stability analysis apply the machinery of Chapter~\ref{ch:fixed_points}. The Zamolodchikov metric and gradient flow structure connect to the geometry of Chapter~\ref{ch:geometry}. The c-theorem establishes irreversibility of the flow.
 

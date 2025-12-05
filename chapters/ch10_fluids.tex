@@ -3,7 +3,7 @@
 \label{ch:fluids}
 %===============================================================================
 
-Fluid turbulence represents one of the most spectacular manifestations of scale hierarchy in physics. Energy injected at large scales cascades through an inertial range before being dissipated at small scales. The RG provides the natural language for describing this multi-scale structure, and this chapter applies the five-step recipe of Chapter~\ref{ch:recipe} to the Navier-Stokes and Burgers equations.
+Fluid turbulence represents one of the most spectacular manifestations of scale hierarchy in physics. Energy injected at large scales cascades through an inertial range before being dissipated at small scales. The RG provides the natural language for describing this multi-scale structure, and this chapter applies the six-step recipe of Chapter~\ref{ch:recipe} to the Navier-Stokes and Burgers equations.
 
 The scale hierarchy (Step 1) ranges from the integral scale $L$ of energy injection down to the Kolmogorov scale $\eta$ of viscous dissipation, with the Reynolds number measuring the separation. Coarse-graining (Step 2) integrates out velocity fluctuations at successively smaller scales while adjusting the effective viscosity. Theory space (Step 3) is parametrized by the effective viscosity and forcing spectrum. The beta functions (Step 4) describe the scale dependence of these effective parameters. Fixed-point analysis (Step 5) identifies the Kolmogorov scaling as a fixed point, with intermittency corrections arising from anomalous dimensions. Throughout, we make essential contact with Barenblatt's theory of intermediate asymptotics.
 
@@ -249,14 +249,26 @@ The self-similar solutions of Section~\ref{sec:burgers} arise from the scale cov
 
 The scaling exponents emerge as eigenvalues of the RG transformation, exactly as in Chapter~\ref{ch:fixed_points}.
 
+\subsection{Connection to the Three Canonical Examples}
+
+Turbulence connects to each of the three canonical examples from Part I:
+
+\marginnote{Turbulence is a particularly rich application, drawing on all three canonical examples.}
+
+\textbf{Anharmonic oscillator parallel.} The velocity field expansion encounters secular growth from mode coupling. The effective viscosity ``runs'' with scale, curing the divergences much as the running frequency cures secular terms in the oscillator.
+
+\textbf{$\phi^4$ theory parallel.} Kolmogorov scaling is a non-trivial fixed point analogous to Wilson-Fisher. The deviations from dimensional analysis (the Kolmogorov $-5/3$ exponent vs.\ the dimensional prediction) parallel the Wilson-Fisher exponents differing from mean-field values.
+
+\textbf{PME parallel.} Intermittency corrections are anomalous dimensions in the same sense as the PME: the structure function exponents $\zeta_n$ cannot be predicted from dimensional analysis alone but must be computed from the nonlinear dynamics. This is second-kind self-similarity applied to turbulence.
+
 %-------------------------------------------------------------------------------
 \section{Summary}
 \label{sec:fluids_summary}
 %-------------------------------------------------------------------------------
 
-This chapter has applied the five-step RG recipe to turbulence and fluid dynamics. The scale hierarchy (Step 1) spans from the integral scale $L$ to the Kolmogorov scale $\eta$, with the Reynolds number measuring the separation. Coarse-graining (Step 2) integrates out velocity fluctuations while rescaling space and adjusting the effective viscosity. Theory space (Step 3) is parametrized by the effective viscosity and forcing spectrum. The beta functions (Step 4) from the Yakhot-Orszag analysis describe the scale dependence of these effective parameters. Fixed-point analysis (Step 5) identifies Kolmogorov scaling as a fixed point.
+This chapter has applied the six-step RG recipe to turbulence and fluid dynamics. The scale hierarchy (Step 1) spans from the integral scale $L$ to the Kolmogorov scale $\eta$, with the Reynolds number measuring the separation. Perturbative analysis (Step 2) reveals the structure of the velocity field expansion. Theory space (Step 3) is parametrized by the effective viscosity and forcing spectrum, extended to include non-perturbative corrections. The beta functions (Step 4) from the Yakhot-Orszag analysis describe the scale dependence of these effective parameters. Fixed-point analysis (Step 5) identifies Kolmogorov scaling as a fixed point. Physical predictions including intermittency corrections are extracted via proper resummation (Step 6).
 
 The RG perspective reveals Kolmogorov scaling as fixed-point behavior, with structure function exponents playing the role of scaling dimensions. Intermittency corrections are anomalous dimensions arising from the multi-scale structure of dissipation. Self-similar solutions of the Burgers equation exemplify fixed-point structure in its simplest form. The energy cascade, transferring energy monotonically from large to small scales, is an irreversible RG flow analogous to the $c$-theorem in two-dimensional field theory. Barenblatt's intermediate asymptotics provides the physical interpretation of approach to a fixed point.
 
-This chapter demonstrates that the geometric RG framework unifies the treatment of turbulence with critical phenomena, revealing the deep mathematical connections between fluid dynamics and statistical physics. The same five-step recipe that organized the anharmonic oscillator and Lorenz equations applies equally well to the Navier-Stokes equations, despite the enormous increase in complexity.
+This chapter demonstrates that the geometric RG framework unifies the treatment of turbulence with critical phenomena, revealing the deep mathematical connections between fluid dynamics and statistical physics. The same six-step recipe that organized the anharmonic oscillator and Lorenz equations applies equally well to the Navier-Stokes equations, despite the enormous increase in complexity.
 

@@ -3,7 +3,7 @@
 \label{ch:ising}
 %===============================================================================
 
-The two-dimensional Ising model holds a special place in the history of physics as one of the few exactly solvable interacting systems. At its critical point, it exhibits conformal invariance and provides a beautiful testing ground for the RG framework. This chapter applies the five-step recipe of Chapter~\ref{ch:recipe} from multiple perspectives, demonstrating how the same physics emerges whether we use real-space blocking, field theory, conformal methods, or free fermion techniques.
+The two-dimensional Ising model holds a special place in the history of physics as one of the few exactly solvable interacting systems. At its critical point, it exhibits conformal invariance and provides a beautiful testing ground for the RG framework. This chapter applies the six-step recipe of Chapter~\ref{ch:recipe} from multiple perspectives, demonstrating how the same physics emerges whether we use real-space blocking, field theory, conformal methods, or free fermion techniques.
 
 The scale hierarchy (Step 1) ranges from the lattice spacing $a$ to the diverging correlation length $\xi$. Coarse-graining (Step 2) can be implemented via Kadanoff's block-spin transformation, momentum-shell integration, or operator product expansion. Theory space (Step 3) has coordinates $(K, H)$ representing temperature and magnetic field. The beta functions (Step 4) follow exactly from conformal invariance at the fixed point. Fixed-point analysis (Step 5) reveals the critical point with its exact scaling dimensions $\Delta_\sigma = 1/16$ and $\Delta_\varepsilon = 1/2$.
 
@@ -275,12 +275,24 @@ The Ising model illustrates every aspect of Part I:
 
 \textbf{Connections} (Chapter~\ref{ch:connections}): The OPE provides the connection structure, relating operators at different points.
 
+\subsection{Connection to the Three Canonical Examples}
+
+The Ising model connects to each of the three canonical examples:
+
+\marginnote{The 2D Ising model is the canonical example for critical phenomena, providing exact benchmarks for all RG concepts.}
+
+\textbf{Anharmonic oscillator parallel.} While the oscillator has no non-trivial fixed points, the mechanism is the same: parameters that appear constant become scale-dependent. In the Ising model, the temperature coupling runs to zero or infinity depending on starting point.
+
+\textbf{$\phi^4$ theory parallel.} The Ising model \emph{is} the $\phi^4$ theory in the limit $d \to 2$. The Wilson-Fisher fixed point in $d = 4 - \epsilon$ connects continuously to the exact Ising fixed point as $\epsilon \to 2$. Critical exponents computed via the $\epsilon$-expansion can be checked against exact values.
+
+\textbf{PME parallel.} The exact anomalous dimensions $\eta = 1/4$, $\Delta_\sigma = 1/16$ demonstrate second-kind self-similarity. These cannot be guessed from dimensional analysis but emerge from the dynamical equations (here, conformal bootstrap constraints). The Ising model is the exactly solvable limit of anomalous scaling.
+
 %-------------------------------------------------------------------------------
 \section{Summary}
 \label{sec:ising_summary}
 %-------------------------------------------------------------------------------
 
-The 2D Ising model demonstrates the five-step RG recipe in an exactly solvable setting. The scale hierarchy (Step 1) extends from lattice spacing to correlation length. Coarse-graining (Step 2) can be implemented in multiple ways: Kadanoff blocking, field-theoretic methods, CFT, or free fermion techniques. Theory space (Step 3) is the two-dimensional $(t, h)$ plane. The beta functions (Step 4) are determined exactly by conformal invariance. Fixed-point analysis (Step 5) reveals the critical point with central charge $c = 1/2$ and exact scaling dimensions.
+The 2D Ising model demonstrates the six-step RG recipe in an exactly solvable setting. The scale hierarchy (Step 1) extends from lattice spacing to correlation length. Perturbative analysis and Borel structure (Step 2) can be verified against exact results. Theory space (Step 3) is the two-dimensional $(t, h)$ plane, extended to include non-perturbative sectors. The beta functions (Step 4) are determined exactly by conformal invariance. Fixed-point analysis (Step 5) reveals the critical point with central charge $c = 1/2$ and exact scaling dimensions. Physical predictions (Step 6) are exact here, providing benchmarks for resummation methods.
 
 The power of the Ising model as a testing ground lies in the consistency of all approaches. Real-space, field theory, CFT, and fermion methods all give identical results, confirming the universality of the RG framework. The exact scaling dimensions $\Delta_\sigma = 1/16$ and $\Delta_\varepsilon = 1/2$ provide non-trivial tests: these are not simple fractions but emerge from the representation theory of the Virasoro algebra. The c-theorem is realized explicitly, with the central charge $c = 1/2$ at the critical point decreasing to $c = 0$ in the ordered or disordered phases.
 

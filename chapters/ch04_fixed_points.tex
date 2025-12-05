@@ -527,7 +527,76 @@ This chapter classified fixed points by stability and introduced anomalous dimen
 
 \textbf{The oscillator} demonstrated secular terms and running parameters with trivial fixed point structure. \textbf{The $\phi^4$ theory} showed non-trivial beta functions and the Gaussian fixed point. \textbf{The PME} revealed anomalous dimensions and second-kind self-similarity.
 
+\subsection{Comparison of the Three Canonical Examples}
+
+Table~\ref{tab:three_examples} summarizes the three examples and their roles in the RG framework.
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\caption{The three canonical examples and the RG concepts they illustrate.}
+\label{tab:three_examples}
+\begin{tabular}{@{}p{2.8cm}p{3.5cm}p{3.5cm}p{3.5cm}@{}}
+\toprule
+\textbf{Feature} & \textbf{Oscillator} & \textbf{$\phi^4$ Theory} & \textbf{PME} \\
+\midrule
+\textbf{Equation} & $\ddot{x} + \omega^2 x + \epsilon x^3 = 0$ & $Z = \int e^{-\int(\frac{1}{2}(\nabla\phi)^2 + \frac{r}{2}\phi^2 + \frac{u}{4!}\phi^4)}$ & $\partial_t \rho = \nabla^2(\rho^m)$ \\
+\textbf{Scale parameter} & Time $t$ & Cutoff $\Lambda$ & Time $t$ \\
+\textbf{Running parameter(s)} & Frequency $\omega(t)$, amplitude $A(t)$ & Mass $r(\Lambda)$, coupling $u(\Lambda)$ & Exponents $\alpha(m)$, $\beta(m)$ \\
+\textbf{Beta function} & $\beta_\omega = \frac{3\epsilon A^2}{8\omega}$ & $\beta_r = 2r + O(u)$, $\beta_u = -\epsilon u + O(u^2)$ & Implicit via scaling analysis \\
+\textbf{Fixed points} & None (continuum of states) & Gaussian ($u^*=0$), Wilson-Fisher ($u^* \sim \epsilon$) & Self-similar solution \\
+\textbf{Anomalous dim.} & None ($\gamma = 0$) & $\eta = O(\epsilon^2)$ & $\gamma \neq 0$ generically \\
+\textbf{Borel structure} & Alternating $n!$, instanton & Renormalon at $\zeta = k/\beta_1$ & TBD \\
+\textbf{Key lesson} & Secular terms $\to$ running & Beta functions, universality & Second-kind self-similarity \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Each example adds complexity while remaining analytically tractable. The oscillator has no fixed points but shows the basic mechanism of running parameters. The $\phi^4$ theory has non-trivial fixed points but anomalous dimensions only at two loops. The PME has anomalous dimensions at leading order, illustrating second-kind self-similarity.
+
 The next two chapters develop the geometric structures underlying parameter space. \textbf{Chapter~\ref{ch:geometry}} introduces metrics on theory space, relating RG to information geometry and gradient flow. \textbf{Chapter~\ref{ch:connections}} develops connections and parallel transport, leading to the unified picture of Stokes phenomena as monodromy.
+
+%-------------------------------------------------------------------------------
+\section*{Exercises}
+\addcontentsline{toc}{section}{Exercises}
+%-------------------------------------------------------------------------------
+
+\begin{enumerate}
+\item \textbf{Stability analysis.} For a two-dimensional flow with $\beta^1 = g^1(1 - g^1)$ and $\beta^2 = -g^2(1 + g^1)$:
+\begin{enumerate}
+\item Find all fixed points.
+\item Compute the stability matrix $B^i{}_j = \partial\beta^i/\partial g^j$ at each fixed point.
+\item Classify each fixed point as UV-stable, IR-stable, or saddle.
+\end{enumerate}
+
+\item \textbf{Universality.} Two theories with different microscopic Hamiltonians flow to the same fixed point.
+\begin{enumerate}
+\item Explain why their long-distance physics (critical exponents, correlation functions) must be identical.
+\item How do they differ in the approach to the fixed point?
+\item Discuss the role of ``irrelevant operators'' in distinguishing UV-complete theories.
+\end{enumerate}
+
+\item \textbf{Porous medium equation.} The PME $\partial_t \rho = \nabla^2(\rho^m)$ has similarity solutions $\rho(x,t) = t^{-\alpha}f(x/t^\beta)$ with $\alpha = d/(d(m-1)+2)$ and $\beta = 1/(d(m-1)+2)$.
+\begin{enumerate}
+\item Verify these exponents satisfy the scaling relation $\alpha = d\beta$.
+\item For $m = 1$ (linear diffusion), confirm $\alpha = d/2$ and $\beta = 1/2$.
+\item Explain why $m \neq 1$ gives ``anomalous'' exponents that differ from dimensional analysis.
+\end{enumerate}
+
+\item \textbf{Non-perturbative fixed points.} Consider a beta function $\beta(g) = -g + g^2 + ce^{-1/g}$ for small positive $c$.
+\begin{enumerate}
+\item Find the perturbative fixed points ($c = 0$).
+\item Show that for small $c > 0$, the non-perturbative term creates new fixed points.
+\item Discuss how these new fixed points are invisible to perturbation theory.
+\end{enumerate}
+
+\item \textbf{(Challenge) Marginally relevant operators.} When $\Delta = 0$ (marginal), higher-loop effects determine stability.
+\begin{enumerate}
+\item For $\beta = g^2/(16\pi^2)$, solve for $g(\mu)$ starting from $g(\mu_0) = g_0$.
+\item Show that $g \to 0$ as $\mu \to 0$ (the operator is marginally irrelevant).
+\item Discuss the running of QED coupling and explain why $\alpha$ grows at high energies.
+\end{enumerate}
+\end{enumerate}
 
 %-------------------------------------------------------------------------------
 \section*{Summary}
