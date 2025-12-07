@@ -1,0 +1,544 @@
+%===============================================================================
+\chapter{Perturbation Theory and UV Divergences}
+\label{ch:perturbation}
+%===============================================================================
+
+\marginnote{Part I developed the exact RG framework. This chapter introduces perturbation theory as the primary computational method, covering both the universal divergence structure and the regularization/renormalization machinery needed for quantum field theory.}
+
+The RG framework developed in Part I is \textbf{exact}---beta functions, fixed points, and flows exist independently of how we compute them. \textbf{Perturbation theory} is the most common method for computing these quantities: expand in a small parameter and calculate order by order.
+
+This chapter examines perturbation theory comprehensively:
+\begin{itemize}
+\item \textbf{Section~\ref{sec:why_diverge}}: Why perturbation series generically diverge
+\item \textbf{Section~\ref{sec:pert_examples}}: Three canonical examples demonstrating universality
+\item \textbf{Section~\ref{sec:decision_tree}}: When RG methods are needed versus simpler approaches
+\item \textbf{Section~\ref{sec:sethna_template}}: A systematic problem-solving methodology
+\item \textbf{Section~\ref{sec:regularization}}: UV divergences and regularization methods
+\item \textbf{Section~\ref{sec:renorm_schemes}}: Renormalization schemes and their equivalence
+\end{itemize}
+
+The key insight is that perturbation theory, while powerful, is \emph{incomplete}. The factorial divergence of perturbative series encodes information about non-perturbative physics---a theme we develop fully in Chapter~\ref{ch:resurgence}.
+
+%-------------------------------------------------------------------------------
+\section{Why Perturbation Series Diverge}
+\label{sec:why_diverge}
+%-------------------------------------------------------------------------------
+
+Before developing the machinery, let's understand \emph{why} perturbation series in physics generically diverge.
+
+\subsection{The Source of Factorial Growth}
+
+Consider a generic nonlinear problem with small parameter $\epsilon$:
+\begin{equation}
+\mathcal{L}[f] = \epsilon \mathcal{N}[f]
+\end{equation}
+where $\mathcal{L}$ is linear and $\mathcal{N}$ is nonlinear. The perturbative solution $f = \sum_n \epsilon^n f_n$ is constructed iteratively:
+\begin{equation}
+f_{n+1} = \mathcal{L}^{-1}[\mathcal{N}[f_0 + \epsilon f_1 + \cdots + \epsilon^n f_n]]
+\end{equation}
+
+\marginnote{Each order of perturbation theory involves applying the nonlinearity to all previous orders. This generates combinatorial factors.}
+
+At order $n$, we must account for all ways of distributing $n$ powers of $\epsilon$ among the nonlinear terms. The number of such distributions grows combinatorially. For a cubic nonlinearity, the growth is roughly $n!$.
+
+\textbf{Dyson's argument:} For quantum field theories, Dyson argued that the perturbative series must diverge. If the series converged for coupling $g > 0$, it would converge in a disk including $g < 0$. But for $g < 0$, the vacuum is unstable (the potential is unbounded below), so the theory doesn't exist. Hence convergence is impossible.
+
+\subsection{Gevrey-1 Structure}
+
+\marginnote{Gevrey-1 means factorial growth: $|a_n| \lesssim n!$. This is the generic case for physical perturbation series.}
+
+A formal series $\tilde{f}(\epsilon) = \sum_{n=0}^\infty a_n \epsilon^n$ is \textbf{Gevrey of order 1} (Gevrey-1) if:
+\begin{equation}
+|a_n| \leq C \cdot K^n \cdot n!
+\label{eq:gevrey1_def}
+\end{equation}
+for constants $C, K > 0$. The factorial $n!$ means the series has zero radius of convergence.
+
+\textbf{Physical examples:}
+\begin{itemize}
+\item The anharmonic oscillator ground state energy has $a_n \sim (-1)^n \cdot \text{const} \cdot A^n \cdot n!$
+\item QED perturbation theory has $a_n \sim n! \cdot (1/137)^n$ from diagram counting
+\item The epsilon expansion for critical exponents has factorially growing coefficients from renormalon contributions
+\item The late-time behavior of the Lorenz system near bifurcation has factorially divergent corrections
+\item Matched asymptotic expansions in fluid mechanics (boundary layers, etc.) generically produce Gevrey-1 series
+\end{itemize}
+
+\marginnote{Divergent series are universal: they appear in ODEs, PDEs, and QFT alike. The mathematical structure is independent of the physical origin.}
+
+The key observation is that factorial divergence is \textbf{not specific to quantum field theory}. It appears whenever:
+\begin{enumerate}
+\item A nonlinearity generates combinatorial complexity at each order
+\item A small parameter controls the expansion
+\item The expansion is around a singular limit (e.g., $\epsilon \to 0$ in the anharmonic oscillator)
+\end{enumerate}
+
+\subsection{What Divergence Encodes}
+
+The crucial insight is that factorial divergence is not random. The \emph{pattern} of divergence---signs, growth rates, subleading corrections---encodes non-perturbative physics that is invisible to any finite truncation of the series.
+
+\marginnote{The way a series diverges tells you about physics invisible to any finite truncation. Chapter~\ref{ch:resurgence} develops the tools to extract this information.}
+
+This is a profound observation: the perturbative series ``knows'' about non-perturbative effects like tunneling and instantons, even though these effects are exponentially suppressed and invisible at any finite order. Chapter~\ref{ch:resurgence} develops the machinery---Borel transforms, transseries, and alien calculus---to systematically extract this hidden information.
+
+\subsection{Divergent Series in Classical Mechanics and PDEs}
+
+\marginnote{Divergent series are not a quantum phenomenon. They appear throughout classical mechanics, fluid dynamics, and nonlinear PDEs.}
+
+It is essential to emphasize that factorial divergence is \textbf{not unique to quantum mechanics or field theory}. Classical dynamical systems exhibit the same structure:
+
+\textbf{The Lorenz system:} Near the Hopf bifurcation at $\rho = 1$, perturbative corrections to the fixed point position diverge factorially. The pattern of divergence encodes information about the global structure of the unstable manifold.
+
+\textbf{Boundary layer theory:} The Prandtl matched asymptotic expansion for boundary layers in fluid mechanics produces Gevrey-1 series. The divergence encodes the ``inner'' scale physics invisible to the ``outer'' expansion.
+
+\textbf{The porous medium equation:} Perturbative corrections to the Barenblatt self-similar solution (expanding around $m = 1$) diverge factorially for $m \neq 1$. This reflects the singular nature of the nonlinear diffusion.
+
+\textbf{Singular perturbation theory:} Any problem of the form $\epsilon \mathcal{L}_1[f] + \mathcal{L}_0[f] = 0$ with $\epsilon \to 0$ generically produces factorially divergent series. The boundary layer, turning point, and WKB analyses of asymptotic methods are all Gevrey-1.
+
+\begin{workedbox}[Box 5.1: Divergent Series in the Van der Pol Oscillator]
+\textbf{The model:} The Van der Pol equation $\ddot{x} + \epsilon(x^2 - 1)\dot{x} + x = 0$ with $\epsilon \ll 1$ describes a weakly nonlinear oscillator.
+
+\textbf{The expansion:} The limit cycle amplitude can be expanded:
+\begin{equation}
+A(\epsilon) = 2 + a_1 \epsilon + a_2 \epsilon^2 + a_3 \epsilon^3 + \cdots
+\end{equation}
+
+\textbf{The divergence:} The coefficients grow as $a_n \sim n!$ for large $n$. This is because each order of perturbation theory involves iterating the nonlinearity, generating combinatorial growth.
+
+\textbf{The physics:} The divergence reflects the \emph{relaxation oscillation} regime at large $\epsilon$. Information about this strong-coupling behavior is encoded in how the weak-coupling series diverges.
+
+\textbf{Comparison with QFT:} The mathematical structure---Gevrey-1 divergence, Borel summability, Stokes phenomena---is identical to QFT perturbation theory. The techniques of Chapter~\ref{ch:resurgence} apply without modification.
+\end{workedbox}
+
+This universality is why we develop the resurgent framework in generality: the tools work for ODEs, PDEs, and QFT alike.
+
+%-------------------------------------------------------------------------------
+\section{Three Canonical Examples}
+\label{sec:pert_examples}
+%-------------------------------------------------------------------------------
+
+To ground the abstract discussion, we now examine three canonical examples that demonstrate the universality of perturbative structure across different physical domains. These examples form a ladder of increasing complexity.
+
+\marginnote{The three examples form a ladder: oscillator $\to$ field theory $\to$ PDE. Each adds capabilities the previous lacked.}
+
+\subsection{The Anharmonic Oscillator}
+
+The anharmonic oscillator is the simplest example and suffices to demonstrate secular terms and running parameters, the resolution via RG equations, Gevrey-1 divergence and the Borel plane, and the basic transseries structure.
+
+It is too simple for non-trivial fixed points, operator mixing or anomalous dimensions, and statistical RG with coarse-graining.
+
+\begin{workedbox}[Box 5.2: Complete Analysis of the Damped Anharmonic Oscillator]
+\textbf{Scales and divergence.}
+UV scale: oscillation period $\tau_{\text{fast}} \sim 1/\omega_0$.
+IR scale: amplitude-decay time $\tau_{\text{slow}} \sim 1/\gamma$.
+Small parameters: $\gamma \ll \omega_0$ (weak damping), $\epsilon \ll 1$ (weak nonlinearity).
+Breakdown: secular terms at $t \sim \tau_{\text{slow}}$.
+Non-perturbative: complex-time instantons.
+
+\textbf{Perturbation theory.}
+The perturbative solution $x(t) = A\cos(\omega_0 t) + O(\epsilon)$ develops secular terms.
+The frequency series $\omega = \omega_0(1 + \frac{3\epsilon A^2}{8\omega_0^2} + c_2\epsilon^2 + \cdots)$ diverges with $|c_n| \sim n!$.
+The Borel transform $\hat{\omega}(\zeta)$ has singularities at $\zeta = \omega_0^3/(3\epsilon)$ (instanton action).
+
+\textbf{Running parameters.}
+Perturbative: $(A, \phi)$.
+Extended: $(A, \phi, \sigma)$ with $\sigma$ weighting instanton sector.
+
+\textbf{Beta functions.}
+\begin{align}
+\frac{dA}{dt} &= -\gamma A \\
+\frac{d\phi}{dt} &= \frac{3\epsilon A^2}{8\omega_0}
+\end{align}
+Transseries corrections: $O(\sigma e^{-S/\epsilon})$.
+The Stokes constant $S_1$ relates perturbative and instanton sectors.
+
+\textbf{Fixed points and stability.}
+Perturbative fixed point: $A = 0$ (trivial, stable due to damping).
+No non-perturbative fixed points.
+All $A > 0$ trajectories flow to $A = 0$.
+
+\textbf{Physical prediction.}
+The effective frequency is:
+\begin{equation}
+\omega_{\text{eff}} = \omega_0\left(1 + \frac{3\epsilon A^2}{8\omega_0^2}\right) + O(\epsilon^2)
+\end{equation}
+For quantitative accuracy at larger $\epsilon$, resum using median prescription.
+\end{workedbox}
+
+\marginnote{The damped anharmonic oscillator example is developed fully in Chapter~\ref{ch:resurgence}, where we show how to extract non-perturbative physics from the factorial divergence.}
+
+\subsection{The 1D $\phi^4$ Theory}
+
+The 1D $\phi^4$ theory adds non-trivial beta functions with multiple couplings, the Gaussian fixed point and its stability, renormalon singularities from RG running, and statistical mechanics interpretation.
+
+It is still too simple for non-trivial interacting fixed points (which require $d < 4$) and anomalous dimensions.
+
+\begin{workedbox}[Box 5.3: Complete Analysis of 1D $\phi^4$ Theory]
+\textbf{Scales and divergence.}
+UV scale: cutoff $\Lambda$ (lattice spacing).
+IR scale: correlation length $\xi \sim 1/\sqrt{r}$.
+Small parameter: $\lambda/\Lambda^2 \ll 1$.
+Breakdown: tadpole corrections grow with $\Lambda$.
+Non-perturbative: renormalons from RG running.
+
+\textbf{Perturbation theory.}
+The beta functions $\beta_r = 2r + 3\lambda\Lambda/\pi(\Lambda^2 + r)$ and $\beta_\lambda = 2\lambda$ are perturbative leading terms.
+Higher-order coefficients grow factorially.
+The Borel transform has renormalon singularities at $\zeta_k = k/2$.
+
+\textbf{Running parameters.}
+Perturbative: $(r, \lambda)$.
+Extended: $(r, \lambda, \sigma_{\text{ren}})$.
+
+\textbf{Beta functions.}
+\begin{align}
+\beta_r &= 2r + \frac{3\lambda\Lambda}{\pi(\Lambda^2 + r)} + O(\sigma_{\text{ren}}e^{-1/(2\lambda)}) \\
+\beta_\lambda &= 2\lambda + O(\sigma_{\text{ren}}e^{-1/(2\lambda)})
+\end{align}
+The renormalon Stokes constant: $S_{\text{ren}} = 1/\beta_1 + O(1) = 1/2 + O(1)$.
+
+\textbf{Fixed points and stability.}
+Perturbative: Gaussian fixed point $(0, 0)$.
+Stability matrix eigenvalues: both $= 2$ (relevant, unstable).
+No non-perturbative fixed points in 1D.
+In $d = 4 - \epsilon$, the Wilson-Fisher fixed point appears.
+
+\textbf{Physical prediction.}
+Running couplings:
+\begin{equation}
+\lambda(\mu) = \lambda_0\left(\frac{\mu}{\mu_0}\right)^2
+\end{equation}
+Physical correlation functions computed from resummed expressions.
+\end{workedbox}
+
+\subsection{The Porous Medium Equation}
+
+The porous medium equation adds anomalous dimensions (second-kind self-similarity), non-trivial scaling exponents from dynamics, Wasserstein gradient flow structure, and selection principles for physical solutions.
+
+Together, the three examples demonstrate the complete framework. Any new problem will share features with one or more of these examples, and the techniques transfer accordingly.
+
+\begin{workedbox}[Box 5.4: Complete Analysis of the Porous Medium Equation]
+\textbf{Scales and divergence.}
+UV scale: initial localization width.
+IR scale: late-time spread $L(t) \sim t^\beta$.
+Small parameter: $(m - 1)$ (deviation from linear diffusion).
+Breakdown: anomalous exponent $\beta \neq 1/2$ for $m \neq 1$.
+Non-perturbative: sub-leading self-similar modes.
+
+\textbf{Perturbation theory.}
+Expand $\beta(m)$ around $m = 1$:
+\begin{equation}
+\beta = \frac{1}{2} - \frac{d}{4}(m-1) + O((m-1)^2)
+\end{equation}
+This is asymptotic with singularities corresponding to competing modes.
+
+\textbf{Running parameters.}
+The exponent $\beta$ is determined by the self-similar ansatz.
+Extended space includes mode weights selecting among solutions.
+
+\textbf{Selection principle.}
+Mass conservation: $\alpha = d\beta$.
+Self-consistency: $\beta(md + 2 - d) = 1$.
+Result:
+\begin{equation}
+\beta = \frac{1}{d(m-1) + 2}
+\end{equation}
+The physical mode is selected by boundary conditions (finite mass, compact support).
+
+\textbf{Fixed points and stability.}
+The Barenblatt profile is the unique stable self-similar attractor.
+Other self-similar modes exist but are unstable.
+
+\textbf{Physical prediction.}
+The late-time density profile:
+\begin{equation}
+\rho(x, t) = \frac{1}{t^\alpha}\left[C - \frac{(m-1)}{4md}\frac{|x|^2}{(Dt)^{2\beta}}\right]_+^{1/(m-1)}
+\end{equation}
+This is exact for the PME. More general nonlinear diffusion would require resummation.
+\end{workedbox}
+
+%-------------------------------------------------------------------------------
+\section{When Is RG Needed? A Decision Tree}
+\label{sec:decision_tree}
+%-------------------------------------------------------------------------------
+
+Not every problem requires the full RG machinery. Following Sethna's pedagogical approach, we provide a decision tree for determining when RG methods are essential versus when simpler approaches suffice.
+
+\marginnote{This decision tree helps identify whether full RG analysis is needed or if simpler methods suffice.}
+
+\subsection{The Diagnostic Questions}
+
+Ask the following questions in order:
+
+\textbf{1. Is there a scale hierarchy?}
+\begin{itemize}
+\item If \textbf{NO}: Standard methods apply. Perturbation theory converges; no running parameters needed.
+\item If \textbf{YES}: Proceed to question 2.
+\end{itemize}
+
+\textbf{2. Do naive methods exhibit pathologies?}
+
+Look for secular terms (growing corrections), UV/IR divergences, or boundary layer mismatches.
+\begin{itemize}
+\item If \textbf{NO}: Scale separation is benign. Use matched asymptotics or multiple scales without full RG.
+\item If \textbf{YES}: Running parameters are needed. Proceed to question 3.
+\end{itemize}
+
+\textbf{3. Are you near a phase transition or bifurcation?}
+\begin{itemize}
+\item If \textbf{NO}: Perturbative RG (few running parameters, truncated beta functions) may suffice.
+\item If \textbf{YES}: Non-perturbative effects matter. Proceed to question 4.
+\end{itemize}
+
+\textbf{4. Are universal critical exponents or scaling functions needed?}
+\begin{itemize}
+\item If \textbf{NO}: Mean-field or Landau theory may be adequate.
+\item If \textbf{YES}: Full RG analysis with fixed points, stability analysis, and possibly resummation is required.
+\end{itemize}
+
+\begin{workedbox}[Box 5.5: The Decision Tree Applied]
+\textbf{Example 1: Simple harmonic oscillator}
+\begin{itemize}
+\item Scale hierarchy? NO (single timescale $1/\omega_0$)
+\item $\Rightarrow$ No RG needed. Exact solution exists.
+\end{itemize}
+
+\textbf{Example 2: Damped anharmonic oscillator with $\epsilon \ll 1$, $\gamma \ll \omega_0$}
+\begin{itemize}
+\item Scale hierarchy? YES ($1/\omega_0$ vs $1/\gamma$ and $\omega_0/\epsilon A^2$)
+\item Pathologies? YES (secular terms at $O(\epsilon t)$)
+\item Near bifurcation? NO (far from any transition)
+\item $\Rightarrow$ Perturbative RG (Lindstedt-Poincar\'e/multiple scales) suffices.
+\end{itemize}
+
+\textbf{Example 3: Ising model at $T \approx T_c$}
+\begin{itemize}
+\item Scale hierarchy? YES (lattice spacing $a$ vs correlation length $\xi \to \infty$)
+\item Pathologies? YES (fluctuations on all scales)
+\item Near bifurcation? YES (second-order phase transition)
+\item Universal exponents needed? YES (experimental predictions)
+\item $\Rightarrow$ Full RG with Wilson-Fisher fixed point analysis required.
+\end{itemize}
+
+\textbf{Example 4: Porous medium equation with $m = 1.1$}
+\begin{itemize}
+\item Scale hierarchy? YES (initial width vs late-time spread)
+\item Pathologies? YES (dimensional analysis fails)
+\item Near bifurcation? NO (smooth transition at $m = 1$)
+\item Universal exponents? YES (anomalous Barenblatt exponent)
+\item $\Rightarrow$ RG for anomalous dimensions; exact solution exists here.
+\end{itemize}
+\end{workedbox}
+
+%-------------------------------------------------------------------------------
+\section{The Sethna Problem-Solving Template}
+\label{sec:sethna_template}
+%-------------------------------------------------------------------------------
+
+For problems where RG \emph{is} needed, Sethna advocates a systematic approach. Before diving into calculations, answer three fundamental questions.
+
+\marginnote{Sethna's template: identify order parameter, symmetry, and topology before computing.}
+
+\subsection{What Is the Order Parameter?}
+
+The order parameter determines the \emph{coordinates on theory space} $\MM$:
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{lll}
+\textbf{System} & \textbf{Order Parameter} & \textbf{Theory Space Coords} \\
+\hline
+Ferromagnet & Magnetization $M$ & $(T - T_c, h, \ldots)$ \\
+Superfluid & $\psi = |\psi|e^{i\theta}$ & $(T - T_\lambda, \mu, \ldots)$ \\
+Ising model & Spin density $\sigma$ & $(K - K_c, H, \ldots)$ \\
+Fluid turbulence & Velocity field $\mathbf{u}$ & (Re, geometry) \\
+\end{tabular}
+\end{center}
+
+\subsection{What Symmetry Is Broken?}
+
+The broken symmetry determines the \emph{group structure} of the RG:
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{lll}
+\textbf{Transition} & \textbf{Broken Symmetry} & \textbf{Universality Class} \\
+\hline
+Ferromagnetic (uniaxial) & $\mathbb{Z}_2$ & Ising \\
+Ferromagnetic (isotropic) & $O(3)$ & Heisenberg \\
+Superfluid/superconductor & $U(1)$ & XY \\
+Crystallization & Translation & Solid \\
+\end{tabular}
+\end{center}
+
+\subsection{What Are the Topological Defects?}
+
+Topological defects correspond to \emph{singular points or surfaces} in theory space:
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{llll}
+\textbf{System} & \textbf{Order Space} & $\boldsymbol{\pi_1}$ & \textbf{Defects} \\
+\hline
+2D XY model & $S^1$ & $\mathbb{Z}$ & Vortices \\
+3D Heisenberg & $S^2$ & 0 & None (monopoles from $\pi_2$) \\
+Nematic & $\mathbb{RP}^2$ & $\mathbb{Z}_2$ & Half-integer disclinations \\
+Crystal & $T^3$ & $\mathbb{Z}^3$ & Dislocations \\
+\end{tabular}
+\end{center}
+
+\textbf{Only after answering these questions should you begin detailed calculations.}
+
+This discipline prevents common errors: computing without understanding what the order parameter is, missing symmetry-protected features, or overlooking topological contributions to the partition function.
+
+%-------------------------------------------------------------------------------
+\section{UV Divergences and Regularization}
+\label{sec:regularization}
+%-------------------------------------------------------------------------------
+
+\marginnote{Regularization makes divergent integrals finite. Renormalization then absorbs the divergences into redefined parameters. These are distinct operations.}
+
+Before perturbation theory can produce even a divergent series, we must first deal with a more immediate problem: individual Feynman diagrams often involve \emph{divergent integrals}. These ultraviolet (UV) divergences arise from loop momenta that extend to infinity. \textbf{Regularization} is the process of introducing a parameter that renders these integrals finite, allowing us to manipulate them algebraically before ultimately removing the regulator.
+
+\subsection{The Need for Regularization}
+
+Consider the simplest divergent integral in four-dimensional quantum field theory: the one-loop correction to the scalar propagator in $\phi^4$ theory. The self-energy diagram gives:
+\begin{equation}
+\Sigma(p^2) = \frac{\lambda}{2} \int \frac{d^4k}{(2\pi)^4} \frac{1}{k^2 + m^2}
+\end{equation}
+This integral diverges quadratically: as $k \to \infty$, the integrand behaves as $1/k^2$, giving $\int^\Lambda k\,dk \sim \Lambda^2$.
+
+\textbf{The solution:} Introduce a \emph{regulator} that makes the integral finite, compute the result as a function of that parameter, and then carefully take the limit where the regulator is removed. The divergences that appear are absorbed into redefinitions of physical parameters---this is renormalization.
+
+\subsection{Dimensional Regularization}
+\label{sec:dim_reg}
+
+The most powerful regularization method is \textbf{dimensional regularization}, which analytically continues the number of spacetime dimensions from 4 to $d = 4 - \epsilon$.
+
+\marginnote{Dimensional regularization was developed by 't~Hooft and Veltman (1972) for gauge theories.}
+
+The key features are:
+\begin{itemize}
+\item \textbf{Preserves gauge invariance:} No explicit cutoff breaks symmetry.
+\item \textbf{Algebraically simple:} Divergences appear as $1/\epsilon$ poles.
+\item \textbf{No power-law divergences:} Scaleless integrals vanish by definition.
+\end{itemize}
+
+\subsection{Other Regularization Methods}
+
+\textbf{Pauli-Villars:} Modifies propagators by introducing fictitious heavy particles. Preserves Lorentz and gauge invariance in QED.
+
+\textbf{Zeta function:} Uses analytic continuation of sums. Elegant for Casimir-type calculations.
+
+\textbf{Lattice:} Discretizes spacetime. Essential for non-perturbative calculations.
+
+The key principle is that \emph{physical predictions are regularization-independent}. Different schemes give different intermediate expressions, but after renormalization, all observables agree.
+
+%-------------------------------------------------------------------------------
+\section{Renormalization Schemes}
+\label{sec:renorm_schemes}
+%-------------------------------------------------------------------------------
+
+Once divergences are regulated, they must be absorbed into redefinitions of parameters. The precise way finite parts are treated defines a \textbf{renormalization scheme}.
+
+\marginnote{Renormalization absorbs divergences into redefined parameters. The scheme specifies how finite parts are handled.}
+
+\subsection{The On-Shell Scheme}
+
+The \textbf{on-shell scheme} defines renormalized parameters to equal directly measurable physical quantities. For QED, the renormalized mass and charge are exactly the physical electron mass and charge.
+
+\textbf{Advantages:} Parameters have direct physical meaning.
+
+\textbf{Disadvantages:} IR divergences for massless theories; complexity at higher orders.
+
+\subsection{Minimal Subtraction: MS and $\overline{\text{MS}}$}
+
+\textbf{Minimal subtraction (MS)} works with dimensional regularization, subtracting only the $1/\epsilon$ poles. The \textbf{$\overline{\text{MS}}$} scheme also subtracts $\gamma_E - \ln 4\pi$.
+
+\marginnote{$\overline{\text{MS}}$ is the standard scheme for QCD calculations.}
+
+\textbf{Advantages:} Computational simplicity; preserves symmetries; mass-independent.
+
+\textbf{Disadvantages:} Parameters not directly physical.
+
+\subsection{Scheme Independence}
+
+A fundamental result is that \emph{physical observables are scheme-independent}. Different schemes are different coordinate systems on theory space $\mathcal{M}$. Physical quantities are geometric invariants.
+
+The first two coefficients of the beta function, $\beta_0$ and $\beta_1$, are universal across mass-independent schemes.
+
+%-------------------------------------------------------------------------------
+\section{Summary and Road Ahead}
+\label{sec:road_to_part2}
+%-------------------------------------------------------------------------------
+
+This chapter has covered the foundations of perturbation theory:
+
+\begin{enumerate}
+\item Perturbation series generically diverge with factorial ($n!$) growth---Gevrey-1 structure.
+\item The divergence encodes non-perturbative physics (developed in Chapter~\ref{ch:resurgence}).
+\item The same mathematical structure appears in ODEs, PDEs, and QFT.
+\item UV divergences in loop integrals require regularization and renormalization.
+\item Physical predictions are independent of regularization and renormalization scheme.
+\end{enumerate}
+
+The next two chapters complete the machinery:
+\begin{itemize}
+\item \textbf{Chapter~\ref{ch:resurgence}}: Resurgence---extracting non-perturbative physics from divergent series
+\item \textbf{Chapter~\ref{ch:algebra}}: The deeper algebraic structure---Hopf algebras and Riemann-Hilbert
+\end{itemize}
+
+%-------------------------------------------------------------------------------
+\section*{Exercises}
+\addcontentsline{toc}{section}{Exercises}
+%-------------------------------------------------------------------------------
+
+\begin{enumerate}
+\item \textbf{Identifying scales.} For each of the following systems, identify the scales and describe the scale hierarchy:
+\begin{enumerate}
+\item A pendulum with small amplitude oscillations and weak damping.
+\item Heat conduction in a rod with both ends at different fixed temperatures.
+\item The quantum double-well potential $V(x) = \lambda(x^2 - a^2)^2$.
+\end{enumerate}
+
+\item \textbf{Applying the decision tree.} For each system below, work through the decision tree to determine whether RG methods are needed:
+\begin{enumerate}
+\item A damped driven pendulum far from resonance.
+\item The Navier-Stokes equations at Reynolds number $\text{Re} = 10$.
+\item The Navier-Stokes equations at $\text{Re} = 10^6$.
+\item A polymer chain in good solvent.
+\end{enumerate}
+
+\item \textbf{Factorial growth.} The solution to $\epsilon y' + y = 1$ with $y(0) = 0$ has the exact form $y(x) = 1 - e^{-x/\epsilon}$.
+\begin{enumerate}
+\item Expand $y(x)$ in powers of $\epsilon$ to find the formal series.
+\item Show that the coefficients grow factorially.
+\item Verify that the series is Gevrey-1.
+\item Explain why truncating the series at any finite order fails to capture the exponentially small term $e^{-x/\epsilon}$.
+\end{enumerate}
+
+\item \textbf{Boundary layer.} Consider the boundary layer equation $\epsilon y'' + y' + y = 0$ with $y(0) = 0$, $y(1) = 1$.
+\begin{enumerate}
+\item Identify the outer and inner solutions.
+\item Show that the outer solution has secular behavior near $x = 0$.
+\item Set up the matched asymptotic expansion and identify the running parameter.
+\end{enumerate}
+
+\item \textbf{Sethna template.} Apply the Sethna problem-solving template to the following systems:
+\begin{enumerate}
+\item Liquid-gas critical point.
+\item Antiferromagnetic Ising model.
+\item Cholesteric liquid crystal.
+\end{enumerate}
+
+\item \textbf{(Challenge) Van der Pol divergence.} For the Van der Pol oscillator $\ddot{x} + \epsilon(x^2-1)\dot{x} + x = 0$:
+\begin{enumerate}
+\item Set up the multiple-scales expansion for the limit cycle amplitude.
+\item Compute the first three terms in the series $A = 2 + a_1\epsilon + a_2\epsilon^2 + \cdots$.
+\item Argue on physical grounds why the series must diverge for large $\epsilon$ (hint: relaxation oscillations).
+\end{enumerate}
+
+\item \textbf{(Challenge) Instanton action.} For the double-well potential $V(x) = \frac{\lambda}{4}(x^2 - a^2)^2$:
+\begin{enumerate}
+\item Find the classical instanton solution interpolating between the two minima.
+\item Compute the instanton action $S_{\text{inst}} = \int_{-\infty}^{\infty} \frac{1}{2}\dot{x}^2 + V(x)\,dt$.
+\item Explain why this action appears in the large-order behavior of the ground state energy expansion.
+\end{enumerate}
+\end{enumerate}
+

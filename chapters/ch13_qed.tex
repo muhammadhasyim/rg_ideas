@@ -1,0 +1,893 @@
+%===============================================================================
+\chapter{Quantum Electrodynamics}
+\label{ch:qed}
+%===============================================================================
+
+Quantum electrodynamics (QED) is the relativistic quantum field theory of the electromagnetic interaction, and it was here that renormalization was first developed as a systematic procedure. This chapter applies the geometric RG framework of Part I to QED, showing how the abstract structure manifests in the physical phenomenon of charge screening. The extraordinary agreement between QED predictions and experiment provides the most precise test of quantum field theory.
+
+The scale hierarchy ranges from the electron mass $m$ (the IR scale) through the renormalization scale $\mu$ to the UV cutoff $\Lambda$. Coarse-graining integrates out high-momentum modes, generating effective couplings. Theory space is parametrized by the fine structure constant $\alpha$ and the electron mass $m$. The beta function is computed from vacuum polarization, yielding $\beta_\alpha = 2\alpha^2/(3\pi) + O(\alpha^3)$. Fixed-point analysis reveals that $\alpha^* = 0$ is an IR-stable fixed point, explaining why electromagnetism appears weakly coupled at everyday energies.
+
+\marginnote{QED achieved unprecedented agreement between theory and experiment, with the electron magnetic moment predicted to better than one part in a trillion.}
+
+%-------------------------------------------------------------------------------
+\section{The QED Lagrangian}
+\label{sec:qed_lagrangian}
+%-------------------------------------------------------------------------------
+
+The QED Lagrangian density is
+\begin{equation}
+\mathcal{L} = \bar{\psi}(i\gamma^\mu D_\mu - m)\psi - \frac{1}{4}F_{\mu\nu}F^{\mu\nu}
+\label{eq:qed_lagrangian}
+\end{equation}
+where $\psi$ is the electron field, $A_\mu$ the photon field, $D_\mu = \partial_\mu + ieA_\mu$ the covariant derivative, $F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu$ the field strength, and $m$ the electron mass.
+
+\subsection{Scale Identification}
+
+Following Step 1 of the recipe, we identify the scales. The energy scale $\mu$ characterizes the typical momentum transfer in a scattering process; this is the scale at which we probe the electromagnetic interaction. The electron mass $m \approx 0.511$ MeV provides an IR scale below which electron-positron pairs cannot be created, setting a threshold for vacuum polarization effects.
+
+The cutoff $\Lambda$ is the UV scale where the effective field theory description breaks down and new physics must enter. In practice, QED is embedded in the electroweak theory at scales of order 100 GeV. The dimensionless coupling is the fine structure constant $\alpha = e^2/(4\pi) \approx 1/137$, whose small value makes perturbation theory extraordinarily successful.
+
+%-------------------------------------------------------------------------------
+\section{Canonical Scaling Dimensions}
+\label{sec:qed_canonical}
+%-------------------------------------------------------------------------------
+
+Following the analysis of Chapter~\ref{ch:rg_geometry}, we determine the canonical dimensions from the Lagrangian.
+
+In $d = 4$ dimensions:
+\begin{equation}
+[\psi] = \frac{3}{2}, \quad [A_\mu] = 1, \quad [e] = 0, \quad [m] = 1.
+\end{equation}
+
+\marginnote{The dimensionlessness of $e$ in $d=4$ makes QED marginal at the classical level, with quantum corrections determining its fate.}
+
+The charge $e$ is classically dimensionless, indicating that the interaction is marginal. Quantum corrections will determine whether the coupling is marginally relevant or irrelevant.
+
+%-------------------------------------------------------------------------------
+\section{Running of the Coupling}
+\label{sec:qed_running}
+%-------------------------------------------------------------------------------
+
+The beta function describes how the effective coupling changes with energy scale.
+
+\subsection{Vacuum Polarization}
+
+The photon propagator receives quantum corrections from virtual electron-positron pairs. These corrections are summarized by the vacuum polarization tensor $\Pi_{\mu\nu}(q)$:
+\begin{equation}
+\Pi_{\mu\nu}(q) = (q^2 g_{\mu\nu} - q_\mu q_\nu)\Pi(q^2).
+\end{equation}
+
+\begin{workedbox}{Vacuum Polarization Calculation}
+The one-loop vacuum polarization diagram gives:
+\begin{equation}
+i\Pi_{\mu\nu}(q) = (-ie)^2(-1)\int \frac{d^dk}{(2\pi)^d}\,\text{Tr}\left[\gamma_\mu \frac{i(\not{k}+m)}{k^2-m^2}\gamma_\nu \frac{i(\not{k}+\not{q}+m)}{(k+q)^2-m^2}\right]
+\end{equation}
+where the $(-1)$ is from the fermion loop.
+
+\textbf{Step 1: Evaluate the trace.} Using $\text{Tr}[\gamma_\mu\gamma_\nu] = 4g_{\mu\nu}$ and $\text{Tr}[\gamma_\mu\gamma_\alpha\gamma_\nu\gamma_\beta] = 4(g_{\mu\alpha}g_{\nu\beta} - g_{\mu\nu}g_{\alpha\beta} + g_{\mu\beta}g_{\nu\alpha})$:
+\begin{equation}
+\text{Tr}[\gamma_\mu(\not{k}+m)\gamma_\nu(\not{k}+\not{q}+m)] = 4\left[k_\mu(k+q)_\nu + k_\nu(k+q)_\mu - g_{\mu\nu}(k\cdot(k+q) - m^2)\right]
+\end{equation}
+
+\textbf{Step 2: Feynman parametrization.} Combine denominators using:
+\begin{equation}
+\frac{1}{AB} = \int_0^1 dx\,\frac{1}{[xA + (1-x)B]^2}
+\end{equation}
+With $A = (k+q)^2 - m^2$ and $B = k^2 - m^2$, shift $k \to k - xq$ to get denominator $(k^2 - \Delta)^2$ where $\Delta = m^2 - x(1-x)q^2$.
+
+\textbf{Step 3: Dimensional regularization.} The loop integral in $d = 4 - \epsilon$ dimensions gives:
+\begin{equation}
+\int \frac{d^dk}{(2\pi)^d}\frac{1}{(k^2-\Delta)^2} = \frac{i}{(4\pi)^{d/2}}\frac{\Gamma(2-d/2)}{\Delta^{2-d/2}}
+\end{equation}
+
+\textbf{Step 4: Extract the divergence.} Using $\Gamma(\epsilon/2) = 2/\epsilon - \gamma_E + O(\epsilon)$:
+\begin{equation}
+\Pi(q^2) = -\frac{\alpha}{\pi}\int_0^1 dx\,x(1-x)\left[\frac{2}{\epsilon} - \gamma_E + \ln(4\pi) - \ln\frac{\Delta}{\mu^2}\right]
+\end{equation}
+
+After performing the $x$-integration and taking $q^2 \gg m^2$:
+\begin{equation}
+\Pi(q^2) = -\frac{\alpha}{3\pi}\left[\frac{2}{\epsilon} - \gamma_E + \ln(4\pi) - \ln\frac{-q^2}{\mu^2}\right]
+\end{equation}
+\end{workedbox}
+
+The function $\Pi(q^2)$ contains a logarithmic dependence on momentum:
+\begin{equation}
+\Pi(q^2) = -\frac{\alpha}{3\pi}\ln\frac{q^2}{m^2} + \text{finite terms}
+\end{equation}
+for $|q^2| \gg m^2$.
+
+\marginnote{Vacuum polarization represents the ``dressing'' of the photon by virtual particles, screening the bare charge.}
+
+\subsection{The QED Beta Function}
+
+\begin{workedbox}{QED Beta Function Derivation}
+The beta function emerges from the requirement that bare quantities are $\mu$-independent.
+
+\textbf{Step 1: Renormalization constants.} The bare and renormalized couplings are related by:
+\begin{equation}
+\alpha_0 = \mu^\epsilon Z_\alpha \alpha, \qquad Z_\alpha = Z_3^{-1} = 1 + \frac{\alpha}{3\pi}\cdot\frac{2}{\epsilon} + O(\alpha^2)
+\end{equation}
+where we used Ward identity $Z_1 = Z_2$, so charge renormalization comes only from photon field renormalization $Z_3$.
+
+\textbf{Step 2: Apply $\mu$-independence.} Since $\mu\frac{d\alpha_0}{d\mu} = 0$:
+\begin{equation}
+0 = \mu\frac{d}{d\mu}\left[\mu^\epsilon Z_\alpha \alpha\right] = \mu^\epsilon\left[\epsilon Z_\alpha \alpha + \mu\frac{dZ_\alpha}{d\mu}\alpha + Z_\alpha\mu\frac{d\alpha}{d\mu}\right]
+\end{equation}
+
+\textbf{Step 3: Extract the beta function.} Define $\beta_\alpha = \mu\frac{d\alpha}{d\mu}$. At leading order:
+\begin{equation}
+\mu\frac{dZ_\alpha}{d\mu} = \mu\frac{d\alpha}{d\mu}\frac{\partial Z_\alpha}{\partial\alpha} = \beta_\alpha\cdot\frac{2}{3\pi\epsilon}
+\end{equation}
+
+Substituting and taking $\epsilon \to 0$:
+\begin{equation}
+0 = \epsilon\alpha + \frac{2\alpha}{3\pi\epsilon}\beta_\alpha + \beta_\alpha \quad\Rightarrow\quad \beta_\alpha = -\epsilon\alpha\left(1 + \frac{2\alpha}{3\pi\epsilon}\right)^{-1}
+\end{equation}
+
+Expanding to $O(\alpha^2)$ and setting $\epsilon = 0$ (physical dimension):
+\begin{equation}
+\boxed{\beta_\alpha = \frac{2\alpha^2}{3\pi}}
+\end{equation}
+\end{workedbox}
+
+The beta function for $\alpha$ is obtained from the RG equation (Chapter~\ref{ch:rg_geometry}):
+\begin{equation}
+\beta_\alpha \equiv \mu \frac{d\alpha}{d\mu} = \frac{2\alpha^2}{3\pi} + O(\alpha^3).
+\label{eq:qed_beta}
+\end{equation}
+
+This positive beta function indicates that $\alpha$ increases with energy scale (UV) and decreases toward lower energies (IR).
+
+\subsection{Physical Interpretation}
+
+The running coupling can be integrated:
+\begin{equation}
+\alpha(\mu) = \frac{\alpha(m)}{1 - \frac{2\alpha(m)}{3\pi}\ln(\mu/m)}.
+\label{eq:qed_running}
+\end{equation}
+
+At low energies $\mu \ll m$, virtual pairs cannot be created, and $\alpha$ approaches its observed value $\alpha \approx 1/137$. At high energies, the coupling increases due to charge screening by virtual pairs.
+
+%-------------------------------------------------------------------------------
+\section{Fixed Points and the Landau Pole}
+\label{sec:qed_fixed}
+%-------------------------------------------------------------------------------
+
+Applying the framework of Chapter~\ref{ch:fixed_points} to QED reveals important features.
+
+\subsection{The Gaussian Fixed Point}
+
+The only perturbatively accessible fixed point is $\alpha^* = 0$ (the Gaussian or free theory). At this fixed point:
+\begin{equation}
+\frac{\partial \beta_\alpha}{\partial \alpha}\Big|_{\alpha=0} = 0.
+\end{equation}
+
+The coupling is marginal at leading order. The positive coefficient in~\eqref{eq:qed_beta} makes it marginally irrelevant in the IR: the theory flows toward the free fixed point at low energies.
+
+\marginnote{The Gaussian fixed point is an IR attractor for QED, explaining why electromagnetism appears weakly coupled at everyday energies.}
+
+\subsection{The Landau Pole}
+
+\begin{workedbox}{Landau Pole Calculation}
+The running coupling~\eqref{eq:qed_running} diverges when the denominator vanishes.
+
+\textbf{Step 1: Find divergence condition.}
+\begin{equation}
+1 - \frac{2\alpha(m)}{3\pi}\ln(\mu/m) = 0 \quad\Rightarrow\quad \ln(\mu/m) = \frac{3\pi}{2\alpha(m)}
+\end{equation}
+
+\textbf{Step 2: Solve for $\mu$.}
+\begin{equation}
+\mu = m\exp\left(\frac{3\pi}{2\alpha(m)}\right) \equiv \Lambda_{\text{Landau}}
+\end{equation}
+
+\textbf{Step 3: Numerical evaluation.} With $\alpha(m_e) \approx 1/137$ and $m_e \approx 0.511$ MeV:
+\begin{equation}
+\frac{3\pi}{2\alpha} = \frac{3\pi \times 137}{2} \approx 646
+\end{equation}
+\begin{equation}
+\Lambda_{\text{Landau}} = m_e \times e^{646} \approx 0.511 \text{ MeV} \times 10^{280} \approx 10^{277} \text{ MeV} \sim 10^{274} \text{ GeV}
+\end{equation}
+(More precise calculation gives $\sim 10^{286}$ GeV when including higher-order terms.)
+
+\textbf{Physical interpretation:} The pole is a \textit{perturbative artifact}. Long before reaching this scale:
+\begin{itemize}
+\item Electroweak unification occurs at $\sim 100$ GeV
+\item Quantum gravity effects enter at $M_{\text{Pl}} \sim 10^{19}$ GeV
+\item The one-loop approximation breaks down when $\alpha \gtrsim 1$
+\end{itemize}
+\end{workedbox}
+
+From equation~\eqref{eq:qed_running}, the coupling diverges at the ``Landau pole'':
+\begin{equation}
+\Lambda_{\text{Landau}} = m \exp\left(\frac{3\pi}{2\alpha(m)}\right) \sim 10^{286} \text{ GeV}.
+\label{eq:landau_pole}
+\end{equation}
+
+This enormously high scale is far beyond any accessible energy, but the existence of the Landau pole indicates that QED cannot be a complete theory valid at all energies.
+
+\subsection{UV Incompleteness}
+
+The Landau pole suggests that QED requires a UV completion---but there are two qualitatively different possibilities.
+
+\textbf{Wilsonian completion.} New physics takes over before the coupling becomes strong. In the Standard Model, QED is embedded in the electroweak theory at scale $\sim 100$ GeV, far below the Landau pole.
+
+\textbf{Non-Wilsonian completion.} The perturbative beta function $\beta_\alpha = 2\alpha^2/(3\pi) + O(\alpha^3)$ is asymptotic, with factorial growth of coefficients. This suggests that perturbation theory may be missing information about the UV behavior.
+
+\marginnote{The Landau pole may be an artifact of perturbation theory. Non-perturbative effects could modify the UV behavior.}
+
+Part II develops the transseries methods that allow systematic inclusion of non-perturbative effects. These techniques can in principle reveal whether the Landau pole is a genuine inconsistency or merely an artifact of truncating to perturbation theory. The possibility of non-perturbative fixed points---where the full beta function vanishes even though the perturbative approximation diverges---remains an active area of research.
+
+This connects to the broader theme of Chapter~\ref{ch:fixed_points}: the exact RG framework allows for fixed points that may not be visible within perturbation theory alone.
+
+\begin{workedbox}[Box 15.2a: The Resurgent Structure of QED]
+\textbf{Question:} What does the resurgent transseries tell us about QED's UV behavior? (This applies the resurgent machinery of Part II to the Landau pole problem.)
+
+\textbf{Step 1: The perturbative beta function.}
+
+The QED beta function has the expansion:
+\begin{equation}
+\beta(\alpha) = \frac{2\alpha^2}{3\pi} + \frac{\alpha^3}{2\pi^2} + b_3 \alpha^4 + \cdots
+\end{equation}
+with coefficients growing as $b_n \sim n!$ at large $n$~\boxcite{AnicetoSchiappaPrimer}.
+
+\textbf{Step 2: Borel singularity structure.}
+
+The Borel transform $\hat{\beta}_B(\zeta)$ has singularities at:
+\begin{itemize}
+\item \textbf{UV renormalons:} $\zeta = -k/(2\beta_1)$ for $k = 1, 2, \ldots$ (negative real axis)
+\item \textbf{IR renormalons:} $\zeta = +k/(2\beta_1)$ for $k = 1, 2, \ldots$ (positive real axis)
+\item \textbf{Instantons:} $\zeta = S_{\text{inst}} \sim \pi/\alpha$ (related to Schwinger pairs)
+\end{itemize}
+
+For QED with $\beta_1 = 2/(3\pi)$, the leading UV renormalon is at $\zeta_{\text{UV}} = -3\pi/4$.
+
+\textbf{Step 3: The transseries for the running coupling.}
+
+The full solution for $\alpha(\mu)$ is a transseries:
+\begin{equation}
+\alpha(\mu) = \alpha^{(0)}(\mu) + \sigma_1 e^{-S_1/\alpha} \alpha^{(1)}(\mu) + \sigma_2 e^{-S_2/\alpha} \alpha^{(2)}(\mu) + \cdots
+\end{equation}
+
+where:
+\begin{itemize}
+\item $\alpha^{(0)}(\mu)$ is the perturbative running (gives the Landau pole)
+\item $\alpha^{(k)}(\mu)$ are non-perturbative sectors
+\item $\sigma_k$ are transseries parameters
+\end{itemize}
+
+\textbf{Step 4: Does the Landau pole persist?}
+
+The perturbative sector $\alpha^{(0)}$ diverges at $\Lambda_{\text{Landau}}$. But the non-perturbative sectors can modify this:
+
+\textbf{Scenario A (pole persists):} If the non-perturbative contributions are suppressed at high energies, the Landau pole remains. QED is genuinely inconsistent at $\Lambda_L$.
+
+\textbf{Scenario B (asymptotic safety):} If non-perturbative contributions cancel the pole, QED could flow to a UV fixed point:
+\begin{equation}
+\beta(\alpha^*) = \beta^{(0)}(\alpha^*) + \sum_k \sigma_k e^{-S_k/\alpha^*} \beta^{(k)}(\alpha^*) = 0
+\end{equation}
+This would be a \textbf{non-perturbative fixed point}---invisible to any finite order of perturbation theory.
+
+\textbf{Step 5: Current status.}
+
+The question remains open. Arguments for both scenarios exist:
+\begin{itemize}
+\item Dyson's argument suggests instability for $\alpha < 0$, implying no UV completion
+\item Lattice QED studies show evidence for ``triviality'' (the Landau pole is real)
+\item But asymptotic safety scenarios remain logically possible
+\end{itemize}
+
+\textbf{The key insight:} Resurgence transforms the question from ``Does QED have a Landau pole?'' to ``What are the transseries parameters $\sigma_k$?'' The former is yes/no; the latter admits a quantitative answer.
+
+\textbf{Connection to Schwinger effect:} The instanton action $S_{\text{inst}} = \pi m^2/(eE) = \pi/\alpha$ in the Schwinger formula is the same scale that controls the transseries. Pair production and the Landau pole are linked through the resurgent structure!
+\end{workedbox}
+
+%-------------------------------------------------------------------------------
+\section{Anomalous Dimensions}
+\label{sec:qed_anomalous}
+%-------------------------------------------------------------------------------
+
+Beyond the running of $\alpha$, quantum corrections also modify the scaling dimensions of operators.
+
+\subsection{Electron Field Anomalous Dimension}
+
+The electron propagator receives corrections that modify its scaling behavior. The anomalous dimension $\gamma_\psi$ is defined through:
+\begin{equation}
+\mu \frac{d}{d\mu} \psi_R = \gamma_\psi \psi_R
+\end{equation}
+where $\psi_R$ is the renormalized field.
+
+At one loop in QED:
+\begin{equation}
+\gamma_\psi = \frac{\alpha}{4\pi}(3 - \xi)
+\end{equation}
+where $\xi$ is the gauge parameter. In Landau gauge ($\xi = 0$), $\gamma_\psi = \frac{3\alpha}{4\pi}$.
+
+\marginnote{The anomalous dimension represents the deviation from classical scaling due to quantum fluctuations.}
+
+\subsection{Electron Mass Running}
+
+The electron mass also runs with scale:
+\begin{equation}
+\mu \frac{dm}{d\mu} = -\frac{3\alpha}{\pi} m + O(\alpha^2).
+\end{equation}
+
+This indicates that the electron mass is a relevant perturbation: at the IR fixed point ($\alpha = 0$), massive electrons decouple from massless photons.
+
+%-------------------------------------------------------------------------------
+\section{Ward Identities and Gauge Invariance}
+\label{sec:qed_ward}
+%-------------------------------------------------------------------------------
+
+Gauge invariance imposes powerful constraints on the RG flow. The Ward identities are not merely technical tools---they express the deep connection between symmetry and structure that pervades the geometric RG framework.
+
+\subsection{The Ward-Takahashi Identity}
+
+The conservation of the electromagnetic current implies:
+\begin{equation}
+q^\mu \Gamma_\mu(p', p) = e[S^{-1}(p') - S^{-1}(p)]
+\label{eq:ward_takahashi}
+\end{equation}
+where $\Gamma_\mu$ is the vertex function and $S$ is the electron propagator.
+
+This identity ensures that the charge renormalization $Z_1$ equals the electron field renormalization $Z_2$:
+\begin{equation}
+Z_1 = Z_2.
+\end{equation}
+
+\marginnote{Ward identities are consequences of gauge symmetry that constrain the form of quantum corrections.}
+
+\subsection{Derivation from Noether's Theorem}
+
+The Ward identity~\eqref{eq:ward_takahashi} follows from the quantum version of Noether's theorem. Under a local gauge transformation $\psi(x) \to e^{ie\alpha(x)}\psi(x)$, the action changes by:
+\begin{equation}
+\delta S = \int d^4x\, \partial_\mu\alpha(x) \cdot j^\mu(x)
+\end{equation}
+where $j^\mu = \bar{\psi}\gamma^\mu\psi$ is the conserved current.
+
+\begin{workedbox}[Box 15.3: Deriving Ward Identities from the Path Integral]
+\textbf{The fundamental principle:}
+
+In the path integral formalism, invariance under a symmetry transformation implies relations between correlation functions. For QED with generating functional:
+\begin{equation}
+Z[J, \eta, \bar{\eta}] = \int \mathcal{D}A\,\mathcal{D}\psi\,\mathcal{D}\bar{\psi}\, e^{iS[A,\psi,\bar{\psi}] + i\int(JA + \bar{\eta}\psi + \bar{\psi}\eta)}
+\end{equation}
+
+\textbf{Step 1: Perform an infinitesimal gauge transformation} inside the path integral. The measure is invariant (for vector-like theories like QED), so:
+\begin{equation}
+0 = \int \mathcal{D}[\text{fields}]\, \delta_\alpha\left(e^{iS + i\int\text{sources}}\right)
+\end{equation}
+
+\textbf{Step 2: Expand to linear order} in the transformation parameter $\alpha(x)$. The action variation gives:
+\begin{equation}
+\delta_\alpha S = -\int d^4x\, \alpha(x)\partial_\mu j^\mu(x)
+\end{equation}
+while the fermion sources contribute terms with $\bar{\eta}\psi$ and $\bar{\psi}\eta$.
+
+\textbf{Step 3: Demand invariance for arbitrary $\alpha(x)$:}
+\begin{equation}
+\partial_\mu\langle j^\mu(x)\rangle_J = ie\bar{\eta}(x)\langle\psi(x)\rangle - ie\langle\bar{\psi}(x)\rangle\eta(x)
+\end{equation}
+
+\textbf{Step 4: Functional differentiation} with respect to sources and Fourier transform yields the Ward-Takahashi identity~\eqref{eq:ward_takahashi}.
+
+\textbf{Key insight:} The derivation shows that Ward identities are \textit{operator identities}---they hold inside arbitrary correlation functions, not just for specific Green's functions.
+\end{workedbox}
+
+\subsection{Ward Identities as Gauge Invariance of the Effective Action}
+
+A more elegant formulation uses the \textbf{effective action} $\Gamma[\bar{\psi}, \psi, A]$---the Legendre transform of the connected generating functional. The Ward identity becomes:
+\begin{equation}
+\partial_\mu \frac{\delta\Gamma}{\delta A_\mu(x)} + ie\left(\frac{\delta\Gamma}{\delta\psi(x)}\psi(x) - \bar{\psi}(x)\frac{\delta\Gamma}{\delta\bar{\psi}(x)}\right) = 0
+\label{eq:ward_effective}
+\end{equation}
+
+\marginnote{The effective action inherits the gauge symmetry of the classical action, up to potential anomalies.}
+
+This states that $\Gamma$ is \textbf{gauge invariant} as a functional. The effective action, which contains all quantum corrections, respects the same symmetry as the classical action.
+
+\textbf{Connection to Chapter~\ref{ch:rg_geometry}:} In the language of connections, equation~\eqref{eq:ward_effective} says that the effective action defines a \textbf{flat connection} on the space of gauge orbits. Gauge transformations are ``pure gauge'' directions in theory space, and the effective action must be constant along these directions.
+
+\subsection{Consequences for the RG}
+
+The Ward identity has profound consequences for the structure of the RG in QED.
+
+\textbf{1. Universal charge.} The electric charge is universally defined and scheme-independent, a remarkable constraint that does not hold for arbitrary couplings. This follows because the vertex function $\Gamma_\mu$ at zero momentum transfer is fixed by current conservation.
+
+\textbf{2. Gauge-invariant beta function.} The beta function~\eqref{eq:qed_beta} is gauge invariant, taking the same form in any gauge. Specifically:
+\begin{equation}
+\beta_\alpha = \frac{\partial\alpha}{\partial\ln\mu}\bigg|_{\alpha_0} \quad \text{is independent of the gauge parameter } \xi
+\end{equation}
+
+\textbf{3. Reduced renormalization.} Only one independent renormalization constant---$Z_3$ for the photon field---determines the running of $\alpha$, dramatically simplifying the structure of theory space.
+
+\textbf{4. Constrained geometry.} The Ward identity constrains the geometry of theory space (Chapter~\ref{ch:rg_geometry}). Gauge transformations define null directions along which the effective action is constant, reducing the effective dimensionality of theory space.
+
+\begin{workedbox}[Box 15.4: Ward Identities and the OPE]
+\textbf{Connection to operator product expansion (Chapter~\ref{ch:rg_geometry}):}
+
+Ward identities constrain OPE coefficients. For the current-operator OPE:
+\begin{equation}
+j^\mu(x)\mathcal{O}(0) = \sum_n C_n^{\mu}(x)\mathcal{O}_n(0)
+\end{equation}
+current conservation $\partial_\mu j^\mu = 0$ implies:
+\begin{equation}
+\partial_\mu C_n^{\mu}(x) = 0 \quad \text{(for operators with definite charge)}
+\end{equation}
+
+\textbf{At fixed points (CFT):} Conformal Ward identities further constrain the structure. The stress tensor satisfies $\partial_\mu T^{\mu\nu} = 0$ and $T^\mu{}_\mu = 0$ (in the conformal limit), which together with current conservation determines correlation functions up to overall constants.
+
+\textbf{RG significance:} The Ward identities are \textbf{preserved under RG flow}. If the UV theory has gauge symmetry, so does the effective theory at any scale $\mu$. This is why the structure of QED remains consistent from atomic physics ($\mu \sim m_e$) to high-energy colliders ($\mu \sim 100$ GeV).
+\end{workedbox}
+
+\subsection{Anomalies and the Adler-Bell-Jackiw Result}
+
+Not all classical symmetries survive quantization. The \textbf{axial current} $j_5^\mu = \bar{\psi}\gamma^\mu\gamma_5\psi$, conserved classically for massless fermions, develops an \textbf{anomaly}:
+\begin{equation}
+\partial_\mu j_5^\mu = \frac{\alpha}{2\pi}\epsilon^{\mu\nu\rho\sigma}F_{\mu\nu}F_{\rho\sigma}
+\end{equation}
+
+This \textbf{Adler-Bell-Jackiw anomaly} is:
+\begin{itemize}
+\item \textbf{Exact:} No higher-loop corrections (the Adler-Bardeen theorem)
+\item \textbf{Physical:} Explains $\pi^0 \to \gamma\gamma$ decay
+\item \textbf{Topological:} Related to the index theorem for Dirac operators
+\end{itemize}
+
+\marginnote{The ABJ anomaly is a ``quantum correction to a Noether theorem''---the classical conservation law fails at quantum level.}
+
+\textbf{For the vector current:} In QED (and more generally in non-chiral gauge theories), the vector current Ward identity is \textbf{not anomalous}. This is essential---an anomaly in the gauge current would render the theory inconsistent. The cancellation of anomalies constrains the matter content of gauge theories, famously requiring three generations of quarks and leptons in the Standard Model.
+
+%-------------------------------------------------------------------------------
+\section{The Lamb Shift and Anomalous Magnetic Moment}
+\label{sec:qed_precision}
+%-------------------------------------------------------------------------------
+
+The RG framework in QED makes precise predictions that have been verified experimentally.
+
+\subsection{The Lamb Shift}
+
+The energy levels of hydrogen receive corrections from vacuum polarization and electron self-energy. The splitting between the $2S_{1/2}$ and $2P_{1/2}$ states (which are degenerate in the Dirac theory) is:
+\begin{equation}
+\Delta E_{\text{Lamb}} \approx \frac{\alpha^5 m_e c^2}{6\pi}\left[\ln\frac{1}{\alpha^2} - \ln 2 + \frac{5}{6}\right] \approx 1057 \text{ MHz}.
+\end{equation}
+
+This prediction agrees with experiment to high precision.
+
+\subsection{Anomalous Magnetic Moment}
+
+The electron magnetic moment is predicted to differ from the Dirac value $g = 2$:
+\begin{equation}
+a_e \equiv \frac{g-2}{2} = \frac{\alpha}{2\pi} + O(\alpha^2).
+\end{equation}
+
+\marginnote{The anomalous magnetic moment of the electron is the most precisely tested prediction in all of physics.}
+
+Including higher-order corrections (which require sophisticated RG techniques), the theoretical prediction agrees with the experimental value to better than one part in $10^{12}$.
+
+%-------------------------------------------------------------------------------
+\section{QED in External Fields}
+\label{sec:qed_external}
+%-------------------------------------------------------------------------------
+
+QED in strong external fields provides another arena for RG methods.
+
+\subsection{Schwinger Effect}
+
+In a constant electric field $E$, virtual electron-positron pairs can become real if the field is strong enough. The pair production rate per unit volume is:
+\begin{equation}
+w = \frac{\alpha E^2}{\pi^2} \sum_{n=1}^\infty \frac{1}{n^2} e^{-\frac{\pi m^2 n}{eE}}.
+\end{equation}
+
+This nonperturbative effect lies beyond the perturbative RG but can be understood through instanton methods.
+
+\subsection{Euler-Heisenberg Effective Action}
+
+At energies below the electron mass, the physics is described by an effective action for the electromagnetic field alone:
+\begin{equation}
+\mathcal{L}_{\text{eff}} = -\frac{1}{4}F^2 + \frac{\alpha^2}{90m^4}\left[(F^2)^2 + \frac{7}{4}(F\tilde{F})^2\right] + \cdots
+\end{equation}
+where $\tilde{F}^{\mu\nu} = \frac{1}{2}\epsilon^{\mu\nu\rho\sigma}F_{\rho\sigma}$ is the dual field strength.
+
+This is the effective theory obtained after integrating out electrons, implementing the RG procedure discussed in Chapter~\ref{ch:rg_geometry}.
+
+%-------------------------------------------------------------------------------
+\section{Connection to the Geometric Framework}
+\label{sec:qed_geometry}
+%-------------------------------------------------------------------------------
+
+We now explicitly connect QED to the geometric framework of Part I.
+
+\subsection{Theory Space}
+
+The coupling space for QED includes $(\alpha, m)$ and gauge-fixing parameters. The essential physics is captured by the flow of $\alpha$:
+\begin{equation}
+\frac{d\alpha}{ds} = \beta_\alpha(\alpha)
+\end{equation}
+where $s = \ln(\mu/m)$ is the scale parameter.
+
+\subsection{Fixed Points}
+
+QED has a single perturbative fixed point at $\alpha^* = 0$, the free theory. The stability analysis of Chapter~\ref{ch:fixed_points} reveals the character of perturbations around this fixed point. The coupling $\alpha$ is marginally irrelevant, flowing to $\alpha^* = 0$ in the IR; this explains why electromagnetism appears weakly coupled at low energies. The electron mass $m$ is a relevant perturbation: massive electrons decouple at energies below their mass, leaving only massless photons.
+
+\subsection{Gradient Flow Structure}
+
+In four dimensions, the a-theorem governs RG flows. While the full proof is technical, the decrease of the $a$-anomaly coefficient from UV to IR is consistent with QED flowing toward the free theory.
+
+\subsection{Connections and Scheme Dependence}
+
+The renormalization scheme choice (MS, $\overline{\text{MS}}$, on-shell, etc.) corresponds to a choice of coordinates on theory space. Chapter~\ref{ch:resurgence} develops these schemes in detail: the \textbf{on-shell scheme} defines the electron mass and charge as directly measurable quantities, while the \textbf{$\overline{\text{MS}}$ scheme} subtracts only divergences, leading to simpler calculations but ``unphysical'' running parameters. The connection (Chapter~\ref{ch:rg_geometry}) ensures that physical observables are scheme-independent; the first two beta function coefficients are universal, while higher-order coefficients depend on scheme choice.
+
+The Ward identity provides additional structure, constraining the allowed coordinate transformations to preserve gauge invariance.
+
+%-------------------------------------------------------------------------------
+\section*{Exercises}
+\addcontentsline{toc}{section}{Exercises}
+%-------------------------------------------------------------------------------
+
+\begin{enumerate}
+\item \textbf{Running coupling.} Using the one-loop beta function~\eqref{eq:qed_beta}:
+\begin{enumerate}
+\item Solve for $\alpha(\mu)$ starting from $\alpha(m_e) = 1/137$.
+\item Compute $\alpha(\mu)$ at $\mu = m_Z \approx 91$ GeV.
+\item Verify that this is consistent with the measured value $\alpha(m_Z) \approx 1/128$.
+\end{enumerate}
+
+\item \textbf{Landau pole.} From equation~\eqref{eq:landau_pole}:
+\begin{enumerate}
+\item Show that $\Lambda_{\text{Landau}} \sim 10^{286}$ GeV.
+\item Compare this to the Planck scale $M_{\text{Pl}} \sim 10^{19}$ GeV.
+\item Discuss why the Landau pole is not a practical concern for QED.
+\end{enumerate}
+
+\item \textbf{Anomalous magnetic moment.} The leading contribution to the electron anomalous magnetic moment is $a_e = \alpha/(2\pi)$.
+\begin{enumerate}
+\item Compute the numerical value using $\alpha = 1/137$.
+\item The experimental value is $a_e^{\text{exp}} \approx 0.001159652$. What order in $\alpha$ is needed to achieve this precision?
+\item Discuss why higher-order calculations require sophisticated RG techniques.
+\end{enumerate}
+
+\item \textbf{Ward identity.} The Ward-Takahashi identity $Z_1 = Z_2$ relates the vertex and field renormalization constants.
+\begin{enumerate}
+\item Explain why this implies that the charge renormalization is determined solely by $Z_3$.
+\item Show that $e_{\text{phys}} = e_0 Z_3^{1/2}$ where $e_0$ is the bare charge.
+\item Discuss what would happen if $Z_1 \neq Z_2$.
+\end{enumerate}
+
+\item \textbf{(Challenge) Schwinger effect.} The pair production rate in a constant electric field is $w \propto e^{-\pi m^2/(eE)}$.
+\begin{enumerate}
+\item Estimate the critical field strength $E_c$ at which pair production becomes significant.
+\item Compare $E_c$ to laboratory-achievable electric fields.
+\item Explain why this effect is non-perturbative in $\alpha$.
+\end{enumerate}
+\end{enumerate}
+
+%-------------------------------------------------------------------------------
+\subsection*{Solutions}
+%-------------------------------------------------------------------------------
+
+\begin{solutionbox}{Exercise 15.1: Running Coupling}
+\textbf{(a) Solve for $\alpha(\mu)$.}
+
+Starting from the one-loop beta function $\beta_\alpha = \frac{2\alpha^2}{3\pi}$:
+\begin{equation}
+\mu\frac{d\alpha}{d\mu} = \frac{2\alpha^2}{3\pi}
+\end{equation}
+
+Separate variables:
+\begin{equation}
+\frac{d\alpha}{\alpha^2} = \frac{2}{3\pi}\frac{d\mu}{\mu} = \frac{2}{3\pi}d(\ln\mu)
+\end{equation}
+
+Integrate from $(m_e, \alpha_0)$ to $(\mu, \alpha)$:
+\begin{equation}
+-\frac{1}{\alpha} + \frac{1}{\alpha_0} = \frac{2}{3\pi}\ln\frac{\mu}{m_e}
+\end{equation}
+
+Solve for $\alpha(\mu)$:
+\begin{equation}
+\boxed{\alpha(\mu) = \frac{\alpha_0}{1 - \frac{2\alpha_0}{3\pi}\ln(\mu/m_e)}}
+\end{equation}
+where $\alpha_0 = \alpha(m_e) = 1/137.036$.
+
+\textbf{(b) Compute $\alpha(m_Z)$.}
+
+With $m_Z = 91.2$ GeV and $m_e = 0.511$ MeV:
+\begin{equation}
+\ln\frac{m_Z}{m_e} = \ln\frac{91.2 \times 10^9}{0.511 \times 10^6} = \ln(1.78 \times 10^5) \approx 12.09
+\end{equation}
+
+The correction factor:
+\begin{equation}
+\frac{2\alpha_0}{3\pi}\ln\frac{m_Z}{m_e} = \frac{2}{3\pi \times 137}\times 12.09 \approx 0.0187
+\end{equation}
+
+Therefore:
+\begin{equation}
+\alpha(m_Z) = \frac{1/137}{1 - 0.0187} \approx \frac{0.00730}{0.981} \approx 0.00744 \approx \frac{1}{134}
+\end{equation}
+
+\textbf{(c) Comparison with experiment.}
+
+The measured value $\alpha(m_Z) \approx 1/128$ is larger than our estimate $1/134$. The discrepancy arises because:
+\begin{itemize}
+\item We only included electron loops; muon and tau leptons contribute additional screening
+\item Quark loops (weighted by $N_c Q^2$) provide significant contributions
+\item Higher-order corrections are needed for precision
+\end{itemize}
+
+Including all charged fermions: $\alpha^{-1}(m_Z) \approx 128.9 \pm 0.1$, consistent with measurement.
+\end{solutionbox}
+
+\begin{solutionbox}{Exercise 15.2: Landau Pole}
+\textbf{(a) Show $\Lambda_{\text{Landau}} \sim 10^{286}$ GeV.}
+
+The Landau pole occurs when the denominator in $\alpha(\mu)$ vanishes:
+\begin{equation}
+1 - \frac{2\alpha_0}{3\pi}\ln\frac{\Lambda}{m_e} = 0
+\end{equation}
+
+Solving:
+\begin{equation}
+\ln\frac{\Lambda}{m_e} = \frac{3\pi}{2\alpha_0} = \frac{3\pi \times 137}{2} \approx 645.5
+\end{equation}
+
+Converting to GeV:
+\begin{equation}
+\Lambda = m_e \times e^{645.5} = 0.511 \text{ MeV} \times e^{645.5}
+\end{equation}
+
+Using $e^{645.5} = 10^{645.5/\ln 10} = 10^{280.4}$:
+\begin{equation}
+\boxed{\Lambda_{\text{Landau}} \approx 5 \times 10^{-4} \text{ GeV} \times 10^{280} \sim 10^{277} \text{ GeV}}
+\end{equation}
+
+(The often-quoted $10^{286}$ GeV includes higher-order corrections.)
+
+\textbf{(b) Comparison with Planck scale.}
+
+The Planck scale is:
+\begin{equation}
+M_{\text{Pl}} = \sqrt{\frac{\hbar c}{G_N}} \approx 1.22 \times 10^{19} \text{ GeV}
+\end{equation}
+
+The ratio is enormous:
+\begin{equation}
+\frac{\Lambda_{\text{Landau}}}{M_{\text{Pl}}} \sim \frac{10^{277}}{10^{19}} \sim 10^{258}
+\end{equation}
+
+\textbf{(c) Why the Landau pole is not a practical concern.}
+
+\begin{enumerate}
+\item \textit{Scale hierarchy}: The Landau pole is $10^{258}$ times larger than the Planck scale. Quantum gravity effects would dominate long before QED becomes strongly coupled.
+
+\item \textit{Electroweak unification}: QED is embedded in the electroweak theory at $\sim 100$ GeV, changing the running at this scale.
+
+\item \textit{Perturbative breakdown}: The one-loop formula breaks down when $\alpha \sim 1$, which occurs at much lower scales (but still far above any experiment).
+
+\item \textit{Theoretical status}: The Landau pole indicates QED is an \textit{effective theory}, not a fundamental one---a feature, not a bug.
+\end{enumerate}
+\end{solutionbox}
+
+\begin{solutionbox}{Exercise 15.3: Anomalous Magnetic Moment}
+\textbf{(a) Leading contribution.}
+
+The Schwinger result for the leading QED correction:
+\begin{equation}
+a_e^{(1)} = \frac{\alpha}{2\pi} = \frac{1}{2\pi \times 137.036} \approx 0.001161
+\end{equation}
+
+More precisely, with $\alpha = 1/137.035999...$:
+\begin{equation}
+\boxed{a_e^{(1)} \approx 0.00116141}
+\end{equation}
+
+\textbf{(b) Order needed for experimental precision.}
+
+Experimental value: $a_e^{\text{exp}} = 0.00115965218073(28)$
+
+The leading term $\alpha/(2\pi) \approx 0.00116$ differs from experiment at the $10^{-5}$ level, requiring higher orders.
+
+The perturbative expansion:
+\begin{equation}
+a_e = \sum_{n=1}^\infty C_n \left(\frac{\alpha}{\pi}\right)^n
+\end{equation}
+
+With $(\alpha/\pi)^n \sim (1/430)^n$:
+\begin{itemize}
+\item $n=2$ contribution: $\sim 10^{-6}$
+\item $n=3$ contribution: $\sim 10^{-9}$
+\item $n=4$ contribution: $\sim 10^{-11}$
+\item $n=5$ contribution: $\sim 10^{-14}$
+\end{itemize}
+
+To match experimental precision of $\sim 10^{-13}$, \textbf{five-loop calculations} are required.
+
+\textbf{(c) Why higher-order calculations need RG techniques.}
+
+\begin{enumerate}
+\item \textit{Diagram proliferation}: The number of Feynman diagrams grows factorially. At five loops, there are $\sim 12,000$ diagrams.
+
+\item \textit{UV divergences}: Each loop introduces new divergences requiring systematic renormalization via the RG.
+
+\item \textit{IR divergences}: Soft and collinear photon emissions create IR divergences that must be carefully canceled.
+
+\item \textit{Mass effects}: Including muon and hadron vacuum polarization requires running masses and couplings.
+
+\item \textit{Numerical integration}: Multi-loop integrals cannot be done analytically; sophisticated numerical techniques are needed.
+\end{enumerate}
+
+The five-loop QED calculation (Aoyama et al., 2012) represents one of the most complex calculations in physics.
+\end{solutionbox}
+
+\begin{solutionbox}{Exercise 15.4: Ward Identity}
+\textbf{(a) Why $Z_1 = Z_2$ implies charge renormalization comes from $Z_3$.}
+
+The bare quantities are:
+\begin{equation}
+e_0 = Z_e e, \quad \psi_0 = Z_2^{1/2}\psi, \quad A_0 = Z_3^{1/2}A
+\end{equation}
+
+The interaction term $e_0\bar\psi_0\gamma^\mu\psi_0 A_{0\mu}$ becomes:
+\begin{equation}
+e_0 Z_2 Z_3^{1/2} \bar\psi\gamma^\mu\psi A_\mu = e\bar\psi\gamma^\mu\psi A_\mu
+\end{equation}
+
+This requires:
+\begin{equation}
+e = e_0 Z_2 Z_3^{1/2}
+\end{equation}
+
+Alternatively, the vertex correction gives $e_0 Z_1^{-1}$, so:
+\begin{equation}
+e = e_0 \frac{Z_2}{Z_1} Z_3^{1/2}
+\end{equation}
+
+The Ward identity $Z_1 = Z_2$ implies:
+\begin{equation}
+\boxed{e = e_0 Z_3^{1/2} \quad\Rightarrow\quad \alpha = \alpha_0 Z_3}
+\end{equation}
+
+Charge renormalization depends \textit{only} on the photon field renormalization.
+
+\textbf{(b) Physical charge relation.}
+
+From $e = e_0 Z_3^{1/2}$ and $\alpha = e^2/(4\pi)$:
+\begin{equation}
+\alpha_{\text{phys}} = \frac{e_{\text{phys}}^2}{4\pi} = \frac{e_0^2 Z_3}{4\pi} = \alpha_0 Z_3
+\end{equation}
+
+Since $Z_3 < 1$ (from vacuum polarization screening), $\alpha_{\text{phys}} < \alpha_0$: the physical charge is \textit{smaller} than the bare charge due to screening.
+
+\textbf{(c) Consequences if $Z_1 \neq Z_2$.}
+
+If Ward identity were violated:
+\begin{enumerate}
+\item \textit{Charge non-universality}: The electron's charge would differ from the proton's (scaled by quark charges), contradicting precise measurements.
+
+\item \textit{Gauge non-invariance}: Physical observables would depend on the gauge parameter $\xi$.
+
+\item \textit{Current non-conservation}: The electromagnetic current $j^\mu = \bar\psi\gamma^\mu\psi$ would not be conserved, violating $\partial_\mu j^\mu = 0$.
+
+\item \textit{Photon mass}: A non-transverse part of the photon propagator could develop, giving the photon a mass.
+\end{enumerate}
+
+The Ward identity is protected by gauge symmetry and holds to all orders in perturbation theory.
+\end{solutionbox}
+
+\begin{solutionbox}{Exercise 15.5: Schwinger Effect (Challenge)}
+\textbf{(a) Critical field strength.}
+
+The pair production rate per unit volume:
+\begin{equation}
+w = \frac{\alpha E^2}{\pi^2}\sum_{n=1}^\infty \frac{1}{n^2}e^{-n\pi m^2/(eE)}
+\end{equation}
+
+Pair production becomes significant when the exponent is of order unity:
+\begin{equation}
+\frac{\pi m^2}{eE} \sim 1 \quad\Rightarrow\quad E_c \sim \frac{\pi m^2}{e}
+\end{equation}
+
+More precisely, the critical field (Schwinger limit):
+\begin{equation}
+E_c = \frac{m^2 c^3}{e\hbar} = \frac{m_e^2 c^3}{e\hbar}
+\end{equation}
+
+Numerically:
+\begin{equation}
+E_c = \frac{(0.511 \text{ MeV}/c^2)^2 c^3}{e\hbar} \approx 1.32 \times 10^{18} \text{ V/m}
+\end{equation}
+
+or equivalently:
+\begin{equation}
+\boxed{E_c \approx 1.3 \times 10^{16} \text{ V/cm}}
+\end{equation}
+
+\textbf{(b) Comparison with laboratory fields.}
+
+Strongest sustained laboratory fields:
+\begin{itemize}
+\item High-power lasers: $E \sim 10^{11}$ V/cm (petawatt facilities)
+\item Proposed ELI facilities: $E \sim 10^{13}$ V/cm
+\end{itemize}
+
+Ratio to critical field:
+\begin{equation}
+\frac{E_{\text{lab}}}{E_c} \sim \frac{10^{13}}{10^{16}} \sim 10^{-3}
+\end{equation}
+
+Suppression of pair production:
+\begin{equation}
+e^{-\pi E_c/E} \sim e^{-\pi \times 10^3} \sim 10^{-1400}
+\end{equation}
+
+The Schwinger effect is essentially unobservable with current technology. However, \textit{assisted} processes (with high-energy photons) are being explored.
+
+\textbf{(c) Non-perturbative character.}
+
+The pair production rate:
+\begin{equation}
+w \propto e^{-\pi m^2/(eE)} = e^{-\pi/(e^2 E/m^2)} = e^{-\text{const}/\alpha \cdot (E_c/E)}
+\end{equation}
+
+This has the characteristic form of a non-perturbative effect:
+\begin{equation}
+w \propto e^{-\text{const}/\alpha}
+\end{equation}
+
+\begin{itemize}
+\item The exponential $e^{-1/\alpha}$ has \textit{zero} Taylor expansion around $\alpha = 0$:
+\begin{equation}
+e^{-1/\alpha} = 0 + 0\cdot\alpha + 0\cdot\alpha^2 + \cdots \quad (\text{all derivatives vanish at } \alpha = 0)
+\end{equation}
+
+\item This effect is invisible to perturbation theory; it corresponds to a non-perturbative sector of the transseries (Chapter~\ref{ch:resurgence}).
+
+\item Physically, pair creation requires ``borrowing'' energy $2m_e c^2$ from the field over a distance $\sim 1/m_e$, a tunneling process that cannot be captured perturbatively.
+
+\item The Schwinger effect is analogous to instanton contributions in gauge theories: both are exponentially suppressed and invisible to perturbation theory.
+\end{itemize}
+\end{solutionbox}
+
+%-------------------------------------------------------------------------------
+\section*{Summary}
+\addcontentsline{toc}{section}{Summary}
+%-------------------------------------------------------------------------------
+
+\begin{summarybox}{Chapter 15: Quantum Electrodynamics}
+
+\summaryheader{RG Framework in QED}
+\begin{itemize}
+\item \textbf{Scale hierarchy:} $m_e \ll \mu \ll \Lambda$ from electron mass to UV cutoff
+\item \textbf{Coarse-graining:} Vacuum polarization integrates out virtual pairs
+\item \textbf{Theory space:} $(\alpha, m)$ parametrizes the family of QED theories
+\item \textbf{Beta function:} $\beta_\alpha = \frac{2\alpha^2}{3\pi} + O(\alpha^3)$
+\item \textbf{Fixed points:} $\alpha^* = 0$ is IR attractor (charge screening)
+\item \textbf{Physical predictions:} Precision tests via higher-order calculations
+\end{itemize}
+
+\summaryheader{Key Physical Insights}
+\begin{itemize}
+\item \textbf{Charge screening:} Virtual pairs screen the bare charge, making $\alpha$ increase with energy
+\item \textbf{Landau pole:} $\Lambda_L \sim 10^{286}$ GeV indicates UV incompleteness (not a practical concern)
+\item \textbf{Ward identities:} Gauge symmetry enforces $Z_1 = Z_2$, so only $Z_3$ renormalizes charge
+\item \textbf{Schwinger effect:} Non-perturbative pair production $\propto e^{-\pi m^2/(eE)}$
+\end{itemize}
+
+\summaryheader{Precision Tests}
+\begin{itemize}
+\item Running coupling: $\alpha(m_e) = 1/137 \to \alpha(m_Z) \approx 1/128$
+\item Anomalous magnetic moment: Theory matches experiment to $10^{-12}$ precision
+\item Lamb shift: First triumph of renormalized QED (1947)
+\end{itemize}
+
+\summaryheader{Connection to Geometric Framework}
+\begin{itemize}
+\item Theory space geometry constrained by gauge invariance
+\item Gradient flow toward Gaussian fixed point in IR
+\item Non-perturbative effects may modify UV behavior (see Part II)
+\end{itemize}
+
+\end{summarybox}
+

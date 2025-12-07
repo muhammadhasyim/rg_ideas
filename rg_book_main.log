@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.13)  4 DEC 2025 22:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.13)  7 DEC 2025 16:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -556,6 +556,9 @@ Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
 \l_MT_below_shortintertext_sep=\dimen184
 \xmathstrut@box=\box101
 \xmathstrut@dim=\dimen185
+)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/carlisle/slashed.sty
+Package: slashed 1997/01/16 v0.01 Feynman Slashed Character Notation (DPC)
 )
 (/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
@@ -1218,7 +1221,7 @@ File: pgflibraryfadings.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 (/usr/local/texlive/2022/texmf-dist/tex/latex/tcolorbox/tcbposter.code.tex
 Library (tcolorbox): 'tcbposter.code.tex' version '5.0.2'
 ))
-Package hyperref Info: Option `colorlinks' set `true' on input line 46.
+Package hyperref Info: Option `colorlinks' set `true' on input line 47.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2020/05/29 v2.20.6
 \thm@style=\toks47
@@ -1235,41 +1238,32 @@ Package: amsthm 2020/05/29 v2.20.6
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\\' on input line 128.
+(hyperref)                removing `\\' on input line 206.
 
-(./rg_book_main.aux
-
-LaTeX Warning: Label `sec:wilson_fisher' multiply defined.
-
-
-LaTeX Warning: Label `eq:beta_r' multiply defined.
-
-
-LaTeX Warning: Label `sec:connections' multiply defined.
-
-)
+(./rg_book_main.aux)
 \openout1 = `rg_book_main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 136.
-LaTeX Font Info:    ... okay on input line 136.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 136.
-LaTeX Font Info:    ... okay on input line 136.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 136.
-LaTeX Font Info:    ... okay on input line 136.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 136.
-LaTeX Font Info:    ... okay on input line 136.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 136.
-LaTeX Font Info:    ... okay on input line 136.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 136.
-LaTeX Font Info:    ... okay on input line 136.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 136.
-LaTeX Font Info:    ... okay on input line 136.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 136.
-LaTeX Font Info:    ... okay on input line 136.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 136.
-LaTeX Font Info:    ... okay on input line 136.
-Package hyperref Info: Link coloring ON on input line 136.
- (/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/nameref.sty
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 214.
+LaTeX Font Info:    ... okay on input line 214.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 214.
+LaTeX Font Info:    ... okay on input line 214.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 214.
+LaTeX Font Info:    ... okay on input line 214.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 214.
+LaTeX Font Info:    ... okay on input line 214.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 214.
+LaTeX Font Info:    ... okay on input line 214.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 214.
+LaTeX Font Info:    ... okay on input line 214.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 214.
+LaTeX Font Info:    ... okay on input line 214.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 214.
+LaTeX Font Info:    ... okay on input line 214.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 214.
+LaTeX Font Info:    ... okay on input line 214.
+Package hyperref Info: Link coloring ON on input line 214.
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/refcount/refcount.sty
@@ -1281,9 +1275,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count366
 )
-LaTeX Info: Redefining \ref on input line 136.
-LaTeX Info: Redefining \pageref on input line 136.
-LaTeX Info: Redefining \nameref on input line 136.
+LaTeX Info: Redefining \ref on input line 214.
+LaTeX Info: Redefining \pageref on input line 214.
+LaTeX Info: Redefining \nameref on input line 214.
  (./rg_book_main.out) (./rg_book_main.out)
 \@outlinefile=\write5
 \openout5 = `rg_book_main.out'.
@@ -1355,62 +1349,106 @@ Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks55
 \inpenc@posthook=\toks56
 )
-LaTeX Font Info:    Trying to load font information for T1+phv on input line 14
-3.
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 22
+1.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 )
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 143.
+(Font)              scaled to size 8.99994pt on input line 221.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 16.19989pt on input line 143.
+(Font)              scaled to size 16.19989pt on input line 221.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 32.39978pt on input line 143.
+(Font)              scaled to size 32.39978pt on input line 221.
 
-Overfull \hbox (31.05879pt too wide) in paragraph at lines 143--143
+Overfull \hbox (31.05879pt too wide) in paragraph at lines 221--221
 []\T1/phv/m/n/36/200ls SCALE, SYM-ME-TRY, AND
  []
 
 
-Overfull \hbox (90.94417pt too wide) in paragraph at lines 143--143
+Overfull \hbox (90.94417pt too wide) in paragraph at lines 221--221
 \T1/phv/m/n/36/200ls RENORMALIZATION GROUP[] 
  []
 
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 12.59991pt on input line 143.
+(Font)              scaled to size 12.59991pt on input line 221.
 [1
 
 
 
 {/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    Trying to load font information for TS1+pplj on input line 
-154.
+232.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/psnfss/ts1pplj.fd
 File: ts1pplj.fd 2004/09/06 font definitions for TS1/pplj.
 ) [2
 
 ]
-(./rg_book_main.toc
-Underfull \vbox (badness 1412) has occurred while \output is active []
-
- [3
-
-])
+(./rg_book_main.toc)
 \tf@toc=\write6
 \openout6 = `rg_book_main.toc'.
 
+ [3
 
-[4] (./rg_book_main.lof)
+] [4
+
+] (./rg_book_main.lof)
 \tf@lof=\write7
 \openout7 = `rg_book_main.lof'.
 
- [5
+ [5] [6
 
-] [6
+] (./rg_book_main.lot
+LaTeX Font Info:    Trying to load font information for OT1+pplx on input line 
+7.
 
-] (./rg_book_main.lot)
+(/usr/local/texlive/2022/texmf-dist/tex/latex/psnfss/ot1pplx.fd
+File: ot1pplx.fd 2004/09/06 font definitions for OT1/pplx.
+)
+LaTeX Font Info:    Trying to load font information for OML+zplm on input line 
+7.
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/psnfss/omlzplm.fd
+File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
+)
+LaTeX Font Info:    Trying to load font information for OMS+zplm on input line 
+7.
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/psnfss/omszplm.fd
+File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
+)
+LaTeX Font Info:    Trying to load font information for OMX+zplm on input line 
+7.
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/psnfss/omxzplm.fd
+File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
+)
+LaTeX Font Info:    Trying to load font information for OT1+zplm on input line 
+7.
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/psnfss/ot1zplm.fd
+File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
+)
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 10.42007pt on input line 7.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 7.91925pt on input line 7.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 6.25204pt on input line 7.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 10.42007pt on input line 7.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 7.91925pt on input line 7.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 6.25204pt on input line 7.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 7.
+
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/jknapltx/ursfs.fd
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
+))
 \tf@lot=\write8
 \openout8 = `rg_book_main.lot'.
 
@@ -1421,13 +1459,13 @@ Underfull \vbox (badness 1412) has occurred while \output is active []
 LaTeX Warning: Marginpar on page 9 moved.
 
 
-Overfull \hbox (3.42978pt too wide) in paragraph at lines 178--179
+Overfull \hbox (3.42978pt too wide) in paragraph at lines 256--257
 \T1/pplj/m/n/10 same es-sen-tial struc-ture: a flow on a space of the-o-ries dr
 iven by changes
  []
 
 
-Overfull \hbox (22.51982pt too wide) in paragraph at lines 178--179
+Overfull \hbox (22.51982pt too wide) in paragraph at lines 256--257
 \T1/pplj/m/n/10 ci-a-tion for the group-theoretic and ge-o-met-ric char-ac-ter 
 of renormalization---
  []
@@ -1436,160 +1474,117 @@ of renormalization---
 
 LaTeX Warning: Marginpar on page 10 moved.
 
-[10]
-LaTeX Font Info:    Trying to load font information for OT1+pplx on input line 
-198.
- (/usr/local/texlive/2022/texmf-dist/tex/latex/psnfss/ot1pplx.fd
-File: ot1pplx.fd 2004/09/06 font definitions for OT1/pplx.
-)
-LaTeX Font Info:    Trying to load font information for OML+zplm on input line 
-198.
 
-(/usr/local/texlive/2022/texmf-dist/tex/latex/psnfss/omlzplm.fd
-File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
-)
-LaTeX Font Info:    Trying to load font information for OMS+zplm on input line 
-198.
+LaTeX Warning: Marginpar on page 10 moved.
 
-(/usr/local/texlive/2022/texmf-dist/tex/latex/psnfss/omszplm.fd
-File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
-)
-LaTeX Font Info:    Trying to load font information for OMX+zplm on input line 
-198.
 
-(/usr/local/texlive/2022/texmf-dist/tex/latex/psnfss/omxzplm.fd
-File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
-)
-LaTeX Font Info:    Trying to load font information for OT1+zplm on input line 
-198.
+Overfull \hbox (12.16643pt too wide) in paragraph at lines 274--275
+\T1/pplj/m/n/10 tools for ex-tract-ing phys-i-cal pre-dic-tions from di-ver-gen
+t se-ries. Transseries
+ []
 
-(/usr/local/texlive/2022/texmf-dist/tex/latex/psnfss/ot1zplm.fd
-File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
-)
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 198.
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.91925pt on input line 198.
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 198.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 198.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.91925pt on input line 198.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 198.
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 19
-8.
 
-(/usr/local/texlive/2022/texmf-dist/tex/latex/jknapltx/ursfs.fd
-File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-) [11] [12
+Overfull \hbox (7.80927pt too wide) in paragraph at lines 276--277
+[]\T1/pplj/b/n/10 Part III (Ap-pli-ca-tions) \T1/pplj/m/n/10 ap-plies the uni-f
+ied geometric-analytical frame-
+ []
 
-]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [10]
+Underfull \vbox (badness 3019) has occurred while \output is active []
+
+ [11]
+LaTeX Font Info:    Trying to load font information for U+fplmbb on input line 
+333.
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/psnfss/ufplmbb.fd
+File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
+) [12]
+(./chapters/prologue.tex
+
+LaTeX Warning: Marginpar on page 13 moved.
+
+
+LaTeX Warning: Marginpar on page 13 moved.
+
 [13
 
-] [14] (./chapters/ch01_scale.tex
-
-LaTeX Warning: Marginpar on page 15 moved.
-
-
-Underfull \hbox (badness 1436) in paragraph at lines 12--12
-\T1/pplj/m/n/8 The word ``renor-mal-iza-tion'' sug-gests
- []
-
-
-Underfull \hbox (badness 3872) in paragraph at lines 12--12
-\T1/pplj/m/n/8 What re-quires nor-mal-iza-tion is our
- []
-
-
-LaTeX Warning: Marginpar on page 15 moved.
-
-
-Overfull \hbox (1.69989pt too wide) in paragraph at lines 14--15
-[]\T1/pplj/b/n/10 The ap-par-ent prob-lem \T1/pplj/m/n/10 is that per-tur-ba-ti
-ve ex-pan-sions in some small
- []
-
-[15
 
 ]
+
+LaTeX Warning: Marginpar on page 14 moved.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [14]
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 8.33606pt on input line 46.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 5.21004pt on input line 46.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 8.33606pt on input line 46.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 5.21004pt on input line 46.
+
+
+LaTeX Warning: Marginpar on page 15 moved.
+
+
+LaTeX Warning: Marginpar on page 15 moved.
+
+
+Overfull \hbox (1.3366pt too wide) in paragraph at lines 70--71
+\T1/pplj/m/n/10 ex-ploit-ing scale sym-me-try, namely \T1/pplj/b/n/10 di-men-si
+onal anal-y-sis\T1/pplj/m/n/10 . Un-der-stand-
+ []
+
+[15]
+Underfull \hbox (badness 1270) in paragraph at lines 72--72
+\T1/pplj/m/n/8 It iden-ti-fies quan-ti-ties that trans-form
+ []
+
 
 LaTeX Warning: Marginpar on page 16 moved.
 
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 8.33606pt on input line 35.
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 5.21004pt on input line 35.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 8.33606pt on input line 35.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 5.21004pt on input line 35.
 
 LaTeX Warning: Marginpar on page 16 moved.
 
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 8.99994pt on input line 39.
-[16]
+(Font)              scaled to size 8.99994pt on input line 98.
 
-LaTeX Warning: Marginpar on page 17 moved.
+Underfull \vbox (badness 1466) has occurred while \output is active []
 
-LaTeX Font Info:    Trying to load font information for U+fplmbb on input line 
-68.
-(/usr/local/texlive/2022/texmf-dist/tex/latex/psnfss/ufplmbb.fd
-File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
-)
+ [16]
+Underfull \hbox (badness 1112) in paragraph at lines 138--138
+\T1/pplj/m/n/8 we must ac-tu-ally solve the prob-lem.
+ []
+
 
 LaTeX Warning: Marginpar on page 17 moved.
 
 [17]
-
-LaTeX Warning: Marginpar on page 18 moved.
-
-
-Underfull \hbox (badness 1067) in paragraph at lines 105--105
-\T1/pplj/m/n/8 the fast dy-nam-ics ``av-er-ages out'' on
+Underfull \hbox (badness 3977) in paragraph at lines 159--159
+\T1/pplj/m/n/8 di-men-sional anal-y-sis de-ter-mines the
  []
 
 
 LaTeX Warning: Marginpar on page 18 moved.
 
 [18]
-Underfull \hbox (badness 10000) in paragraph at lines 115--115
-\T1/pplj/m/n/8 Non-commuting lim-its:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 115--115
-[][] [][] \OMS/zplm/m/n/8 6\OT1/zplm/m/n/8 = [][] [][]$\T1/pplj/m/n/8 .
- []
-
-
-LaTeX Warning: Marginpar on page 19 moved.
-
-
-Underfull \hbox (badness 1270) in paragraph at lines 130--130
-\T1/pplj/m/n/8 It iden-ti-fies quan-ti-ties that trans-form
- []
-
-
-LaTeX Warning: Marginpar on page 19 moved.
-
 
 LaTeX Warning: Marginpar on page 19 moved.
 
 [19]
-Underfull \hbox (badness 1112) in paragraph at lines 189--189
-\T1/pplj/m/n/8 we must ac-tu-ally solve the prob-lem.
- []
-
 
 LaTeX Warning: Marginpar on page 20 moved.
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+LaTeX Warning: Marginpar on page 20 moved.
 
- [20]
+[20]
 
 LaTeX Warning: Marginpar on page 21 moved.
 
@@ -1598,107 +1593,98 @@ LaTeX Warning: Marginpar on page 21 moved.
 LaTeX Warning: Marginpar on page 22 moved.
 
 
-LaTeX Warning: Marginpar on page 22 moved.
+Underfull \vbox (badness 2334) has occurred while \output is active []
 
-[22]
+ [22]
+Underfull \hbox (badness 1472) in paragraph at lines 309--309
+\T1/pplj/m/n/8 Physical in-tu-ition sug-gests am-pli-tude
+ []
+
 
 LaTeX Warning: Marginpar on page 23 moved.
 
 
-Overfull \hbox (24.0891pt too wide) detected at line 323
-[][][]\OML/zplm/m/it/10 x\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 t\OT1/zplm/m/n/10 
-) = \OML/zplm/m/it/10 A []\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 ![]t\OT1/zplm/m/n
-/10 ) + \OML/zplm/m/it/10 ^^U [] \OT1/zplm/m/n/10 + \OML/zplm/m/it/10 O\OT1/zpl
-m/m/n/10 (\OML/zplm/m/it/10 ^^U[]\OT1/zplm/m/n/10 )
- []
+LaTeX Warning: Marginpar on page 23 moved.
 
 [23]
-Underfull \hbox (badness 1436) in paragraph at lines 334--334
-\T1/pplj/m/n/8 The sec-u-lar term is the per-tur-ba-tive
- []
-
 
 LaTeX Warning: Marginpar on page 24 moved.
 
 
 LaTeX Warning: Marginpar on page 24 moved.
-
-[24]
-Underfull \hbox (badness 10000) in paragraph at lines 370--370
-\T1/pplj/m/n/8 Divergent se-ries are not fail-ures.
- []
-
-
-LaTeX Warning: Marginpar on page 25 moved.
-
-
-LaTeX Warning: Marginpar on page 25 moved.
-
-[25]
-
-LaTeX Warning: Marginpar on page 26 moved.
-
-
-Underfull \hbox (badness 1661) in paragraph at lines 437--438
-[]\T1/pplj/b/n/10 Resolution: \T1/pplj/m/n/10 Go above or be-low the pole us-in
-g $\OML/zplm/m/it/10 f[]\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 z\OT1/zplm/m/n/10 )
- =
- []
-
-[26]
-
-LaTeX Warning: Marginpar on page 27 moved.
-
-[27] [28]
-
-LaTeX Warning: Marginpar on page 29 moved.
-
-[29
-
-]
-
-LaTeX Warning: Marginpar on page 30 moved.
-
-
-Overfull \hbox (5.7556pt too wide) in paragraph at lines 584--585
-\T1/pplj/m/n/10 The RG in-tro-duces a ge-o-met-ric per-spec-tive where pa-ram-e
--ters like $\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 A\OT1/pplx/m/n/10 , \OML/zplm/m
-/it/10 ^^^\OT1/zplm/m/n/10 )$
- []
-
-
-Overfull \hbox (9.52983pt too wide) in paragraph at lines 594--595
-\T1/pplj/m/n/10 The com-plete so-lu-tion to a prob-lem is not a power se-ries b
-ut a \T1/pplj/b/n/10 transseries
- []
-
-[30]
-
-LaTeX Warning: Marginpar on page 31 moved.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [31])
-(./chapters/ch02_dilation.tex [32]
+ [24]
+Underfull \hbox (badness 2556) in paragraph at lines 399--399
+\T1/pplj/m/n/8 The method of mul-ti-ple scales was
+ []
+
+
+LaTeX Warning: Marginpar on page 25 moved.
+
+
+Overfull \hbox (4.78651pt too wide) in paragraph at lines 401--402
+\T1/pplj/m/n/10 later. The solv-abil-ity con-di-tions that elim-i-nate sec-u-la
+r terms in multiple-
+ []
+
+[25] [26]
+
+LaTeX Warning: Marginpar on page 27 moved.
+
+
+Overfull \hbox (2.53648pt too wide) in paragraph at lines 482--483
+\T1/pplj/m/n/10 pen-dence. This is the mod-ern un-der-stand-ing of renor-mal-iz
+a-tion, which
+ []
+
+
+LaTeX Warning: Marginpar on page 27 moved.
+
+[27]
+Underfull \hbox (badness 2608) in paragraph at lines 525--525
+\T1/pplj/m/n/8 This sec-tion pre-views the ge-o-met-ric
+ []
+
+
+Underfull \hbox (badness 1571) in paragraph at lines 525--525
+\T1/pplj/m/n/8 frame-work de-vel-oped fully in Chap-
+ []
+
+
+LaTeX Warning: Marginpar on page 28 moved.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (4.79979pt too wide) in paragraph at lines 556--557
+[]\T1/pplj/m/n/10 This ge-o-met-ric structure---scale trans-for-ma-tions form-i
+ng a Lie group,
+ []
+
+[28]
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 9.85492pt on input line 565.
+ [29]) [30] [31
+
+] [32] (./chapters/ch02_rg_geometry.tex
 
 LaTeX Warning: Marginpar on page 33 moved.
 
 [33
 
 ]
-
-LaTeX Warning: Marginpar on page 34 moved.
-
-
-Overfull \hbox (2.01637pt too wide) in paragraph at lines 25--26
-\T1/pplj/m/n/10 hav-ior are the am-pli-tude $\OML/zplm/m/it/10 A$ \T1/pplj/m/n/
-10 and phase $\OML/zplm/m/it/10 ^^^$\T1/pplj/m/n/10 . These form a two-dimensio
-nal
+Overfull \hbox (53.5599pt too wide) in paragraph at lines 54--69
+ [][] 
  []
 
 
-LaTeX Warning: Marginpar on page 34 moved.
+Underfull \hbox (badness 2293) in paragraph at lines 76--76
+\T1/pplj/m/n/8 dic-tions can-not de-pend on ar-bi-trary
+ []
 
 
 LaTeX Warning: Marginpar on page 34 moved.
@@ -1708,115 +1694,71 @@ LaTeX Warning: Marginpar on page 34 moved.
 LaTeX Warning: Marginpar on page 35 moved.
 
 
-Underfull \hbox (badness 2856) in paragraph at lines 92--92
-\T1/pplj/m/n/8 The name comes from QFT, where
+Underfull \hbox (badness 1048) in paragraph at lines 156--157
+[]\T1/pplj/b/n/10 The punch-line: \T1/pplj/m/n/10 Scale in-de-pen-dence doesn't
+ mean ``noth-ing
  []
-
-
-Underfull \hbox (badness 2469) in paragraph at lines 92--92
-\T1/pplj/m/n/8 plings run with the renor-mal-iza-tion
- []
-
-
-LaTeX Warning: Marginpar on page 35 moved.
 
 [35]
+Underfull \hbox (badness 1360) in paragraph at lines 183--183
+\T1/pplj/m/n/8 of the gen-eral scale-covariance struc-
+ []
+
 
 LaTeX Warning: Marginpar on page 36 moved.
 
 
-LaTeX Warning: Marginpar on page 36 moved.
+Overfull \hbox (7.36331pt too wide) in paragraph at lines 189--190
+[]\T1/pplj/b/n/10 Similarity so-lu-tions of PDEs\T1/pplj/m/n/10 : ``Scale'' is 
+time or length; self-similarity
+ []
 
 [36]
-Underfull \hbox (badness 5667) in paragraph at lines 155--155
-\T1/pplj/m/n/8 Non-perturbative fixed points oc-cur
+
+LaTeX Warning: Marginpar on page 37 moved.
+
+
+Overfull \hbox (22.53978pt too wide) in paragraph at lines 204--205
+\T1/pplj/m/n/10 dimensional case cap-tures the es-sen-tial ge-om-e-try while av
+oid-ing functional-
  []
 
 
 LaTeX Warning: Marginpar on page 37 moved.
 
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 12.50409pt on input line 168.
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 168.
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 168.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 12.50409pt on input line 168.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 168.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 168.
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 168.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\phi' on input line 168.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 168.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 168.
-
-
-LaTeX Warning: Marginpar on page 37 moved.
-
-
-LaTeX Warning: Marginpar on page 37 moved.
+Underfull \hbox (badness 3977) in paragraph at lines 233--233
+\T1/pplj/m/n/8 The di-la-tion group is the sim-plest
+ []
 
 [37]
-Overfull \hbox (1.24982pt too wide) in paragraph at lines 195--196
-\T1/pplj/m/n/10 With pe-ri-odic bound-ary con-di-tions, we de-com-pose into Fou
-rier modes: 
- []
-
 
 LaTeX Warning: Marginpar on page 38 moved.
 
 
-Underfull \hbox (badness 1540) in paragraph at lines 218--218
-\T1/pplj/m/n/8 Wilson's strat-egy in-volves in-te-grat-ing
- []
-
-
 LaTeX Warning: Marginpar on page 38 moved.
 
-[38]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[38
+pdfTeX warning (ext4): destination with the same identifier (name{equation.0.0.
+51}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.277 \end{equation}
+                    ]
 
- [39]
-Underfull \hbox (badness 1210) in paragraph at lines 311--311
-\T1/pplj/m/n/8 The en-gi-neer-ing di-men-sion gives the
- []
+LaTeX Warning: Marginpar on page 39 moved.
 
-
-LaTeX Warning: Marginpar on page 40 moved.
-
-
-Underfull \hbox (badness 1308) in paragraph at lines 324--324
-\T1/pplj/m/n/8 an asymp-totic se-ries em-bed-ded in a
- []
-
+[39]
 
 LaTeX Warning: Marginpar on page 40 moved.
 
-[40]
 
-LaTeX Warning: Marginpar on page 41 moved.
-
-
-LaTeX Warning: Marginpar on page 41 moved.
-
-[41]
-Overfull \hbox (26.68523pt too wide) in paragraph at lines 390--409
- [] 
+Overfull \hbox (6.10991pt too wide) in paragraph at lines 359--360
+[]\T1/pplj/m/n/10 This is the \T1/pplj/b/n/10 vec-tor field trans-for-ma-tion l
+aw\T1/pplj/m/n/10 : un-der co-or-di-nate changes
  []
 
+[40] [41]
 
 LaTeX Warning: Marginpar on page 42 moved.
 
@@ -1827,395 +1769,404 @@ LaTeX Warning: Marginpar on page 43 moved.
 
 LaTeX Warning: Marginpar on page 43 moved.
 
+
+LaTeX Warning: Marginpar on page 43 moved.
+
+
+Overfull \hbox (4.5598pt too wide) in paragraph at lines 476--478
+[]\T1/pplj/m/n/10 In Part II, we found two co-vari-ance struc-tures of the Call
+an-Symanzik
+ []
+
+
+LaTeX Warning: Marginpar on page 43 moved.
+
 [43]
+Overfull \hbox (23.80978pt too wide) in paragraph at lines 552--553
+[]\T1/pplj/m/n/10 At a fixed point, the sys-tem doesn't change un-der scale tra
+nsformations---
+ []
+
 
 LaTeX Warning: Marginpar on page 44 moved.
 
-[44]
+
+Underfull \hbox (badness 3118) in paragraph at lines 568--568
+\T1/pplj/m/n/8 that ob-serv-ables have van-ish-ing Lie
+ []
+
+[44
+pdfTeX warning (ext4): destination with the same identifier (name{equation.0.0.
+73}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.568 ...ishing Lie derivative along the RG flow.}
+                                                  ]
 
 LaTeX Warning: Marginpar on page 45 moved.
 
 
-Underfull \hbox (badness 2012) in paragraph at lines 581--581
-\T1/pplj/m/n/8 tum cor-rec-tions'' to clas-si-cal scal-ing.
+LaTeX Warning: Marginpar on page 45 moved.
+
+
+Underfull \hbox (badness 3668) in paragraph at lines 618--618
+\T1/pplj/m/n/8 The full CS equa-tion [] in-cludes
+ []
+
+
+Underfull \hbox (badness 3792) in paragraph at lines 618--618
+\T1/pplj/m/n/8 anoma-lous di-men-sions. These are
  []
 
 
 LaTeX Warning: Marginpar on page 45 moved.
 
-[45]
-
-LaTeX Warning: Marginpar on page 46 moved.
-
-
-Overfull \hbox (3.23917pt too wide) in paragraph at lines 602--603
-[]\T1/pplj/b/n/10 Chapters [][]I[][]--[][]I[][] \T1/pplj/m/n/10 de-velop the fu
-ll ge-o-met-ric struc-ture of pa-ram-e-ter space,
+[45
+pdfTeX warning (ext4): destination with the same identifier (name{equation.0.0.
+77}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.627 
+      ]
+pdfTeX warning (ext4): destination with the same identifier (name{equation.0.0.
+82}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.648 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.0.0.
+82}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.648 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.0.0.
+82}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.648 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.0.0.
+82}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.648 \begin{equation}
+                       [46]
+Overfull \hbox (12.74525pt too wide) in paragraph at lines 690--691
+\T1/pplj/m/n/10 mo-ge-neously un-der scheme changes. Cur-va-ture in-vari-ants (
+like $\OML/zplm/m/it/10 R[][][]R[][][]$\T1/pplj/m/n/10 )
  []
 
 
-Overfull \hbox (26.74976pt too wide) in paragraph at lines 602--603
-\T1/pplj/m/n/10 in-clud-ing met-rics and con-nec-tions, with nat-u-ral ex-ten-s
-ions to the transseries-
+LaTeX Warning: Marginpar on page 47 moved.
+
+
+Overfull \hbox (9.81683pt too wide) in paragraph at lines 703--704
+[]\T1/pplj/m/n/10 The anoma-lous di-men-sion $\OML/zplm/m/it/10 ^^M[][][]$ \T1/
+pplj/m/n/10 is a con-nec-tion for parallel-transporting
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \hbox (badness 2932) in paragraph at lines 720--720
+\T1/pplj/m/n/8 ory) and the Zamolod-chikov met-ric
+ []
 
- [46])
-(./chapters/ch03_rg_equation.tex [47] [48
 
-]
+LaTeX Warning: Marginpar on page 47 moved.
+
+
+Overfull \hbox (4.17981pt too wide) in paragraph at lines 722--723
+\T1/pplj/m/n/10 cep-tu-ally dis-tinct con-struc-tions that co-in-cide un-der ce
+r-tain conditions---
+ []
+
+
+Underfull \hbox (badness 2229) in paragraph at lines 740--741
+[]\T1/pplj/b/n/10 One-loop cal-cu-la-tion (1D): \T1/pplj/m/n/10 Us-ing the prop
+-a-ga-tor $\OML/zplm/m/it/10 G\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 x\OT1/zplm/m/
+n/10 ) =
+ []
+
+[47]
+
+LaTeX Warning: Marginpar on page 48 moved.
+
+
+LaTeX Warning: Marginpar on page 48 moved.
+
+[48]
+Overfull \hbox (72.9937pt too wide) in paragraph at lines 805--814
+ [] 
+ []
+
+
+Underfull \hbox (badness 3590) in paragraph at lines 823--823
+\T1/pplj/m/n/8 The met-ric [] de-fines geodesics---
+ []
+
 
 LaTeX Warning: Marginpar on page 49 moved.
 
-
-LaTeX Warning: Marginpar on page 49 moved.
-
-
-Underfull \vbox (badness 1728) has occurred while \output is active []
-
- [49]
-
-LaTeX Warning: Marginpar on page 50 moved.
-
-
-LaTeX Warning: Marginpar on page 50 moved.
+[49]
+Overfull \hbox (22.5899pt too wide) in paragraph at lines 843--844
+[]\T1/pplj/m/n/10 This is the \T1/pplj/b/n/10 au-topar-al-lel con-di-tion\T1/pp
+lj/m/n/10 : the ``ve-loc-ity'' $\OML/zplm/m/it/10 ^^L$ \T1/pplj/m/n/10 is paral
+lel-transported
+ []
 
 
 LaTeX Warning: Marginpar on page 50 moved.
 
 [50]
-Underfull \hbox (badness 7326) in paragraph at lines 97--98
-[]\T1/pplj/b/n/10 Goal: \T1/pplj/m/n/10 De-rive $\OML/zplm/m/it/10 dA\OT1/zplm/
-m/n/10 /\OML/zplm/m/it/10 dt$ \T1/pplj/m/n/10 and $\OML/zplm/m/it/10 d^^^\OT1/z
-plm/m/n/10 /\OML/zplm/m/it/10 dt$ \T1/pplj/m/n/10 from re-quir-ing scale-
+
+LaTeX Warning: Marginpar on page 51 moved.
+
+
+Overfull \hbox (5.51312pt too wide) in paragraph at lines 928--929
+\T1/pplj/m/n/10 first term is the ad-joint ac-tion; the sec-ond is the in-ho-mo
+-ge-neous ``deriva-
  []
 
-
-Underfull \vbox (badness 4995) has occurred while \output is active []
-
- [51]
-Underfull \hbox (badness 1221) in paragraph at lines 171--171
-\T1/pplj/m/n/8 tal ob-serv-ables in field the-ory. Ev-
- []
-
-
-LaTeX Warning: Marginpar on page 52 moved.
-
-[52]
+[51] [52]
 
 LaTeX Warning: Marginpar on page 53 moved.
 
 [53]
-Underfull \hbox (badness 10000) in paragraph at lines 236--236
-\T1/pplj/m/n/8 The char-ac-ter-is-tics of the Callan-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 236--236
-\T1/pplj/m/n/8 Symanzik equa-tion are the RG
+Underfull \hbox (badness 1178) in paragraph at lines 1048--1048
+\T1/pplj/m/n/8 The bun-dle struc-ture of Sec-tion [][]I[][] is
  []
 
 
 LaTeX Warning: Marginpar on page 54 moved.
 
 [54]
-Overfull \hbox (22.66985pt too wide) in paragraph at lines 298--300
-\T1/pplj/m/n/10 This is \T1/pplj/b/n/10 asymp-totic free-dom \T1/pplj/m/n/10 wh
-ere the the-ory be-comes free (non-interacting)
- []
-
 
 LaTeX Warning: Marginpar on page 55 moved.
-
-
-LaTeX Warning: Marginpar on page 55 moved.
-
-
-LaTeX Warning: Marginpar on page 55 moved.
-
-
-Overfull \hbox (0.4899pt too wide) in paragraph at lines 338--339
-\T1/pplj/m/n/10 growth near the would-be Lan-dau pole, a \T1/pplj/b/n/10 non-pe
-rturbative fixed point
- []
 
 [55]
-
-LaTeX Warning: Marginpar on page 56 moved.
-
-
-LaTeX Warning: Marginpar on page 56 moved.
-
-
-Overfull \hbox (48.04582pt too wide) detected at line 384
-[][][]\OML/zplm/m/it/10 x[]\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 t\OT1/zplm/m/n/1
-0 ) = \OML/zplm/m/it/10 A\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 ^^\\OT1/zplm/m/n/1
-0 ) [](\OML/zplm/m/it/10 ![]\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 t \OMS/zplm/m/n
-/10 ^^@ \OML/zplm/m/it/10 ^^\\OT1/zplm/m/n/10 ) + \OML/zplm/m/it/10 ^^^\OT1/zpl
-m/m/n/10 (\OML/zplm/m/it/10 ^^\\OT1/zplm/m/n/10 )) \OMS/zplm/m/n/10 ^^@ []\OT1/
-zplm/m/n/10 (\OML/zplm/m/it/10 t \OMS/zplm/m/n/10 ^^@ \OML/zplm/m/it/10 ^^\\OT1
-/zplm/m/n/10 ) [](\OML/zplm/m/it/10 ![]\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 t \O
-MS/zplm/m/n/10 ^^@ \OML/zplm/m/it/10 ^^\\OT1/zplm/m/n/10 ) + \OML/zplm/m/it/10 
-^^^\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 ^^\\OT1/zplm/m/n/10 )) + []
+Underfull \hbox (badness 1436) in paragraph at lines 1143--1143
+[]\T1/pplj/m/n/10 Scheme in-de-pen-dence of crit-i-cal
  []
+
+
+Underfull \hbox (badness 2608) in paragraph at lines 1146--1146
+[]\T1/pplj/m/n/10 Curvature in-vari-ants as ob-serv-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1147--1147
+[]\T1/pplj/m/n/10 Monodromy rep-re-sen-ta-tion of
+ []
+
+
+Overfull \hbox (24.98029pt too wide) in paragraph at lines 1139--1150
+ [] 
+ []
+
+
+LaTeX Warning: Marginpar on page 56 moved.
 
 [56]
 
 LaTeX Warning: Marginpar on page 57 moved.
-
-
-Overfull \hbox (1.89114pt too wide) in paragraph at lines 425--427
-\T1/pplj/m/n/10 where $\OML/zplm/m/it/10 x[]$ \T1/pplj/m/n/10 is the per-tur-ba
--tive piece and $\OML/zplm/m/it/10 x[]$ \T1/pplj/m/n/10 is the first non-pertur
-bative
- []
 
 [57]
 
 LaTeX Warning: Marginpar on page 58 moved.
 
 
-Overfull \hbox (5.50974pt too wide) in paragraph at lines 440--441
-\T1/pplj/m/n/10 deriva-tive, which mea-sures how the re-sum-ma-tion changes acr
-oss Stokes
+LaTeX Warning: Marginpar on page 58 moved.
+
+
+Underfull \hbox (badness 1024) in paragraph at lines 1276--1277
+[]\T1/pplj/m/n/10 The ob-serv-able $\OML/zplm/m/it/10 x\OT1/zplm/m/n/10 (\OML/z
+plm/m/it/10 t\OT1/zplm/m/n/10 )$ \T1/pplj/m/n/10 de-pends ex-plic-itly on $\OML
+/zplm/m/it/10 t[]$ \T1/pplj/m/n/10 and im-plic-itly
  []
 
-[58]
+[58] [59]
 
-LaTeX Warning: Marginpar on page 59 moved.
+LaTeX Warning: Marginpar on page 60 moved.
 
+[60]
+Overfull \hbox (50.86443pt too wide) in paragraph at lines 1374--1384
+ [] 
+ []
 
-LaTeX Warning: Marginpar on page 59 moved.
-
-[59]) (./chapters/ch04_fixed_points.tex [60]
-
-LaTeX Warning: Marginpar on page 61 moved.
-
-
-LaTeX Warning: Marginpar on page 61 moved.
-
-[61
-
-]
+[61]
 
 LaTeX Warning: Marginpar on page 62 moved.
 
 [62]
-Underfull \hbox (badness 4819) in paragraph at lines 98--98
-\T1/pplj/m/n/8 A non-perturbative fixed point has
- []
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 12.50409pt on input line 1498.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 9.37807pt on input line 1498.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 7.29405pt on input line 1498.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 12.50409pt on input line 1498.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 9.37807pt on input line 1498.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 7.29405pt on input line 1498.
 
 
-LaTeX Warning: Marginpar on page 63 moved.
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1498.
 
 
-Overfull \hbox (25.90987pt too wide) in paragraph at lines 110--111
-[]\T1/pplj/b/n/10 Type 3: Mixed fixed points \T1/pplj/m/n/10 where both per-tur
--ba-tive and non-perturbative
- []
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\phi' on input line 1498.
 
 
-Underfull \hbox (badness 2564) in paragraph at lines 116--116
-\T1/pplj/m/n/8 Supersymmetric the-o-ries pro-vide the
- []
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 1498.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1498.
 
 
 LaTeX Warning: Marginpar on page 63 moved.
 
 [63]
+Underfull \vbox (badness 1502) has occurred while \output is active []
 
-LaTeX Warning: Marginpar on page 64 moved.
+ [64]
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 6.83995pt on input line 1580.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 5.39996pt on input line 1580.
 
-[64]
-
-LaTeX Warning: Marginpar on page 65 moved.
+Overfull \hbox (53.44997pt too wide) in paragraph at lines 1611--1623
+ [] 
+ []
 
 [65]
 
 LaTeX Warning: Marginpar on page 66 moved.
 
 
-Underfull \hbox (badness 3482) in paragraph at lines 246--246
-\T1/pplj/m/n/8 ti-ties char-ac-ter-iz-ing the fixed point,
+Underfull \hbox (badness 4132) in paragraph at lines 1638--1638
+\T1/pplj/m/n/8 The cur-va-ture of the-ory space en-
  []
-
-
-LaTeX Warning: Marginpar on page 66 moved.
 
 
 LaTeX Warning: Marginpar on page 66 moved.
 
 [66]
-Underfull \vbox (badness 4779) has occurred while \output is active []
-
- [67]
-
-LaTeX Warning: Marginpar on page 68 moved.
-
-
-LaTeX Warning: Marginpar on page 68 moved.
-
-[68]
-
-LaTeX Warning: Marginpar on page 69 moved.
-
-[69]
-
-LaTeX Warning: Marginpar on page 70 moved.
-
-
-LaTeX Warning: Marginpar on page 70 moved.
-
-[70]
-Overfull \hbox (3.89978pt too wide) in paragraph at lines 501--502
-\T1/pplj/m/n/10 In the ex-tended pa-ram-e-ter space in-clud-ing transseries pa-
-ram-e-ters, fixed
+Overfull \hbox (19.83978pt too wide) in paragraph at lines 1673--1674
+[]\T1/pplj/m/n/10 Systems in the same uni-ver-sal-ity class share these ge-o-me
+t-ric invariants---
  []
+
+
+Underfull \hbox (badness 3635) in paragraph at lines 1680--1680
+\T1/pplj/m/n/8 Scheme in-de-pen-dence is math-e-mat-i-
+ []
+
+
+LaTeX Warning: Marginpar on page 67 moved.
+
+[67]
+Underfull \vbox (badness 3375) has occurred while \output is active []
+
+ [68]
+[69]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [70]
+
+LaTeX Warning: Marginpar on page 71 moved.
 
 [71]
+Overfull \hbox (1.82982pt too wide) in paragraph at lines 1948--1949
+\T1/pplj/m/n/10 With run-ning cou-plings, phys-i-cal pre-dic-tions are in-de-pe
+n-dent of which
+ []
 
-LaTeX Warning: Marginpar on page 72 moved.
 
-
-Overfull \hbox (4.23979pt too wide) in paragraph at lines 515--516
-\T1/pplj/m/n/10 Fixed points of-ten have en-hanced sym-me-try com-pared to gene
-ric points
+Underfull \hbox (badness 1014) in paragraph at lines 1958--1958
+\T1/pplj/m/n/8 be-hav-ior: asymp-totic free-dom vs in-
  []
 
 
 LaTeX Warning: Marginpar on page 72 moved.
 
 
-Underfull \hbox (badness 1558) in paragraph at lines 560--560
-[]\T1/pplj/b/n/10 Stability \T1/pplj/m/n/10 is de-ter-mined by the eigen-val-ue
-s of $\OML/zplm/m/it/10 B[][][] \OT1/zplm/m/n/10 =
+Underfull \vbox (badness 5592) has occurred while \output is active []
+
+ [72]
+
+LaTeX Warning: Marginpar on page 73 moved.
+
+
+Underfull \hbox (badness 1515) in paragraph at lines 1990--1990
+\T1/pplj/m/n/8 fer-en-tial equa-tion whose per-tur-ba-tive
  []
 
 
+LaTeX Warning: Marginpar on page 73 moved.
+
+[73]
+
+LaTeX Warning: Marginpar on page 74 moved.
+
+
+Overfull \hbox (15.71977pt too wide) in paragraph at lines 2041--2042
+\T1/pplj/m/n/10 its asymp-totic se-ries) and transseries (cap-tur-ing non-pertu
+rbative physics). 
+ []
+
+[74] [75] [76]
+pdfTeX warning (ext4): destination with the same identifier (name{equation.0.0.
+191}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2224 \begin{equation}
+                       
+pdfTeX warning (ext4): destination with the same identifier (name{equation.0.0.
+191}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2224 \begin{equation}
+                       
+pdfTeX warning (ext4): destination with the same identifier (name{equation.0.0.
+191}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2224 \begin{equation}
+                       
+pdfTeX warning (ext4): destination with the same identifier (name{equation.0.0.
+191}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2224 \begin{equation}
+                        [77]
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 8.09995pt on input line 2270.
+
+pdfTeX warning (ext4): destination with the same identifier (name{equation.0.0.
+191}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.2277 \end{align}
+                  
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [72])
-(./chapters/ch05_geometry.tex [73] [74
+ [78]
+[79]
+Underfull \hbox (badness 10000) in paragraph at lines 2332--2333
+[]\T1/pplj/b/n/10 (b) \T1/pplj/m/n/10 Di-verges when de-nom-i-na-tor van-ishes:
+
+ []
+
+[80]) (./chapters/ch03_fixed_points.tex [81] [82
 
 ]
-Underfull \hbox (badness 1147) in paragraph at lines 6--6
-\T1/pplj/m/n/8 ture has pro-found phys-i-cal mean-ing.
- []
-
-
-LaTeX Warning: Marginpar on page 75 moved.
-
-
-Underfull \hbox (badness 1515) in paragraph at lines 25--25
-\T1/pplj/m/n/8 The met-ric an-swers: how much do
- []
-
-
-LaTeX Warning: Marginpar on page 75 moved.
-
-
-Overfull \hbox (3.09985pt too wide) in paragraph at lines 33--34
-\T1/pplj/m/n/10 tri-bu-tions is the \T1/pplj/b/n/10 Fisher in-for-ma-tion met-r
-ic\T1/pplj/m/n/10 , which quan-ti-fies how much
- []
-
-[75]
-
-LaTeX Warning: Marginpar on page 76 moved.
-
-[76]
-
-LaTeX Warning: Marginpar on page 77 moved.
-
-[77]
-Underfull \hbox (badness 3579) in paragraph at lines 151--151
-\OT1/zplm/m/n/8 (\OML/zplm/m/it/8 g[]\OT1/pplx/m/n/8 , \OML/zplm/m/it/8 ^^[[]\O
-T1/zplm/m/n/8 )$ \T1/pplj/m/n/8 com-bin-ing per-tur-ba-tive cou-
- []
-
-
-LaTeX Warning: Marginpar on page 78 moved.
-
-
-Overfull \hbox (3.3713pt too wide) in paragraph at lines 153--154
-\T1/pplj/m/n/10 The ex-tended the-ory space has co-or-di-nates $\OT1/zplm/m/n/1
-0 (\OML/zplm/m/it/10 g[]\OT1/pplx/m/n/10 , [] , \OML/zplm/m/it/10 g[]\OT1/pplx/
-m/n/10 , \OML/zplm/m/it/10 ^^[[]\OT1/pplx/m/n/10 , \OML/zplm/m/it/10 ^^[[]\OT1/
-pplx/m/n/10 , []\OT1/zplm/m/n/10 )$ \T1/pplj/m/n/10 where
- []
-
-
-Overfull \hbox (15.56976pt too wide) in paragraph at lines 159--160
-\T1/pplj/m/n/10 sure dis-tin-guisha-bil-ity be-tween the-o-ries dif-fer-ing in 
-their non-perturbative
- []
-
-
-LaTeX Warning: Marginpar on page 78 moved.
-
-
-Overfull \hbox (0.16515pt too wide) in paragraph at lines 169--170
-[]\T1/pplj/m/n/10 Far from Stokes lines, the ex-po-nen-tially sup-pressed sec-t
-ors $\OML/zplm/m/it/10 e[]^^[[]$
- []
-
-[78]
-Overfull \hbox (15.2565pt too wide) in paragraph at lines 173--174
-\T1/pplj/m/n/10 max-i-mal. The met-ric com-po-nent can di-verge, sig-nal-ing th
-at the transseries
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [79]
-
-LaTeX Warning: Marginpar on page 80 moved.
-
-
-LaTeX Warning: Marginpar on page 80 moved.
-
-
-Overfull \hbox (6.67978pt too wide) in paragraph at lines 257--258
-\T1/pplj/m/n/10 The most fa-mous ex-am-ple of gra-di-ent flow struc-ture is Zam
-olod-chikov's
- []
-
-[80]
-
-LaTeX Warning: Marginpar on page 81 moved.
-
-
-LaTeX Warning: Marginpar on page 81 moved.
-
-[81]
-
-LaTeX Warning: Marginpar on page 82 moved.
-
-[82]
-Underfull \hbox (badness 3108) in paragraph at lines 383--383
-\T1/pplj/m/n/8 The full c-function is a transseries.
- []
-
 
 LaTeX Warning: Marginpar on page 83 moved.
-
-
-Underfull \hbox (badness 1590) in paragraph at lines 402--402
-\T1/pplj/m/n/8 distance) and non-perturbative (high-
- []
-
-
-LaTeX Warning: Marginpar on page 83 moved.
-
-
-Overfull \hbox (4.3864pt too wide) in paragraph at lines 415--416
-\T1/pplj/b/n/10 Wasser-stein dis-tance $\OML/zplm/m/it/10 W[]\OT1/zplm/m/n/10 (
-\OML/zplm/m/it/10 ^^Z[]\OT1/pplx/m/n/10 , \OML/zplm/m/it/10 ^^Z[]\OT1/zplm/m/n/
-10 )$ \T1/pplj/m/n/10 mea-sures the min-i-mum ``cost'' to trans-
- []
 
 
 LaTeX Warning: Marginpar on page 83 moved.
@@ -2229,60 +2180,72 @@ LaTeX Warning: Marginpar on page 84 moved.
 LaTeX Warning: Marginpar on page 85 moved.
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Overfull \hbox (17.93358pt too wide) in paragraph at lines 130--131
+\T1/pplj/b/n/10 The damped an-har-monic os-cil-la-tor \T1/pplj/m/n/10 has $\OML
+/zplm/m/it/10 ^^L[] \OT1/zplm/m/n/10 = \OMS/zplm/m/n/10 ^^@\OML/zplm/m/it/10 ^^
+MA$ \T1/pplj/m/n/10 and $\OML/zplm/m/it/10 ^^L[] \OT1/zplm/m/n/10 = \OT1/pplx/m
+/n/10 3\OML/zplm/m/it/10 ^^OA[]\OT1/zplm/m/n/10 /(\OT1/pplx/m/n/10 8\OML/zplm/m
+/it/10 ![]\OT1/zplm/m/n/10 )$\T1/pplj/m/n/10 .
+ []
 
- [85])
-(./chapters/ch06_connections.tex [86]
+[85]
+
+LaTeX Warning: Marginpar on page 86 moved.
+
+[86]
 
 LaTeX Warning: Marginpar on page 87 moved.
 
 
-LaTeX Warning: Marginpar on page 87 moved.
-
-LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 11.40997pt on input line 33.
-LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 11.40997pt on input line 33.
-[87
-
-]
-
-LaTeX Warning: Marginpar on page 88 moved.
-
-
-LaTeX Warning: Marginpar on page 88 moved.
-
-
-Underfull \hbox (badness 3930) in paragraph at lines 79--79
-\T1/pplj/m/n/8 change'' along the path, but what
+Overfull \hbox (28.18642pt too wide) in paragraph at lines 192--193
+\T1/pplj/m/n/10 for-ma-tion be-yond per-tur-ba-tion the-ory. The tools to ex-tr
+act this information---
  []
 
 
-LaTeX Warning: Marginpar on page 88 moved.
+LaTeX Warning: Marginpar on page 87 moved.
 
-[88]
+[87] [88]
+Underfull \hbox (badness 10000) in paragraph at lines 289--289
+[]\T1/pplj/b/n/10 Eigenvalue Con-di-
+ []
+
+
+Overfull \hbox (105.8858pt too wide) in paragraph at lines 287--297
+ [] 
+ []
+
+
+Underfull \hbox (badness 1655) in paragraph at lines 299--299
+\T1/pplj/m/n/8 property---it de-pends only on eigen-
+ []
+
 
 LaTeX Warning: Marginpar on page 89 moved.
 
-[89]
-Underfull \hbox (badness 1400) in paragraph at lines 144--144
-\T1/pplj/m/n/8 loop may not re-turn to the start-ing
+
+Overfull \hbox (2.27504pt too wide) in paragraph at lines 307--308
+[]\T1/pplj/m/n/10 At a marginal op-er-a-tor, $\OT1/zplm/m/n/10 ^^A = \OT1/pplx/
+m/n/10 0$\T1/pplj/m/n/10 , so the beta func-tion starts at quadratic
+ []
+
+[89] [90]
+Underfull \hbox (badness 10000) in paragraph at lines 424--424
+[]\T1/pplj/m/n/10 Second-kind (in-com-
  []
 
 
-LaTeX Warning: Marginpar on page 90 moved.
-
-
-LaTeX Warning: Marginpar on page 90 moved.
-
-[90]
-
-LaTeX Warning: Marginpar on page 91 moved.
+Overfull \hbox (65.43306pt too wide) in paragraph at lines 419--428
+ [] 
+ []
 
 [91]
-Underfull \hbox (badness 5847) in paragraph at lines 239--239
-\T1/pplj/m/n/8 The Stokes au-to-mor-phism is mon-
+Underfull \hbox (badness 1189) in paragraph at lines 430--430
+\T1/pplj/m/n/8 Barenblatt's ``first-kind'' and ``second-
  []
+
+
+LaTeX Warning: Marginpar on page 92 moved.
 
 
 LaTeX Warning: Marginpar on page 92 moved.
@@ -2292,19 +2255,24 @@ LaTeX Warning: Marginpar on page 92 moved.
 LaTeX Warning: Marginpar on page 93 moved.
 
 
-LaTeX Warning: Marginpar on page 93 moved.
-
-[93]
-
-LaTeX Warning: Marginpar on page 94 moved.
-
-[94]
-Underfull \hbox (badness 1264) in paragraph at lines 390--390
-\T1/pplj/m/n/8 they are mon-odromy data, which is
+Underfull \hbox (badness 1762) in paragraph at lines 507--507
+\T1/pplj/m/n/8 The sta-bil-ity ma-trix is the co-vari-ant
  []
 
 
+LaTeX Warning: Marginpar on page 93 moved.
+
+[93] [94]
+
 LaTeX Warning: Marginpar on page 95 moved.
+
+
+LaTeX Warning: Marginpar on page 95 moved.
+
+
+Underfull \hbox (badness 2310) in paragraph at lines 601--601
+\T1/pplj/m/n/8 Universality is an ex-per-i-men-tal fact:
+ []
 
 [95]
 
@@ -2314,50 +2282,27 @@ LaTeX Warning: Marginpar on page 96 moved.
 
 LaTeX Warning: Marginpar on page 97 moved.
 
-) (./chapters/ch07_resurgence.tex [97] [98
+[97]
 
-]
-Underfull \hbox (badness 4621) in paragraph at lines 6--6
-\T1/pplj/m/n/8 work into a prac-ti-cal method-ol-ogy.
- []
+LaTeX Warning: Marginpar on page 98 moved.
 
-
-Underfull \hbox (badness 1796) in paragraph at lines 6--6
-\T1/pplj/m/n/8 be-cause resur-gent think-ing has been
- []
-
-
-Underfull \hbox (badness 4096) in paragraph at lines 6--6
-\T1/pplj/m/n/8 present from the be-gin-ning. The
- []
-
+[98]
 
 LaTeX Warning: Marginpar on page 99 moved.
 
 
-Overfull \hbox (12.47975pt too wide) in paragraph at lines 8--9
-\T1/pplj/m/n/10 The pre-ced-ing chap-ters de-vel-oped the uni-fied geometric-re
-surgent frame-
+Overfull \hbox (10.2899pt too wide) in paragraph at lines 768--769
+\T1/pplj/m/n/10 chikov met-ric, crit-i-cal slow-ing down cor-re-sponds to a \T1
+/pplj/b/n/10 di-verg-ing geodesic
  []
 
 
-Overfull \hbox (16.85973pt too wide) in paragraph at lines 8--9
-\T1/pplj/m/n/10 totic with Gevrey-1 di-ver-gence en-cod-ing non-perturbative ph
-ysics through
+Overfull \hbox (3.25983pt too wide) in paragraph at lines 774--775
+[]\T1/pplj/m/n/10 This pro-vides a ge-o-met-ric ex-pla-na-tion: ap-proach-ing t
+he crit-i-cal point
  []
-
-
-LaTeX Warning: Marginpar on page 99 moved.
 
 [99]
-
-LaTeX Warning: Marginpar on page 100 moved.
-
-
-Underfull \hbox (badness 1028) in paragraph at lines 61--61
-\T1/pplj/m/n/8 full pa-ram-e-ter space is the ex-tended
- []
-
 
 LaTeX Warning: Marginpar on page 100 moved.
 
@@ -2366,376 +2311,331 @@ LaTeX Warning: Marginpar on page 100 moved.
 LaTeX Warning: Marginpar on page 101 moved.
 
 
-Overfull \hbox (1.4498pt too wide) in paragraph at lines 104--105
-\T1/pplj/m/n/10 Find all fixed points, in-clud-ing per-tur-ba-tive and non-pert
-urbative ones.
- []
-
-
-Underfull \hbox (badness 4995) in paragraph at lines 106--106
-\T1/pplj/m/n/8 non-perturbative fixed points where
- []
-
-
 LaTeX Warning: Marginpar on page 101 moved.
-
-
-Overfull \hbox (4.1665pt too wide) in paragraph at lines 108--114
-\T1/pplj/m/n/10 the sta-bil-ity ma-trix? Which di-rec-tions are rel-e-vant, ir-
-rel-e-vant, marginal?
- []
 
 [101]
 
 LaTeX Warning: Marginpar on page 102 moved.
 
 [102]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 193.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\phi' on input line 193.
+Overfull \hbox (48.81978pt too wide) in paragraph at lines 937--947
+ [] 
+ []
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 193.
+Overfull \hbox (3.23975pt too wide) in paragraph at lines 949--950
+[]\T1/pplj/m/n/10 The ``anoma-lous di-men-sions'' that ap-pear through-out phys
+ics---from
+ []
+
+[103]
+
+LaTeX Warning: Marginpar on page 104 moved.
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 193.
+Overfull \hbox (28.80907pt too wide) in paragraph at lines 963--964
+[]\T1/pplj/m/n/10 This scal-ing sym-me-try sug-gests self-similar so-lu-tions $
+\OML/zplm/m/it/10 ^^Z\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 x\OT1/pplx/m/n/10 , \O
+ML/zplm/m/it/10 t\OT1/zplm/m/n/10 ) = \OML/zplm/m/it/10 t[]f\OT1/zplm/m/n/10 (\
+OML/zplm/m/it/10 x\OT1/zplm/m/n/10 /\OML/zplm/m/it/10 t[]\OT1/zplm/m/n/10 )$\T1
+/pplj/m/n/10 .
+ []
 
-[103] [104]
-Overfull \hbox (4.70975pt too wide) in paragraph at lines 289--290
-\T1/pplj/m/n/10 The uni-fied frame-work in-cludes both per-tur-ba-tive and non-
-perturbative
+
+LaTeX Warning: Marginpar on page 104 moved.
+
+[104]
+
+LaTeX Warning: Marginpar on page 105 moved.
+
+
+Underfull \hbox (badness 3118) in paragraph at lines 1021--1021
+\T1/pplj/m/n/8 flows be-tween them de-ter-mines the
  []
 
 
 LaTeX Warning: Marginpar on page 105 moved.
 
 
-Overfull \hbox (0.43646pt too wide) in paragraph at lines 307--308
-\T1/pplj/m/n/10 breaks down. The fre-quency cor-rec-tion is no longer well-appr
-oximated
+Overfull \hbox (4.23979pt too wide) in paragraph at lines 1033--1034
+\T1/pplj/m/n/10 Fixed points of-ten have en-hanced sym-me-try com-pared to gene
+ric points
  []
 
 [105]
-Underfull \hbox (badness 2150) in paragraph at lines 324--324
-\T1/pplj/m/n/8 Ignoring di-ver-gence struc-ture throws
+Underfull \hbox (badness 1635) in paragraph at lines 1044--1044
+\T1/pplj/m/n/8 Conformal sym-me-try at fixed points
  []
 
 
 LaTeX Warning: Marginpar on page 106 moved.
 
 
-Overfull \hbox (0.56642pt too wide) in paragraph at lines 328--329
-\T1/pplj/m/n/10 Stokes lines may be crossed. Ig-nor-ing the re-sult-ing jumps i
-n transseries
+LaTeX Warning: Marginpar on page 106 moved.
+
+[106] [107]
+Underfull \hbox (badness 1337) in paragraph at lines 1137--1137
+\T1/pplj/m/n/8 This dic-tio-nary sum-ma-rizes the dual
  []
 
 
-Overfull \hbox (3.99648pt too wide) in paragraph at lines 332--333
-\T1/pplj/m/n/10 Beta func-tions and anoma-lous di-men-sions are scheme-dependen
-t. Only
+Underfull \hbox (badness 10000) in paragraph at lines 1137--1137
+\T1/pplj/m/n/8 per-spec-tives de-vel-oped through-out
  []
 
 
-Overfull \hbox (6.08984pt too wide) in paragraph at lines 347--348
-[]\T1/pplj/m/n/10 It is too sim-ple for non-trivial fixed points, op-er-a-tor m
-ix-ing or anoma-
- []
-
-[106]
-
-LaTeX Warning: Marginpar on page 107 moved.
-
-
-Overfull \hbox (2.65993pt too wide) in paragraph at lines 355--356
-[]\T1/pplj/b/n/10 The porous medium equa-tion \T1/pplj/m/n/10 adds anoma-lous d
-i-men-sions (second-
+Underfull \hbox (badness 2582) in paragraph at lines 1137--1137
+\T1/pplj/m/n/8 this chap-ter. Nei-ther view-point is
  []
 
 
-Overfull \hbox (15.64984pt too wide) in paragraph at lines 355--356
-\T1/pplj/m/n/10 kind self-similarity), non-trivial scal-ing ex-po-nents from dy
--nam-ics, Wasser-
+Underfull \hbox (badness 10000) in paragraph at lines 1137--1137
+\T1/pplj/m/n/8 ``correct''---they are com-ple-men-tary,
  []
 
 
-LaTeX Warning: Marginpar on page 107 moved.
+LaTeX Warning: Marginpar on page 108 moved.
 
 
-Overfull \hbox (15.56985pt too wide) in paragraph at lines 370--371
-[]\T1/pplj/m/n/10 The ap-pli-ca-tions span di-verse ar-eas in-clud-ing chaotic 
-dy-nam-ics (Lorenz
+Overfull \hbox (12.98029pt too wide) in paragraph at lines 1146--1165
+ [][] 
  []
 
 
-Overfull \hbox (2.69917pt too wide) in paragraph at lines 370--371
-\T1/pplj/m/n/10 sta-tis-ti-cal me-chan-ics (Ising, O(N) mod-els), quan-tum fiel
-d the-ory (QED),
+Underfull \hbox (badness 1147) in paragraph at lines 1165--1165
+\T1/pplj/m/n/8 for the Renor-mal-iza-tion Group (af-ter
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1196--1197
+[]\T1/pplj/m/n/10 Scale-free in-ter-me-di-ate asymp-
+ []
+
+
+Overfull \hbox (12.98029pt too wide) in paragraph at lines 1180--1199
+ [][] 
+ []
+
+[108] [109]
+
+LaTeX Warning: Marginpar on page 110 moved.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1243--1243
+[]$[] \OT1/zplm/m/n/10 = \OML/zplm/m/it/10 ^^VA \OMS/zplm/m/n/10 ^^@
+ []
+
+
+Underfull \hbox (badness 4995) in paragraph at lines 1246--1247
+[]$\OML/zplm/m/it/10 ^^L[] \OT1/zplm/m/n/10 = \OMS/zplm/m/n/10 ^^@\OML/zplm/m/i
+t/10 ^^Ou \OT1/zplm/m/n/10 +
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1249--1249
+[]\T1/pplj/b/n/10 Anomalous
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1250--1250
+[]\T1/pplj/m/n/10 Lindstedt-
+ []
+
+
+Underfull \hbox (badness 4556) in paragraph at lines 1251--1251
+[]\T1/pplj/m/n/10 Exact non-triv-ial
+ []
+
+
+Overfull \hbox (105.88533pt too wide) in paragraph at lines 1239--1254
+ [][] 
+ []
+
+[110]
+Overfull \hbox (10.61913pt too wide) in paragraph at lines 1260--1261
+[]\T1/pplj/b/n/10 The PME \T1/pplj/m/n/10 ex-hibits anoma-lous di-men-sions at 
+lead-ing order---exponents
+ []
+
+
+Underfull \hbox (badness 1163) in paragraph at lines 1266--1266
+\T1/pplj/m/n/8 Part I de-vel-oped the \T1/pplj/m/it/8 ex-act \T1/pplj/m/n/8 ge-
+o-met-ric
+ []
+
+
+LaTeX Warning: Marginpar on page 111 moved.
+
+[111] [112]
+Overfull \hbox (2.49187pt too wide) in paragraph at lines 1329--1331
+[]\T1/pplj/b/n/10 (Challenge) Marginally rel-e-vant op-er-a-tors. \T1/pplj/m/n/
+10 When $\OT1/zplm/m/n/10 ^^A = \OT1/pplx/m/n/10 0$ \T1/pplj/m/n/10 (marginal),
+
+ []
+
+[113]
+Overfull \hbox (6.7403pt too wide) in paragraph at lines 1378--1386
+ [] 
+ []
+
+[114]
+Overfull \hbox (1.12729pt too wide) in paragraph at lines 1396--1397
+[]\T1/pplj/m/n/10 Show that af-ter $\OML/zplm/m/it/10 N$ \T1/pplj/m/n/10 steps,
+ the mean-squared dis-place-ment is $\OMS/zplm/m/n/10 h\OML/zplm/m/it/10 x[]\OM
+S/zplm/m/n/10 i \OT1/zplm/m/n/10 =
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [107])
-[108] [109
+ [115]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-] [110] (./chapters/ch09_lorenz.tex
-
-LaTeX Warning: Marginpar on page 111 moved.
-
-
-Overfull \hbox (0.73978pt too wide) in paragraph at lines 17--18
-\T1/pplj/m/n/10 The Lorenz sys-tem con-sists of three cou-pled or-di-nary dif-f
-er-en-tial equa-
+ [116]
+Underfull \hbox (badness 1147) in paragraph at lines 1494--1495
+[]\T1/pplj/m/n/10 The same cor-re-la-tion func-tion ex-po-nents: $\OMS/zplm/m/n
+/10 h\OML/zplm/m/it/10 ^^^\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 x\OT1/zplm/m/n/10
+ )\OML/zplm/m/it/10 ^^^\OT1/zplm/m/n/10 (\OT1/pplx/m/n/10 0\OT1/zplm/m/n/10 )\O
+MS/zplm/m/n/10 i ^^X
  []
 
 
-LaTeX Warning: Marginpar on page 111 moved.
+Underfull \vbox (badness 7151) has occurred while \output is active []
 
-[111
-
-]
-
-LaTeX Warning: Reference `eq:stability_matrix' on page 112 undefined on input l
-ine 45.
-
-
-LaTeX Warning: Marginpar on page 112 moved.
-
-[112]
-
-LaTeX Warning: Marginpar on page 113 moved.
-
-
-Overfull \hbox (4.44237pt too wide) in paragraph at lines 90--91
-\T1/pplj/m/n/10 The Lya-punov ex-po-nents $\OML/zplm/m/it/10 ^^U[]$ \T1/pplj/m/
-n/10 char-ac-ter-ize the rate of sep-a-ra-tion of nearby
+ [117]
+[118]
+Underfull \hbox (badness 2359) in paragraph at lines 1639--1640
+[]\T1/pplj/m/n/10 The de-nom-i-na-tor: $\OT1/pplx/m/n/10 1 \OT1/zplm/m/n/10 + \
+OML/zplm/m/it/10 g[] []\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 ^^V\OT1/zplm/m/n/10 
+/\OML/zplm/m/it/10 ^^V[]\OT1/zplm/m/n/10 )/(\OT1/pplx/m/n/10 16\OML/zplm/m/it/1
+0 ^^Y[]\OT1/zplm/m/n/10 ) \OMS/zplm/m/n/10 ! \OT1/zplm/m/n/10 +\OMS/zplm/m/n/10
+ 1$ \T1/pplj/m/n/10 (since
  []
-
-[113]
-
-LaTeX Warning: Marginpar on page 114 moved.
-
-[114]
-Underfull \hbox (badness 3930) in paragraph at lines 148--148
-\T1/pplj/m/n/8 Feigenbaum's dis-cov-ery of uni-ver-sal
- []
-
-
-LaTeX Warning: Marginpar on page 115 moved.
-
-
-Underfull \hbox (badness 1546) in paragraph at lines 183--183
-\T1/pplj/m/n/8 lib-rium sta-tis-ti-cal me-chan-ics and the
- []
-
-
-LaTeX Warning: Marginpar on page 115 moved.
-
-[115]
-
-LaTeX Warning: Marginpar on page 116 moved.
-
-
-Overfull \hbox (1.87985pt too wide) in paragraph at lines 208--209
-\T1/pplj/m/n/10 We now ex-plic-itly con-nect the Lorenz dy-nam-ics to the ge-o-
-met-ric frame-
- []
-
-
-LaTeX Warning: Reference `eq:zamolodchikov_metric' on page 116 undefined on inp
-ut line 222.
-
-[116]) (./chapters/ch10_fluids.tex [117] [118
-
-]
-
-LaTeX Warning: Marginpar on page 119 moved.
 
 [119]
-
-LaTeX Warning: Marginpar on page 120 moved.
-
-
-LaTeX Warning: Marginpar on page 120 moved.
-
-
-Overfull \hbox (1.85574pt too wide) in paragraph at lines 56--57
-[]\T1/pplj/m/n/10 The RG trans-for-ma-tion for tur-bu-lence pro-ceeds in three 
-stages. First,
- []
-
-
-Underfull \vbox (badness 2644) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [120]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Warning: Marginpar on page 121 moved.
+ [121]
+[122]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
+ [123]
+[124] [125] [126]
+Underfull \vbox (badness 3375) has occurred while \output is active []
 
-Underfull \hbox (badness 4713) in paragraph at lines 83--83
-$[]$[]\T1/pplj/m/n/8 G. I. Baren-blatt.  \T1/pplj/m/it/8 Sim-i-lar-ity, Self-
+ [127])
+[128] [129
+
+] [130] (./chapters/ch04_perturbation.tex
+Underfull \hbox (badness 1466) in paragraph at lines 6--6
+\T1/pplj/m/n/8 work. This chap-ter in-tro-duces per-
  []
 
 
-LaTeX Warning: Marginpar on page 121 moved.
+LaTeX Warning: Marginpar on page 131 moved.
 
 
-Overfull \hbox (6.8998pt too wide) in paragraph at lines 96--97
-\T1/pplj/m/n/10 Inspired by the Wilson-Fisher $\OML/zplm/m/it/10 "$\T1/pplj/m/n
-/10 -expansion for crit-i-cal phe-nom-ena (Chap-
- []
-
-[121] [122]
-
-LaTeX Warning: Marginpar on page 123 moved.
-
-
-Underfull \hbox (badness 1342) in paragraph at lines 168--168
-\T1/pplj/m/n/8 The en-ergy cas-cade im-ple-ments ir-re-
+Overfull \hbox (2.14914pt too wide) in paragraph at lines 14--15
+[]\T1/pplj/b/n/10 Section [][]II[][]\T1/pplj/m/n/10 : When RG meth-ods are need
+ed ver-sus sim-pler ap-proaches 
  []
 
 
-Underfull \hbox (badness 1817) in paragraph at lines 168--168
-\T1/pplj/m/n/8 versibil-ity in tur-bu-lence, just as the
- []
+LaTeX Warning: Marginpar on page 131 moved.
 
-
-Underfull \hbox (badness 3872) in paragraph at lines 168--168
-\T1/pplj/m/n/8 c-function de-crease im-ple-ments ir-re-
- []
-
-
-LaTeX Warning: Marginpar on page 123 moved.
-
-
-Overfull \hbox (2.3398pt too wide) in paragraph at lines 177--178
-\T1/pplj/m/n/10 Experimental mea-sure-ments show sys-tem-atic de-vi-a-tions fro
-m K41 scal-
- []
-
-[123]
-
-LaTeX Warning: Marginpar on page 124 moved.
-
-[124]
-
-LaTeX Warning: Marginpar on page 125 moved.
-
-[125]) (./chapters/ch11_solids.tex [126]
-Underfull \hbox (badness 1087) in paragraph at lines 8--8
-\T1/pplj/m/n/8 The con-nec-tion be-tween frac-ture me-
- []
-
-
-Underfull \hbox (badness 1496) in paragraph at lines 8--8
-\T1/pplj/m/n/8 chan-ics and the RG was an-tic-i-pated
- []
-
-
-LaTeX Warning: Marginpar on page 127 moved.
-
-
-Overfull \hbox (2.08984pt too wide) in paragraph at lines 15--16
-\T1/pplj/m/n/10 The me-chan-i-cal be-hav-ior of solids ex-hibits mul-ti-ple cha
-r-ac-ter-is-tic scales
- []
-
-
-Underfull \hbox (badness 3250) in paragraph at lines 21--21
-\T1/pplj/m/n/8 The sep-a-ra-tion be-tween macro-scopic
- []
-
-
-LaTeX Warning: Marginpar on page 127 moved.
-
-
-Underfull \vbox (badness 1728) has occurred while \output is active []
-
- [127
+[131
 
 ]
-
-LaTeX Warning: Marginpar on page 128 moved.
-
-
-LaTeX Warning: Marginpar on page 128 moved.
-
-[128]
-Overfull \hbox (6.6562pt too wide) in paragraph at lines 71--72
-\T1/pplj/m/n/10 scale $\OML/zplm/m/it/10 r$ \T1/pplj/m/n/10 and re-lates it to 
-the so-lu-tion at scale $\OML/zplm/m/it/10 br$\T1/pplj/m/n/10 . The sim-i-lar-i
-ty ansatz []
- []
-
-[129]
-
-LaTeX Warning: Marginpar on page 130 moved.
-
-[130]
-Underfull \hbox (badness 2409) in paragraph at lines 126--126
-\T1/pplj/m/n/8 ex-po-nent. The non-triviality en-ters
- []
-
-
-LaTeX Warning: Marginpar on page 131 moved.
-
-
-LaTeX Warning: Marginpar on page 131 moved.
-
-
-Overfull \hbox (0.30965pt too wide) in paragraph at lines 153--154
-\T1/pplj/m/n/10 tained through-out the in-ter-me-di-ate asymp-totic regime even
- as $\OML/zplm/m/it/10 c$ \T1/pplj/m/n/10 grows. 
- []
-
-[131]
 
 LaTeX Warning: Marginpar on page 132 moved.
 
+
+Overfull \hbox (2.60336pt too wide) in paragraph at lines 60--61
+[]\T1/pplj/m/n/10 QED per-tur-ba-tion the-ory has $\OML/zplm/m/it/10 a[] \OMS/z
+plm/m/n/10 ^^X \OML/zplm/m/it/10 n\OT1/zplm/m/n/10 ! \OMS/zplm/m/n/10 ^^A \OT1/
+zplm/m/n/10 (\OT1/pplx/m/n/10 1\OT1/zplm/m/n/10 /\OT1/pplx/m/n/10 137\OT1/zplm/
+m/n/10 )[]$ \T1/pplj/m/n/10 from di-a-gram count-
+ []
+
+
+LaTeX Warning: Marginpar on page 132 moved.
+
+
+LaTeX Warning: Marginpar on page 132 moved.
+
+
+Overfull \hbox (11.04971pt too wide) in paragraph at lines 81--82
+\T1/pplj/m/n/10 about non-perturbative ef-fects like tun-nel-ing and in-stan-to
+ns, even though
+ []
+
+
+Overfull \hbox (7.48575pt too wide) in paragraph at lines 81--82
+\T1/pplj/m/n/10 or-der. Chap-ter [][]II[][] de-vel-ops the machinery---Borel tr
+ans-forms, transseries,
+ []
+
 [132]
-Underfull \hbox (badness 1221) in paragraph at lines 199--199
-\T1/pplj/m/n/8 Intermediate asymp-totics is the solid
+Underfull \hbox (badness 1052) in paragraph at lines 85--85
+\T1/pplj/m/n/8 si-cal me-chan-ics, fluid dy-nam-ics, and
  []
 
 
 LaTeX Warning: Marginpar on page 133 moved.
 
-[133]) (./chapters/ch12_ising.tex [134]
+
+Overfull \hbox (4.5099pt too wide) in paragraph at lines 93--94
+[]\T1/pplj/b/n/10 The porous medium equa-tion: \T1/pplj/m/n/10 Per-tur-ba-tive 
+cor-rec-tions to the Baren-
+ []
+
+[133]
+
+LaTeX Warning: Marginpar on page 134 moved.
+
+
+Overfull \hbox (9.22983pt too wide) in paragraph at lines 125--126
+\T1/pplj/m/n/10 The an-har-monic os-cil-la-tor is the sim-plest ex-am-ple and s
+uf-fices to demon-
+ []
+
+
+Overfull \hbox (6.08984pt too wide) in paragraph at lines 127--128
+[]\T1/pplj/m/n/10 It is too sim-ple for non-trivial fixed points, op-er-a-tor m
+ix-ing or anoma-
+ []
+
+
+Underfull \hbox (badness 4279) in paragraph at lines 137--141
+[]\T1/pplj/b/n/10 Perturbation the-ory. \T1/pplj/m/n/10 The per-tur-ba-tive so-
+lu-tion $\OML/zplm/m/it/10 x\OT1/zplm/m/n/10 (\OML/zplm/m/it/10 t\OT1/zplm/m/n/
+10 ) =
+ []
+
+
+Underfull \vbox (badness 1087) has occurred while \output is active []
+
+ [134]
 
 LaTeX Warning: Marginpar on page 135 moved.
 
-[135
-
-]
-
-LaTeX Warning: Marginpar on page 136 moved.
-
-
-LaTeX Warning: Marginpar on page 136 moved.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 83.
+LaTeX Font Info:    Font shape `U/msa/m/n' will be
+(Font)              scaled to size 11.40997pt on input line 169.
+LaTeX Font Info:    Font shape `U/msb/m/n' will be
+(Font)              scaled to size 11.40997pt on input line 169.
+[135]
+Overfull \hbox (15.64984pt too wide) in paragraph at lines 215--216
+\T1/pplj/m/n/10 kind self-similarity), non-trivial scal-ing ex-po-nents from dy
+-nam-ics, Wasser-
+ []
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\phi' on input line 83.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 83.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 83.
-
-[136]
+ [136]
 
 LaTeX Warning: Marginpar on page 137 moved.
 
@@ -2744,22 +2644,17 @@ LaTeX Warning: Marginpar on page 137 moved.
 LaTeX Warning: Marginpar on page 138 moved.
 
 
-Overfull \hbox (3.73987pt too wide) in paragraph at lines 159--160
-[]\T1/pplj/m/n/10 The trans-fer ma-trix can be di-ag-o-nal-ized us-ing a Jordan
--Wigner trans-
+Underfull \vbox (badness 2884) has occurred while \output is active []
+
+ [138]
+Overfull \hbox (14.65988pt too wide) in paragraph at lines 361--369
+ [] 
  []
 
 
-Overfull \hbox (6.80064pt too wide) in paragraph at lines 163--164
-\T1/pplj/m/n/10 Define Grass-mann (an-ti-com-mut-ing) vari-ables $\OML/zplm/m/i
-t/10  []$\T1/pplj/m/n/10 , $[]$ sat-is-fy-ing $\OMS/zplm/m/n/10 f\OML/zplm/m/it
-/10  []\OT1/pplx/m/n/10 , \OML/zplm/m/it/10  []\OMS/zplm/m/n/10 g \OT1/zplm/m/n
-/10 =
+Underfull \hbox (badness 2735) in paragraph at lines 395--395
+\T1/pplj/m/n/8 Regularization makes di-ver-gent in-te-
  []
-
-[138]
-
-LaTeX Warning: Marginpar on page 139 moved.
 
 
 LaTeX Warning: Marginpar on page 139 moved.
@@ -2769,68 +2664,70 @@ LaTeX Warning: Marginpar on page 139 moved.
 LaTeX Warning: Marginpar on page 140 moved.
 
 
-Overfull \hbox (0.39992pt too wide) in paragraph at lines 245--246
-[]\T1/pplj/b/n/10 Kadanoff real-space RG\T1/pplj/m/n/10 : This ap-proach di-rec
-tly im-ple-ments coarse-
+Overfull \hbox (15.8999pt too wide) in paragraph at lines 431--432
+[]\T1/pplj/m/n/10 The key prin-ci-ple is that \T1/pplj/m/it/10 phys-i-cal pre-d
+ic-tions are regularization-independent\T1/pplj/m/n/10 .
  []
+
+
+Underfull \hbox (badness 6995) in paragraph at lines 440--440
+\T1/pplj/m/n/8 Renormalization ab-sorbs di-ver-gences
+ []
+
+
+LaTeX Warning: Marginpar on page 140 moved.
 
 [140]
-Underfull \hbox (badness 10000) in paragraph at lines 253--253
-\T1/pplj/m/n/8 The equiv-a-lence of these four
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 253--253
-\T1/pplj/m/n/8 approaches---lattice, field the-ory,
- []
-
-
-Underfull \hbox (badness 3449) in paragraph at lines 253--253
-\T1/pplj/m/n/8 CFT, and free fermions---is a deep
- []
-
 
 LaTeX Warning: Marginpar on page 141 moved.
 
 
-Underfull \vbox (badness 3138) has occurred while \output is active []
-
- [141])
-(./chapters/ch13_on_model.tex [142]
-Underfull \hbox (badness 1783) in paragraph at lines 10--10
-\T1/pplj/m/n/8 The O(N) model en-com-passes many
+Overfull \hbox (3.94653pt too wide) in paragraph at lines 456--457
+[]\T1/pplj/b/n/10 Advantages: \T1/pplj/m/n/10 Com-pu-ta-tional sim-plic-ity; pr
+e-serves sym-me-tries; mass-
  []
 
 
-LaTeX Warning: Marginpar on page 143 moved.
+Overfull \hbox (9.87978pt too wide) in paragraph at lines 475--476
+[]\T1/pplj/m/n/10 The di-ver-gence en-codes non-perturbative physics (de-vel-op
+ed in Chap-
+ []
 
-[143
+
+Overfull \hbox (21.99986pt too wide) in paragraph at lines 484--485
+[]\T1/pplj/b/n/10 Chapter [][]II[][]\T1/pplj/m/n/10 : The deeper al-ge-braic st
+ructure---Hopf al-ge-bras and Riemann-
+ []
+
+[141] [142]) (./chapters/ch05_algebra.tex [143] [144
 
 ]
-
-LaTeX Warning: Marginpar on page 144 moved.
-
-
-Overfull \hbox (18.29973pt too wide) in paragraph at lines 51--52
-\T1/pplj/m/n/10 We now de-rive the fa-mous Wilson-Fisher fixed point us-ing the
- $\OML/zplm/m/it/10 "$\T1/pplj/m/n/10 -expansion,
+Underfull \hbox (badness 2573) in paragraph at lines 6--6
+\T1/pplj/m/n/8 This chap-ter re-veals the deep al-ge-
  []
 
-[144]
 
 LaTeX Warning: Marginpar on page 145 moved.
 
 
-LaTeX Warning: Reference `eq:stability_matrix' on page 145 undefined on input l
-ine 122.
+LaTeX Warning: Marginpar on page 145 moved.
 
 
-Underfull \vbox (badness 7186) has occurred while \output is active []
+LaTeX Warning: Marginpar on page 145 moved.
 
- [145]
-Overfull \hbox (1.47978pt too wide) in paragraph at lines 139--140
-\T1/pplj/m/n/10 The crit-i-cal ex-po-nents char-ac-ter-ize the sin-gu-lar be-ha
-v-ior near the phase
+[145]
+Overfull \hbox (57.31863pt too wide) in paragraph at lines 89--90
+ [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 92--92
+\T1/pplj/m/n/8 There are 1, 1, 2, 4, 9, 20,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 92--92
+\T1/pplj/m/n/8 48, 115, ...rooted trees with
  []
 
 
@@ -2841,283 +2738,476 @@ LaTeX Warning: Marginpar on page 146 moved.
 LaTeX Warning: Marginpar on page 147 moved.
 
 
-Underfull \hbox (badness 3884) in paragraph at lines 218--218
-\T1/pplj/m/n/8 along RG tra-jec-to-ries, prov-ing ir-re-
+Overfull \hbox (7.7099pt too wide) in paragraph at lines 159--160
+[]\T1/pplj/b/n/10 Connection to the Pro-logue: \T1/pplj/m/n/10 The per-tur-ba-t
+ive so-lu-tion of the damped
  []
-
-
-LaTeX Warning: Marginpar on page 147 moved.
 
 [147]
 
 LaTeX Warning: Marginpar on page 148 moved.
 
 [148]
-
-LaTeX Warning: Marginpar on page 149 moved.
-
-[149]) (./chapters/ch14_hubbard.tex [150]
-Underfull \hbox (badness 1158) in paragraph at lines 10--10
-\T1/pplj/m/n/8 de-pen-dently by Hub-bard, Gutzwiller,
+Underfull \hbox (badness 6493) in paragraph at lines 222--222
+\T1/pplj/m/n/8 The Butcher group is an infinite-
  []
 
 
-LaTeX Warning: Marginpar on page 151 moved.
+LaTeX Warning: Marginpar on page 149 moved.
 
-[151
 
-]
+LaTeX Warning: Marginpar on page 149 moved.
+
+[149]
+
+LaTeX Warning: Marginpar on page 150 moved.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [150]
+Overfull \hbox (24.98029pt too wide) in paragraph at lines 300--319
+ [] 
+ []
+
+[151]
+Underfull \hbox (badness 3780) in paragraph at lines 335--335
+\T1/pplj/m/n/8 Modern work by Hairer (reg-u-lar-ity
+ []
+
+
+LaTeX Warning: Marginpar on page 152 moved.
+
+
+LaTeX Warning: Marginpar on page 152 moved.
+
+
+Overfull \hbox (1.17912pt too wide) in paragraph at lines 351--352
+[]\T1/pplj/b/n/10 As an al-ge-bra: $\OMS/zplm/m/n/10 H$ \T1/pplj/m/n/10 is the 
+poly-no-mial al-ge-bra gen-er-ated by 1PI graphs.
+ []
+
+
+Underfull \hbox (badness 1540) in paragraph at lines 364--364
+\T1/pplj/m/n/8 The co-prod-uct en-codes the re-cur-sive
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 364--364
+\T1/pplj/m/n/8 struc-ture of subdivergences---exactly
+ []
+
+
+LaTeX Warning: Marginpar on page 152 moved.
+
 
 LaTeX Warning: Marginpar on page 152 moved.
 
 [152]
+Overfull \hbox (12.87985pt too wide) in paragraph at lines 408--409
+\T1/pplj/m/n/10 The phys-i-cally mean-ing-ful struc-tures are \T1/pplj/b/n/10 c
+har-ac-ters \T1/pplj/m/n/10 of the Hopf algebra---
+ []
+
 
 LaTeX Warning: Marginpar on page 153 moved.
 
 [153]
+Underfull \hbox (badness 6792) in paragraph at lines 433--433
+\T1/pplj/m/n/8 The Riemann-Hilbert prob-lem asks:
+ []
+
 
 LaTeX Warning: Marginpar on page 154 moved.
+
+
+Underfull \hbox (badness 1173) in paragraph at lines 448--448
+\T1/pplj/m/n/8 The Birkhoff de-com-po-si-tion sep-a-rates
+ []
+
+
+Underfull \hbox (badness 1924) in paragraph at lines 448--448
+\T1/pplj/m/n/8 the ``pole part'' from the ``holo-mor-
+ []
+
+
+LaTeX Warning: Marginpar on page 154 moved.
+
+
+Underfull \hbox (badness 2012) in paragraph at lines 465--465
+\T1/pplj/m/n/8 mal-iza-tion = Birkhoff de-com-po-si-tion.
+ []
 
 
 LaTeX Warning: Marginpar on page 154 moved.
 
 [154]
-Overfull \hbox (8.68987pt too wide) in paragraph at lines 149--151
-\T1/pplj/m/n/10 with ac-tion con-tain-ing quadratic (ki-netic) and quar-tic (in
--ter-ac-tion) terms. 
- []
+
+LaTeX Warning: Marginpar on page 155 moved.
 
 [155]
 
 LaTeX Warning: Marginpar on page 156 moved.
 
 
-Overfull \hbox (10.73978pt too wide) in paragraph at lines 188--189
-\T1/pplj/m/n/10 The the-ory space for the Hub-bard model in-cludes the in-ter-a
-c-tion strength
+Overfull \hbox (21.88913pt too wide) in paragraph at lines 549--550
+\T1/pplj/m/n/10 The Hopf al-ge-bra frame-work de-vel-oped above deals with UV d
+ivergences---
  []
 
-[156] [157]) (./chapters/ch15_qed.tex [158]
-Underfull \hbox (badness 3536) in paragraph at lines 10--10
-\T1/pplj/m/n/8 QED achieved un-prece-dented agree-
+[156]
+Overfull \hbox (1.04994pt too wide) in paragraph at lines 580--581
+[]\T1/pplj/b/n/10 The Riemann-Hilbert cor-re-spon-dence \T1/pplj/m/n/10 shows r
+enor-mal-iza-tion is the
  []
 
-
-LaTeX Warning: Marginpar on page 159 moved.
-
-[159
+[157] [158]) (./chapters/ch06_resurgence.tex [159] [160
 
 ]
-
-LaTeX Warning: Marginpar on page 160 moved.
-
-
-Overfull \hbox (17.99971pt too wide) in paragraph at lines 55--56
-\T1/pplj/m/n/10 The pho-ton prop-a-ga-tor re-ceives quan-tum cor-rec-tions from
- vir-tual electron-
+Underfull \hbox (badness 1087) in paragraph at lines 6--6
+\T1/pplj/m/n/8 ex-tract-ing physics from di-ver-gent se-
  []
 
-
-Underfull \hbox (badness 7362) in paragraph at lines 66--66
-\T1/pplj/m/n/8 Vacuum po-lar-iza-tion rep-re-sents the
- []
-
-
-LaTeX Warning: Marginpar on page 160 moved.
-
-[160]
 
 LaTeX Warning: Marginpar on page 161 moved.
+
+
+Overfull \hbox (30.98978pt too wide) in paragraph at lines 14--15
+[]\T1/pplj/b/n/10 Section [][]II[][]\T1/pplj/m/n/10 : Sin-gu-lar-i-ties (in-sta
+n-tons, renor-malons) en-code non-perturbative
+ []
+
+
+Overfull \hbox (3.4298pt too wide) in paragraph at lines 17--18
+[]\T1/pplj/b/n/10 Section [][]II[][]\T1/pplj/m/n/10 : The resur-gence triangle-
+--organizing the non-perturbative
+ []
+
+
+Overfull \hbox (2.13985pt too wide) in paragraph at lines 18--19
+[]\T1/pplj/b/n/10 Section [][]II[][]\T1/pplj/m/n/10 : Alien calculus---systemat
+ic ex-trac-tion of non-perturbative
+ []
+
+
+Overfull \hbox (9.24979pt too wide) in paragraph at lines 23--24
+[]\T1/pplj/m/n/10 Throughout this chap-ter, we il-lus-trate the ma-chin-ery wit
+h the \T1/pplj/b/n/10 damped
+ []
+
+
+Overfull \hbox (7.2898pt too wide) in paragraph at lines 30--31
+\T1/pplj/m/n/10 The Borel trans-form con-verts fac-to-rial di-ver-gence into ge
+-o-met-ric growth,
+ []
+
+
+Overfull \hbox (16.24422pt too wide) in paragraph at lines 35--36
+[][]\T1/pplj/b/n/10 Definition 0.10 \T1/pplj/m/n/10 (Borel Trans-form)\T1/pplj/
+b/n/10 . []\T1/pplj/m/n/10 Given a for-mal se-ries $[]\OT1/zplm/m/n/10 (\OML/zp
+lm/m/it/10 ^^O\OT1/zplm/m/n/10 ) = [][] \OML/zplm/m/it/10 a[]^^O[]$\T1/pplj/m/n
+/10 ,
+ []
 
 [161]
 
 LaTeX Warning: Marginpar on page 162 moved.
 
 
-Overfull \hbox (9.89977pt too wide) in paragraph at lines 129--130
-[]\T1/pplj/m/n/10 When these renor-malon con-tri-bu-tions are in-cluded, the fu
-ll transseries
- []
-
-
-Underfull \hbox (badness 1824) in paragraph at lines 161--161
-\T1/pplj/m/n/8 The anoma-lous di-men-sion rep-re-sents
- []
-
-
 LaTeX Warning: Marginpar on page 162 moved.
 
 [162]
-Underfull \hbox (badness 2735) in paragraph at lines 192--192
-\T1/pplj/m/n/8 Ward iden-ti-ties are con-se-quences of
- []
+
+LaTeX Warning: Marginpar on page 163 moved.
 
 
 LaTeX Warning: Marginpar on page 163 moved.
 
-[163]
+
+Underfull \vbox (badness 2368) has occurred while \output is active []
+
+ [163]
 
 LaTeX Warning: Marginpar on page 164 moved.
 
-[164]
-Overfull \hbox (1.99982pt too wide) in paragraph at lines 287--288
-[]\T1/pplj/m/n/10 The chap-ter has demon-strated ev-ery el-e-ment of the ge-o-m
-et-ric frame-
+
+Underfull \hbox (badness 2237) in paragraph at lines 192--193
+[]\T1/pplj/b/n/10 Physical in-ter-pre-ta-tion: \T1/pplj/m/n/10 This sin-gu-lar-
+ity re-flects sen-si-tiv-ity
  []
 
-[165]) [166] [167
 
-] [168] (./chapters/ch16_unity.tex
-Underfull \hbox (badness 4792) in paragraph at lines 8--8
-\T1/pplj/m/n/8 ma-te-rial con-stituents but in shared
+Underfull \hbox (badness 2564) in paragraph at lines 192--193
+\T1/pplj/m/n/10 to long-distance physics. The re-sum-ma-tion am-bi-gu-ity $\OMS
+/zplm/m/n/10 ^^X
+ []
+
+[164]
+
+LaTeX Warning: Marginpar on page 165 moved.
+
+
+LaTeX Warning: Marginpar on page 165 moved.
+
+[165]
+
+LaTeX Warning: Marginpar on page 166 moved.
+
+
+Overfull \hbox (0.74922pt too wide) in paragraph at lines 292--293
+[][]\T1/pplj/b/n/10 Definition 0.14 \T1/pplj/m/n/10 (Transseries)\T1/pplj/b/n/1
+0 . []\T1/pplj/m/n/10 A \T1/pplj/b/n/10 transseries \T1/pplj/m/n/10 is a for-ma
+l ex-pres-sion com-
+ []
+
+[166]
+Underfull \hbox (badness 2856) in paragraph at lines 305--305
+\T1/pplj/m/n/8 The transseries in-cludes per-tur-ba-tive
+ []
+
+
+LaTeX Warning: Marginpar on page 167 moved.
+
+
+LaTeX Warning: Marginpar on page 167 moved.
+
+
+Underfull \hbox (badness 1917) in paragraph at lines 330--330
+\T1/pplj/m/n/8 We ap-ply resur-gent meth-ods to the
+ []
+
+
+LaTeX Warning: Marginpar on page 167 moved.
+
+
+LaTeX Warning: Marginpar on page 167 moved.
+
+[167]
+Overfull \hbox (8.33981pt too wide) in paragraph at lines 359--360
+\T1/pplj/m/n/10 The full resur-gence anal-y-sis of the damped os-cil-la-tor fol
+-lows the pipeline
+ []
+
+
+LaTeX Warning: Marginpar on page 168 moved.
+
+
+Overfull \hbox (1.1992pt too wide) in paragraph at lines 384--385
+[]\T1/pplj/b/n/10 Key in-sight: \T1/pplj/m/n/10 The RG equa-tions [] are them-s
+elves \T1/pplj/b/n/10 resur-gent equa-
+ []
+
+
+LaTeX Warning: Marginpar on page 168 moved.
+
+
+Underfull \vbox (badness 3179) has occurred while \output is active []
+
+ [168]
+Underfull \hbox (badness 10000) in paragraph at lines 397--397
+\T1/pplj/m/n/8 The resur-gence tri-an-gle or-ga-nizes
+ []
+
+
+Underfull \hbox (badness 1888) in paragraph at lines 397--397
+\T1/pplj/m/n/8 the in-tri-cate con-nec-tions be-tween all
+ []
+
+
+Underfull \hbox (badness 3312) in paragraph at lines 397--397
+\T1/pplj/m/n/8 transseries sec-tors into a sys-tem-atic
  []
 
 
 LaTeX Warning: Marginpar on page 169 moved.
 
-[169
 
-]
+Overfull \hbox (15.52643pt too wide) in paragraph at lines 399--400
+\T1/pplj/b/n/10 tri-an-gle\T1/pplj/m/n/10 . This struc-ture re-veals that \T1/p
+plj/m/it/10 all \T1/pplj/m/n/10 in-for-ma-tion about non-perturbative
+ []
+
+
+LaTeX Warning: Marginpar on page 169 moved.
+
+[169]
+
+LaTeX Warning: Marginpar on page 170 moved.
+
+
+Underfull \hbox (badness 3601) in paragraph at lines 454--454
+\T1/pplj/m/n/8 The bridge equa-tion con-nects Borel
+ []
+
+
+Underfull \hbox (badness 3769) in paragraph at lines 454--454
+\T1/pplj/m/n/8 plane anal-y-sis (alien deriva-tives) to
+ []
+
+
+Underfull \hbox (badness 1377) in paragraph at lines 454--454
+\T1/pplj/m/n/8 transseries pa-ram-e-ter space (or-di-nary
+ []
+
+
+LaTeX Warning: Marginpar on page 170 moved.
+
+
+LaTeX Warning: Marginpar on page 170 moved.
+
 
 LaTeX Warning: Marginpar on page 170 moved.
 
 [170]
-Underfull \hbox (badness 2653) in paragraph at lines 128--128
-\T1/pplj/m/n/8 The ge-om-e-try of the-ory space pro-
+
+LaTeX Warning: Marginpar on page 171 moved.
+
+
+Underfull \hbox (badness 4660) in paragraph at lines 547--547
+\T1/pplj/m/n/8 The RG is fun-da-men-tally a resur-
+ []
+
+
+Underfull \hbox (badness 4441) in paragraph at lines 547--547
+\T1/pplj/m/n/8 perturbative physics are in-sep-a-ra-bly
  []
 
 
 LaTeX Warning: Marginpar on page 171 moved.
 
 [171]
-Overfull \hbox (2.60979pt too wide) in paragraph at lines 150--151
-\T1/pplj/m/n/10 func-tion is com-puted per-tur-ba-tively, the re-sult is an asy
-mp-totic series---
- []
-
-
-Underfull \hbox (badness 5105) in paragraph at lines 152--152
-\T1/pplj/m/n/8 Resurgence uni-fies per-tur-ba-tive and
+Underfull \hbox (badness 10000) in paragraph at lines 562--562
+\T1/pplj/m/n/8 Lateral re-sum-ma-tions are com-plex.
  []
 
 
 LaTeX Warning: Marginpar on page 172 moved.
 
 
-Overfull \hbox (9.61974pt too wide) in paragraph at lines 165--176
- [] 
- []
-
-
-Overfull \hbox (19.7097pt too wide) in paragraph at lines 178--179
-[]\T1/pplj/m/n/10 The resur-gent per-spec-tive re-veals that per-tur-ba-tive an
-d non-perturbative
- []
-
-
-Overfull \hbox (0.95639pt too wide) in paragraph at lines 178--179
-\T1/pplj/m/n/10 struc-ture. The per-tur-ba-tive co-ef-fi-cients ``know'' about 
-non-perturbative
+Underfull \hbox (badness 1163) in paragraph at lines 576--576
+\T1/pplj/m/n/8 Median re-sum-ma-tion: av-er-age above
  []
 
 
 LaTeX Warning: Marginpar on page 172 moved.
 
-[172] [173]
+
+Overfull \hbox (0.3299pt too wide) in paragraph at lines 580--581
+[]\T1/pplj/b/n/10 Physical in-ter-pre-ta-tion: \T1/pplj/m/n/10 Me-dian re-sum-m
+a-tion cor-re-sponds to a spe-
+ []
+
+
+LaTeX Warning: Marginpar on page 172 moved.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 607--607
+\T1/pplj/m/n/8 The full the-ory space in-cludes
+ []
+
+
+Underfull \hbox (badness 5696) in paragraph at lines 607--607
+\T1/pplj/m/n/8 transseries pa-ram-e-ters as ad-di-tional
+ []
+
+
+LaTeX Warning: Marginpar on page 172 moved.
+
+[172]
+Underfull \hbox (badness 1533) in paragraph at lines 629--629
+\T1/pplj/m/n/8 The alien deriva-tive is the co-vari-ant
+ []
+
+
+Underfull \hbox (badness 1028) in paragraph at lines 629--629
+\T1/pplj/m/n/8 deriva-tive in the di-rec-tion of the $\OML/zplm/m/it/8 !$\T1/pp
+lj/m/n/8 -
+ []
+
+
+LaTeX Warning: Marginpar on page 173 moved.
+
+
+Overfull \hbox (4.70975pt too wide) in paragraph at lines 638--639
+\T1/pplj/m/n/10 The uni-fied frame-work in-cludes both per-tur-ba-tive and non-
+perturbative
+ []
+
+
+LaTeX Warning: Marginpar on page 173 moved.
+
+[173]
+Underfull \hbox (badness 2150) in paragraph at lines 672--672
+\T1/pplj/m/n/8 Ignoring di-ver-gence struc-ture throws
+ []
+
 
 LaTeX Warning: Marginpar on page 174 moved.
 
 
-Underfull \vbox (badness 3942) has occurred while \output is active []
-
- [174]
-Underfull \hbox (badness 6284) in paragraph at lines 251--251
-\T1/pplj/m/n/8 in con-densed mat-ter, es-pe-cially in
+Overfull \hbox (14.64645pt too wide) in paragraph at lines 677--679
+\T1/pplj/m/n/10 anoma-lous di-men-sions are scheme-dependent. Only scheme-indep
+endent
  []
 
+[174]
 
 LaTeX Warning: Marginpar on page 175 moved.
 
-[175] [176]
+
+Overfull \hbox (12.4205pt too wide) in paragraph at lines 731--733
+[]\T1/pplj/b/n/10 Transseries con-struc-tion. \T1/pplj/m/n/10 Con-sider the dif
+-fer-en-tial equa-tion $\OML/zplm/m/it/10 ^^O dy\OT1/zplm/m/n/10 /\OML/zplm/m/i
+t/10 dx \OT1/zplm/m/n/10 =
+ []
+
+[175]) (./chapters/appendix_resurgence.tex [176]
 
 LaTeX Warning: Marginpar on page 177 moved.
 
+[177
 
-Underfull \hbox (badness 1097) in paragraph at lines 291--291
-\T1/pplj/m/n/8 pend on con-ven-tions. Others---fixed
- []
-
-
-LaTeX Warning: Marginpar on page 177 moved.
-
-
-Overfull \hbox (0.12984pt too wide) in paragraph at lines 303--304
-\T1/pplj/m/n/10 times works and why ef-fec-tive the-o-ries at dif-fer-ent scale
-s can be largely
- []
-
-
-Underfull \vbox (badness 3138) has occurred while \output is active []
-
- [177]
-
-LaTeX Warning: Marginpar on page 178 moved.
-
-[178]
-
-LaTeX Warning: Marginpar on page 179 moved.
-
-) (./chapters/appendix_resurgence.tex [179] [180
-
-]
-
-LaTeX Warning: Marginpar on page 181 moved.
-
-[181] [182]
+] [178]
 Overfull \hbox (2.21645pt too wide) in paragraph at lines 140--141
 \T1/pplj/m/n/10 For real $\OML/zplm/m/it/10 z$\T1/pplj/m/n/10 , phys-i-cal ob-s
 erv-ables must be real. This con-strains transseries
  []
 
-[183]
+[179]
 Overfull \hbox (11.09981pt too wide) in paragraph at lines 160--161
 \T1/pplj/m/n/10 The alien deriva-tive is re-lated to or-di-nary dif-fer-en-ti-a
 -tion along transseries
  []
 
-[184]
+[180]
 Overfull \hbox (6.66982pt too wide) in paragraph at lines 256--257
 \T1/pplj/b/n/10 Monodromy \T1/pplj/m/n/10 is the trans-for-ma-tion ac-quired by
  par-al-lel trans-port around
  []
 
-[185]) [186] (./rg_book_main.bbl
-pdfTeX warning (ext4): destination with the same identifier (name{cite.Barenbla
-tt1979}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.8 \bibitem[Barenblatt(1979)]{Barenblatt1979}
-                                              ) [187
+[181]) [182] (./rg_book_main.bbl
+
+Package natbib Warning: Empty `thebibliography' environment on input line 8.
+
+) [183
 
 
 ] (./rg_book_main.aux)
 
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 0.43996pt have occurred.
 
 Package rerunfilecheck Info: File `rg_book_main.out' has not changed.
-(rerunfilecheck)             Checksum: ED989E348BFE037B1E5D66B2EC1E41FE;35582.
+(rerunfilecheck)             Checksum: 527EFF649F85E9DF5F610A6FE1C23041;20975.
  ) 
 Here is how much of TeX's memory you used:
- 45861 strings out of 478268
- 1055161 string characters out of 5846347
- 1538193 words of memory out of 5000000
- 61955 multiletter control sequences out of 15000+600000
- 611400 words of font info for 290 fonts, out of 8000000 for 9000
+ 46125 strings out of 478268
+ 1058749 string characters out of 5846347
+ 1545614 words of memory out of 5000000
+ 62174 multiletter control sequences out of 15000+600000
+ 627688 words of font info for 311 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 94i,13n,101p,1123b,1132s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 94i,15n,101p,1123b,1399s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
 xlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
@@ -3131,16 +3221,17 @@ ist/fonts/type1/public/mathpazo/fplmr.pfb></usr/local/texlive/2022/texmf-dist/f
 onts/type1/public/mathpazo/fplmri.pfb></usr/local/texlive/2022/texmf-dist/fonts
 /type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/p
 ublic/fpl/fplrij8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/a
-msfonts/symbols/msam10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/
-helvetic/uhvb8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helveti
-c/uhvr8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/palatino/uplb8
-a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb>
-</usr/local/texlive/2022/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/l
-ocal/texlive/2022/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on rg_book_main.pdf (187 pages, 746538 bytes).
+msfonts/symbols/msam10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/publ
+ic/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/
+urw/helvetic/uhvb8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/hel
+vetic/uhvr8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/palatino/u
+plb8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/palatino/uplbi8a.
+pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></u
+sr/local/texlive/2022/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on rg_book_main.pdf (183 pages, 804417 bytes).
 PDF statistics:
- 2775 PDF objects out of 2984 (max. 8388607)
- 2499 compressed objects within 25 object streams
- 1128 named destinations out of 1200 (max. 500000)
- 4117 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2737 PDF objects out of 2984 (max. 8388607)
+ 2463 compressed objects within 25 object streams
+ 1208 named destinations out of 1440 (max. 500000)
+ 3533 words of extra memory for PDF output out of 10000 (max. 10000000)
 

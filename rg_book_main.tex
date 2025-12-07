@@ -12,6 +12,7 @@
 %===============================================================================
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{mathtools}
+\usepackage{slashed}  % For Feynman slash notation
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{bm}
@@ -105,6 +106,17 @@
 %===============================================================================
 % WORKED EXAMPLE BOXES
 %===============================================================================
+% Protected citation command for use inside tcolorbox environments
+% This bypasses tufte's sidenote-based citation which conflicts with tcolorbox
+\makeatletter
+\newcommand{\boxcite}[1]{%
+  \begingroup
+  \let\@tufte@sidenote@citation\@gobble% Disable sidenote citation
+  \citep{#1}%
+  \endgroup
+}
+\makeatother
+
 \newtcolorbox{workedbox}[1][]{
   enhanced,
   breakable,
@@ -113,7 +125,73 @@
   boxrule=0.5pt,
   left=6pt, right=6pt, top=6pt, bottom=6pt,
   fonttitle=\bfseries\sffamily,
-  title={#1}
+  title={#1},
+  % Support for problem/solution separation
+  bicolor,
+  colbacklower=white,
+  middle=2pt
+}
+
+%===============================================================================
+% CHAPTER SUMMARY BOXES
+%===============================================================================
+\newtcolorbox{summarybox}{
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=darkblue,
+  boxrule=1pt,
+  arc=6pt,
+  left=10pt, right=10pt, top=10pt, bottom=10pt,
+  shadow={2pt}{-2pt}{0pt}{black!15},
+  title={\sffamily\bfseries\large Chapter Summary},
+  coltitle=white,
+  colbacktitle=darkblue,
+  attach boxed title to top center={yshift=-3mm},
+  boxed title style={arc=3pt, boxrule=0pt, left=6pt, right=6pt}
+}
+
+% Styled subsection headers for use inside summarybox
+\newcommand{\summaryheader}[1]{%
+  \par\vspace{6pt}\noindent{\sffamily\bfseries\color{darkblue}#1}\par\vspace{2pt}%
+}
+
+%===============================================================================
+% REMARK BOXES (for conceptual asides)
+%===============================================================================
+\newtcolorbox{remarkbox}[1][Remark]{
+  enhanced,
+  breakable,
+  colback=blue!5!white,
+  colframe=blue!50!black,
+  boxrule=0.5pt,
+  arc=4pt,
+  left=8pt, right=8pt, top=8pt, bottom=8pt,
+  fonttitle=\bfseries\sffamily\small,
+  coltitle=blue!50!black,
+  colbacktitle=blue!10!white,
+  title={#1},
+  attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  boxed title style={arc=2pt, boxrule=0.5pt, colframe=blue!50!black}
+}
+
+%===============================================================================
+% SOLUTION BOXES
+%===============================================================================
+\newtcolorbox{solutionbox}[1][Solution]{
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=darkgreen,
+  boxrule=0.5pt,
+  arc=4pt,
+  left=8pt, right=8pt, top=8pt, bottom=8pt,
+  fonttitle=\bfseries\sffamily\small,
+  coltitle=darkgreen,
+  colbacktitle=white,
+  title={#1},
+  attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  boxed title style={arc=2pt, boxrule=0.5pt, colframe=darkgreen}
 }
 
 %===============================================================================
@@ -183,11 +261,19 @@ The renormalization group stands as one of the most profound conceptual advances
 
 \marginnote{The unity of these phenomena under a single mathematical umbrella represents a triumph of physical abstraction comparable to the unification of electricity and magnetism.}
 
-This book presents the renormalization group as a single geometric structure. The space of all possible theories or models forms a manifold, and the renormalization group generates a flow on this manifold. Fixed points of the flow correspond to scale-invariant theories. The geometry of the manifold encodes deep physical information about how theories relate to one another.
+This book presents the renormalization group as an \textbf{exact geometric framework}. The space of all possible theories or models forms a manifold, and the renormalization group generates a flow on this manifold. Fixed points of the flow correspond to scale-invariant theories. The geometry of the manifold encodes deep physical information about how theories relate to one another. This framework exists \emph{independently} of how we compute with it.
 
-Our pedagogical strategy is to develop the abstract framework in Part I while simultaneously illustrating it with a simple example that admits both dynamical and statistical interpretations. The anharmonic oscillator serves this purpose admirably. As an ordinary differential equation, it exhibits amplitude-dependent frequency and the phenomenon of secular terms in perturbation theory. As a statistical mechanics problem, the same potential defines a partition function whose perturbative expansion requires resummation. The renormalization group resolves both difficulties through the same mechanism. Part I culminates in ``The Unified Recipe,'' which distills the abstract framework into a six-step methodology where resurgent analysis is woven throughout rather than added as a final step, showing how perturbative and non-perturbative physics are inseparable aspects of a single geometric structure.
+\textbf{Perturbation theory} is the primary method for implementing the RG framework---computing beta functions, anomalous dimensions, and fixed point properties order by order in a small parameter. When perturbation theory is insufficient, \textbf{transseries methods} extend our computational reach to include non-perturbative physics.
 
-Part II applies the framework and recipe developed in Part I to seven physical systems of increasing complexity. Each application chapter explicitly invokes the six-step recipe, demonstrating how the unified geometric-resurgent framework manifests in concrete calculations. The systems range from chaotic dynamics in the Lorenz equations through turbulence in fluids, fracture mechanics in solids (following Barenblatt's theory of intermediate asymptotics), phase transitions in the Ising and O(N) models, and quantum field theories including QED and the Hubbard model.
+Our pedagogical strategy reflects a clean separation between \textbf{structure} and \textbf{computation}:
+
+\marginnote{Part I: the exact framework with simple examples. Part II: analytical methods. Part III: applications combining both.}
+
+\textbf{Part I (Algebra and Geometry)} develops the exact geometric framework using \emph{simple, exactly solvable examples}. The anharmonic oscillator demonstrates running parameters and the resolution of secular terms. The amplitude equation (Hopf bifurcation normal form) provides a complete illustration of nontrivial fixed points, stability analysis, and universality---without requiring any loop calculations. The porous medium equation exhibits anomalous dimensions and second-kind self-similarity exactly. The $\phi^4$ theory introduces the full machinery while emphasizing geometric structure over perturbative details. A distinctive feature of our approach is that geometric structures---metrics, connections, curvature---are \emph{derived} from explicit calculations in these examples rather than postulated abstractly.
+
+\textbf{Part II (Analysis)} develops the analytical methods for computing within the RG framework. Perturbation theory generically produces divergent series, but this divergence \emph{encodes} non-perturbative physics. The Borel transform, resummation, and resurgence theory provide tools for extracting physical predictions from divergent series. Transseries extend perturbation theory to include instanton and renormalon contributions.
+
+\textbf{Part III (Applications)} applies the unified geometric-analytical framework to seven physical systems of increasing complexity: chaotic dynamics in the Lorenz equations, turbulence in fluids, fracture mechanics in solids (following Barenblatt's theory of intermediate asymptotics), phase transitions in the Ising and O(N) models, and quantum field theories including QED and the Hubbard model.
 
 \section*{Prerequisites}
 
@@ -214,7 +300,6 @@ $\epsilon$ & Small expansion parameter
 \renewcommand{\arraystretch}{1.3}
 \begin{tabular}{ll}
 $g^i$ & Coupling constants (coordinates on theory space $\MM$) \\
-$\sigma^n$ & Transseries parameters (coordinates on extended space $\MM_{\text{ext}}$) \\
 $\beta^i(g)$ & Beta function (vector field generating RG flow) \\
 $B^i{}_j$ & Stability matrix $\partial\beta^i/\partial g^j|_{g^*}$ at fixed point \\
 $\Delta$ & Scaling dimension (eigenvalue of stability matrix) \\
@@ -224,7 +309,7 @@ $\Gamma^i{}_{jk}$ & Connection on theory space
 \end{tabular}
 \end{center}
 
-\subsection*{Resurgence}
+\subsection*{Perturbation Theory and Transseries}
 \begin{center}
 \renewcommand{\arraystretch}{1.3}
 \begin{tabular}{ll}
@@ -232,6 +317,7 @@ $\tilde{f}(\epsilon)$ & Formal (divergent) power series \\
 $\hat{f}_B(\zeta)$ & Borel transform of $\tilde{f}$ \\
 $\mathcal{S}[\tilde{f}]$ & Borel sum (resummation) \\
 $\mathcal{S}_\pm$ & Lateral resummations (above/below real axis) \\
+$\sigma^n$ & Transseries parameters (for non-perturbative sectors) \\
 $S_\omega$ & Stokes constant at singularity $\omega$ \\
 $\Delta_\omega$ & Alien derivative probing singularity at $\omega$ \\
 $\mathfrak{S}$ & Stokes automorphism
@@ -263,38 +349,40 @@ $O(\epsilon^n)$ & Terms of order $\epsilon^n$ and higher
 \mainmatter
 
 %-------------------------------------------------------------------------------
-% PART I: THE GEOMETRIC FRAMEWORK
+% PROLOGUE (Before Parts)
 %-------------------------------------------------------------------------------
-\part{The Geometric Framework}
-
-\input{chapters/ch01_scale}
-\input{chapters/ch02_dilation}
-\input{chapters/ch03_rg_equation}
-\input{chapters/ch04_fixed_points}
-\input{chapters/ch05_geometry}
-\input{chapters/ch06_connections}
-\input{chapters/ch07_resurgence_foundations}
-\input{chapters/ch08_recipe}
+\input{chapters/prologue}
 
 %-------------------------------------------------------------------------------
-% PART II: APPLICATIONS
+% PART I: ALGEBRA AND GEOMETRY
 %-------------------------------------------------------------------------------
-\part{Applications}
+\part{Algebra and Geometry}
 
-\input{chapters/ch09_lorenz}
-\input{chapters/ch10_fluids}
-\input{chapters/ch11_solids}
-\input{chapters/ch12_ising}
-\input{chapters/ch13_on_model}
-\input{chapters/ch14_hubbard}
-\input{chapters/ch15_qed}
+\input{chapters/ch02_rg_geometry}
+\input{chapters/ch03_fixed_points}
 
 %-------------------------------------------------------------------------------
-% PART III: SYNTHESIS
+% PART II: ANALYSIS
 %-------------------------------------------------------------------------------
-\part{Synthesis}
+\part{Analysis: Perturbation Theory and Resurgence}
 
-\input{chapters/ch16_unity}
+\input{chapters/ch04_perturbation}
+\input{chapters/ch05_algebra}
+\input{chapters/ch06_resurgence}
+
+%-------------------------------------------------------------------------------
+% PART III: EXAMPLES AND APPLICATIONS
+%-------------------------------------------------------------------------------
+% \part{Examples and Applications}
+
+% \input{chapters/ch07_lorenz}
+% \input{chapters/ch08_fluids}
+% \input{chapters/ch09_solids}
+% \input{chapters/ch10_ising}
+% \input{chapters/ch11_on_model}
+% \input{chapters/ch12_hubbard}
+% \input{chapters/ch13_qed}
+% \input{chapters/ch14_unity}
 
 %-------------------------------------------------------------------------------
 % APPENDICES

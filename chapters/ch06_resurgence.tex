@@ -1,0 +1,766 @@
+%===============================================================================
+\chapter{Resurgence and Transseries}
+\label{ch:resurgence}
+%===============================================================================
+
+\marginnote{This chapter develops the machinery for extracting physics from divergent series: Borel resummation, transseries, and resurgence. These tools reveal that perturbation theory ``knows'' about non-perturbative physics.}
+
+Chapter~\ref{ch:perturbation} showed that perturbation series generically diverge with factorial growth. This chapter develops the analytical tools for extracting \emph{physical predictions} from these divergent series.
+
+The key insight is that factorial divergence is not a failure---it \emph{encodes} non-perturbative physics. The pattern of divergence tells us about instantons, tunneling, and other effects invisible to any finite order of perturbation theory.
+
+\begin{itemize}
+\item \textbf{Section~\ref{sec:borel_transform}}: The Borel transform converts factorial divergence to convergence
+\item \textbf{Section~\ref{sec:singularities}}: Singularities (instantons, renormalons) encode non-perturbative physics
+\item \textbf{Section~\ref{sec:stokes}}: Stokes phenomena---what happens when singularities obstruct resummation
+\item \textbf{Section~\ref{sec:transseries}}: Transseries---the complete answer beyond perturbation theory
+\item \textbf{Section~\ref{sec:resurgence_triangle}}: The resurgence triangle---organizing the non-perturbative sectors
+\item \textbf{Section~\ref{sec:alien}}: Alien calculus---systematic extraction of non-perturbative information
+\item \textbf{Section~\ref{sec:renormalon_rg}}: Renormalons from the RG equation
+\item \textbf{Section~\ref{sec:median}}: Median resummation---obtaining physical predictions
+\end{itemize}
+
+Throughout this chapter, we illustrate the machinery with the \textbf{damped anharmonic oscillator} from the Prologue---the same system whose RG equations we derived in Chapter~\ref{ch:rg_geometry}.
+
+%-------------------------------------------------------------------------------
+\section{The Borel Transform}
+\label{sec:borel_transform}
+%-------------------------------------------------------------------------------
+
+The Borel transform converts factorial divergence into geometric growth, transforming a divergent series into a convergent one.
+
+\subsection{Definition and Basic Properties}
+
+\begin{definition}[Borel Transform]
+Given a formal series $\tilde{f}(\epsilon) = \sum_{n=0}^\infty a_n \epsilon^n$, its \textbf{Borel transform} is:
+\begin{equation}
+\hat{f}_B(\zeta) = \sum_{n=0}^\infty \frac{a_n}{n!}\zeta^n
+\label{eq:borel_def}
+\end{equation}
+\end{definition}
+
+\marginnote{Dividing by $n!$ converts factorial growth $a_n \sim n!$ into bounded growth $a_n/n! \sim 1$.}
+
+For a Gevrey-1 series with $|a_n| \leq CK^n n!$:
+\begin{equation}
+\left|\frac{a_n}{n!}\right| \leq CK^n
+\end{equation}
+The Borel transform converges for $|\zeta| < 1/K$.
+
+\textbf{The Borel plane:} The complex $\zeta$-plane is called the \textbf{Borel plane}. It is a new geometric arena where the divergent series becomes a well-defined analytic function (at least near the origin).
+
+\begin{workedbox}[Box 6.1: Borel Transform of a Simple Series]
+\textbf{Problem:} Compute the Borel transform of the divergent series $\tilde{f}(\epsilon) = \sum_{n=0}^\infty n! \, \epsilon^n$ and identify its singularity structure.
+
+\tcblower
+
+\textbf{Solution:} The series diverges for all $\epsilon \neq 0$ because $|n!\epsilon^n| \to \infty$.
+
+\textbf{Borel transform:}
+\[
+\hat{f}_B(\zeta) = \sum_{n=0}^\infty \frac{n!}{n!}\zeta^n = \sum_{n=0}^\infty \zeta^n = \frac{1}{1-\zeta}
+\]
+
+This converges for $|\zeta| < 1$ and has analytic continuation to $\mathbb{C} \setminus \{1\}$ with a \textbf{simple pole at $\zeta = 1$}.
+
+\textbf{Key insight:} The divergent series encodes a meromorphic function. The position of the singularity ($\zeta = 1$) carries physical information about the non-perturbative structure.
+\end{workedbox}
+
+\subsection{Borel-Laplace Resummation}
+
+The Borel transform alone doesn't give us a function of the original variable $\epsilon$. We need to ``undo'' the Borel transform using the Laplace transform.
+
+\begin{definition}[Borel Sum]
+The \textbf{Borel sum} of $\tilde{f}(\epsilon)$ is:
+\begin{equation}
+\mathcal{S}[\tilde{f}](\epsilon) = \mathcal{L}[\hat{f}_B](\epsilon) = \int_0^\infty e^{-\zeta/\epsilon}\hat{f}_B(\zeta)\,d\zeta
+\label{eq:borel_sum}
+\end{equation}
+\end{definition}
+
+\marginnote{Borel resummation: transform to make convergent, analytically continue, transform back. This extracts a function from a divergent series.}
+
+\textbf{Key identity:} For $g(\zeta) = \zeta^n$:
+\begin{equation}
+\int_0^\infty e^{-\zeta/\epsilon}\zeta^n\,d\zeta = n!\,\epsilon^{n+1}
+\end{equation}
+This shows that the Laplace transform ``undoes'' the $1/n!$ factor in the Borel transform.
+
+\begin{workedbox}[Box 6.2: Borel Resummation in Action]
+\textbf{Problem:} Resum the divergent alternating factorial series $\tilde{f}(\epsilon) = \sum_{n=0}^\infty (-1)^n n! \, \epsilon^n$ using Borel-Laplace.
+
+\tcblower
+
+\textbf{Step 1: Borel transform}
+\[
+\hat{f}_B(\zeta) = \sum_{n=0}^\infty (-1)^n \zeta^n = \frac{1}{1+\zeta}
+\]
+Pole at $\zeta = -1$ (negative real axis, \textbf{not} on integration path).
+
+\textbf{Step 2: Laplace transform}
+\[
+\mathcal{S}[\tilde{f}](\epsilon) = \int_0^\infty e^{-\zeta/\epsilon}\frac{1}{1+\zeta}\,d\zeta
+\]
+
+\textbf{Step 3: Evaluate}
+
+Using the exponential integral $E_1(x) = \int_x^\infty (e^{-t}/t)\,dt$:
+\[
+\boxed{\mathcal{S}[\tilde{f}](\epsilon) = e^{1/\epsilon}E_1(1/\epsilon)}
+\]
+
+\textbf{Verification:} Expanding for small $\epsilon$: $e^{1/\epsilon}E_1(1/\epsilon) \sim \epsilon - \epsilon^2 + 2\epsilon^3 - 6\epsilon^4 + \cdots$ \checkmark
+
+The divergent series has been resummed to a well-defined function!
+\end{workedbox}
+
+\subsection{When Resummation Fails: Singularities on the Path}
+
+The Borel sum requires integrating along the positive real axis. If $\hat{f}_B(\zeta)$ has a singularity on $[0, \infty)$, the integral is ambiguous.
+
+\marginnote{Singularities on the positive real axis obstruct naive resummation. This is where Stokes phenomena enter.}
+
+\textbf{The problem:} Consider $\hat{f}_B(\zeta) = 1/(1-\zeta)$ with a pole at $\zeta = 1$. The integral
+\begin{equation}
+\int_0^\infty e^{-\zeta/\epsilon}\frac{1}{1-\zeta}\,d\zeta
+\end{equation}
+diverges because the integrand blows up at $\zeta = 1$.
+
+\textbf{The resolution:} We must specify how to navigate around the singularity. Different choices give different answers---this is the Stokes phenomenon.
+
+%-------------------------------------------------------------------------------
+\section{Singularities in the Borel Plane}
+\label{sec:singularities}
+%-------------------------------------------------------------------------------
+
+The singularities of $\hat{f}_B(\zeta)$ are not defects to be avoided. They are the primary carriers of non-perturbative information.
+
+\subsection{Instantons}
+
+\marginnote{Instantons are classical solutions with finite action. They contribute $\sim e^{-S_{\text{inst}}/\epsilon}$ to physical quantities.}
+
+In theories with tunneling or classical solutions of finite action, the Borel transform has singularities at:
+\begin{equation}
+\zeta_{\text{inst}} = S_{\text{inst}}
+\end{equation}
+where $S_{\text{inst}}$ is the classical action of the instanton.
+
+\textbf{Physical interpretation:} The instanton contributes $\sim e^{-S_{\text{inst}}/\epsilon}$ to the path integral. This exponentially small effect is ``invisible'' to perturbation theory but encoded in the singularity structure.
+
+\textbf{For the anharmonic oscillator:} The inverted potential $-V(x)$ has classical solutions (instantons) with action:
+\begin{equation}
+S_{\text{inst}} = \frac{\omega^3}{3\lambda}
+\end{equation}
+The Borel transform has a singularity at $\zeta = S_{\text{inst}}$.
+
+\subsection{Renormalons}
+
+In quantum field theory, a distinct class of singularities arises from the factorial growth induced by RG running.
+
+\marginnote{Renormalons are singularities at $\zeta = k/\beta_1$ from the factorial growth caused by integrating over all momentum scales.}
+
+\textbf{Origin:} Consider a loop integral with running coupling. This gives $a_n \sim \beta_1^n n!$ where $\beta_1$ is the one-loop beta function coefficient.
+
+\textbf{Position:} Renormalon singularities occur at:
+\begin{equation}
+\zeta_k = \frac{k}{\beta_1}, \quad k = 1, 2, 3, \ldots
+\end{equation}
+
+\textbf{IR vs UV renormalons:}
+\begin{itemize}
+\item \textbf{IR renormalons} ($\beta_1 > 0$, asymptotically free): Singularities on positive real axis, obstruct resummation
+\item \textbf{UV renormalons} ($\beta_1 < 0$): Singularities on negative real axis, do not obstruct resummation directly
+\end{itemize}
+
+\begin{workedbox}[Box 6.3: Renormalon Position in QCD]
+\textbf{Problem:} Find the position of the leading IR renormalon in QCD with $N_c = 3$ colors and $N_f = 3$ light flavors.
+
+\tcblower
+
+\textbf{One-loop beta function:}
+\[
+\beta_1 = \frac{11N_c - 2N_f}{12\pi} = \frac{33 - 6}{12\pi} = \frac{9}{4\pi}
+\]
+
+\textbf{Renormalon positions:}
+\[
+\zeta_k = \frac{k}{\beta_1} = \frac{4\pi k}{9}, \quad k = 1, 2, 3, \ldots
+\]
+
+\textbf{Leading IR renormalon:} $\boxed{\zeta_1 = \frac{4\pi}{9} \approx 1.4}$
+
+\textbf{Physical interpretation:} This singularity reflects sensitivity to long-distance physics. The resummation ambiguity $\sim e^{-4\pi/(9\alpha_s)} \sim \Lambda_{\text{QCD}}^2/Q^2$ matches expected power corrections.
+\end{workedbox}
+
+\subsection{The Instanton-Renormalon Correspondence}
+
+A profound insight from compactified QFT is that IR renormalons have a \emph{semiclassical interpretation}. In theories on $\mathbb{R}^3 \times S^1$:
+
+\textbf{Neutral bions}---instanton--anti-instanton configurations at the same position---produce contributions at:
+\begin{equation}
+e^{-2S_{\text{monopole}}} = e^{-1/(\beta_0 g^2)}
+\end{equation}
+
+This is \emph{exactly} the form of the leading IR renormalon, demonstrating that resurgence and semiclassical analysis are two sides of the same coin.
+
+%-------------------------------------------------------------------------------
+\section{Stokes Phenomena}
+\label{sec:stokes}
+%-------------------------------------------------------------------------------
+
+When the integration contour for Borel resummation encounters a singularity, we must make a choice. The systematic study of these choices is the theory of Stokes phenomena.
+
+\subsection{Stokes Lines}
+
+\begin{definition}[Stokes Line]
+A \textbf{Stokes line} for a singularity at $\zeta_*$ is the ray in the $\epsilon$-plane where:
+\begin{equation}
+\arg(\epsilon) = \arg(\zeta_*)
+\end{equation}
+\end{definition}
+
+\marginnote{On a Stokes line, the singularity lies directly on the integration path.}
+
+On a Stokes line, the Laplace integration path passes through the singularity. The resummation prescription must change as we cross this line.
+
+\subsection{Lateral Resummations}
+
+When a singularity lies on $[0, \infty)$, we define \textbf{lateral resummations} by deforming the contour slightly above or below the real axis:
+\begin{align}
+\mathcal{S}_+[\tilde{f}](\epsilon) &= \int_0^{e^{i0^+}\infty} e^{-\zeta/\epsilon}\hat{f}_B(\zeta)\,d\zeta \\
+\mathcal{S}_-[\tilde{f}](\epsilon) &= \int_0^{e^{-i0^+}\infty} e^{-\zeta/\epsilon}\hat{f}_B(\zeta)\,d\zeta
+\end{align}
+
+\marginnote{$\mathcal{S}_+$ and $\mathcal{S}_-$ go above and below the singularities, giving different results.}
+
+These integrals are well-defined but generally different. The difference is exponentially small in $1/\epsilon$---a \emph{non-perturbative} effect invisible to any finite order of the original series.
+
+\subsection{The Stokes Automorphism}
+
+The difference between lateral resummations defines the \textbf{Stokes automorphism}.
+
+\begin{definition}[Stokes Automorphism]
+The \textbf{Stokes automorphism} $\mathfrak{S}$ is the transformation relating $\mathcal{S}_+$ to $\mathcal{S}_-$:
+\begin{equation}
+\mathcal{S}_+ = \mathfrak{S} \circ \mathcal{S}_-
+\end{equation}
+\end{definition}
+
+For a simple pole at $\zeta_*$ with residue $r$:
+\begin{equation}
+\mathcal{S}_+[\tilde{f}] - \mathcal{S}_-[\tilde{f}] = 2\pi i \cdot r \cdot e^{-\zeta_*/\epsilon}
+\end{equation}
+
+\begin{workedbox}[Box 6.4: Computing the Stokes Jump]
+\textbf{Problem:} Compute the Stokes jump for $\hat{f}_B(\zeta) = 1/(1-\zeta)$, which has a pole at $\zeta = 1$ on the positive real axis.
+
+\tcblower
+
+\textbf{Lateral resummations} (contours $\mathcal{C}_\pm$ pass above/below $\zeta = 1$):
+\[
+\mathcal{S}_\pm[\tilde{f}] = \int_{\mathcal{C}_\pm} e^{-\zeta/\epsilon}\frac{1}{1-\zeta}\,d\zeta
+\]
+
+\textbf{The Stokes jump:} By the residue theorem (residue at $\zeta = 1$ is $-1$):
+\[
+\boxed{\mathcal{S}_+ - \mathcal{S}_- = 2\pi i \cdot e^{-1/\epsilon}}
+\]
+
+\textbf{Stokes constant:} $S_1 = 2\pi i$
+
+This exponentially small difference is invisible to perturbation theory but captured by the Stokes automorphism.
+\end{workedbox}
+
+\subsection{Stokes Constants as Monodromy}
+
+The Stokes phenomenon has a beautiful geometric interpretation: the jumps in transseries parameters are \textbf{monodromy} of parallel transport around singularities in coupling space.
+
+\marginnote{The Stokes automorphism is precisely the monodromy of the connection on theory space around singularities.}
+
+\textbf{Key property:} Stokes constants are \emph{scheme-independent}. They are intrinsic to the theory, not artifacts of how we parameterize it.
+
+%-------------------------------------------------------------------------------
+\section{Transseries}
+\label{sec:transseries}
+%-------------------------------------------------------------------------------
+
+To fully resolve the ambiguity from Stokes phenomena, we must go beyond perturbation theory. The complete answer is a \textbf{transseries}.
+
+\subsection{Definition}
+
+\begin{definition}[Transseries]
+A \textbf{transseries} is a formal expression combining perturbative and non-perturbative sectors:
+\begin{equation}
+\tilde{f}(\epsilon, \sigma) = \sum_{k=0}^\infty \sigma^k e^{-kS/\epsilon}\hat{f}^{(k)}(\epsilon)
+\end{equation}
+where:
+\begin{itemize}
+\item $\hat{f}^{(0)}(\epsilon)$ is the perturbative sector (ordinary asymptotic series)
+\item $\hat{f}^{(k)}(\epsilon)$ for $k \geq 1$ are \textbf{instanton sectors}
+\item $\sigma$ is the \textbf{transseries parameter}
+\item $S$ is the instanton action
+\end{itemize}
+\end{definition}
+
+\marginnote{The transseries includes perturbative ($k=0$) and non-perturbative ($k \geq 1$) sectors. The parameter $\sigma$ weights the instanton contributions.}
+
+\subsection{Physical Interpretation}
+
+The transseries structure reflects the physics of the path integral:
+
+\textbf{Sector $k = 0$:} Perturbative fluctuations around the vacuum.
+
+\textbf{Sector $k = 1$:} One-instanton contribution, weighted by $e^{-S/\epsilon}$ from the classical action and $\sigma$ encoding boundary conditions.
+
+\textbf{Sector $k \geq 2$:} Multi-instanton contributions.
+
+\subsection{The Role of $\sigma$}
+
+The transseries parameter $\sigma$ is not fixed by the perturbative series. It encodes \textbf{boundary conditions} or other non-perturbative input.
+
+\marginnote{$\sigma$ is the integration constant of the non-perturbative sector. It's determined by physics, not perturbation theory.}
+
+\textbf{Key insight:} The perturbative series alone cannot determine $\sigma$. Non-perturbative input is required.
+
+%-------------------------------------------------------------------------------
+\section{Worked Example: The Damped Anharmonic Oscillator}
+\label{sec:damped_anharmonic}
+%-------------------------------------------------------------------------------
+
+\marginnote{We apply resurgent methods to the damped anharmonic oscillator from the Prologue, showing how the RG equations from Chapter~\ref{ch:rg_geometry} have transseries solutions.}
+
+We now apply the machinery developed above to the \textbf{damped anharmonic oscillator}---the same system we analyzed in the Prologue and Chapter~\ref{ch:rg_geometry}:
+\begin{equation}
+\boxed{\ddot{x} + 2\gamma\dot{x} + \omega_0^2 x + \epsilon x^3 = 0, \quad \epsilon > 0}
+\label{eq:damped_anharmonic}
+\end{equation}
+
+As derived in Chapter~\ref{ch:rg_geometry}, the RG equations for amplitude $A$ and phase $\phi$ are:
+\begin{equation}
+\frac{dA}{dt} = -\gamma A, \qquad \frac{d\phi}{dt} = \frac{3\epsilon A^2}{8\omega_0}
+\label{eq:rg_eqns_recap}
+\end{equation}
+where the amplitude decays at rate $\gamma$ (the damping coefficient) and the phase advances due to the nonlinearity. The key question: \emph{what is the resurgent structure of these equations?}
+
+\subsection{Factorial Growth in the Beta Functions}
+
+\marginnote{At higher orders, the beta function coefficients grow factorially---exactly the Gevrey-1 structure from Chapter~\ref{ch:perturbation}.}
+
+As computed in Chapter~\ref{ch:rg_geometry}, the perturbative corrections to the phase equation grow factorially:
+\begin{equation}
+\phi_n(t) \sim (-1)^{n+1} \cdot \frac{n!}{S^n} \cdot f_n(t)
+\end{equation}
+where $S = \omega_0/\gamma$ is the \textbf{instanton action} and $f_n(t)$ are bounded functions.
+
+This factorial growth means the perturbative solution is a \textbf{divergent asymptotic series}---exactly the situation where resurgent methods are needed.
+
+\subsection{Applying the Resurgence Pipeline}
+
+The full resurgence analysis of the damped oscillator follows the pipeline developed in this chapter:
+
+\begin{tcolorbox}[colback=green!5, colframe=green!50!black, title=\textbf{Resurgence Pipeline for the Damped Oscillator}]
+\textbf{Step 1: Borel Transform.} The divergent phase expansion $\phi = \sum_n \phi_n \epsilon^n$ has Borel transform with singularities at:
+\begin{equation}
+\zeta_k = k \cdot \frac{\omega_0}{\gamma}, \quad k = 1, 2, 3, \ldots
+\end{equation}
+The leading singularity at $\zeta_1 = \omega_0/\gamma$ is the \textbf{instanton action}.
+
+\textbf{Step 2: Physical Interpretation.} The singularities encode the timescale $\tau_{\text{inst}} = \omega_0/\gamma$ at which the nonlinear correction becomes comparable to the linear behavior.
+
+\textbf{Step 3: Transseries.} The complete solution is:
+\begin{equation}
+A(t) = \sum_{n=0}^\infty \sigma^n e^{-n\gamma t} A^{(n)}(t; \epsilon)
+\end{equation}
+where $\sigma$ is determined by initial conditions.
+
+\textbf{Step 4: Resurgent Relations.} The large-order behavior of $A^{(0)}$ determines $A^{(1)}$:
+\begin{equation}
+A^{(0)}_n \sim \frac{S_1}{2\pi i} \frac{\Gamma(n)}{\zeta_1^n} A^{(1)}_0 + \cdots
+\end{equation}
+\end{tcolorbox}
+
+\marginnote{For the negative $\epsilon$ case (double-well), the Borel singularities move to the positive real axis, corresponding to real tunneling instantons. This changes the Stokes structure qualitatively.}
+
+\textbf{Key insight:} The RG equations \eqref{eq:rg_eqns_recap} are themselves \textbf{resurgent equations}---their solutions are transseries, not power series. The perturbative beta function is just the leading term of a larger resurgent structure.
+
+\subsection{Connection to QFT Renormalons}
+
+\marginnote{The classical oscillator demonstrates that resurgence is a tool for \emph{any} nonlinear system, not just quantum field theories.}
+
+The Borel singularity pattern $\zeta_n = n \cdot (\omega_0/\gamma)$ parallels the IR renormalon structure in QFT, where $\zeta_n = n/\beta_0$. Both arise from the \textbf{nonlinear structure of RG equations}---the oscillator provides a completely classical example of ``renormalon-like'' singularities.
+
+%-------------------------------------------------------------------------------
+\section{The Resurgence Triangle}
+\label{sec:resurgence_triangle}
+%-------------------------------------------------------------------------------
+
+\marginnote{The resurgence triangle organizes the intricate connections between all transseries sectors into a systematic structure.}
+
+A remarkable discovery is that the relations between perturbative and non-perturbative sectors can be organized into a \textbf{graded resurgence triangle}. This structure reveals that \emph{all} information about non-perturbative physics is encoded in the perturbative expansion.
+
+\subsection{The Triangle Structure}
+
+Consider a theory with instanton action $S$. The transseries sectors are arranged:
+\begin{itemize}
+\item $\hat{f}^{(0)}$ is the perturbative sector (apex)
+\item $\hat{f}^{(k)}$ are $k$-instanton sectors (left edge)
+\item $\hat{f}^{(\bar{k})}$ are $k$-anti-instanton sectors (right edge)
+\item $\hat{f}^{(k\bar{l})}$ are mixed instanton--anti-instanton sectors (interior)
+\end{itemize}
+
+\subsection{The Key Insight: Perturbation Theory Knows Everything}
+
+The \textbf{graded resurgence} property states that the large-order behavior of any sector determines the neighboring sectors:
+\begin{equation}
+a_n^{(k)} \sim \sum_{m} \frac{S_{k \to m}}{(S_{k \to m})^{n+1}} \Gamma(n + \beta_{km}) \cdot a_0^{(m)}
+\end{equation}
+
+\marginnote{Graded resurgence: the asymptotic behavior of sector $k$ is controlled by sectors at distance 1 in the triangle.}
+
+Starting from the perturbative sector $\hat{f}^{(0)}$, we can \emph{systematically reconstruct all non-perturbative sectors}:
+
+\textbf{Step 1:} Large-order behavior of $a_n^{(0)}$ determines $\hat{f}^{(1)}$ and $\hat{f}^{(\bar{1})}$
+
+\textbf{Step 2:} Large-order behavior of $a_n^{(1)}$ determines $\hat{f}^{(2)}$ and $\hat{f}^{(1\bar{1})}$
+
+\textbf{Step 3:} Continue recursively through the triangle
+
+%-------------------------------------------------------------------------------
+\section{Alien Calculus}
+\label{sec:alien}
+%-------------------------------------------------------------------------------
+
+Alien calculus is the mathematical framework for analyzing how different sectors of a transseries are related. It provides computational tools for extracting non-perturbative information from perturbative data.
+
+\subsection{The Alien Derivative}
+
+\begin{definition}[Alien Derivative]
+The \textbf{alien derivative} $\Delta_\omega$ is an operator that ``probes'' the singularity at $\zeta = \omega$ in the Borel plane. It extracts the coefficient relating the perturbative sector to the instanton sector at that singularity.
+\end{definition}
+
+\marginnote{The alien derivative extracts information about the singularity at $\omega$. It's ``alien'' because it probes directions invisible to ordinary calculus.}
+
+\subsection{The Bridge Equation}
+
+The fundamental result of alien calculus is the \textbf{bridge equation}:
+
+\begin{theorem}[Bridge Equation]
+\begin{equation}
+\Delta_\omega \tilde{f} = S_\omega \cdot \frac{\partial \tilde{f}}{\partial\sigma}
+\end{equation}
+where $S_\omega$ is the Stokes constant at $\omega$.
+\end{theorem}
+
+\marginnote{The bridge equation connects Borel plane analysis (alien derivatives) to transseries parameter space (ordinary derivatives).}
+
+\textbf{Physical interpretation:} The alien derivative, which probes non-perturbative structure in the Borel plane, is equivalent to differentiating along the transseries direction.
+
+\subsection{Resurgent Relations}
+
+The alien derivatives satisfy algebraic relations:
+\begin{equation}
+\Delta_{\omega_1}\hat{f}^{(0)} = S_{\omega_1}\hat{f}^{(1)}
+\end{equation}
+\begin{equation}
+\Delta_{\omega_1}\hat{f}^{(1)} = S'_{\omega_1}\hat{f}^{(2)} + \cdots
+\end{equation}
+
+\marginnote{Resurgent relations link all sectors of the transseries. The perturbative sector ``knows'' about the instanton sectors.}
+
+These relations form a chain linking all sectors. Starting from the perturbative sector, alien derivatives generate the instanton sectors.
+
+\textbf{This is resurgence:} The perturbative series ``resurges'' into the non-perturbative sectors. All the information is encoded in the perturbative coefficients; alien calculus extracts it.
+
+\subsection{The Algebraic Structure}
+
+The alien derivatives $\{\Delta_\omega\}$ satisfy remarkable algebraic relations:
+
+\textbf{Commutation relations:} For singularities at $\omega_1$ and $\omega_2$:
+\begin{equation}
+[\Delta_{\omega_1}, \Delta_{\omega_2}] = (\omega_1 - \omega_2) \Delta_{\omega_1 + \omega_2} + \text{lower order terms}
+\end{equation}
+
+This Virasoro-like structure encodes how non-perturbative effects ``talk to each other.''
+
+%-------------------------------------------------------------------------------
+\section{Renormalons from the RG Equation}
+\label{sec:renormalon_rg}
+%-------------------------------------------------------------------------------
+
+\marginnote{Renormalons emerge directly from the RG equation, without reference to Feynman diagrams.}
+
+A remarkable result connects resurgence directly to the renormalization group. Renormalons can be derived from the RG equation alone.
+
+\subsection{The RG Equation as a Resurgent Equation}
+
+Consider a physical observable $R(Q^2)$ depending on an energy scale $Q$. Using $\mu\,dg/d\mu = \beta(g)$:
+\begin{equation}
+\beta(g)\frac{dR}{dg} = \gamma(g) R
+\end{equation}
+
+\marginnote{The RG equation in coupling space has the structure of a \textbf{resurgent equation}---its solutions are necessarily transseries.}
+
+This equation has a \emph{singular point} at $g = 0$, forcing the solution to be a transseries.
+
+\subsection{IR Renormalons from the RG}
+
+When $\gamma(g)$ and $\beta(g)$ are both expanded perturbatively, the ratio $\gamma/\beta$ has a $1/g$ singularity. This produces Borel singularities at:
+\begin{equation}
+\zeta_k = \frac{k}{\beta_0}, \quad k = 1, 2, 3, \ldots
+\end{equation}
+
+These are \textbf{IR renormalons}---they arise from the running of the coupling at low momentum.
+
+\begin{workedbox}[Box 6.5: Deriving Renormalons Without Feynman Diagrams]
+\textbf{Problem:} Show that IR renormalons emerge from the RG equation $\beta(g)\frac{dR}{dg} = \gamma(g)R$ without computing any Feynman diagrams. Assume $\beta(g) = -\beta_0 g^2(1 + O(g))$ and $\gamma(g) = \gamma_1 g + O(g^2)$.
+
+\tcblower
+
+\textbf{Step 1: Series ansatz}
+
+Expand $R = \sum_{n=0}^\infty r_n g^n$ and substitute into the RG equation.
+
+\textbf{Step 2: Recursion relation}
+
+Matching powers of $g$: $r_{n+1} = \frac{\text{(polynomial in } \gamma_1, \beta_0, n\text{)}}{\beta_0} \cdot r_n$
+
+\textbf{Step 3: Large-order behavior}
+
+For $n \to \infty$: $\displaystyle r_n \sim n! \cdot \beta_0^n \cdot \text{const}$
+
+\textbf{Step 4: Borel singularity}
+
+The Borel transform $\hat{R}(\zeta) = \sum r_n \zeta^n/n!$ has a singularity at:
+\[
+\boxed{\zeta_1 = \frac{1}{\beta_0}}
+\]
+
+\textbf{Conclusion:} IR renormalons emerge from the \textbf{structure of the RG equation}, not from summing diagrams!
+\end{workedbox}
+
+\subsection{Implications for the RG Framework}
+
+\textbf{1. Beta functions are resurgent objects:} The perturbative beta function is part of a larger transseries.
+
+\textbf{2. Fixed points beyond perturbation theory:} Non-perturbative fixed points from the transseries sector may exist.
+
+\marginnote{The RG is fundamentally a resurgent framework: perturbative and non-perturbative physics are inseparably linked through the flow equations.}
+
+\textbf{3. Scheme dependence and resurgence:} Renormalons at $\zeta = k/\beta_0$ are scheme-independent since $\beta_0$ is universal.
+
+%-------------------------------------------------------------------------------
+\section{Median Resummation and Physical Predictions}
+\label{sec:median}
+%-------------------------------------------------------------------------------
+
+To extract physical predictions, we need a resummation prescription that gives real, unambiguous answers.
+
+\subsection{The Ambiguity Problem}
+
+For real $\epsilon > 0$, we want a real answer. But $\mathcal{S}_+$ and $\mathcal{S}_-$ are generally complex.
+
+\marginnote{Lateral resummations are complex. Physical observables must be real. How do we reconcile this?}
+
+The difference is purely imaginary for real $\epsilon$:
+\begin{equation}
+\mathcal{S}_+ - \mathcal{S}_- = \text{(purely imaginary)}
+\end{equation}
+
+\subsection{Median Resummation}
+
+The \textbf{median resummation} takes the average:
+\begin{equation}
+\mathcal{S}_{\text{med}}[\tilde{f}] = \frac{1}{2}\left(\mathcal{S}_+ + \mathcal{S}_-\right)
+\end{equation}
+
+\marginnote{Median resummation: average above and below. This gives real answers for series with real coefficients.}
+
+This is real when the series has real coefficients.
+
+\textbf{Physical interpretation:} Median resummation corresponds to a specific value of the transseries parameter $\sigma$ determined by requiring the physical answer to be real.
+
+\subsection{Ambiguity Cancellation}
+
+In the full transseries, ambiguities cancel between sectors:
+\begin{equation}
+\text{Im}[\mathcal{S}[\hat{f}^{(0)}]] + \text{Im}[\sigma \cdot \mathcal{S}[\hat{f}^{(1)}]] + \cdots = 0
+\end{equation}
+
+\marginnote{Ambiguities cancel between sectors. The full transseries is unambiguous.}
+
+This cancellation is automatic when we include all sectors with the correct Stokes constants.
+
+%-------------------------------------------------------------------------------
+\section{Connection to the Geometric Framework}
+\label{sec:connection_geometry}
+%-------------------------------------------------------------------------------
+
+Part I developed the geometric picture of RG: metrics, connections, and monodromy on parameter space. The resurgent framework fits naturally into this picture.
+
+\subsection{Extended Parameter Space}
+
+The transseries parameter $\sigma$ extends the perturbative parameter space to the \textbf{extended parameter space}:
+\begin{equation}
+\mathcal{M}_{\text{ext}} = \{(g^1, \ldots, g^n, \sigma^1, \sigma^2, \ldots)\}
+\end{equation}
+
+\marginnote{The full theory space includes transseries parameters as additional coordinates.}
+
+The full RG flow lives on this extended space. The beta functions have components for both perturbative couplings and transseries parameters.
+
+\subsection{Stokes as Monodromy}
+
+The Stokes automorphism is \textbf{monodromy} in the extended parameter space.
+
+When the coupling $g$ makes a loop around the origin in the complex plane, the transseries parameter $\sigma$ transforms:
+\begin{equation}
+\sigma \mapsto \sigma + S_\omega
+\end{equation}
+
+This is exactly the monodromy transformation from parallel transport around the Stokes line.
+
+\subsection{Alien Derivatives as Covariant Derivatives}
+
+The alien derivative $\Delta_\omega$ extends the covariant derivative to include non-perturbative directions:
+\begin{equation}
+D_{\text{ext}} = \nabla_g + \sum_\omega e^{-\omega/g}\Delta_\omega
+\end{equation}
+
+\marginnote{The alien derivative is the covariant derivative in the direction of the $\omega$-singularity.}
+
+This completes the geometric picture: alien calculus is differential geometry on the extended parameter space.
+
+%-------------------------------------------------------------------------------
+\section{When to Trust Perturbation Theory}
+\label{sec:when_trust}
+%-------------------------------------------------------------------------------
+
+The unified framework includes both perturbative and non-perturbative physics, but in many practical situations perturbation theory alone is sufficient.
+
+\subsection{Conditions for Perturbative Accuracy}
+
+Perturbation theory gives accurate answers when:
+\begin{itemize}
+\item The coupling is small ($\epsilon \ll 1$)
+\item No Stokes lines are crossed in the physical region
+\item We stay near a perturbative fixed point
+\end{itemize}
+
+\marginnote{Perturbation theory works when you're far from Stokes lines and close to a perturbative fixed point with small coupling.}
+
+Under these conditions, the exponentially suppressed transseries corrections $e^{-S/\epsilon}$ are genuinely negligible.
+
+\subsection{When Full Analysis Is Required}
+
+The full resurgent analysis becomes necessary when:
+\begin{itemize}
+\item The coupling is not small
+\item Stokes lines are crossed (e.g., analytic continuation in parameters)
+\item We approach non-perturbative fixed points
+\item Ambiguities must cancel for physical predictions
+\end{itemize}
+
+In these situations, truncating the perturbative series can give qualitatively wrong answers.
+
+\subsection{Common Pitfalls}
+
+Several common errors can derail an RG analysis:
+
+\textbf{Ignoring Divergence Structure:}
+Treating perturbative series as convergent and simply truncating at some order ignores the information encoded in the divergence pattern.
+
+\marginnote{Ignoring divergence structure throws away non-perturbative information encoded in the pattern of coefficients.}
+
+\textbf{Missing Stokes Lines:}
+When continuing analytically in parameters, Stokes lines may be crossed. Ignoring the resulting jumps in transseries parameters leads to wrong answers.
+
+\textbf{Confusing Scheme Dependence with Physics:}
+Beta functions and anomalous dimensions are scheme-dependent. Only scheme-independent quantities (critical exponents, Stokes constants, physical observables) are meaningful.
+
+\textbf{Overlooking Non-Perturbative Fixed Points:}
+If only perturbative fixed points are sought, non-perturbative ones are missed. For some problems, the physically relevant fixed point may be non-perturbative.
+
+%-------------------------------------------------------------------------------
+\section{Summary}
+\label{sec:ch7_summary}
+%-------------------------------------------------------------------------------
+
+This chapter developed the mathematical framework for extracting physics from divergent series. The key tools are:
+
+\begin{enumerate}
+\item \textbf{Borel transform}: Converts factorial divergence to geometric growth
+\item \textbf{Borel-Laplace resummation}: Recovers a function from a divergent series
+\item \textbf{Transseries}: The complete answer combining perturbative and non-perturbative sectors
+\item \textbf{Stokes phenomena}: The ambiguity in resummation when crossing singularities
+\item \textbf{Alien calculus}: The machinery for relating different transseries sectors
+\item \textbf{Median resummation}: A prescription giving real, physical answers
+\end{enumerate}
+
+\marginnote{Resurgence is not an optional refinement. It is how we extract physics from the inherently divergent series that perturbation theory produces.}
+
+The key insight connecting to the geometric framework of Part I is that:
+\begin{itemize}
+\item Transseries parameters extend theory space to $\mathcal{M}_{\text{ext}}$
+\item Stokes phenomena are monodromy in this extended space
+\item Alien derivatives are covariant derivatives probing non-perturbative directions
+\item The RG equation itself is a resurgent equation with transseries solutions
+\end{itemize}
+
+Part III applies these tools to specific physical systems: chaotic dynamics, fluid turbulence, statistical mechanics, and quantum field theory.
+
+%-------------------------------------------------------------------------------
+\section*{Exercises}
+\addcontentsline{toc}{section}{Exercises}
+%-------------------------------------------------------------------------------
+
+\begin{enumerate}
+\item \textbf{Borel transform computation.} Compute the Borel transform for the following series:
+\begin{enumerate}
+\item $\tilde{f}_1(\epsilon) = \sum_{n=0}^\infty n!\,\epsilon^n$ (hint: result is $1/(1-\zeta)$)
+\item $\tilde{f}_2(\epsilon) = \sum_{n=0}^\infty (2n)!\,\epsilon^n$ (hint: consider $1/\sqrt{1-4\zeta}$)
+\item $\tilde{f}_3(\epsilon) = \sum_{n=0}^\infty (-1)^n(n+1)!\,\epsilon^n$
+\end{enumerate}
+
+\item \textbf{Singularity structure.} A Borel transform has the form $\hat{f}_B(\zeta) = \frac{1}{(1-\zeta)(2-\zeta)}$.
+\begin{enumerate}
+\item Identify all singularities and their nature.
+\item Expand in partial fractions and relate each term to large-order behavior.
+\item Compute the Stokes discontinuity when integrating along the positive real axis.
+\end{enumerate}
+
+\item \textbf{Transseries construction.} Consider the differential equation $\epsilon\,dy/dx = y - y^2$ with $y(0) = y_0$.
+\begin{enumerate}
+\item Find the perturbative solution by expanding $y = y_0 + \epsilon y_1 + \cdots$.
+\item Identify the non-perturbative solution $y_{\text{np}} = e^{-x/\epsilon}/(1 + ce^{-x/\epsilon})$.
+\item Write the general transseries solution $y(x; \epsilon, \sigma)$.
+\end{enumerate}
+
+\item \textbf{Alien derivative.} For the simple transseries $\tilde{f}(\epsilon, \sigma) = \tilde{f}^{(0)}(\epsilon) + \sigma e^{-S/\epsilon}\tilde{f}^{(1)}(\epsilon)$:
+\begin{enumerate}
+\item Verify the bridge equation $\Delta_S\tilde{f} = S_1\partial_\sigma\tilde{f}$.
+\item Explain why $\Delta_S\tilde{f}^{(0)} = S_1\tilde{f}^{(1)}$.
+\item If $\Delta_S\tilde{f}^{(1)} = S_2\tilde{f}^{(2)}$, write the resurgent relation connecting all sectors.
+\end{enumerate}
+
+\item \textbf{(Challenge) Median resummation.} For a series with Borel transform $\hat{f}_B(\zeta) = 1/(1-\zeta)$:
+\begin{enumerate}
+\item Compute the lateral Borel sums $\mathcal{S}_+$ and $\mathcal{S}_-$.
+\item Verify that $\mathcal{S}_+ - \mathcal{S}_- = 2\pi i\, e^{-1/\epsilon}$.
+\item Show that the median resummation $\mathcal{S}_{\text{med}} = (\mathcal{S}_+ + \mathcal{S}_-)/2$ is real for real $\epsilon > 0$.
+\end{enumerate}
+
+\item \textbf{Perturbation failure at phase boundaries.} The mean-field free energy for a ferromagnet is $F(M, T) = a(T - T_c)M^2 + bM^4 - hM$.
+\begin{enumerate}
+\item For $h = 0$, find the equilibrium magnetization $M^*(T)$ for $T < T_c$ and $T > T_c$.
+\item Expand $M^*(T)$ around $T = T_c$ (from below). Show $M^* \sim (T_c - T)^{1/2}$.
+\item Explain how this non-analyticity signals the failure of perturbation theory at the phase boundary.
+\end{enumerate}
+
+\item \textbf{(Challenge) RG and renormalons.} For a theory with beta function $\beta(g) = -\beta_0 g^2 - \beta_1 g^3 + \cdots$:
+\begin{enumerate}
+\item Show that the ratio $\gamma(g)/\beta(g)$ has a $1/g$ singularity when $\gamma(g) = \gamma_1 g + \cdots$.
+\item Derive the large-order behavior of perturbative coefficients from the RG equation.
+\item Identify the position of the leading IR renormalon in the Borel plane.
+\end{enumerate}
+\end{enumerate}
+
