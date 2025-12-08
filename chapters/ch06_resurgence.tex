@@ -630,6 +630,59 @@ D_{\text{ext}} = \nabla_g + \sum_\omega e^{-\omega/g}\Delta_\omega
 
 This completes the geometric picture: alien calculus is differential geometry on the extended parameter space.
 
+\subsection{Intermediate Asymptotics and Power-Law Corrections}
+
+\marginnote{Barenblatt's intermediate asymptotics with logarithmic corrections are the leading terms of transseries expansions. The anomalous dimensions encode the same information as Stokes constants.}
+
+The connection between resurgence theory and Barenblatt's intermediate asymptotics (Chapter~\ref{ch:rg_geometry}) deserves explicit discussion. At first glance, these might appear to be separate frameworks. Barenblatt studied self-similar solutions of nonlinear PDEs with power-law behavior potentially modified by logarithmic corrections. Resurgence theory studies divergent perturbation series and their trans series completions involving exponentially small terms. However, the two frameworks are deeply connected. Both describe asymptotic behavior beyond the reach of naive perturbation theory. Both involve nested scales and systematic organization of corrections.
+
+\textbf{Power Laws as Leading Order:} Barenblatt's self-similar solutions with anomalous dimensions provide the leading asymptotic behavior. For example, the modified porous medium equation gives
+\begin{equation}
+p(r,t) \sim t^{-\alpha}\Phi\left(\frac{r}{t^\beta}\right), \quad \beta = \frac{1}{4} - \frac{\epsilon^2}{16} + O(\epsilon^3)
+\end{equation}
+where $\beta$ is the anomalous dimension computed via $\epsilon$-expansion. This is the zeroth-order term in a more complete transseries description.
+
+\textbf{Logarithmic Corrections as Next Order:} In many classical problems, the next correction beyond the leading power law involves logarithms. For turbulent boundary layers, Barenblatt found power-law velocity profiles with logarithmic corrections. These logarithmic terms arise from the same mechanism as factorially divergent corrections in quantum problems: they represent subleading asymptotics that cannot be captured by the leading self-similar form alone.
+
+\textbf{Connection via Factorial Divergence:} The $\epsilon$-expansion for anomalous dimensions (like $\beta = 1/4 - \epsilon^2/16 + \cdots$) generically becomes factorially divergent at high orders. The pattern of divergence encodes non-perturbative information about the PDE dynamics. Using Borel resummation and transseries, we can extract exponentially small corrections beyond the power-law behavior. These corrections are invisible to any finite-order $\epsilon$-expansion but become important in certain regimes.
+
+\textbf{Example from Turbulence:} Barenblatt's analysis of turbulent pipe flow yields a velocity profile
+\begin{equation}
+u(y) \sim u_*\left(\frac{u_*y}{\nu}\right)^\alpha F\left[\log\left(\frac{u_*y}{\nu}\right)\right]
+\end{equation}
+where $\alpha = 3/(2\log Re)$ is an anomalous dimension depending on Reynolds number and $F$ is a universal function encoding logarithmic corrections. The anomalous dimension $\alpha$ is small for large Reynolds numbers. Expanding in $1/\log Re$ generates a perturbative series. This series, if pushed to high orders, will diverge factorially. The divergence pattern encodes information about the multi-scale structure of turbulent eddies. A complete transseries description would include exponentially small corrections proportional to $\exp(-C \log Re) = Re^{-C}$ representing rare but important extreme fluctuations in the turbulent flow.
+
+\textbf{The Transseries Structure:} The complete solution to problems with intermediate asymptotics often takes the transseries form
+\begin{equation}
+u(x,t;\epsilon) = t^{-\alpha(\epsilon)}\sum_{k=0}^\infty \sigma^k e^{-kS/\epsilon}\Phi_k\left(\frac{x}{t^{\beta(\epsilon)}}, \epsilon\right)
+\end{equation}
+where $\alpha(\epsilon), \beta(\epsilon)$ are anomalous exponents computed via $\epsilon$-expansion, $S$ is a "classical action" (the analog of an instanton action), and $\Phi_k$ are universal profiles for each non-perturbative sector. The leading term ($k=0$) is Barenblatt's self-similar solution. The higher sectors ($k>0$) are exponentially small but become important in specific limits or when computing extremely fine details.
+
+\textbf{Stokes Phenomena in PDEs:} The choice of contour in Borel resummation corresponds to selecting a particular asymptotic regime in the PDE. Different contours (different Stokes sectors) describe different physical behaviors. For example, in boundary layer problems, the Stokes phenomenon corresponds to the transition between the inner (boundary layer) and outer (potential flow) solutions. The Stokes constant measures the mismatch between different asymptotic expansions valid in different regions.
+
+\textbf{Alien Derivatives and Scale Transitions:} The alien derivative probes how the solution changes as we cross from one asymptotic regime to another. In Barenblatt's intermediate asymptotics, this corresponds to the transition from the regime dominated by initial conditions to the self-similar regime, or from the self-similar regime to the final equilibrium. The alien derivative encodes the "resurgent information" about how early-time or late-time behavior influences the intermediate regime through exponentially small terms.
+
+\textbf{Universality:} The mathematical structure is identical across quantum and classical problems:
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{5cm}p{5cm}}
+\toprule
+\textbf{PDEs (Barenblatt)} & \textbf{QFT (Resurgence)} \\
+\midrule
+Anomalous dimensions $\alpha, \beta$ & Anomalous dimensions $\gamma$ \\
+$\epsilon$-expansion & Loop expansion \\
+Self-similar profile $\Phi(\xi)$ & Scaling function at fixed point \\
+Logarithmic corrections & Logarithmic running \\
+Exponentially small corrections & Instantons, renormalons \\
+Matching inner/outer expansions & Stokes phenomena \\
+Factorial divergence of $\epsilon$-series & Factorial divergence of loop expansion \\
+Transition between regimes & Stokes transitions \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+This universality means that resurgent analysis, initially developed for quantum mechanics and QFT, applies directly to classical PDE problems with intermediate asymptotics. Conversely, Barenblatt's physical intuition about self-similar solutions and anomalous dimensions provides guidance for understanding the trans series structure of quantum field theories. The same mathematical tools work in both contexts because both involve perturbative expansions around scale-invariant limits where the expansions inevitably break down due to the singular nature of the limit.
+
 %-------------------------------------------------------------------------------
 \section{When to Trust Perturbation Theory}
 \label{sec:when_trust}

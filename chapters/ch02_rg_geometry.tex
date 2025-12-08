@@ -468,6 +468,233 @@ Irrelevant & $y < 0$ & Decays (flows toward fixed point) \\
 This classification is scheme-independent (as we showed in Box 2.3) and determines the universal behavior near phase transitions.
 
 %===============================================================================
+% PART II(B): RG FOR ODES AND PDES
+%===============================================================================
+
+%-------------------------------------------------------------------------------
+\section{Renormalization Group for ODEs and PDEs: Barenblatt's Framework}
+\label{sec:barenblatt_rg}
+%-------------------------------------------------------------------------------
+
+\marginnote{The renormalization group is not specific to quantum field theory. Barenblatt showed in the 1960s that the same structure governs intermediate asymptotics of nonlinear PDEs in continuum mechanics.}
+
+The preceding sections developed the RG framework through scale invariance and the Callan-Symanzik equation. While our examples came from particle physics, the mathematical structure we uncovered is far more general. This section reveals that the renormalization group appears with equal power in classical continuum mechanics, particularly in the theory of self-similar solutions developed by Barenblatt and collaborators beginning in the 1960s. The connection is not merely analogous but exact. The same algebra governs both contexts.
+
+Barenblatt's work on \textbf{intermediate asymptotics} and \textbf{scaling laws} in nonlinear PDEs provides concrete, rigorously analyzed examples where RG ideas emerge naturally from classical applied mathematics. These examples are pedagogically valuable because they involve familiar physical systems like heat diffusion and fluid flow, and many results have been proven rigorously. More importantly, they demonstrate that renormalization is a universal feature of perturbative expansions, not an artifact of quantum field theory.
+
+\subsection{Intermediate Asymptotics: The Physical Foundation}
+\label{sec:intermediate_asymptotics}
+
+Consider a physical process described by a PDE with specific initial and boundary conditions. At very early times, the solution depends sensitively on the fine details of the initial data. At very late times, the system approaches equilibrium and all interesting dynamics cease. Between these extremes lies an intermediate regime where something remarkable happens. The solution exhibits universal behavior that depends only on a few global quantities like total energy or mass, while the fine details of initial conditions become irrelevant.
+
+Barenblatt termed this universal behavior \textbf{intermediate asymptotics}. The mathematical signature of intermediate asymptotics is a self-similar solution where spatial and temporal variables combine into dimensionless similarity variables. The key physical insight is that intermediate asymptotics describes the system in the limit where certain length or time scales become small or large compared to the scales of interest. This is precisely the regime where renormalization group methods prove most powerful.
+
+\textbf{Definition (Intermediate Asymptotics):} A solution $u(x,t)$ to a PDE exhibits intermediate asymptotics if there exists a regime where
+\begin{equation}
+t_0 \ll t \ll t_{\text{eq}}, \quad \text{or} \quad x_0 \ll x \ll L
+\end{equation}
+such that the solution approaches a universal form independent of the detailed initial conditions at $t_0$ or boundary conditions at $x_0$, but distinct from the equilibrium state reached at $t_{\text{eq}}$ or scale $L$.
+
+The intermediate regime is where interesting physics happens. Initial transients have decayed, but the system has not yet equilibrated. Universal scaling laws emerge in this window. This is the continuum mechanics analog of the RG regime in QFT, where we probe energies far above the IR cutoff but below the UV cutoff where new physics enters.
+
+\subsection{Complete vs Incomplete Similarity: Two Kinds of Scaling}
+\label{sec:similarity_types}
+
+Barenblatt discovered that self-similar solutions fall into two fundamentally different classes, distinguished by whether dimensional analysis alone suffices to determine the scaling behavior.
+
+\textbf{Complete Similarity (First Kind):} Classical self-similar solutions where dimensional analysis determines all exponents. For a problem depending on parameters $a_1,\ldots,a_k$ with independent dimensions and $b_1,\ldots,b_m$ with dependent dimensions, the solution takes the form
+\begin{equation}
+u = a_1^{\alpha_1}\cdots a_k^{\alpha_k} \Phi\left(\frac{b_1}{a_1^{p_1}\cdots a_k^{p_k}}, \ldots, \frac{b_m}{a_1^{q_1}\cdots a_k^{q_k}}\right)
+\end{equation}
+where the exponents $\alpha_i, p_i, q_i$ follow directly from dimensional analysis. The function $\Phi$ is determined by solving an ODE obtained by substituting this ansatz into the PDE. A finite limit of $\Phi$ exists as the dimensionless arguments approach zero or infinity.
+
+\textbf{Incomplete Similarity (Second Kind):} A more subtle case where dimensional analysis does not suffice. The solution still has self-similar form, but the scaling exponents are \textbf{anomalous dimensions} that must be determined by solving a nonlinear eigenvalue problem. For a small or large dimensionless parameter $\Pi$, the function $\Phi$ does not have a finite limit. Instead, it exhibits power-law asymptotics
+\begin{equation}
+\Phi(\Pi_1, \ldots, \Pi_n) \sim \Pi_1^{\delta_1} \cdots \Pi_n^{\delta_n} \Psi(\Pi_{n+1}, \ldots) \quad \text{as} \quad \Pi_1,\ldots,\Pi_n \to 0
+\end{equation}
+where the anomalous exponents $\delta_i$ cannot be obtained from dimensional analysis alone. They encode how the solution "remembers" certain combinations of initial or boundary data even as other details are forgotten.
+
+The distinction between complete and incomplete similarity parallels the distinction between free and interacting fixed points in QFT. Complete similarity corresponds to fixed points where anomalous dimensions vanish (like the Gaussian fixed point). Incomplete similarity corresponds to interacting fixed points where anomalous dimensions are nonzero and must be computed from the dynamics.
+
+\marginnote{Barenblatt's incomplete similarity is precisely the classical analog of Wilson-Fisher fixed points with anomalous dimensions in critical phenomena.}
+
+\subsection{The Renormalization Group as a Transformation Group}
+\label{sec:rg_transformation_group}
+
+Barenblatt provided an elegant group-theoretic formulation of incomplete similarity that makes the connection to renormalization explicit. Consider a physical quantity $a$ depending on parameters $a_1,\ldots,a_k$ with independent dimensions and $b_1,\ldots,b_m$ with dimensions expressible as power monomials in the $a_i$. From dimensional analysis, we know
+\begin{equation}
+a = a_1^{\alpha_1}\cdots a_k^{\alpha_k} \Phi\left(\frac{b_1}{a_1^{p_1}\cdots a_k^{p_k}}, \ldots, \frac{b_m}{a_1^{q_1}\cdots a_k^{q_k}}\right)
+\end{equation}
+where $\alpha_i, p_i, q_i$ come from dimensions. The function $\Phi$ is invariant under the transformation group
+\begin{equation}
+a_i' = \lambda_i a_i, \quad b_j' = \lambda_1^{p_{j1}}\cdots\lambda_k^{p_{jk}} b_j, \quad a' = \lambda_1^{\alpha_1}\cdots\lambda_k^{\alpha_k} a
+\label{eq:dimensional_group}
+\end{equation}
+with parameters $\lambda_i > 0$. This is the usual scaling group from dimensional analysis.
+
+For incomplete similarity, certain parameters $b_1,\ldots,b_\ell$ are small (or large), and $\Phi$ has power-law asymptotics rather than finite limits. Barenblatt showed that this corresponds to an \textbf{extended transformation group} that includes anomalous dimensions
+\begin{align}
+a_i' &= a_i \quad (i=1,\ldots,k) \nonumber \\
+b_j' &= \Lambda_1^{\delta_{j1}} \cdots \Lambda_\ell^{\delta_{j\ell}} b_j \quad (j=1,\ldots,\ell) \nonumber \\
+b_j' &= \Lambda_1^{\gamma_{j1}} \cdots \Lambda_\ell^{\gamma_{j\ell}} b_j \quad (j=\ell+1,\ldots,m) \nonumber \\
+a' &= \Lambda_1^{\beta_1} \cdots \Lambda_\ell^{\beta_\ell} a
+\label{eq:renormalization_group}
+\end{align}
+with group parameters $\Lambda_i > 0$. The exponents $\delta_{ji}, \gamma_{ji}, \beta_i$ are the \textbf{anomalous dimensions}. They cannot be determined from dimensional analysis but must be extracted from the PDE dynamics, typically by solving a nonlinear eigenvalue problem.
+
+This transformation group~\eqref{eq:renormalization_group} is precisely what Barenblatt called the \textbf{renormalization group}. It renormalizes (rescales) various quantities in a coordinated way that preserves the form of intermediate asymptotics. The appearance of anomalous dimensions signals that the problem exhibits scaling of the second kind.
+
+The parallel to QFT renormalization is exact. In QFT, we rescale the renormalization scale $\mu \to \Lambda\mu$ while simultaneously transforming couplings $g \to g(\Lambda)$ according to the beta function. Here, we rescale physical parameters $b_j \to \Lambda^{\delta_j} b_j$ while transforming the observable $a \to \Lambda^\beta a$. The beta function in QFT and the anomalous dimensions in PDEs play identical mathematical roles. Both describe how quantities transform under the renormalization group to maintain the universal form of the solution.
+
+%-------------------------------------------------------------------------------
+\subsection{Example: The Porous Medium Equation}
+\label{sec:porous_medium_example}
+%-------------------------------------------------------------------------------
+
+To make these abstract ideas concrete, we now work through Barenblatt's paradigmatic example of incomplete similarity in detail. This example demonstrates every key concept and serves as a template for understanding renormalization in both classical and quantum field theory contexts.
+
+\begin{workedbox}[Box 2.4: The Porous Medium Equation and Anomalous Dimensions]
+\textbf{Goal:} Demonstrate incomplete similarity, anomalous dimensions, and the renormalization group through the explicit example of groundwater spreading in a porous medium. Show how a seemingly minor modification of the problem leads to fundamentally different scaling behavior.
+
+\textbf{Physical Setup:} Consider groundwater spreading from an initially concentrated source in a horizontal porous layer of thickness $m$ lying on an impermeable bed. The pressure at the bottom is $p = \rho g h$ where $h(r,t)$ is the local height of the water mound above the bed, $\rho$ is water density, and $g$ is gravitational acceleration. By Darcy's law, the radial velocity is $v = -(k/\mu)\partial p/\partial r$ where $k$ is permeability and $\mu$ is dynamic viscosity.
+
+Mass conservation in the axisymmetric geometry gives the Boussinesq equation
+\begin{equation}
+m\frac{\partial h}{\partial t} = \frac{1}{r}\frac{\partial}{\partial r}\left(r\frac{k\rho g}{\mu}h\frac{\partial h}{\partial r}\right)
+\end{equation}
+Defining the coefficient $\kappa = 2k\rho g m/\mu$ and working with the bottom pressure $p = \rho g h$, this becomes
+\begin{equation}
+\frac{\partial p}{\partial t} = \frac{\kappa}{r}\frac{\partial}{\partial r}\left(rp\frac{\partial p}{\partial r}\right)
+\label{eq:boussinesq}
+\end{equation}
+
+The initial condition represents water concentrated near the origin with total weight $W$:
+\begin{equation}
+p(r,0) = 0 \quad (r \neq 0), \qquad 2\pi m\int_0^\infty p(r,0)r\,dr = W
+\label{eq:initial_concentrated}
+\end{equation}
+
+\textbf{Step 1: Dimensional analysis and complete similarity.}
+
+The problem involves quantities with dimensions
+\begin{equation}
+[Q] = F, \quad [\kappa] = L^4T^{-1}F^{-1}, \quad [t] = T, \quad [r] = L
+\end{equation}
+where $Q = W/(2\pi m)$ and $F,L,T$ denote dimensions of force, length, and time. From the first three parameters we can construct
+\begin{equation}
+[Q/\kappa t]^{1/2} = F/L^2 = [\text{pressure}], \qquad [Q\kappa t]^{1/4} = L = [\text{length}]
+\end{equation}
+
+By dimensional analysis, the solution must take the form
+\begin{equation}
+p = \frac{1}{2}\left(\frac{Q}{\kappa t}\right)^{1/2}\Phi\left(\frac{r}{(Q\kappa t)^{1/4}}\right)
+\end{equation}
+Define the similarity variable $\xi = r/(Q\kappa t)^{1/4}$. Substituting into equation~\eqref{eq:boussinesq} gives an ordinary differential equation for $\Phi(\xi)$:
+\begin{equation}
+\frac{1}{\xi}\frac{d}{d\xi}\left(\xi\Phi\frac{d\Phi}{d\xi}\right) + \frac{1}{4}\xi\frac{d\Phi}{d\xi} + \frac{1}{2}\Phi = 0
+\end{equation}
+
+The solution satisfying $\Phi(0)$ finite and $\Phi(\xi_f) = 0$ at the mound edge is
+\begin{equation}
+\Phi(\xi) = \begin{cases}
+(1 - \xi^2/\xi_f^2), & 0 \leq \xi < \xi_f \\
+0, & \xi \geq \xi_f
+\end{cases}
+\end{equation}
+where $\xi_f = 4^{1/4} \approx 1.414$. This gives the complete solution
+\begin{equation}
+p(r,t) = \frac{1}{2}\left(\frac{Q}{\kappa t}\right)^{1/2}\left(1 - \frac{r^2}{4Q\kappa t}\right), \quad r_f(t) = \sqrt{8(Q\kappa t)^{1/2}}
+\label{eq:complete_similarity_solution}
+\end{equation}
+
+This is \textbf{complete similarity}. Dimensional analysis alone determined all exponents. The mound radius grows as $t^{1/4}$ and the peak pressure decays as $t^{-1/2}$.
+
+\textbf{Step 2: Modified problem and the appearance of incomplete similarity.}
+
+Now consider a more realistic model. When water drains from the porous medium, some fraction $a_0$ is retained by capillary forces in narrow channels and corners. This reduces the effective porosity during drainage. The porosity becomes $m_{\text{eff}} = m(1-a_0)$ when $\partial h/\partial t < 0$, increasing the coefficient $\kappa$ in those regions to $\kappa_1 = \kappa/(1-a_0) > \kappa$.
+
+The modified equation is
+\begin{equation}
+\frac{\partial p}{\partial t} = \begin{cases}
+\displaystyle\frac{\kappa}{r}\frac{\partial}{\partial r}\left(rp\frac{\partial p}{\partial r}\right), & \partial p/\partial t \geq 0 \\[10pt]
+\displaystyle\frac{\kappa_1}{r}\frac{\partial}{\partial r}\left(rp\frac{\partial p}{\partial r}\right), & \partial p/\partial t < 0
+\end{cases}
+\label{eq:modified_boussinesq}
+\end{equation}
+
+This seemingly minor modification has profound consequences. The total weight of the mound now satisfies
+\begin{equation}
+\frac{d}{dt}\left(2\pi m\int_0^\infty p(r,t)r\,dr\right) = -(\kappa_1 - \kappa)(r\partial_r p^2)|_{r=r_0(t)} < 0
+\end{equation}
+where $r_0(t)$ is the radius where $\partial p/\partial t = 0$. Water is retained above the mound, so the total weight decreases.
+
+Attempting the same dimensional analysis now faces a problem. We have an additional parameter $\kappa_1$ with the same dimensions as $\kappa$. Forming the dimensionless ratio $\epsilon = \kappa_1/\kappa - 1$, naive dimensional analysis suggests
+\begin{equation}
+p = \frac{1}{2}\left(\frac{Q}{\kappa t}\right)^{1/2}\Psi\left(\frac{r}{(Q\kappa t)^{1/4}}, \epsilon\right)
+\end{equation}
+
+But this cannot be correct for $\epsilon \neq 0$ because it predicts $W(t) = \text{const}$, contradicting the nonintegrable conservation law. The resolution is that for $\epsilon > 0$, the function $\Psi$ does not have a finite limit as its second argument approaches zero. Instead, it has \textbf{power-law asymptotics} in $\epsilon$.
+
+\textbf{Step 3: Numerical and analytical solution revealing anomalous dimensions.}
+
+Barenblatt and collaborators solved the modified problem numerically and analytically. They found that the intermediate asymptotic solution (valid for $t \gg t_0$ where $t_0$ is the initial time scale) takes the self-similar form
+\begin{equation}
+p(r,t) = \frac{1}{2}\left(\frac{Q}{\kappa t}\right)^{1-2\beta}\Psi_0\left(\frac{r}{At^\beta}\right), \quad r_f(t) = At^\beta, \quad r_0(t) = \xi_0 At^\beta
+\label{eq:incomplete_similarity_solution}
+\end{equation}
+where $A$ and $\beta$ are constants depending on $\epsilon = \kappa_1/\kappa - 1$ but not on the initial condition or $Q$. Critically, $\beta \neq 1/4$ for $\epsilon > 0$.
+
+The exponent $\beta$ is an \textbf{anomalous dimension}. It cannot be determined from dimensional analysis. Instead, $\beta$ must be obtained by solving a nonlinear eigenvalue problem. The self-similar profile $\Psi_0(\xi)$ and the exponent $\beta$ are determined simultaneously by requiring that the ODE obtained from substituting~\eqref{eq:incomplete_similarity_solution} into~\eqref{eq:modified_boussinesq} admits a solution with the proper boundary conditions.
+
+Hulshof and Vázquez proved rigorously that such solutions exist and computed $\beta(\epsilon)$. For small $\epsilon$, they found
+\begin{equation}
+\beta = \frac{1}{4} - \frac{\epsilon^2}{16} + O(\epsilon^3)
+\label{eq:beta_expansion}
+\end{equation}
+
+This is \textbf{incomplete similarity} or scaling of the second kind. The exponent $\beta$ is not fixed by dimensional analysis alone. It depends on the dynamics through the ratio $\kappa_1/\kappa$.
+
+\textbf{Step 4: Interpretation as renormalization group flow.}
+
+The solution~\eqref{eq:incomplete_similarity_solution} has a remarkable property. The combination
+\begin{equation}
+N = Qr_f^{1-4\beta} = Q(At^\beta)^{1-4\beta}
+\end{equation}
+is constant in time, despite the fact that both $Q$ and $r_f$ individually change. The solution "remembers" this particular combination of initial data, even though it forgets other details. This is the signature of incomplete similarity.
+
+We can understand this using Barenblatt's renormalization group. Under the transformation $t \to \Lambda t$, the parameters transform as
+\begin{equation}
+r_f \to \Lambda^\beta r_f, \quad Q \to \Lambda^{2\beta - 1/2} Q, \quad p \to \Lambda^{1/2 - 2\beta} p
+\end{equation}
+The quantity $N = Qr_f^{1-4\beta}$ is invariant under this transformation (check: $\Lambda^{2\beta-1/2}\Lambda^{\beta(1-4\beta)} = \Lambda^0 = 1$). This invariance characterizes the renormalization group for this problem.
+
+The exponent $\beta$ plays the role of the beta function in QFT. It determines how quantities scale under the renormalization group transformation. For $\epsilon = 0$, we have $\beta = 1/4$ and recover complete similarity. For $\epsilon \neq 0$, the anomalous dimension $\beta(\epsilon)$ encodes the nontrivial scaling induced by the modified dynamics.
+
+\textbf{Step 5: The epsilon-expansion.}
+
+Equation~\eqref{eq:beta_expansion} is an $\epsilon$-expansion for the anomalous dimension, exactly parallel to the $\epsilon = 4-d$ expansion in $\phi^4$ theory. We can derive the leading term systematically.
+
+Starting from the complete similarity solution~\eqref{eq:complete_similarity_solution} as the zeroth-order approximation (valid for $\epsilon = 0$), we write
+\begin{equation}
+\beta = \frac{1}{4} + \epsilon\beta_1 + \epsilon^2\beta_2 + \cdots
+\end{equation}
+and expand the self-similar profile as
+\begin{equation}
+\Psi = \Psi_0 + \epsilon\Psi_1 + \epsilon^2\Psi_2 + \cdots
+\end{equation}
+
+Substituting into the modified Boussinesq equation~\eqref{eq:modified_boussinesq} and collecting terms at each order in $\epsilon$ gives a sequence of linear ODEs. The zeroth order reproduces the complete similarity result. The first-order equation determines $\Psi_1$ and a solvability condition that fixes $\beta_1$. Continuing to second order gives $\beta_2$.
+
+The calculation is lengthy but straightforward. The result $\beta = 1/4 - \epsilon^2/16 + O(\epsilon^3)$ agrees perfectly with numerical integration and rigorous asymptotic analysis. This $\epsilon$-expansion is a systematic perturbative method for computing anomalous dimensions, precisely analogous to loop expansions in QFT.
+
+\textbf{Key Insight:} This example demonstrates that anomalous dimensions, the renormalization group, and systematic perturbative calculations thereof are not peculiar to quantum field theory. They are generic features of nonlinear PDEs exhibiting intermediate asymptotics with incomplete similarity. The mathematics is identical in both contexts. The physics dictates whether we call the problematic terms "secular terms," "small denominators," or "UV divergences," but the renormalization group structure that organizes their removal is universal.
+\end{workedbox}
+
+The porous medium example establishes the concrete physical foundation for understanding renormalization in continuum mechanics. The same pattern appears in many other problems including turbulence, fracture mechanics, and flame propagation. In each case, dimensional analysis determines some exponents while anomalous dimensions must be extracted from the dynamics. The renormalization group systematically organizes this extraction.
+
+Having seen how RG emerges from classical continuum mechanics, we now turn to the geometric realization that unifies these disparate examples under a single mathematical framework.
+
+%===============================================================================
 % PART III: THE GEOMETRIC REALIZATION
 %===============================================================================
 

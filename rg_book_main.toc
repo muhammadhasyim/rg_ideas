@@ -30,291 +30,303 @@
 \contentsline {subsection}{The Meaning of Renormalization}{27}{subsection*.33}%
 \contentsline {subsection}{The Universal Pattern}{27}{subsection*.34}%
 \contentsline {section}{The Geometric Picture: A Preview}{28}{section*.35}%
-\contentsline {section}{Summary}{29}{equation.0.0.35}%
-\contentsline {part}{I\hspace {1em}Algebra and Geometry}{31}{part.1}%
-\contentsline {chapter}{The Renormalization Group as Algebra and Geometry}{33}{chapter*.36}%
-\contentsline {section}{From Running Parameters to Structure}{33}{section*.37}%
-\contentsline {section}{Scale Independence: The Physical Foundation}{34}{section*.38}%
-\contentsline {subsection}{The Setup}{34}{subsection*.39}%
-\contentsline {subsection}{The Callan-Symanzik Equation}{35}{subsection*.40}%
-\contentsline {subsection}{The Full CS Equation with Anomalous Dimensions}{36}{subsection*.41}%
-\contentsline {subsection}{Scale Covariance: A Universal Structure}{36}{subsection*.42}%
-\contentsline {subsection}{Theory Space}{37}{subsection*.43}%
-\contentsline {section}{Scale Invariance as a Lie Group}{38}{section*.44}%
-\contentsline {subsection}{The Dilation Group}{38}{subsection*.45}%
-\contentsline {subsection}{The Generator and Exponential Map}{38}{subsection*.46}%
-\contentsline {subsection}{Higher Dimensions and the Conformal Algebra}{39}{subsection*.47}%
-\contentsline {section}{Scheme Transformations as Reparametrizations}{40}{section*.48}%
-\contentsline {subsection}{How Beta Functions Transform}{40}{subsection*.49}%
-\contentsline {subsection}{Algebraic Invariants}{41}{subsection*.50}%
-\contentsline {section}{Scaling Dimensions: Eigenvalues of the Generator}{42}{section*.51}%
-\contentsline {subsection}{Engineering vs Anomalous Dimensions}{42}{subsection*.52}%
-\contentsline {subsection}{Classification of Perturbations}{42}{subsection*.53}%
-\contentsline {section}{Parameter Space as a Manifold}{43}{section*.54}%
-\contentsline {subsection}{The Beta Function as a Vector Field}{44}{subsection*.55}%
-\contentsline {subsection}{RG Flows as Integral Curves}{44}{subsection*.56}%
-\contentsline {subsection}{Fixed Points as Zeros}{44}{subsection*.57}%
-\contentsline {section}{The CS Equation as Lie Derivative}{45}{section*.58}%
-\contentsline {subsection}{Finite RG Transformations}{45}{subsection*.59}%
-\contentsline {section}{Connections: The Anomalous Dimension as Geometry}{45}{section*.60}%
-\contentsline {subsection}{The Anomalous Dimension as Connection}{46}{subsection*.61}%
-\contentsline {subsection}{Operator Mixing}{46}{subsection*.62}%
-\contentsline {subsection}{Scaling Operators}{46}{subsection*.63}%
-\contentsline {subsection}{Curvature and Scheme Independence}{47}{subsection*.64}%
-\contentsline {section}{The Fisher Metric on Theory Space}{47}{section*.65}%
-\contentsline {subsection}{The Metric from the Partition Function}{47}{subsection*.66}%
-\contentsline {subsection}{The Zamolodchikov Metric}{48}{subsection*.67}%
-\contentsline {section}{Gradient Flow and the c-Theorem}{48}{section*.68}%
-\contentsline {subsection}{Consequences of Gradient Flow}{49}{subsection*.69}%
-\contentsline {subsection}{Zamolodchikov's c-Theorem}{49}{subsection*.70}%
-\contentsline {subsection}{Higher-Dimensional Generalizations}{49}{subsection*.71}%
-\contentsline {section}{Geodesic Flow and Curved Motion}{50}{section*.72}%
-\contentsline {subsection}{The Geodesic Equation}{50}{subsection*.73}%
-\contentsline {subsection}{Geodesic Deviation and Stability}{50}{subsection*.74}%
-\contentsline {section}{Theory Space as a Gauge Bundle}{51}{section*.75}%
-\contentsline {subsection}{The Bundle Structure}{51}{subsection*.76}%
-\contentsline {subsection}{Scheme Changes as Gauge Transformations}{51}{subsection*.77}%
-\contentsline {subsection}{Gauge-Invariant Observables}{52}{subsection*.78}%
-\contentsline {subsection}{The Covariant Derivative on Operators}{53}{subsection*.79}%
-\contentsline {subsection}{The Diffeomorphism-Gauge Unification}{54}{subsection*.80}%
-\contentsline {section}{How Geometry Constrains Beta Functions}{54}{section*.81}%
-\contentsline {subsection}{The Integrability Condition}{54}{subsection*.82}%
-\contentsline {subsection}{What Geometry Determines vs. What Requires Computation}{56}{subsection*.83}%
-\contentsline {subsection}{Conformal Constraints at Fixed Points}{56}{subsection*.84}%
-\contentsline {subsection}{Summary: The Role of Geometry}{57}{subsection*.85}%
-\contentsline {section}{Example 1: The Anharmonic Oscillator}{58}{section*.86}%
-\contentsline {subsection}{The Physical System}{58}{subsection*.87}%
-\contentsline {subsection}{Parameter Space}{58}{subsection*.88}%
-\contentsline {subsection}{Deriving Beta Functions from the CS Equation}{58}{subsection*.89}%
-\contentsline {subsection}{The RG Flow}{59}{subsection*.90}%
-\contentsline {subsection}{The Fixed Point and Stability}{60}{subsection*.91}%
-\contentsline {section}{Example 2: The Amplitude Equation}{60}{section*.92}%
-\contentsline {subsection}{Physical Motivation}{60}{subsection*.93}%
-\contentsline {subsection}{Fixed Points}{61}{subsection*.94}%
-\contentsline {subsection}{Exact Stability Analysis}{61}{subsection*.95}%
-\contentsline {subsection}{Exact Solution}{61}{subsection*.96}%
-\contentsline {section}{Example 3: The Porous Medium Equation}{62}{section*.97}%
-\contentsline {subsection}{The Physical System}{62}{subsection*.98}%
-\contentsline {subsection}{Self-Similar Solutions}{62}{subsection*.99}%
-\contentsline {subsection}{The Anomalous Dimension}{62}{subsection*.100}%
-\contentsline {subsection}{The Barenblatt Solution as Fixed Point}{63}{subsection*.101}%
-\contentsline {section}{Example 4: The 1D $\phi ^4$ Theory}{63}{section*.102}%
-\contentsline {subsection}{The Setup}{64}{subsection*.103}%
-\contentsline {subsection}{Wilson's Momentum-Shell RG}{64}{subsection*.104}%
-\contentsline {subsection}{The Full CS Equation}{64}{subsection*.105}%
-\contentsline {subsection}{Operator Mixing}{65}{subsection*.106}%
-\contentsline {subsection}{Preview: The Wilson-Fisher Fixed Point}{65}{subsection*.107}%
-\contentsline {subsection}{Comparison of Examples}{66}{subsection*.108}%
-\contentsline {section}{Curvature and Critical Exponents}{66}{section*.109}%
-\contentsline {subsection}{The Curvature Tensor}{66}{subsection*.110}%
-\contentsline {subsection}{Monodromy Around Singularities}{66}{subsection*.111}%
-\contentsline {subsection}{Curvature at Fixed Points}{67}{subsection*.112}%
-\contentsline {section}{Scheme Independence as Gauge Invariance}{67}{section*.113}%
-\contentsline {section}{Solving RG Equations}{71}{section*.114}%
-\contentsline {subsection}{The Method of Characteristics}{71}{subsection*.115}%
-\contentsline {subsection}{RG-Improved Correlation Functions}{72}{subsection*.116}%
-\contentsline {section}{Asymptotic Behavior and the Landau Pole}{72}{section*.117}%
-\contentsline {subsection}{Classification of Theories}{72}{subsection*.118}%
-\contentsline {subsection}{The Landau Pole}{73}{subsection*.119}%
-\contentsline {subsection}{The RG as a Semigroup}{73}{subsection*.120}%
-\contentsline {section}{From Perturbative to Exact: The Functional RG}{73}{section*.121}%
-\contentsline {subsection}{The Polchinski Equation}{73}{subsection*.122}%
-\contentsline {subsection}{The Derivative Expansion}{73}{subsection*.123}%
-\contentsline {section}{Looking Ahead}{73}{section*.124}%
-\contentsline {section}{Exercises}{74}{section*.124}%
-\contentsline {section}{Summary}{75}{Item.55}%
-\contentsline {section}{Exercises}{76}{equation.0.0.191}%
-\contentsline {section}{Summary}{77}{Item.84}%
-\contentsline {chapter}{Fixed Points, Universality, and Scaling}{83}{chapter*.125}%
-\contentsline {section}{Fixed Points as Lie Group Stationarity}{83}{section*.126}%
-\contentsline {subsection}{The Geometric Definition}{84}{subsection*.127}%
-\contentsline {subsection}{The Stability Matrix as Linearized Lie Algebra}{84}{subsection*.128}%
-\contentsline {subsection}{Fixed Points and Scale Invariance}{85}{subsection*.129}%
-\contentsline {section}{Perturbative Fixed Points}{85}{section*.130}%
-\contentsline {subsection}{Definition}{85}{subsection*.131}%
-\contentsline {subsection}{Examples We've Seen}{86}{subsection*.132}%
-\contentsline {subsection}{The Wilson-Fisher Fixed Point}{86}{subsection*.133}%
-\contentsline {subsection}{The Epsilon Expansion as Asymptotic Series}{87}{subsection*.134}%
-\contentsline {section}{Normal Form Theory for RG Flows}{87}{section*.135}%
-\contentsline {subsection}{The Normal Form Theorem for RG}{88}{subsection*.136}%
-\contentsline {subsection}{Universality Families from Normal Form Type}{89}{subsection*.137}%
-\contentsline {subsection}{Logarithmic Corrections and Marginal Operators}{89}{subsection*.138}%
-\contentsline {subsection}{Resonances and Mixed Corrections}{90}{subsection*.139}%
-\contentsline {subsection}{Self-Similar Solutions and Normal Forms}{91}{subsection*.140}%
-\contentsline {section}{Stability and Classification}{92}{section*.141}%
-\contentsline {subsection}{The Stability Matrix}{92}{subsection*.142}%
-\contentsline {subsection}{Relevant, Irrelevant, Marginal}{92}{subsection*.143}%
-\contentsline {subsection}{Scaling Dimensions and Eigenvalues}{93}{subsection*.144}%
-\contentsline {subsection}{Geometric Perspective: The Stability Matrix as Covariant Derivative}{93}{subsection*.145}%
-\contentsline {section}{Universality Classes}{95}{section*.146}%
-\contentsline {subsection}{The Basin of Attraction}{95}{subsection*.147}%
-\contentsline {subsection}{Why Universality?}{95}{subsection*.148}%
-\contentsline {subsection}{Counting Relevant Directions}{95}{subsection*.149}%
-\contentsline {subsection}{Empirical Evidence: Universal Critical Exponents}{96}{subsection*.150}%
-\contentsline {section}{Normal Forms and Universal Scaling Functions}{97}{section*.151}%
-\contentsline {subsection}{Bifurcations as RG Fixed Points}{97}{subsection*.152}%
-\contentsline {subsection}{The Hopf Bifurcation and Limit Cycles}{98}{subsection*.153}%
-\contentsline {subsection}{Critical Slowing Down as a Geometric Phenomenon}{99}{subsection*.154}%
-\contentsline {section}{The Porous Medium Equation}{100}{section*.155}%
-\contentsline {subsection}{The Model}{100}{subsection*.156}%
-\contentsline {subsection}{Why the PME?}{100}{subsection*.157}%
-\contentsline {section}{Barenblatt's Classification in Lie Group Terms}{101}{section*.158}%
-\contentsline {subsection}{The Scaling Group Action}{101}{subsection*.159}%
-\contentsline {subsection}{First-Kind Self-Similarity: Free Orbits}{101}{subsection*.160}%
-\contentsline {subsection}{Second-Kind Self-Similarity: Constrained Orbits}{102}{subsection*.161}%
-\contentsline {subsection}{Barenblatt's Insight in RG Language}{103}{subsection*.162}%
-\contentsline {section}{The Barenblatt Exponents from Symmetry}{103}{section*.163}%
-\contentsline {section}{The PME as an RG Flow}{104}{section*.164}%
-\contentsline {subsection}{The Parameter Space}{104}{subsection*.165}%
-\contentsline {subsection}{Stability and Selection}{104}{subsection*.166}%
-\contentsline {subsection}{The Transseries Structure}{105}{subsection*.167}%
-\contentsline {section}{The Landscape of Fixed Points}{105}{section*.168}%
-\contentsline {subsection}{The RG ``Phase Diagram''}{105}{subsection*.169}%
-\contentsline {subsection}{Conformal Windows}{105}{subsection*.170}%
-\contentsline {subsection}{Emergent Symmetry at Fixed Points}{105}{subsection*.171}%
-\contentsline {section}{Conformal Constraints at Fixed Points}{106}{section*.172}%
-\contentsline {subsection}{Scale Invariance vs Conformal Invariance}{106}{subsection*.173}%
-\contentsline {subsection}{Conformal Ward Identities and the Derivative Expansion}{106}{subsection*.174}%
-\contentsline {subsection}{When Scale Does Not Imply Conformal}{107}{subsection*.175}%
-\contentsline {section}{Synthesis: The Algebraic-Geometric Dictionary}{108}{section*.176}%
-\contentsline {section}{Looking Ahead}{110}{section*.177}%
-\contentsline {subsection}{Comparison of the Four Canonical Examples}{110}{subsection*.178}%
-\contentsline {subsection}{The Road to Part II}{111}{subsection*.179}%
-\contentsline {section}{Exercises}{112}{subsection*.179}%
-\contentsline {section}{Summary}{116}{Item.146}%
-\contentsline {part}{II\hspace {1em}Analysis: Perturbation Theory and Resurgence}{129}{part.2}%
-\contentsline {chapter}{Perturbation Theory and UV Divergences}{131}{chapter*.180}%
-\contentsline {section}{Why Perturbation Series Diverge}{131}{section*.181}%
-\contentsline {subsection}{The Source of Factorial Growth}{131}{subsection*.182}%
-\contentsline {subsection}{Gevrey-1 Structure}{132}{subsection*.183}%
-\contentsline {subsection}{What Divergence Encodes}{132}{subsection*.184}%
-\contentsline {subsection}{Divergent Series in Classical Mechanics and PDEs}{133}{subsection*.185}%
-\contentsline {section}{Three Canonical Examples}{134}{section*.186}%
-\contentsline {subsection}{The Anharmonic Oscillator}{134}{subsection*.187}%
-\contentsline {subsection}{The 1D $\phi ^4$ Theory}{135}{subsection*.188}%
-\contentsline {subsection}{The Porous Medium Equation}{136}{subsection*.189}%
-\contentsline {section}{When Is RG Needed? A Decision Tree}{137}{section*.190}%
-\contentsline {subsection}{The Diagnostic Questions}{137}{subsection*.191}%
-\contentsline {section}{The Sethna Problem-Solving Template}{138}{section*.192}%
-\contentsline {subsection}{What Is the Order Parameter?}{138}{subsection*.193}%
-\contentsline {subsection}{What Symmetry Is Broken?}{139}{subsection*.194}%
-\contentsline {subsection}{What Are the Topological Defects?}{139}{subsection*.195}%
-\contentsline {section}{UV Divergences and Regularization}{139}{section*.196}%
-\contentsline {subsection}{The Need for Regularization}{139}{subsection*.197}%
-\contentsline {subsection}{Dimensional Regularization}{140}{subsection*.198}%
-\contentsline {subsection}{Other Regularization Methods}{140}{subsection*.199}%
-\contentsline {section}{Renormalization Schemes}{140}{section*.200}%
-\contentsline {subsection}{The On-Shell Scheme}{140}{subsection*.201}%
-\contentsline {subsection}{Minimal Subtraction: MS and $\overline {\text {MS}}$}{141}{subsection*.202}%
-\contentsline {subsection}{Scheme Independence}{141}{subsection*.203}%
-\contentsline {section}{Summary and Road Ahead}{141}{section*.204}%
-\contentsline {section}{Exercises}{142}{Item.161}%
-\contentsline {chapter}{Algebraic Foundations of Renormalization}{145}{chapter*.205}%
-\contentsline {section}{The Butcher Group: Hopf Algebras from ODEs}{145}{section*.206}%
-\contentsline {subsection}{Rooted Trees and Elementary Differentials}{146}{subsection*.207}%
-\contentsline {subsection}{B-Series: Formal Solutions Indexed by Trees}{147}{subsection*.208}%
-\contentsline {subsection}{The Hopf Algebra of Rooted Trees}{148}{subsection*.209}%
-\contentsline {subsection}{The Butcher Group}{149}{subsection*.210}%
-\contentsline {subsection}{Renormalization in the ODE Context}{149}{subsection*.211}%
-\contentsline {section}{From ODEs to Quantum Field Theory}{150}{section*.212}%
-\contentsline {subsection}{The Dictionary}{151}{subsection*.213}%
-\contentsline {subsection}{Historical Remark}{151}{subsection*.214}%
-\contentsline {section}{The Hopf Algebra of Feynman Graphs}{152}{section*.215}%
-\contentsline {subsection}{From Trees to Graphs}{152}{subsection*.216}%
-\contentsline {subsection}{The Group of Characters}{153}{subsection*.217}%
-\contentsline {section}{Renormalization as the Riemann-Hilbert Problem}{154}{section*.218}%
-\contentsline {subsection}{The Birkhoff Decomposition}{154}{subsection*.219}%
-\contentsline {subsection}{Dimensional Regularization as a Loop}{154}{subsection*.220}%
-\contentsline {subsection}{The Twisted Antipode}{155}{subsection*.221}%
-\contentsline {subsection}{Why This Matters}{156}{subsection*.222}%
-\contentsline {section}{Connection to Resurgent Structure}{156}{section*.223}%
-\contentsline {section}{Summary}{157}{section*.224}%
-\contentsline {section}{Exercises}{157}{Item.214}%
-\contentsline {chapter}{Resurgence and Transseries}{161}{chapter*.225}%
-\contentsline {section}{The Borel Transform}{161}{section*.226}%
-\contentsline {subsection}{Definition and Basic Properties}{162}{subsection*.227}%
-\contentsline {subsection}{Borel-Laplace Resummation}{162}{subsection*.228}%
-\contentsline {subsection}{When Resummation Fails: Singularities on the Path}{163}{subsection*.229}%
-\contentsline {section}{Singularities in the Borel Plane}{163}{section*.230}%
-\contentsline {subsection}{Instantons}{164}{subsection*.231}%
-\contentsline {subsection}{Renormalons}{164}{subsection*.232}%
-\contentsline {subsection}{The Instanton-Renormalon Correspondence}{165}{subsection*.233}%
-\contentsline {section}{Stokes Phenomena}{165}{section*.234}%
-\contentsline {subsection}{Stokes Lines}{165}{subsection*.235}%
-\contentsline {subsection}{Lateral Resummations}{165}{subsection*.236}%
-\contentsline {subsection}{The Stokes Automorphism}{166}{subsection*.237}%
-\contentsline {subsection}{Stokes Constants as Monodromy}{166}{subsection*.238}%
-\contentsline {section}{Transseries}{166}{section*.239}%
-\contentsline {subsection}{Definition}{167}{subsection*.240}%
-\contentsline {subsection}{Physical Interpretation}{167}{subsection*.241}%
-\contentsline {subsection}{The Role of $\sigma $}{167}{subsection*.242}%
-\contentsline {section}{Worked Example: The Damped Anharmonic Oscillator}{167}{section*.243}%
-\contentsline {subsection}{Factorial Growth in the Beta Functions}{168}{subsection*.244}%
-\contentsline {subsection}{Applying the Resurgence Pipeline}{168}{subsection*.245}%
-\contentsline {subsection}{Connection to QFT Renormalons}{169}{subsection*.246}%
-\contentsline {section}{The Resurgence Triangle}{169}{section*.247}%
-\contentsline {subsection}{The Triangle Structure}{169}{subsection*.248}%
-\contentsline {subsection}{The Key Insight: Perturbation Theory Knows Everything}{169}{subsection*.249}%
-\contentsline {section}{Alien Calculus}{169}{section*.250}%
-\contentsline {subsection}{The Alien Derivative}{170}{subsection*.251}%
-\contentsline {subsection}{The Bridge Equation}{170}{subsection*.252}%
-\contentsline {subsection}{Resurgent Relations}{170}{subsection*.253}%
-\contentsline {subsection}{The Algebraic Structure}{170}{subsection*.254}%
-\contentsline {section}{Renormalons from the RG Equation}{170}{section*.255}%
-\contentsline {subsection}{The RG Equation as a Resurgent Equation}{171}{subsection*.256}%
-\contentsline {subsection}{IR Renormalons from the RG}{171}{subsection*.257}%
-\contentsline {subsection}{Implications for the RG Framework}{171}{subsection*.258}%
-\contentsline {section}{Median Resummation and Physical Predictions}{172}{section*.259}%
-\contentsline {subsection}{The Ambiguity Problem}{172}{subsection*.260}%
-\contentsline {subsection}{Median Resummation}{172}{subsection*.261}%
-\contentsline {subsection}{Ambiguity Cancellation}{172}{subsection*.262}%
-\contentsline {section}{Connection to the Geometric Framework}{172}{section*.263}%
-\contentsline {subsection}{Extended Parameter Space}{172}{subsection*.264}%
-\contentsline {subsection}{Stokes as Monodromy}{173}{subsection*.265}%
-\contentsline {subsection}{Alien Derivatives as Covariant Derivatives}{173}{subsection*.266}%
-\contentsline {section}{When to Trust Perturbation Theory}{173}{section*.267}%
-\contentsline {subsection}{Conditions for Perturbative Accuracy}{173}{subsection*.268}%
-\contentsline {subsection}{When Full Analysis Is Required}{174}{subsection*.269}%
-\contentsline {subsection}{Common Pitfalls}{174}{subsection*.270}%
-\contentsline {section}{Summary}{174}{section*.271}%
-\contentsline {section}{Exercises}{175}{Item.248}%
-\contentsline {chapter}{Mathematical Toolkit}{177}{chapter*.272}%
-\contentsline {section}{Asymptotic Series and Gevrey Classes}{177}{section*.273}%
-\contentsline {subsection}{Asymptotic Expansions}{177}{subsection*.274}%
-\contentsline {subsection}{Gevrey Classes}{177}{subsection*.275}%
-\contentsline {section}{Borel Transform and Laplace Transform}{177}{section*.276}%
-\contentsline {subsection}{The Borel Transform}{177}{subsection*.277}%
-\contentsline {subsection}{The Laplace Transform}{178}{subsection*.278}%
-\contentsline {subsection}{Borel-Laplace Resummation}{178}{subsection*.279}%
-\contentsline {section}{Singularities in the Borel Plane}{178}{section*.280}%
-\contentsline {subsection}{Types of Singularities}{178}{subsection*.281}%
-\contentsline {section}{Stokes Phenomena}{178}{section*.282}%
-\contentsline {subsection}{Stokes Lines}{178}{subsection*.283}%
-\contentsline {subsection}{The Stokes Automorphism}{179}{subsection*.284}%
-\contentsline {subsection}{Stokes Constants}{179}{subsection*.285}%
-\contentsline {section}{Transseries}{179}{section*.286}%
-\contentsline {subsection}{Definition}{179}{subsection*.287}%
-\contentsline {subsection}{More General Form}{179}{subsection*.288}%
-\contentsline {subsection}{Reality Conditions}{179}{subsection*.289}%
-\contentsline {section}{Alien Calculus}{179}{section*.290}%
-\contentsline {subsection}{The Alien Derivative}{179}{subsection*.291}%
-\contentsline {subsection}{The Bridge Equation}{180}{subsection*.292}%
-\contentsline {subsection}{Properties}{180}{subsection*.293}%
-\contentsline {section}{Median Resummation}{180}{section*.294}%
-\contentsline {subsection}{Lateral Resummations}{180}{subsection*.295}%
-\contentsline {subsection}{The Median Resummation}{180}{subsection*.296}%
-\contentsline {subsection}{Ambiguity Cancellation}{180}{subsection*.297}%
-\contentsline {section}{Beta Functions and RG Flow}{181}{section*.298}%
-\contentsline {subsection}{Definition}{181}{subsection*.299}%
-\contentsline {subsection}{Fixed Points}{181}{subsection*.300}%
-\contentsline {subsection}{Stability}{181}{subsection*.301}%
-\contentsline {section}{Connections and Monodromy}{181}{section*.302}%
-\contentsline {subsection}{Connections}{181}{subsection*.303}%
-\contentsline {subsection}{Monodromy}{181}{subsection*.304}%
-\contentsline {section}{Key Formulas Summary}{182}{section*.305}%
-\contentsline {section}{References for Further Reading}{182}{section*.306}%
-\contentsline {subsection}{Asymptotic Analysis and Resurgence}{182}{subsection*.307}%
-\contentsline {subsection}{Renormalization Group}{182}{subsection*.308}%
-\contentsline {subsection}{Differential Geometry}{182}{subsection*.309}%
-\contentsline {chapter}{Bibliography}{183}{chapter*.310}%
+\contentsline {section}{Summary}{29}{equation.0.35}%
+\contentsline {part}{I\hspace {1em}Algebra and Geometry}{33}{part.1}%
+\contentsline {chapter}{The Renormalization Group as Algebra and Geometry}{35}{chapter*.36}%
+\contentsline {section}{From Running Parameters to Structure}{35}{section*.37}%
+\contentsline {section}{Scale Independence: The Physical Foundation}{36}{section*.38}%
+\contentsline {subsection}{The Setup}{36}{subsection*.39}%
+\contentsline {subsection}{The Callan-Symanzik Equation}{37}{subsection*.40}%
+\contentsline {subsection}{The Full CS Equation with Anomalous Dimensions}{38}{subsection*.41}%
+\contentsline {subsection}{Scale Covariance: A Universal Structure}{38}{subsection*.42}%
+\contentsline {subsection}{Theory Space}{39}{subsection*.43}%
+\contentsline {section}{Scale Invariance as a Lie Group}{40}{section*.44}%
+\contentsline {subsection}{The Dilation Group}{40}{subsection*.46}%
+\contentsline {subsection}{The Generator and Exponential Map}{40}{subsection*.47}%
+\contentsline {subsection}{Higher Dimensions and the Conformal Algebra}{41}{subsection*.48}%
+\contentsline {section}{Scheme Transformations as Reparametrizations}{42}{section*.49}%
+\contentsline {subsection}{How Beta Functions Transform}{42}{subsection*.50}%
+\contentsline {subsection}{Algebraic Invariants}{43}{subsection*.51}%
+\contentsline {section}{Scaling Dimensions: Eigenvalues of the Generator}{44}{section*.52}%
+\contentsline {subsection}{Engineering vs Anomalous Dimensions}{44}{subsection*.53}%
+\contentsline {subsection}{Classification of Perturbations}{44}{subsection*.54}%
+\contentsline {section}{Renormalization Group for ODEs and PDEs: Barenblatt's Framework}{45}{section*.55}%
+\contentsline {subsection}{Intermediate Asymptotics: The Physical Foundation}{45}{subsection*.56}%
+\contentsline {subsection}{Complete vs Incomplete Similarity: Two Kinds of Scaling}{46}{subsection*.57}%
+\contentsline {subsection}{The Renormalization Group as a Transformation Group}{47}{subsection*.58}%
+\contentsline {subsection}{Example: The Porous Medium Equation}{48}{subsection*.59}%
+\contentsline {section}{Parameter Space as a Manifold}{53}{section*.60}%
+\contentsline {subsection}{The Beta Function as a Vector Field}{53}{subsection*.62}%
+\contentsline {subsection}{RG Flows as Integral Curves}{53}{subsection*.63}%
+\contentsline {subsection}{Fixed Points as Zeros}{54}{subsection*.64}%
+\contentsline {section}{The CS Equation as Lie Derivative}{54}{section*.65}%
+\contentsline {subsection}{Finite RG Transformations}{55}{subsection*.67}%
+\contentsline {section}{Connections: The Anomalous Dimension as Geometry}{55}{section*.68}%
+\contentsline {subsection}{The Anomalous Dimension as Connection}{55}{subsection*.70}%
+\contentsline {subsection}{Operator Mixing}{56}{subsection*.71}%
+\contentsline {subsection}{Scaling Operators}{56}{subsection*.72}%
+\contentsline {subsection}{Curvature and Scheme Independence}{56}{subsection*.73}%
+\contentsline {section}{The Fisher Metric on Theory Space}{56}{section*.74}%
+\contentsline {subsection}{The Metric from the Partition Function}{57}{subsection*.75}%
+\contentsline {subsection}{The Zamolodchikov Metric}{58}{subsection*.76}%
+\contentsline {section}{Gradient Flow and the c-Theorem}{58}{section*.77}%
+\contentsline {subsection}{Consequences of Gradient Flow}{58}{subsection*.78}%
+\contentsline {subsection}{Zamolodchikov's c-Theorem}{58}{subsection*.79}%
+\contentsline {subsection}{Higher-Dimensional Generalizations}{59}{subsection*.80}%
+\contentsline {section}{Geodesic Flow and Curved Motion}{59}{section*.81}%
+\contentsline {subsection}{The Geodesic Equation}{59}{subsection*.82}%
+\contentsline {subsection}{Geodesic Deviation and Stability}{59}{subsection*.83}%
+\contentsline {section}{Theory Space as a Gauge Bundle}{60}{section*.84}%
+\contentsline {subsection}{The Bundle Structure}{60}{subsection*.85}%
+\contentsline {subsection}{Scheme Changes as Gauge Transformations}{61}{subsection*.86}%
+\contentsline {subsection}{Gauge-Invariant Observables}{62}{subsection*.87}%
+\contentsline {subsection}{The Covariant Derivative on Operators}{62}{subsection*.88}%
+\contentsline {subsection}{The Diffeomorphism-Gauge Unification}{63}{subsection*.89}%
+\contentsline {section}{How Geometry Constrains Beta Functions}{63}{section*.90}%
+\contentsline {subsection}{The Integrability Condition}{64}{subsection*.91}%
+\contentsline {subsection}{What Geometry Determines vs. What Requires Computation}{65}{subsection*.92}%
+\contentsline {subsection}{Conformal Constraints at Fixed Points}{66}{subsection*.93}%
+\contentsline {subsection}{Summary: The Role of Geometry}{67}{subsection*.94}%
+\contentsline {section}{Example 1: The Anharmonic Oscillator}{68}{section*.95}%
+\contentsline {subsection}{The Physical System}{68}{subsection*.96}%
+\contentsline {subsection}{Parameter Space}{68}{subsection*.97}%
+\contentsline {subsection}{Deriving Beta Functions from the CS Equation}{68}{subsection*.98}%
+\contentsline {subsection}{The RG Flow}{69}{subsection*.99}%
+\contentsline {subsection}{The Fixed Point and Stability}{70}{subsection*.100}%
+\contentsline {section}{Example 2: The Amplitude Equation}{70}{section*.101}%
+\contentsline {subsection}{Physical Motivation}{70}{subsection*.102}%
+\contentsline {subsection}{Fixed Points}{70}{subsection*.103}%
+\contentsline {subsection}{Exact Stability Analysis}{71}{subsection*.104}%
+\contentsline {subsection}{Exact Solution}{71}{subsection*.105}%
+\contentsline {section}{Example 3: The Porous Medium Equation}{71}{section*.106}%
+\contentsline {subsection}{The Physical System}{72}{subsection*.107}%
+\contentsline {subsection}{Self-Similar Solutions}{72}{subsection*.108}%
+\contentsline {subsection}{The Anomalous Dimension}{72}{subsection*.109}%
+\contentsline {subsection}{The Barenblatt Solution as Fixed Point}{72}{subsection*.110}%
+\contentsline {section}{Example 4: The 1D $\phi ^4$ Theory}{73}{section*.111}%
+\contentsline {subsection}{The Setup}{73}{subsection*.112}%
+\contentsline {subsection}{Wilson's Momentum-Shell RG}{74}{subsection*.113}%
+\contentsline {subsection}{The Full CS Equation}{74}{subsection*.114}%
+\contentsline {subsection}{Operator Mixing}{74}{subsection*.115}%
+\contentsline {subsection}{Preview: The Wilson-Fisher Fixed Point}{75}{subsection*.116}%
+\contentsline {subsection}{Comparison of Examples}{75}{subsection*.117}%
+\contentsline {section}{Curvature and Critical Exponents}{76}{section*.118}%
+\contentsline {subsection}{The Curvature Tensor}{76}{subsection*.119}%
+\contentsline {subsection}{Monodromy Around Singularities}{76}{subsection*.120}%
+\contentsline {subsection}{Curvature at Fixed Points}{77}{subsection*.121}%
+\contentsline {section}{Scheme Independence as Gauge Invariance}{77}{section*.122}%
+\contentsline {section}{Solving RG Equations}{81}{section*.123}%
+\contentsline {subsection}{The Method of Characteristics}{81}{subsection*.124}%
+\contentsline {subsection}{RG-Improved Correlation Functions}{82}{subsection*.125}%
+\contentsline {section}{Asymptotic Behavior and the Landau Pole}{82}{section*.126}%
+\contentsline {subsection}{Classification of Theories}{82}{subsection*.127}%
+\contentsline {subsection}{The Landau Pole}{83}{subsection*.128}%
+\contentsline {subsection}{The RG as a Semigroup}{83}{subsection*.129}%
+\contentsline {section}{From Perturbative to Exact: The Functional RG}{83}{section*.130}%
+\contentsline {subsection}{The Polchinski Equation}{83}{subsection*.131}%
+\contentsline {subsection}{The Derivative Expansion}{83}{subsection*.132}%
+\contentsline {section}{Looking Ahead}{83}{section*.133}%
+\contentsline {section}{Exercises}{84}{section*.133}%
+\contentsline {section}{Summary}{85}{Item.55}%
+\contentsline {section}{Exercises}{86}{AMS.134}%
+\contentsline {section}{Summary}{87}{Item.84}%
+\contentsline {chapter}{Fixed Points, Universality, and Scaling}{91}{chapter*.136}%
+\contentsline {section}{Fixed Points as Lie Group Stationarity}{91}{section*.137}%
+\contentsline {subsection}{The Geometric Definition}{92}{subsection*.138}%
+\contentsline {subsection}{The Stability Matrix as Linearized Lie Algebra}{92}{subsection*.139}%
+\contentsline {subsection}{Fixed Points and Scale Invariance}{93}{subsection*.140}%
+\contentsline {section}{Perturbative Fixed Points}{93}{section*.141}%
+\contentsline {subsection}{Definition}{93}{subsection*.142}%
+\contentsline {subsection}{Examples We've Seen}{94}{subsection*.143}%
+\contentsline {subsection}{The Wilson-Fisher Fixed Point}{94}{subsection*.144}%
+\contentsline {subsection}{The Epsilon Expansion as Asymptotic Series}{95}{subsection*.145}%
+\contentsline {section}{Normal Form Theory for RG Flows}{95}{section*.146}%
+\contentsline {subsection}{The Normal Form Theorem for RG}{96}{subsection*.147}%
+\contentsline {subsection}{Universality Families from Normal Form Type}{97}{subsection*.148}%
+\contentsline {subsection}{Logarithmic Corrections and Marginal Operators}{97}{subsection*.149}%
+\contentsline {subsection}{Resonances and Mixed Corrections}{98}{subsection*.150}%
+\contentsline {subsection}{Self-Similar Solutions and Normal Forms}{99}{subsection*.151}%
+\contentsline {section}{Stability and Classification}{100}{section*.152}%
+\contentsline {subsection}{The Stability Matrix}{100}{subsection*.153}%
+\contentsline {subsection}{Relevant, Irrelevant, Marginal}{100}{subsection*.154}%
+\contentsline {subsection}{Scaling Dimensions and Eigenvalues}{101}{subsection*.155}%
+\contentsline {subsection}{Geometric Perspective: The Stability Matrix as Covariant Derivative}{101}{subsection*.156}%
+\contentsline {section}{Universality Classes}{103}{section*.157}%
+\contentsline {subsection}{The Basin of Attraction}{103}{subsection*.158}%
+\contentsline {subsection}{Why Universality?}{103}{subsection*.159}%
+\contentsline {subsection}{Counting Relevant Directions}{103}{subsection*.160}%
+\contentsline {subsection}{Empirical Evidence: Universal Critical Exponents}{104}{subsection*.161}%
+\contentsline {section}{Normal Forms and Universal Scaling Functions}{105}{section*.162}%
+\contentsline {subsection}{Bifurcations as RG Fixed Points}{105}{subsection*.163}%
+\contentsline {subsection}{The Hopf Bifurcation and Limit Cycles}{106}{subsection*.164}%
+\contentsline {subsection}{Critical Slowing Down as a Geometric Phenomenon}{107}{subsection*.165}%
+\contentsline {section}{The Porous Medium Equation}{108}{section*.166}%
+\contentsline {subsection}{The Model}{108}{subsection*.167}%
+\contentsline {subsection}{Why the PME?}{108}{subsection*.168}%
+\contentsline {section}{Barenblatt's Classification in Lie Group Terms}{109}{section*.169}%
+\contentsline {subsection}{The Scaling Group Action}{109}{subsection*.170}%
+\contentsline {subsection}{First-Kind Self-Similarity: Free Orbits}{109}{subsection*.171}%
+\contentsline {subsection}{Second-Kind Self-Similarity: Constrained Orbits}{110}{subsection*.172}%
+\contentsline {subsection}{Barenblatt's Insight in RG Language}{111}{subsection*.173}%
+\contentsline {section}{The Barenblatt Exponents from Symmetry}{111}{section*.174}%
+\contentsline {section}{The PME as an RG Flow}{112}{section*.175}%
+\contentsline {subsection}{The Parameter Space}{112}{subsection*.176}%
+\contentsline {subsection}{Stability and Selection}{112}{subsection*.177}%
+\contentsline {subsection}{The Transseries Structure}{113}{subsection*.178}%
+\contentsline {section}{Self-Similar Solutions as Fixed Points: Classical Examples}{113}{section*.179}%
+\contentsline {subsection}{Complete Similarity and Gaussian-Type Fixed Points}{113}{subsection*.180}%
+\contentsline {subsection}{The Spectrum of Fixed Points in Continuum Mechanics}{119}{subsection*.181}%
+\contentsline {section}{The Landscape of Fixed Points}{120}{section*.182}%
+\contentsline {subsection}{The RG ``Phase Diagram''}{120}{subsection*.183}%
+\contentsline {subsection}{Conformal Windows}{120}{subsection*.184}%
+\contentsline {subsection}{Emergent Symmetry at Fixed Points}{120}{subsection*.185}%
+\contentsline {section}{Conformal Constraints at Fixed Points}{120}{section*.186}%
+\contentsline {subsection}{Scale Invariance vs Conformal Invariance}{120}{subsection*.187}%
+\contentsline {subsection}{Conformal Ward Identities and the Derivative Expansion}{121}{subsection*.188}%
+\contentsline {subsection}{When Scale Does Not Imply Conformal}{122}{subsection*.189}%
+\contentsline {section}{Synthesis: The Algebraic-Geometric Dictionary}{123}{section*.190}%
+\contentsline {section}{Looking Ahead}{125}{section*.191}%
+\contentsline {subsection}{Comparison of the Four Canonical Examples}{125}{subsection*.192}%
+\contentsline {subsection}{The Road to Part II}{126}{subsection*.193}%
+\contentsline {section}{Exercises}{127}{subsection*.193}%
+\contentsline {section}{Summary}{131}{Item.146}%
+\contentsline {part}{II\hspace {1em}Analysis: Perturbation Theory and Resurgence}{145}{part.2}%
+\contentsline {chapter}{Perturbation Theory and UV Divergences}{147}{chapter*.194}%
+\contentsline {section}{Why Perturbation Series Diverge}{147}{section*.195}%
+\contentsline {subsection}{The Source of Factorial Growth}{147}{subsection*.196}%
+\contentsline {subsection}{Gevrey-1 Structure}{148}{subsection*.197}%
+\contentsline {subsection}{What Divergence Encodes}{148}{subsection*.198}%
+\contentsline {subsection}{Divergent Series in Classical Mechanics and PDEs}{149}{subsection*.199}%
+\contentsline {section}{Perturbation Theory for Nonlinear PDEs}{150}{section*.200}%
+\contentsline {subsection}{Why Perturbation Theory Fails for Nonlinear PDEs}{150}{subsection*.201}%
+\contentsline {subsection}{The $\epsilon $-Expansion for Anomalous Dimensions in PDEs}{155}{subsection*.202}%
+\contentsline {section}{Three Canonical Examples}{156}{section*.203}%
+\contentsline {subsection}{The Anharmonic Oscillator}{157}{subsection*.204}%
+\contentsline {subsection}{The 1D $\phi ^4$ Theory}{157}{subsection*.205}%
+\contentsline {subsection}{The Porous Medium Equation}{158}{subsection*.206}%
+\contentsline {section}{When Is RG Needed? A Decision Tree}{159}{section*.207}%
+\contentsline {subsection}{The Diagnostic Questions}{159}{subsection*.208}%
+\contentsline {section}{The Sethna Problem-Solving Template}{161}{section*.209}%
+\contentsline {subsection}{What Is the Order Parameter?}{161}{subsection*.210}%
+\contentsline {subsection}{What Symmetry Is Broken?}{161}{subsection*.211}%
+\contentsline {subsection}{What Are the Topological Defects?}{161}{subsection*.212}%
+\contentsline {section}{UV Divergences and Regularization}{162}{section*.213}%
+\contentsline {subsection}{The Need for Regularization}{162}{subsection*.214}%
+\contentsline {subsection}{Dimensional Regularization}{162}{subsection*.215}%
+\contentsline {subsection}{Other Regularization Methods}{163}{subsection*.216}%
+\contentsline {section}{Renormalization Schemes}{163}{section*.217}%
+\contentsline {subsection}{The On-Shell Scheme}{163}{subsection*.218}%
+\contentsline {subsection}{Minimal Subtraction: MS and $\overline {\text {MS}}$}{163}{subsection*.219}%
+\contentsline {subsection}{Scheme Independence}{163}{subsection*.220}%
+\contentsline {section}{Summary and Road Ahead}{164}{section*.221}%
+\contentsline {section}{Exercises}{164}{Item.166}%
+\contentsline {chapter}{Algebraic Foundations of Renormalization}{167}{chapter*.222}%
+\contentsline {section}{The Butcher Group: Hopf Algebras from ODEs}{167}{section*.223}%
+\contentsline {subsection}{Rooted Trees and Elementary Differentials}{168}{subsection*.224}%
+\contentsline {subsection}{B-Series and the Taylor Expansion of Solutions}{171}{subsection*.225}%
+\contentsline {subsection}{The Hopf Algebra of Rooted Trees}{172}{subsection*.226}%
+\contentsline {subsection}{The Butcher Group}{175}{subsection*.227}%
+\contentsline {subsection}{Renormalization in the ODE Context}{175}{subsection*.228}%
+\contentsline {section}{From ODEs to Quantum Field Theory}{178}{section*.229}%
+\contentsline {subsection}{The Dictionary Between ODEs and QFT}{179}{subsection*.230}%
+\contentsline {subsection}{Historical Remark}{181}{subsection*.231}%
+\contentsline {section}{The Hopf Algebra of Feynman Graphs}{181}{section*.232}%
+\contentsline {subsection}{From Trees to Graphs}{181}{subsection*.233}%
+\contentsline {subsection}{The Group of Characters}{187}{subsection*.234}%
+\contentsline {section}{Renormalization as the Riemann-Hilbert Problem}{188}{section*.235}%
+\contentsline {subsection}{The Birkhoff Decomposition}{188}{subsection*.236}%
+\contentsline {subsection}{Dimensional Regularization as a Loop}{189}{subsection*.237}%
+\contentsline {subsection}{The Twisted Antipode}{192}{subsection*.238}%
+\contentsline {subsection}{Why This Matters}{192}{subsection*.239}%
+\contentsline {section}{Connection to Resurgent Structure}{193}{section*.240}%
+\contentsline {section}{Summary}{203}{section*.241}%
+\contentsline {section}{Exercises}{203}{Item.207}%
+\contentsline {chapter}{Resurgence and Transseries}{209}{chapter*.242}%
+\contentsline {section}{The Borel Transform}{209}{section*.243}%
+\contentsline {subsection}{Definition and Basic Properties}{210}{subsection*.244}%
+\contentsline {subsection}{Borel-Laplace Resummation}{210}{subsection*.245}%
+\contentsline {subsection}{When Resummation Fails: Singularities on the Path}{211}{subsection*.246}%
+\contentsline {section}{Singularities in the Borel Plane}{211}{section*.247}%
+\contentsline {subsection}{Instantons}{212}{subsection*.248}%
+\contentsline {subsection}{Renormalons}{212}{subsection*.249}%
+\contentsline {subsection}{The Instanton-Renormalon Correspondence}{213}{subsection*.250}%
+\contentsline {section}{Stokes Phenomena}{213}{section*.251}%
+\contentsline {subsection}{Stokes Lines}{213}{subsection*.252}%
+\contentsline {subsection}{Lateral Resummations}{213}{subsection*.253}%
+\contentsline {subsection}{The Stokes Automorphism}{214}{subsection*.254}%
+\contentsline {subsection}{Stokes Constants as Monodromy}{214}{subsection*.255}%
+\contentsline {section}{Transseries}{214}{section*.256}%
+\contentsline {subsection}{Definition}{215}{subsection*.257}%
+\contentsline {subsection}{Physical Interpretation}{215}{subsection*.258}%
+\contentsline {subsection}{The Role of $\sigma $}{215}{subsection*.259}%
+\contentsline {section}{Worked Example: The Damped Anharmonic Oscillator}{215}{section*.260}%
+\contentsline {subsection}{Factorial Growth in the Beta Functions}{216}{subsection*.261}%
+\contentsline {subsection}{Applying the Resurgence Pipeline}{216}{subsection*.262}%
+\contentsline {subsection}{Connection to QFT Renormalons}{217}{subsection*.263}%
+\contentsline {section}{The Resurgence Triangle}{217}{section*.264}%
+\contentsline {subsection}{The Triangle Structure}{217}{subsection*.265}%
+\contentsline {subsection}{The Key Insight: Perturbation Theory Knows Everything}{217}{subsection*.266}%
+\contentsline {section}{Alien Calculus}{217}{section*.267}%
+\contentsline {subsection}{The Alien Derivative}{218}{subsection*.268}%
+\contentsline {subsection}{The Bridge Equation}{218}{subsection*.269}%
+\contentsline {subsection}{Resurgent Relations}{218}{subsection*.270}%
+\contentsline {subsection}{The Algebraic Structure}{218}{subsection*.271}%
+\contentsline {section}{Renormalons from the RG Equation}{218}{section*.272}%
+\contentsline {subsection}{The RG Equation as a Resurgent Equation}{219}{subsection*.273}%
+\contentsline {subsection}{IR Renormalons from the RG}{219}{subsection*.274}%
+\contentsline {subsection}{Implications for the RG Framework}{219}{subsection*.275}%
+\contentsline {section}{Median Resummation and Physical Predictions}{220}{section*.276}%
+\contentsline {subsection}{The Ambiguity Problem}{220}{subsection*.277}%
+\contentsline {subsection}{Median Resummation}{220}{subsection*.278}%
+\contentsline {subsection}{Ambiguity Cancellation}{220}{subsection*.279}%
+\contentsline {section}{Connection to the Geometric Framework}{220}{section*.280}%
+\contentsline {subsection}{Extended Parameter Space}{220}{subsection*.281}%
+\contentsline {subsection}{Stokes as Monodromy}{221}{subsection*.282}%
+\contentsline {subsection}{Alien Derivatives as Covariant Derivatives}{221}{subsection*.283}%
+\contentsline {subsection}{Intermediate Asymptotics and Power-Law Corrections}{221}{subsection*.284}%
+\contentsline {section}{When to Trust Perturbation Theory}{223}{section*.285}%
+\contentsline {subsection}{Conditions for Perturbative Accuracy}{224}{subsection*.286}%
+\contentsline {subsection}{When Full Analysis Is Required}{224}{subsection*.287}%
+\contentsline {subsection}{Common Pitfalls}{224}{subsection*.288}%
+\contentsline {section}{Summary}{225}{section*.289}%
+\contentsline {section}{Exercises}{225}{Item.268}%
+\contentsline {chapter}{Mathematical Toolkit}{229}{chapter*.290}%
+\contentsline {section}{Asymptotic Series and Gevrey Classes}{229}{section*.291}%
+\contentsline {subsection}{Asymptotic Expansions}{229}{subsection*.292}%
+\contentsline {subsection}{Gevrey Classes}{229}{subsection*.293}%
+\contentsline {section}{Borel Transform and Laplace Transform}{229}{section*.294}%
+\contentsline {subsection}{The Borel Transform}{229}{subsection*.295}%
+\contentsline {subsection}{The Laplace Transform}{230}{subsection*.296}%
+\contentsline {subsection}{Borel-Laplace Resummation}{230}{subsection*.297}%
+\contentsline {section}{Singularities in the Borel Plane}{230}{section*.298}%
+\contentsline {subsection}{Types of Singularities}{230}{subsection*.299}%
+\contentsline {section}{Stokes Phenomena}{230}{section*.300}%
+\contentsline {subsection}{Stokes Lines}{230}{subsection*.301}%
+\contentsline {subsection}{The Stokes Automorphism}{231}{subsection*.302}%
+\contentsline {subsection}{Stokes Constants}{231}{subsection*.303}%
+\contentsline {section}{Transseries}{231}{section*.304}%
+\contentsline {subsection}{Definition}{231}{subsection*.305}%
+\contentsline {subsection}{More General Form}{231}{subsection*.306}%
+\contentsline {subsection}{Reality Conditions}{231}{subsection*.307}%
+\contentsline {section}{Alien Calculus}{231}{section*.308}%
+\contentsline {subsection}{The Alien Derivative}{231}{subsection*.309}%
+\contentsline {subsection}{The Bridge Equation}{232}{subsection*.310}%
+\contentsline {subsection}{Properties}{232}{subsection*.311}%
+\contentsline {section}{Median Resummation}{232}{section*.312}%
+\contentsline {subsection}{Lateral Resummations}{232}{subsection*.313}%
+\contentsline {subsection}{The Median Resummation}{232}{subsection*.314}%
+\contentsline {subsection}{Ambiguity Cancellation}{232}{subsection*.315}%
+\contentsline {section}{Beta Functions and RG Flow}{233}{section*.316}%
+\contentsline {subsection}{Definition}{233}{subsection*.317}%
+\contentsline {subsection}{Fixed Points}{233}{subsection*.318}%
+\contentsline {subsection}{Stability}{233}{subsection*.319}%
+\contentsline {section}{Connections and Monodromy}{233}{section*.320}%
+\contentsline {subsection}{Connections}{233}{subsection*.321}%
+\contentsline {subsection}{Monodromy}{233}{subsection*.322}%
+\contentsline {section}{Key Formulas Summary}{234}{section*.323}%
+\contentsline {section}{References for Further Reading}{234}{section*.324}%
+\contentsline {subsection}{Asymptotic Analysis and Resurgence}{234}{subsection*.325}%
+\contentsline {subsection}{Renormalization Group}{234}{subsection*.326}%
+\contentsline {subsection}{Differential Geometry}{234}{subsection*.327}%
+\contentsline {chapter}{Bibliography}{235}{chapter*.328}%
 \contentsfinish 

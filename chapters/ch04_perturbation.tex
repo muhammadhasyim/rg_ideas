@@ -112,6 +112,228 @@ A(\epsilon) = 2 + a_1 \epsilon + a_2 \epsilon^2 + a_3 \epsilon^3 + \cdots
 This universality is why we develop the resurgent framework in generality: the tools work for ODEs, PDEs, and QFT alike.
 
 %-------------------------------------------------------------------------------
+\section{Perturbation Theory for Nonlinear PDEs}
+\label{sec:pde_perturbation}
+%-------------------------------------------------------------------------------
+
+\marginnote{Nonlinear PDEs provide concrete examples where perturbation theory breaks down in familiar ways. The same RG methods that work in QFT apply directly to these classical equations.}
+
+Before examining the canonical quantum and field-theoretic examples, we develop perturbation theory for nonlinear partial differential equations. This serves several pedagogical purposes. First, PDEs are more familiar than quantum field theories, providing concrete physical intuition. Second, many PDE problems can be solved exactly or numerically, allowing us to verify perturbative predictions. Third, the breakdown of naive perturbation theory in PDEs exhibits the same universal patterns as in QFT, demonstrating that secular terms, small denominators, and the need for renormalization are not quantum phenomena but general features of perturbative expansions.
+
+The strategy parallels what Barenblatt called intermediate asymptotics (Chapter~\ref{ch:rg_geometry}). We seek solutions valid for intermediate times or length scales where details of initial conditions have been forgotten but the system has not yet reached equilibrium. Naive perturbation theory fails in this regime because small denominators or secular terms accumulate. The renormalization group provides systematic resummation that extends the perturbative solution to the intermediate asymptotic regime.
+
+\subsection{Why Perturbation Theory Fails for Nonlinear PDEs}
+
+Consider a generic nonlinear PDE of the form
+\begin{equation}
+\frac{\partial u}{\partial t} = L[u] + \epsilon N[u]
+\end{equation}
+where $L$ is a linear operator and $N$ is nonlinear. The perturbative solution is
+\begin{equation}
+u(x,t) = u_0(x,t) + \epsilon u_1(x,t) + \epsilon^2 u_2(x,t) + \cdots
+\end{equation}
+
+At zeroth order, $\partial_t u_0 = L[u_0]$ is linear and typically solvable. At first order, $\partial_t u_1 = L[u_1] + N[u_0]$ is an inhomogeneous linear equation with forcing term $N[u_0]$. The key observation is that if $N[u_0]$ resonates with eigenmodes of $L$, the solution $u_1$ will contain \textbf{secular terms} that grow unboundedly in time or space. These secular terms invalidate the expansion for $t$ or $|x|$ large compared to $1/\epsilon$.
+
+The physical origin is clear. The nonlinearity drives the system at frequencies or wavelengths matching the natural modes of the linear operator. This resonant forcing produces a response that accumulates over time. The perturbative expansion assumes $\epsilon u_1 \ll u_0$, but this breaks down when secular terms make $u_1 \sim t \cdot u_0$ for $t \gtrsim 1/\epsilon$.
+
+The renormalization group resolves this breakdown by absorbing secular terms into time-dependent (or scale-dependent) parameters. Instead of fixed constants appearing in $u_0$, we allow them to run with $t$ or $|x|$ according to RG equations. The running is chosen precisely to cancel the secular growth at each order. This produces a uniformly valid expansion for all times or length scales.
+
+\begin{workedbox}[Box 5.X: Nonlinear Heat Equation with Secular Terms]
+\textbf{Goal:} Demonstrate how secular terms arise in a simple nonlinear PDE and how RG methods provide systematic resummation. This example serves as a template for more complex problems.
+
+\textbf{Setup:} Consider the nonlinear heat equation with a quadratic nonlinearity:
+\begin{equation}
+\frac{\partial u}{\partial t} = \frac{\partial^2 u}{\partial x^2} + \epsilon u^2
+\label{eq:nonlinear_heat}
+\end{equation}
+on the infinite line $-\infty < x < \infty$ with initial condition $u(x,0) = f(x)$ where $f(x)$ is localized (decays as $|x| \to \infty$).
+
+\textbf{Step 1: Zeroth-order solution.}
+
+At $\epsilon = 0$, we have the linear heat equation $\partial_t u_0 = \partial_x^2 u_0$. The solution is
+\begin{equation}
+u_0(x,t) = \int_{-\infty}^\infty G(x-y,t)f(y)\,dy = \frac{1}{\sqrt{4\pi t}}\int_{-\infty}^\infty e^{-(x-y)^2/(4t)}f(y)\,dy
+\end{equation}
+where $G(x,t) = (4\pi t)^{-1/2}e^{-x^2/(4t)}$ is the heat kernel. For localized initial data with total "mass" $M = \int f(x)dx$, the long-time behavior is
+\begin{equation}
+u_0(x,t) \sim \frac{M}{\sqrt{4\pi t}}e^{-x^2/(4t)}, \quad t \gg 1
+\end{equation}
+
+\textbf{Step 2: First-order correction and secular terms.}
+
+At first order in $\epsilon$, the equation is
+\begin{equation}
+\frac{\partial u_1}{\partial t} = \frac{\partial^2 u_1}{\partial x^2} + u_0^2
+\end{equation}
+The forcing term $u_0^2$ acts as a source. Since $u_0 \to 0$ as $t \to \infty$, we might expect $u_1$ to remain bounded. However, this is wrong. The integral
+\begin{equation}
+u_1(x,t) = \int_0^t d\tau \int_{-\infty}^\infty dy\, G(x-y,t-\tau)u_0(y,\tau)^2
+\end{equation}
+accumulates contributions from all earlier times $\tau < t$. Even though $u_0(\tau)^2$ decays for each fixed $\tau$, the time integral causes secular growth.
+
+To see this explicitly, substitute the asymptotic form of $u_0$ for large times:
+\begin{equation}
+u_1(x,t) \sim \int_0^t d\tau \frac{M^2}{4\pi\tau}e^{-x^2/(2\tau)} = \frac{M^2}{4\pi}\int_0^t \frac{d\tau}{\tau}e^{-x^2/(2\tau)}
+\end{equation}
+Changing variables to $s = x^2/(2\tau)$ gives
+\begin{equation}
+u_1(x,t) \sim \frac{M^2}{4\pi}\int_{x^2/(2t)}^\infty \frac{ds}{s}e^{-s} \sim \frac{M^2}{4\pi}\log\left(\frac{2t}{x^2}\right), \quad t \gg x^2
+\end{equation}
+This logarithmic growth is a \textbf{secular term}. The first-order correction grows as $\log t$, violating the assumption that $\epsilon u_1 \ll u_0 \sim t^{-1/2}$ for $t \gtrsim 1/\epsilon^2$.
+
+\textbf{Step 3: Origin of the secular term.}
+
+The secular growth arises because $u_0^2$ sources the diffusion equation with a term that integrates over time. Physically, the nonlinear term continuously adds heat to the system. Even though the rate decreases as $u_0$ decays, the integrated effect accumulates logarithmically.
+
+From the RG perspective, the problem is that we assumed fixed parameters in $u_0$. The correct approach is to let the "mass" $M$ run with time to absorb the accumulated effect of the nonlinearity.
+
+\textbf{Step 4: RG improvement.}
+
+Define a running mass $M(t)$ and write
+\begin{equation}
+u(x,t) = \frac{M(t)}{\sqrt{4\pi t}}e^{-x^2/(4t)} + O(\epsilon^2)
+\end{equation}
+Substituting into the full nonlinear equation~\eqref{eq:nonlinear_heat} and demanding that secular terms cancel at each order gives
+\begin{equation}
+\frac{dM}{dt} = \epsilon\int_{-\infty}^\infty u^2\,dx \approx \frac{\epsilon M^2}{4\pi t}
+\end{equation}
+Solving this RG equation:
+\begin{equation}
+M(t) = \frac{M(0)}{1 - \epsilon M(0)\log(t)/(4\pi)}
+\end{equation}
+
+The renormalized solution is
+\begin{equation}
+u_{\text{RG}}(x,t) = \frac{M(0)}{\sqrt{4\pi t}(1 - \epsilon M(0)\log t/(4\pi))}e^{-x^2/(4t)}
+\end{equation}
+This is uniformly valid for all $t$. The naive perturbative result corresponds to expanding the denominator, which reproduces $M(0) + \epsilon M(0)^2\log(t)/(4\pi)$, but the RG result correctly resums these logarithms.
+
+\textbf{Step 5: Physical interpretation and comparison.}
+
+The running mass $M(t)$ increases logarithmically due to the positive nonlinear term $+\epsilon u^2$. This represents a feedback where heat diffusion is enhanced by the nonlinearity. For $\epsilon < 0$ (a negative nonlinearity), $M(t)$ would decrease, potentially leading to finite-time blowup if $1 - \epsilon M(0)\log t/(4\pi) \to 0$.
+
+Numerical solution of equation~\eqref{eq:nonlinear_heat} confirms that $u_{\text{RG}}$ captures the long-time behavior correctly. The naive perturbative result fails for $t \gg \exp(4\pi/|\epsilon M(0)|)$, while the RG result remains accurate.
+
+\textbf{Key Insight:} This example demonstrates the core RG mechanism for PDEs. Secular terms signal that fixed parameters are incorrect. Running parameters absorb the secular growth. The RG equations determine how parameters evolve to maintain consistency. This is exactly the same structure as in QFT renormalization, but here in a completely classical setting with no quantum mechanics or field operators involved.
+\end{workedbox}
+
+\begin{workedbox}[Box 5.Y: Burgers Equation and Shock Formation]
+\textbf{Goal:} Demonstrate RG methods for PDEs with more complex nonlinear structure. Burgers equation exhibits shock formation, and RG provides systematic description of the shock layer structure.
+
+\textbf{Setup:} The Burgers equation is
+\begin{equation}
+\frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} = \nu\frac{\partial^2 u}{\partial x^2}
+\label{eq:burgers}
+\end{equation}
+This models nonlinear wave propagation with diffusion. The nonlinear term $u\partial_x u$ causes wavefront steepening. The diffusion $\nu\partial_x^2 u$ opposes steepening. For small viscosity $\nu \ll 1$, shocks (discontinuities in $u$) can form.
+
+\textbf{Step 1: Inviscid limit and shock formation.}
+
+For $\nu = 0$, Burgers equation reduces to the inviscid Burgers equation $\partial_t u + u\partial_x u = 0$. This is solved by the method of characteristics. Characteristics are straight lines in the $(x,t)$ plane along which $u$ is constant. The slope of a characteristic starting at $(x_0,0)$ is $dx/dt = u(x_0,0)$.
+
+If the initial profile $u(x,0)$ decreases anywhere (i.e., $\partial_x u(x,0) < 0$), characteristics with different speeds will intersect. At the intersection point, $u$ becomes multivalued, signaling shock formation. The shock time is
+\begin{equation}
+t_{\text{shock}} \sim \frac{1}{\max|\partial_x u(x,0)|}
+\end{equation}
+
+\textbf{Step 2: Regularization by diffusion.}
+
+For $\nu > 0$, diffusion smooths the shock. Instead of a true discontinuity, we get a sharp transition layer of width $\delta \sim \sqrt{\nu t}$. Within this layer, $\partial_x u \sim U/\delta$ where $U$ is the jump in $u$ across the shock. Balancing the nonlinear and diffusion terms in equation~\eqref{eq:burgers}:
+\begin{equation}
+U\frac{U}{\delta} \sim \nu\frac{U}{\delta^2} \quad \Rightarrow \quad \delta \sim \frac{\nu}{U}
+\end{equation}
+This is the shock layer width.
+
+\textbf{Step 3: Perturbative treatment for small viscosity.}
+
+For $\nu \ll 1$, we seek a perturbative solution. The natural approach is to expand $u = u_0 + \nu u_1 + \nu^2 u_2 + \cdots$ where $u_0$ solves the inviscid equation. However, this fails near the shock. The derivative $\partial_x u_0$ becomes infinite at the shock, making $\nu\partial_x^2 u_0$ singular. The perturbative expansion breaks down in the shock layer.
+
+The resolution is matched asymptotic expansions: construct an "outer" solution away from the shock valid for $\nu \to 0$, and an "inner" solution within the shock layer where diffusion is important. The RG provides a systematic way to implement this matching.
+
+\textbf{Step 4: RG analysis of the shock layer.}
+
+Define a shock position $x_s(t)$ and width $\delta(t)$. Write
+\begin{equation}
+u(x,t) = u_L + \frac{u_R - u_L}{2}\left[1 + \tanh\left(\frac{x - x_s(t)}{\delta(t)}\right)\right]
+\end{equation}
+where $u_L, u_R$ are the values to the left and right of the shock. This ansatz interpolates smoothly from $u_L$ to $u_R$ over a width $\delta$.
+
+Substituting into Burgers equation~\eqref{eq:burgers} and matching coefficients gives RG equations for $x_s(t)$ and $\delta(t)$:
+\begin{align}
+\frac{dx_s}{dt} &= \frac{u_L + u_R}{2} \\
+\frac{d\delta}{dt} &= \frac{\nu}{\delta} - \frac{(u_R - u_L)\delta}{12}
+\end{align}
+The first equation says the shock propagates at the average velocity. The second equation is the RG equation for the shock width. It balances diffusive broadening ($+\nu/\delta$) against nonlinear steepening ($-(u_R - u_L)\delta/12$).
+
+At late times, $\delta$ approaches a quasi-steady state where $d\delta/dt \approx 0$:
+\begin{equation}
+\delta_{\text{steady}} \sim \sqrt{\frac{12\nu}{u_R - u_L}}
+\end{equation}
+This recovers the scaling $\delta \sim \sqrt{\nu/U}$ obtained from dimensional analysis.
+
+\textbf{Step 5: Connection to turbulence and the Kolmogorov spectrum.}
+
+Burgers equation is intimately connected to the theory of turbulence. Kolmogorov's theory of turbulence postulates that energy cascades from large scales to small scales where it is dissipated by viscosity. Burgers equation captures this cascade in one dimension.
+
+The power spectrum of velocity fluctuations in Burgers turbulence has been computed numerically and analytically. For small viscosity, the spectrum exhibits a power law $E(k) \sim k^{-2}$ at intermediate wavenumbers. This contrasts with the Kolmogorov $k^{-5/3}$ spectrum in three-dimensional Navier-Stokes turbulence, but the conceptual structure is similar. The RG systematically organizes the cascade from large to small scales.
+
+Polyakov developed an RG approach to Burgers turbulence in the 1990s, showing that the intermittency corrections (deviations from Kolmogorov scaling) can be computed systematically using RG methods. This work demonstrated that RG ideas, initially developed for equilibrium critical phenomena, apply to far-from-equilibrium nonlinear dynamics.
+
+\textbf{Key Insight:} Burgers equation demonstrates that RG methods handle shock formation and multi-scale structure in nonlinear PDEs. The shock layer is an example of a "boundary layer" requiring matched asymptotic expansions. The RG provides systematic machinery for constructing these expansions and ensuring their consistency. The same methods apply to more complex fluid mechanics problems including Navier-Stokes turbulence, boundary layers in aerodynamics, and nonlinear wave propagation.
+\end{workedbox}
+
+\subsection{The $\epsilon$-Expansion for Anomalous Dimensions in PDEs}
+
+The porous medium equation with water retention (Chapter~\ref{ch:rg_geometry}, Box~2.4) provides a paradigmatic example of systematic computation of anomalous dimensions using $\epsilon$-expansion. The method directly parallels the $d = 4 - \epsilon$ expansion in $\phi^4$ theory.
+
+\textbf{Recap of the Problem:} The modified Boussinesq equation for groundwater spreading is
+\begin{equation}
+\frac{\partial p}{\partial t} = \begin{cases}
+\kappa \nabla \cdot (p\nabla p), & \partial p/\partial t \geq 0 \\
+\kappa_1 \nabla \cdot (p\nabla p), & \partial p/\partial t < 0
+\end{cases}
+\end{equation}
+where $\kappa_1 > \kappa$ due to capillary retention. Define $\epsilon = \kappa_1/\kappa - 1 > 0$.
+
+\textbf{The Zeroth-Order Solution ($\epsilon = 0$):} Complete similarity gives
+\begin{equation}
+p_0(r,t) = \frac{Q^{1/2}}{\kappa^{1/2}t^{1/2}}\Phi_0\left(\frac{r}{(Q\kappa t)^{1/4}}\right), \quad r_f(t) = A_0(Q\kappa t)^{1/4}
+\end{equation}
+where $A_0$ and $\Phi_0$ are determined by solving an ODE. This gives the exponent $\beta_0 = 1/4$.
+
+\textbf{First-Order Correction ($\epsilon^1$):} Assume
+\begin{equation}
+\beta = \beta_0 + \epsilon\beta_1 + \epsilon^2\beta_2 + \cdots = \frac{1}{4} + \epsilon\beta_1 + O(\epsilon^2)
+\end{equation}
+Expanding the self-similar profile as $\Phi = \Phi_0 + \epsilon\Phi_1 + \cdots$ and substituting into the modified equation gives a linear ODE for $\Phi_1$. The solvability condition (requiring $\Phi_1$ to vanish at the boundary with correct asymptotics) determines $\beta_1$.
+
+Chen and Goldenfeld computed this explicitly using RG methods, finding
+\begin{equation}
+\beta_1 = 0, \quad \beta_2 = -\frac{1}{16}
+\end{equation}
+so that
+\begin{equation}
+\beta(\epsilon) = \frac{1}{4} - \frac{\epsilon^2}{16} + O(\epsilon^3)
+\end{equation}
+This agrees with numerical integration and rigorous asymptotic analysis.
+
+\textbf{Systematic Procedure:} The $\epsilon$-expansion follows a standard recipe:
+\begin{enumerate}
+\item Identify the zeroth-order solution (complete similarity, no anomalous dimension)
+\item Expand exponents and profiles in powers of $\epsilon$
+\item Substitute into the PDE and collect terms at each order in $\epsilon$
+\item Solve the resulting hierarchy of linear problems
+\item Impose solvability conditions that fix the corrections to anomalous dimensions
+\end{enumerate}
+
+This procedure is identical in structure to the loop expansion in QFT. The "loops" here are successive orders in $\epsilon$. Each order involves solving an inhomogeneous linear problem whose source comes from lower orders. Secular terms at order $n$ fix the anomalous dimension correction at order $n$.
+
+\textbf{Connection to Wilson-Fisher Fixed Point:} The $\epsilon$-expansion for critical exponents in $\phi^4$ theory uses dimensional continuation $d = 4 - \epsilon$. At $\epsilon = 0$ (four dimensions), the theory is at the Gaussian fixed point with no anomalous dimensions. For $\epsilon > 0$, the Wilson-Fisher fixed point appears with anomalous dimensions $\eta(\epsilon), \nu(\epsilon)$ computed order by order in $\epsilon$.
+
+The porous medium $\epsilon$-expansion is completely analogous. At $\epsilon = 0$ ($\kappa_1 = \kappa$), we have complete similarity with $\beta = 1/4$ exactly. For $\epsilon > 0$, incomplete similarity appears with anomalous dimension $\beta(\epsilon)$ that must be computed perturbatively. The mathematics is identical; only the physics differs.
+
+%-------------------------------------------------------------------------------
 \section{Three Canonical Examples}
 \label{sec:pert_examples}
 %-------------------------------------------------------------------------------
