@@ -203,6 +203,194 @@ e^{-2S_{\text{monopole}}} = e^{-1/(\beta_0 g^2)}
 
 This is \emph{exactly} the form of the leading IR renormalon, demonstrating that resurgence and semiclassical analysis are two sides of the same coin.
 
+\subsection{Instantons in $\phi^4$ Theory: Explicit Transseries}
+
+\marginnote{The $\phi^4$ instanton provides a concrete example where the transseries structure can be computed explicitly. This connects to the third example in our triad from Chapter~\ref{ch:rg_geometry}.}
+
+The $\phi^4$ field theory---the third example in our triad---admits instanton solutions that illustrate the transseries structure concretely. Consider the $D$-dimensional action:
+\begin{equation}
+S[\phi] = \int d^D x \left[\frac{1}{2}(\nabla\phi)^2 + \frac{1}{2}\phi^2 + \frac{g}{4}\phi^4\right]
+\end{equation}
+
+\textbf{The instanton equation:} The classical equation of motion admits a radially symmetric instanton solution $\phi_{\text{cl}}(\vec{x}) = \sqrt{-1/g}\,\xi_{\text{cl}}(r)$ where $r = |\vec{x}|$ and $\xi_{\text{cl}}$ satisfies:
+\begin{equation}
+\boxed{\left[-\frac{d^2}{dr^2} - \frac{D-1}{r}\frac{d}{dr} + 1 - \xi_{\text{cl}}^2(r)\right]\xi_{\text{cl}}(r) = 0}
+\label{eq:phi4_instanton_eq}
+\end{equation}
+
+This instanton exists only for $g < 0$ (tunneling through a barrier). The scaling $\phi_{\text{cl}} \propto 1/\sqrt{-g}$ means the instanton action is $S[\phi_{\text{cl}}] = -A/g$ where $A > 0$.
+
+\textbf{The transseries solution:} For large $r$, the instanton admits a \textbf{transseries expansion} in the variables $\chi = 1/r$ and $e^{-1/\chi} = e^{-r}$:
+\begin{equation}
+\xi_{\text{cl}}^{(3)}(r) = C\frac{e^{-r}}{r} - \frac{C^3 e^{-3r}}{8r^3}\left(1 - \frac{3}{2r} + \frac{21}{8r^2} + \cdots\right) + O(e^{-5r})
+\label{eq:phi4_transseries}
+\end{equation}
+where $C \approx 2.7128$ is a numerical constant determined by matching to the small-$r$ behavior.
+
+\textbf{Key structural features:}
+\begin{itemize}
+\item Only \textbf{odd-instanton orders} contribute: $e^{-r}$, $e^{-3r}$, $e^{-5r}$, \ldots
+\item Each exponential is multiplied by a \textbf{divergent asymptotic series} in $1/r$
+\item The leading term $C e^{-r}/r$ satisfies the \emph{linearized} equation exactly
+\item Higher terms arise from the nonlinearity $\xi^3$
+\end{itemize}
+
+\begin{workedbox}[Box 6.3b: The $\phi^4$ Instanton Transseries]
+\textbf{Problem:} Derive the leading terms of the 3D $\phi^4$ instanton transseries~\eqref{eq:phi4_transseries}.
+
+\tcblower
+
+\textbf{Step 1: Linearized equation.} For large $r$, neglect $\xi^3 \ll \xi$:
+\[
+\left[-\frac{d^2}{dr^2} - \frac{2}{r}\frac{d}{dr} + 1\right]\xi = 0
+\]
+The substitution $\xi = g(r)/r$ gives $g'' - g = 0$, so $g = Ce^{-r}$ (regular at $\infty$).
+
+\textbf{Step 2: Leading term.} $\boxed{\xi_{\text{cl}}^{(1)}(r) = C\frac{e^{-r}}{r}}$ solves the linearized equation exactly.
+
+\textbf{Step 3: First correction.} Substitute the ansatz $\xi = Ce^{-r}/r + \text{(correction)}$ into the full equation. The $\xi^3$ term generates:
+\[
+\left(\frac{Ce^{-r}}{r}\right)^3 = \frac{C^3 e^{-3r}}{r^3}
+\]
+
+\textbf{Step 4: Three-instanton sector.} The correction satisfies:
+\[
+\left[-\frac{d^2}{dr^2} - \frac{2}{r}\frac{d}{dr} + 1\right]\xi^{(3)} = \frac{C^3 e^{-3r}}{r^3}
+\]
+Solving with the ansatz $\xi^{(3)} = e^{-3r}\sum_n b_n/r^{n+3}$ and matching coefficients:
+\[
+\boxed{\xi^{(3)} = -\frac{C^3 e^{-3r}}{8r^3}\left(1 - \frac{3}{2r} + \frac{21}{8r^2} + \cdots\right)}
+\]
+
+\textbf{Numerical values:} $C = 2.7128\ldots$, instanton action $A = 18.897\ldots$ (in $D = 3$).
+\end{workedbox}
+
+\textbf{Connection to large-order behavior:} The instanton action $A$ governs the factorial growth of perturbative coefficients. For the $K$th-order coefficient $G_K$ of an $n$-point function:
+\begin{equation}
+G_K \sim \frac{\text{const}}{A^K}\,\Gamma\left(K + \frac{n + N + D - 1}{2}\right)\left[1 + O(1/K)\right]
+\end{equation}
+where $N$ is the number of field components (for $O(N)$ symmetry). This formula, derived via dispersion relations, connects the \emph{analytic} structure of the instanton to the \emph{asymptotic} behavior of perturbation theory.
+
+\subsection{Virial Theorems and Instanton Constraints}
+
+\marginnote{Virial theorems provide powerful constraints on instanton calculations, relating different integrals of the instanton profile.}
+
+The instanton action and related integrals are constrained by \textbf{virial theorems}---identities derived from scale invariance of the action. These provide both computational shortcuts and consistency checks.
+
+\textbf{Derivation:} Consider the action $S[\phi]$ evaluated on the instanton $\phi_{\text{cl}}$. Under the rescaling $\phi(\vec{x}) \to \phi_{\text{cl}}(\lambda\vec{x})$, the action becomes $S[\phi_{\text{cl}}, \lambda]$. Since $\phi_{\text{cl}}$ is a critical point, the derivative with respect to $\lambda$ must vanish at $\lambda = 1$:
+\begin{equation}
+\left.\frac{d}{d\lambda}S[\phi_{\text{cl}}, \lambda]\right|_{\lambda=1} = 0
+\end{equation}
+
+For the $\phi^4$ action~\eqref{eq:phi4_instanton_eq}, this yields three equivalent expressions for the instanton action $A$:
+\begin{equation}
+\boxed{A = \frac{1}{D}\int d^D x\,(\nabla\xi_{\text{cl}})^2 = \frac{1}{4}\int d^D x\,\xi_{\text{cl}}^4 = \frac{1}{4-D}\int d^D x\,\xi_{\text{cl}}^2}
+\label{eq:virial_relations}
+\end{equation}
+
+\textbf{Consequences:}
+\begin{itemize}
+\item $A > 0$ always (since the kinetic term is positive definite)
+\item The relations are valid only for $D < 4$ (the denominator $4 - D$ signals $D = 4$ is special)
+\item The second derivative $d^2S/d\lambda^2|_{\lambda=1} = (2-D)\int(\nabla\phi_{\text{cl}})^2 < 0$ for $D \geq 2$, proving the instanton is a \textbf{saddle point}, not a minimum
+\end{itemize}
+
+\begin{workedbox}[Box 6.3c: Virial Theorem for Instantons]
+\textbf{Problem:} Derive the virial relation $A = \frac{1}{D}\int(\nabla\xi)^2$ from scale invariance.
+
+\tcblower
+
+\textbf{Step 1: Rescaled action.} Under $\vec{x} \to \vec{x}/\lambda$, the action becomes:
+\[
+S[\phi_{\text{cl}}, \lambda] = \lambda^{2-D}\int d^D x\,\frac{1}{2}(\nabla\phi_{\text{cl}})^2 + \lambda^{-D}\int d^D x\,V(\phi_{\text{cl}})
+\]
+
+\textbf{Step 2: Stationarity condition.} Setting $dS/d\lambda|_{\lambda=1} = 0$:
+\[
+(2-D)\int\frac{1}{2}(\nabla\phi_{\text{cl}})^2\,d^D x - D\int V(\phi_{\text{cl}})\,d^D x = 0
+\]
+
+\textbf{Step 3: Solve for kinetic term.}
+\[
+\int(\nabla\phi_{\text{cl}})^2\,d^D x = \frac{2D}{D-2}\int V(\phi_{\text{cl}})\,d^D x
+\]
+
+\textbf{Step 4: Express action.} Using $S = \frac{1}{2}\int(\nabla\phi)^2 + \int V$:
+\[
+\boxed{S[\phi_{\text{cl}}] = \frac{1}{D}\int(\nabla\phi_{\text{cl}})^2\,d^D x = -\frac{A}{g}}
+\]
+\end{workedbox}
+
+\textbf{Numerical values:} Using the virial theorems and high-precision calculations:
+\begin{align}
+A(D=1) &= \frac{4}{3} \quad \text{(exact)} \\
+A(D=2) &= 5.850\,448\,262\ldots \\
+A(D=3) &= 18.897\,251\,302\ldots
+\end{align}
+These values enter the large-order formulas for perturbative coefficients.
+
+\subsection{The Sextic Oscillator: A Special Case}
+
+\marginnote{The sextic oscillator ($N = 6$) has exceptional properties: missing $1/K$ corrections and an instanton action proportional to $1/\sqrt{g}$.}
+
+Among anharmonic oscillators, the \textbf{sextic oscillator} ($N = 6$) occupies a special position with surprising structural properties.
+
+\textbf{The Hamiltonian:}
+\begin{equation}
+H_6(g) = -\frac{1}{2}\frac{\partial^2}{\partial q^2} + \frac{1}{2}q^2 + gq^6
+\end{equation}
+
+\textbf{Perturbative function:} The $B$-function for the sextic potential is:
+\begin{equation}
+B_6(E, g) = E - g\left(\frac{25}{8}E + \frac{5}{2}E^3\right) + g^2\left(\frac{21777}{256}E + \frac{5145}{32}E^3 + \frac{693}{16}E^5\right) + O(g^3)
+\end{equation}
+giving the perturbation series for the ground state:
+\begin{equation}
+E_0^{(6)}(g) = \frac{1}{2} + \frac{15}{8}g - \frac{3495}{64}g^2 + \frac{1239675}{256}g^3 + O(g^4)
+\end{equation}
+
+\textbf{Instanton function:} The remarkable feature is the structure of $A_6(E, g)$:
+\begin{equation}
+A_6(E, g) = \frac{\pi}{2^{5/2}(-g)^{1/2}} - g\left(\frac{221}{24}E + \frac{17}{3}E^3\right) + O(g^2)
+\label{eq:sextic_A}
+\end{equation}
+
+\textbf{The special property:} Notice that terms of order $g^{1/2}$ and $g^{3/2}$ are \textbf{absent} in Eq.~\eqref{eq:sextic_A}. This is exceptional---for the quartic ($N = 4$), quintic ($M = 5$), septic ($M = 7$), and octic ($N = 8$) oscillators, fractional powers of $g$ appear in the instanton function.
+
+\textbf{Consequence for large-order behavior:} The missing $g^{1/2}$ term translates into a \textbf{missing $1/K$ correction} in the large-order asymptotics:
+\begin{equation}
+\boxed{E_{0,K}^{(6)} = (-1)^{K+1}\frac{2^{5K+5/2}}{\pi^{2K+2}}\,\Gamma\left(2K + \frac{1}{2}\right)\left[1 - \frac{165\pi^2}{2048K^2} + O\left(\frac{1}{K^3}\right)\right]}
+\label{eq:sextic_largeorder}
+\end{equation}
+
+The correction starts at $1/K^2$, not $1/K$! This makes the leading asymptotic formula~\eqref{eq:sextic_largeorder} unusually accurate even at moderate $K$.
+
+\textbf{Decay width:} For negative coupling $g < 0$, the ground-state decay width is:
+\begin{equation}
+\text{Im}\,E_0^{(6)}(g < 0) = -\frac{1}{\sqrt{\pi}}\left(-\frac{2}{g}\right)^{1/4}\exp\left(-\frac{\pi}{2^{5/2}(-g)^{1/2}}\right)\left[1 + \frac{165}{16}g + O(g^2)\right]
+\end{equation}
+
+\textbf{Physical interpretation:} The sextic potential is ``marginal'' in a sense: it sits at the boundary between the quartic (where corrections are $\propto g$) and the octic (where corrections involve $g^{1/3}$). The special structure arises from a cancellation in the WKB expansion that eliminates certain intermediate terms.
+
+\begin{workedbox}[Box 6.3d: Why the Sextic Is Special]
+\textbf{Problem:} Explain why the sextic oscillator lacks $1/K$ corrections to the large-order asymptotics.
+
+\tcblower
+
+\textbf{Step 1: Connection between $A$ and large-order.} The instanton function $A_N(E, g)$ determines corrections to the decay width. A term $\propto g^\alpha$ in $A_N$ generates a correction $\propto 1/K^{2\alpha/(N-2)}$ in the large-order coefficients.
+
+\textbf{Step 2: For $N = 6$.} The general structure would have $A_6 = \frac{\pi}{2^{5/2}\sqrt{-g}} + c_1(-g)^{1/2} + c_2 g + \cdots$
+
+A correction at order $(-g)^{1/2}$ would give $1/K^{2 \cdot (1/2)/(6-2)} = 1/K^{1/4}$.
+A correction at order $g^1$ would give $1/K^{2 \cdot 1/4} = 1/K^{1/2}$.
+
+\textbf{Step 3: The surprise.} Explicit calculation shows $c_1 = 0$ (and the next fractional power $c_{3/2} = 0$ as well). The first nontrivial correction is at order $g$, which gives $1/K^{1/2}$ in the prefactor.
+
+\textbf{Step 4: Result.} In the \emph{exponent} of the large-order formula, this translates to missing $1/K$ corrections. The leading correction is $1/K^2$.
+
+\textbf{Conclusion:} The sextic oscillator has an ``accidental'' cancellation that eliminates an entire class of corrections, making it the most well-behaved of the higher anharmonic oscillators.
+\end{workedbox}
+
 %-------------------------------------------------------------------------------
 \section{Stokes Phenomena}
 \label{sec:stokes}
@@ -322,6 +510,141 @@ The transseries parameter $\sigma$ is not fixed by the perturbative series. It e
 
 \textbf{Key insight:} The perturbative series alone cannot determine $\sigma$. Non-perturbative input is required.
 
+\subsection{Logarithmic Corrections and Generalized Transseries}
+
+\marginnote{The basic transseries definition omits logarithmic factors. These become essential when singularities coincide or operators are marginal.}
+
+The transseries definition above is the \emph{simplest} case. In many physical situations, the complete answer requires \textbf{logarithmic corrections}:
+\begin{equation}
+\tilde{f}(\epsilon, \sigma) = \sum_{k=0}^\infty \sum_{p=0}^{p_{\max}(k)} \sigma^k e^{-kS/\epsilon} (\log\epsilon)^p \hat{f}^{(k,p)}(\epsilon)
+\label{eq:log_transseries}
+\end{equation}
+
+\textbf{When do logarithms appear?}
+\begin{itemize}
+\item \textbf{Resonances:} When instanton actions are commensurate ($S_1 = 2S_2$), singularities ``collide'' in the Borel plane, producing logarithms.
+\item \textbf{Marginal operators:} In $d = 4$ QFT, marginal couplings run logarithmically, generating $\log\mu$ factors.
+\item \textbf{Modified Bohr-Sommerfeld:} Quantum mechanical tunneling problems with specific symmetries require log corrections for consistency.
+\end{itemize}
+
+\textbf{Example: Double-well with logarithms.} For the symmetric double-well potential, the ground-state energy splitting has the structure:
+\begin{equation}
+\Delta E = \frac{\omega}{\sqrt{\pi}}\left(\frac{2S}{\hbar}\right)^{1/2} e^{-S/\hbar}\left[1 + a_1\hbar + a_2\hbar^2 + \cdots + b_1\hbar\log\hbar + \cdots\right]
+\end{equation}
+The logarithmic term $\hbar\log\hbar$ arises from the coincidence of one-instanton and instanton--anti-instanton contributions at certain orders.
+
+\textbf{Physical interpretation:} Logarithms signal that the naive organization of the transseries (by powers of $e^{-S/\epsilon}$) is incomplete. The full answer requires a \textbf{two-parameter} transseries in both $e^{-S/\epsilon}$ and $\log\epsilon$, with mixing between these structures at resonant orders.
+
+\subsection{The Complete Triple-Expansion Structure}
+
+\marginnote{The most general transseries involves a \textbf{triple sum}: over instanton number $J$, logarithmic powers $L$, and perturbative order $K$.}
+
+The logarithmic corrections~\eqref{eq:log_transseries} are the first glimpse of a more complete structure. The \textbf{general transseries} for resonance energies takes the form of a \emph{triple expansion}:
+\begin{equation}
+\boxed{E(g) = \sum_{J=0}^\infty \left[\sigma\, e^{-S/g}\right]^J \sum_{L=0}^{L_{\max}(J)} \left[\ln\left(\frac{-c}{g}\right)\right]^L \sum_{K=0}^\infty \Xi_{J,L,K}\, g^K}
+\label{eq:triple_expansion}
+\end{equation}
+where:
+\begin{itemize}
+\item $J$ counts the \textbf{instanton number} (how many times the instanton factor appears)
+\item $L$ counts the \textbf{logarithmic power} (with $L_{\max} = \max(0, J-1)$)
+\item $K$ is the \textbf{perturbative order} within each sector
+\item $\Xi_{J,L,K}$ are the numerical coefficients
+\item $c$ is a constant related to $C(m)$ and the instanton action
+\end{itemize}
+
+\textbf{Structure of the triple sum:}
+\begin{itemize}
+\item \textbf{$J = 0$:} The perturbative sector. Only $L = 0$ contributes, recovering the ordinary power series $\sum_K E_K g^K$.
+\item \textbf{$J = 1$:} One-instanton sector. Still $L = 0$ only (no logarithms yet). Gives the leading imaginary part of resonances.
+\item \textbf{$J = 2$:} Two-instanton sector. Now $L = 0, 1$ both contribute---logarithms \emph{first appear} at the two-instanton level.
+\item \textbf{$J \geq 3$:} Higher multi-instanton sectors with $L$ up to $J - 1$.
+\end{itemize}
+
+\textbf{Example: Quartic oscillator ground state.} The triple expansion for the ground state of $H_4(g) = -\frac{1}{2}\partial_q^2 + \frac{1}{2}q^2 + gq^4$ at negative coupling $g < 0$ reads:
+\begin{align}
+E_0^{(4)}(g < 0) &= \underbrace{\left\{\frac{1}{2} + O(g)\right\}}_{J=0\text{ (perturbative)}} \nonumber \\
+&\quad - i\sqrt{\frac{-2}{\pi g}}\,e^{1/(3g)}\underbrace{[1 + O(g)]}_{J=1} \nonumber \\
+&\quad + \frac{2}{\pi g}\,e^{2/(3g)}\underbrace{\left[\ln\left(\frac{4}{g}\right) + \gamma_E\right]\{1 + O(g\ln g)\}}_{J=2,\ L=0,1} \nonumber \\
+&\quad + i\left(\frac{-2}{\pi g}\right)^{3/2}e^{1/g}\underbrace{\left[\frac{3}{2}\left(\ln\frac{4}{g} + \gamma_E\right)^2 + \frac{\zeta(2)}{2}\right]\{1 + O(g\ln g)\}}_{J=3}
+\label{eq:quartic_triple}
+\end{align}
+where $\gamma_E$ is Euler's constant and $\zeta(2) = \pi^2/6$.
+
+\textbf{Key observations:}
+\begin{itemize}
+\item Odd $J$ ($J = 1, 3, 5, \ldots$) contribute to the \textbf{imaginary part}
+\item Even $J$ ($J = 0, 2, 4, \ldots$) contribute to the \textbf{real part}
+\item The $J = 2$ term is a \emph{non-perturbative correction to the real energy}, present only for $g < 0$
+\item Logarithms and their powers encode mixing between exponential orders
+\end{itemize}
+
+\subsection{Unified Quantization Conditions}
+
+\marginnote{Remarkably, the entire transseries structure is encoded in a single \textbf{quantization condition} relating the perturbative function $B$ and the instanton function $A$.}
+
+The triple expansion~\eqref{eq:triple_expansion} looks complex, but it is completely determined by a compact \textbf{unified quantization condition}. This condition relates the perturbative and non-perturbative structures through a single equation.
+
+\textbf{For even oscillators} $H_N(g) = -\frac{1}{2}\partial_q^2 + \frac{1}{2}q^2 + gq^N$ at negative coupling ($g < 0$, where instantons exist):
+\begin{equation}
+\boxed{\frac{1}{\Gamma\left(\frac{1}{2} - B_N(E, g)\right)} = \frac{1}{\sqrt{2\pi}}\left(\frac{-2C(N)}{(-g)^{2/(N-2)}}\right)^{B_N(E,g)} e^{-A_N(E,g)}}
+\label{eq:even_quantization}
+\end{equation}
+
+\textbf{For odd oscillators} $h_M(g) = -\frac{1}{2}\partial_q^2 + \frac{1}{2}q^2 + \sqrt{g}\,q^M$ at positive coupling ($g > 0$, where instantons exist):
+\begin{equation}
+\boxed{\frac{1}{\Gamma\left(\frac{1}{2} - B_M(E, g)\right)} = \frac{1}{\sqrt{8\pi}}\left(\frac{-2C(M)}{g^{1/(M-2)}}\right)^{B_M(E,g)} e^{-A_M(E,g)}}
+\label{eq:odd_quantization}
+\end{equation}
+
+Here:
+\begin{itemize}
+\item $B_m(E, g)$ is the \textbf{perturbative function}---a power series in $g$ with $B_m = E + O(g)$
+\item $A_m(E, g)$ is the \textbf{instanton function}---contains the classical action plus fluctuation corrections
+\item $C(m) = 2^{2/(m-2)}$ is a universal constant
+\end{itemize}
+
+\textbf{Stable configurations} (no instantons): When $g > 0$ for even $N$, or $g < 0$ for odd $M$ (the PT-symmetric case), the quantization condition simplifies to:
+\begin{equation}
+\frac{1}{\Gamma\left(\frac{1}{2} - B_m(E, g)\right)} = 0 \quad \Longleftrightarrow \quad B_m(E, g) = n + \frac{1}{2}
+\label{eq:stable_quantization}
+\end{equation}
+which is the standard Bohr-Sommerfeld condition yielding discrete real energy levels.
+
+\textbf{How to derive the transseries:} The unified quantization conditions~\eqref{eq:even_quantization}--\eqref{eq:odd_quantization} encode the complete triple expansion. The procedure is:
+\begin{enumerate}
+\item Substitute $E = n + \frac{1}{2} + i\,\text{Im}\,E$ where $\text{Im}\,E$ is exponentially small
+\item Expand the $\Gamma$ function about its pole at $B = n + \frac{1}{2}$
+\item Match powers of $e^{-A/g}$ and $\ln g$ order by order
+\item The coefficients $\Xi_{J,L,K}$ are uniquely determined
+\end{enumerate}
+
+\begin{workedbox}[Box 6.4b: Deriving Decay Widths from Quantization Conditions]
+\textbf{Problem:} Use the unified quantization condition to derive the leading decay width for the ground state of an even anharmonic oscillator.
+
+\tcblower
+
+\textbf{Step 1: Expand about the perturbative pole.} Near $B_N(E, g) = \frac{1}{2}$, write $E = \frac{1}{2} + \eta$ where $\eta$ is exponentially small. Then:
+\[
+\frac{1}{\Gamma(1/2 - B_N)} \approx \frac{1}{\Gamma(-\eta)} \approx -\eta\,(-1)^0 \cdot 0! = -\eta
+\]
+
+\textbf{Step 2: Match to the RHS.} The right-hand side of~\eqref{eq:even_quantization} gives:
+\[
+\eta = -\frac{1}{\sqrt{2\pi}}\left(\frac{2C(N)}{(-g)^{2/(N-2)}}\right)^{1/2} e^{-A(N)/(-g)^{2/(N-2)}}
+\]
+
+\textbf{Step 3: Extract imaginary part.} The prefactor is real positive, but $A_N$ is real positive for $g < 0$, so:
+\[
+\boxed{\text{Im}\,E_0^{(N)}(g < 0) = -\frac{1}{\sqrt{2\pi}}\left(\frac{2C(N)}{(-g)^{2/(N-2)}}\right)^{1/2} e^{-A(N)/(-g)^{2/(N-2)}}}
+\]
+
+\textbf{Step 4: Generalize to excited states.} For the $n$th level, expand about the $n$th pole of $\Gamma$:
+\[
+\text{Im}\,E_n^{(N)}(g < 0) = -\frac{1}{n!\sqrt{2\pi}}\left(\frac{2C(N)}{(-g)^{2/(N-2)}}\right)^{n+1/2} e^{-A(N)/(-g)^{2/(N-2)}}
+\]
+\end{workedbox}
+
 %-------------------------------------------------------------------------------
 \section{Worked Example: The Damped Anharmonic Oscillator}
 \label{sec:damped_anharmonic}
@@ -389,6 +712,56 @@ A^{(0)}_n \sim \frac{S_1}{2\pi i} \frac{\Gamma(n)}{\zeta_1^n} A^{(1)}_0 + \cdots
 
 The Borel singularity pattern $\zeta_n = n \cdot (\omega_0/\gamma)$ parallels the IR renormalon structure in QFT, where $\zeta_n = n/\beta_0$. Both arise from the \textbf{nonlinear structure of RG equations}---the oscillator provides a completely classical example of ``renormalon-like'' singularities.
 
+\subsection{Parallel: Resurgence Pipeline for $\phi^4$ Theory}
+
+\marginnote{The resurgence structure of $\phi^4$ theory mirrors that of the oscillator, demonstrating the universality of the framework across the triad.}
+
+To reinforce the universality of the resurgence framework, we now apply the same pipeline to $\phi^4$ theory---the third example in our triad:
+
+\begin{tcolorbox}[colback=blue!5, colframe=blue!50!black, title=\textbf{Resurgence Pipeline for $\phi^4$ Theory}]
+\textbf{Step 1: Perturbation Theory.} Expand correlation functions in powers of the coupling $g$:
+\begin{equation}
+G^{(n)}(p; g) = \sum_{K=0}^\infty G^{(n)}_K(p)\, g^K
+\end{equation}
+The coefficients $G^{(n)}_K$ grow factorially: $G^{(n)}_K \sim K!\, A^{-K}$.
+
+\textbf{Step 2: Borel Transform.} The Borel transform $\hat{G}^{(n)}(\zeta)$ has singularities at:
+\begin{equation}
+\zeta_k = k \cdot A, \quad k = 1, 2, 3, \ldots
+\end{equation}
+where $A$ is the instanton action. In $D = 3$: $A \approx 18.897$.
+
+\textbf{Step 3: Physical Interpretation.} The singularities correspond to $k$-instanton configurations. The instanton $\xi_{\text{cl}}(r)$ describes tunneling between degenerate vacua of the inverted potential.
+
+\textbf{Step 4: Transseries.} The complete answer is:
+\begin{equation}
+G^{(n)}(p; g, \sigma) = \sum_{k=0}^\infty \sigma^k e^{kA/g} G^{(n,k)}(p; g)
+\end{equation}
+where $G^{(n,k)}$ is the $k$-instanton contribution (each an asymptotic series).
+
+\textbf{Step 5: Resurgent Relations.} Large-order behavior determines instanton sectors:
+\begin{equation}
+G^{(n)}_K \sim \frac{S_1}{2\pi i}\,\frac{\Gamma(K + (n+N+D-1)/2)}{A^{K + (n+N+D-1)/2}}\,G^{(n,1)}_0 + \cdots
+\end{equation}
+\end{tcolorbox}
+
+\textbf{Comparison of the triad:}
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+& \textbf{Oscillator} & \textbf{Porous Medium} & \textbf{$\phi^4$ Theory} \\
+\midrule
+Instanton action & $\omega_0/\gamma$ & $S_{\text{self-sim}}$ & $A \approx 18.9$ ($D=3$) \\
+Singularity pattern & $k \cdot \omega_0/\gamma$ & $k \cdot S$ & $k \cdot A$ \\
+Physical origin & Damping timescale & Diffusion front & Tunneling \\
+Stokes structure & Real axis & Real axis & Real axis ($g < 0$) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The identical mathematical structure across these disparate physical systems demonstrates that resurgence is a \emph{universal} phenomenon---not specific to quantum mechanics or field theory.
+
 %-------------------------------------------------------------------------------
 \section{The Resurgence Triangle}
 \label{sec:resurgence_triangle}
@@ -424,6 +797,110 @@ Starting from the perturbative sector $\hat{f}^{(0)}$, we can \emph{systematical
 \textbf{Step 2:} Large-order behavior of $a_n^{(1)}$ determines $\hat{f}^{(2)}$ and $\hat{f}^{(1\bar{1})}$
 
 \textbf{Step 3:} Continue recursively through the triangle
+
+\subsection{Multi-Instanton Contributions and Interactions}
+
+\marginnote{Multi-instanton configurations---and their interactions---are essential for understanding the full non-perturbative structure.}
+
+The path integral includes contributions from configurations with multiple instantons. Understanding these is crucial for:
+\begin{itemize}
+\item Computing higher non-perturbative corrections
+\item Canceling ambiguities between sectors
+\item Deriving exact quantization conditions
+\end{itemize}
+
+\textbf{The dilute instanton gas:} When instantons are well-separated, their contributions factorize. A configuration with $n$ instantons at positions $\tau_1, \ldots, \tau_n$ contributes:
+\begin{equation}
+Z_n \sim \int d\tau_1 \cdots d\tau_n\, e^{-nS/g} \times (\text{fluctuation determinants})
+\end{equation}
+
+\textbf{Instanton interactions:} When instantons approach each other, they interact. For an instanton--anti-instanton pair at separation $\tau$:
+\begin{equation}
+S_{I\bar{I}}(\tau) = 2S - V(\tau) + O(e^{-c\tau})
+\end{equation}
+where $V(\tau)$ is the interaction potential, typically attractive.
+
+\textbf{The key insight:} The $I\bar{I}$ (instanton--anti-instanton) contribution is \emph{ambiguous}---the integral over $\tau$ produces an imaginary part. This ambiguity precisely cancels the ambiguity from Borel resummation of the perturbative sector.
+
+\begin{workedbox}[Box 6.5b: Multi-Instanton Ambiguity Cancellation]
+\textbf{Problem:} Show schematically how the imaginary parts from perturbative and two-instanton sectors cancel.
+
+\tcblower
+
+\textbf{Step 1: Perturbative ambiguity.} The Borel sum has an imaginary part from the pole at $\zeta = 2S$:
+\[
+\text{Im}\,\mathcal{S}[\hat{f}^{(0)}] = \pm\frac{\pi}{2}\,\text{Res}_{\zeta=2S}\,\hat{f}^{(0)}_B(\zeta)\cdot e^{-2S/g}
+\]
+The sign depends on the lateral resummation choice ($\mathcal{S}_+$ or $\mathcal{S}_-$).
+
+\textbf{Step 2: Two-instanton contribution.} The $I\bar{I}$ integral over separation $\tau$:
+\[
+Z_{I\bar{I}} = \int_0^\infty d\tau\, e^{-2S/g + V(\tau)/g}\,(\text{prefactors})
+\]
+The integral diverges at $\tau \to 0$ and must be regularized, producing an imaginary part.
+
+\textbf{Step 3: Cancellation.} With the correct Stokes constants:
+\[
+\boxed{\text{Im}\,\mathcal{S}[\hat{f}^{(0)}] + \text{Im}\,Z_{I\bar{I}} = 0}
+\]
+
+\textbf{Conclusion:} The full transseries---including multi-instanton sectors---is \textbf{unambiguous}. The ambiguity in any single sector is an artifact of truncation.
+\end{workedbox}
+
+\textbf{Connection to Fredholm determinants:} The exact quantization condition can often be written as:
+\begin{equation}
+\det(H - E) = 0
+\end{equation}
+where the Fredholm determinant $\det(H - E)$ has a transseries expansion. The zeros of this determinant give the exact energy levels, automatically incorporating all multi-instanton corrections.
+
+\subsection{Master Comparison: Even versus Odd Oscillators}
+
+\marginnote{This table summarizes the key properties of anharmonic oscillators of arbitrary degree, providing a unified view across the stable and unstable parameter regimes.}
+
+The unified quantization conditions~\eqref{eq:even_quantization}--\eqref{eq:odd_quantization} and the multi-instanton analysis reveal a systematic structure that organizes all anharmonic oscillators. The following \textbf{master table} summarizes this structure:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{@{}p{3.2cm}p{3cm}p{3cm}p{3cm}@{}}
+\toprule
+& \textbf{Even $N$, $g > 0$} & \textbf{Even $N$, $g < 0$} & \textbf{Odd $M$, $g > 0$} \\
+& (Stable) & (Unstable) & (Unstable) \\
+\midrule
+Hamiltonian & $H_N = -\frac{1}{2}\partial_q^2 + \frac{1}{2}q^2 + gq^N$ & Same & $h_M = -\frac{1}{2}\partial_q^2 + \frac{1}{2}q^2 + \sqrt{g}\,q^M$ \\[2pt]
+\midrule
+Spectrum & Real, discrete & Complex resonances & Complex resonances \\[2pt]
+Perturbation series & Borel-Leroy summable & Not Borel summable (ordinary) & Not Borel summable (ordinary) \\[2pt]
+\midrule
+Instanton action & N/A & $\displaystyle\frac{A(N)}{(-g)^{2/(N-2)}}$ & $\displaystyle\frac{A(M)}{g^{1/(M-2)}}$ \\[10pt]
+where & & $A(m) = 2^{2/(m-2)}B\left(\frac{m}{m-2}, \frac{m}{m-2}\right)$ & \\[2pt]
+\midrule
+Quantization & $B_N(E,g) = n + \frac{1}{2}$ & Eq.~\eqref{eq:even_quantization} & Eq.~\eqref{eq:odd_quantization} \\[2pt]
+\midrule
+Large-order behavior & $\displaystyle E_K^{(N)} \sim \frac{(-1)^{K+1}(N-2)}{\pi^{3/2}n!}$ & Same formula & $\displaystyle \epsilon_K^{(M)} \sim \frac{-(M-2)}{\pi^{3/2}n!}$ \\[8pt]
+& $\times 2^{K+1-n}A^{-\frac{N-2}{2}K-n-\frac{1}{2}}$ & determines & $\times 2^{2K+1-n}A^{-(M-2)K-n-\frac{1}{2}}$ \\[4pt]
+& $\times \Gamma\left(\frac{N-2}{2}K + n + \frac{1}{2}\right)$ & imaginary part & $\times \Gamma\left((M-2)K + n + \frac{1}{2}\right)$ \\
+\midrule
+Sign pattern & Alternating $(-1)^{K+1}$ & Same & All negative \\[2pt]
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Key unifying principles:}
+\begin{itemize}
+\item The instanton action $A(m)$ has the \emph{same} functional form for all degrees $m$
+\item The dispersion relations connect stable to unstable regimes:
+\begin{align}
+E_n^{(N)}(g) &= n + \frac{1}{2} - \frac{g}{\pi}\int_{-\infty}^0 ds\,\frac{\text{Im}\,E_n^{(N)}(s + i0)}{s(s-g)} \quad (\text{even}) \\
+\epsilon_n^{(M)}(g) &= n + \frac{1}{2} + \frac{g}{\pi}\int_0^\infty ds\,\frac{\text{Im}\,\epsilon_n^{(M)}(s + i0)}{s(s-g)} \quad (\text{odd})
+\end{align}
+\item The unified quantization conditions encode the \emph{entire} transseries structure
+\end{itemize}
+
+\textbf{PT-symmetric case (odd $M$, $g < 0$):} When the coupling is negative for odd oscillators, $\sqrt{g} = \pm i|\sqrt{g}|$ is purely imaginary. The Hamiltonian becomes PT-symmetric:
+\begin{equation}
+h_M(-|g|) = -\frac{1}{2}\partial_q^2 + \frac{1}{2}q^2 \pm i\sqrt{|g|}\,q^M
+\end{equation}
+This Hamiltonian has a \textbf{real, discrete spectrum} bounded from below. The perturbation series is Borel-Leroy summable to the real eigenvalues. This PT-symmetric regime provides a ``bridge'' between resonances and anti-resonances, with the dispersion relation interpolating smoothly through real energies at $g < 0$.
 
 %-------------------------------------------------------------------------------
 \section{Alien Calculus}
@@ -683,6 +1160,59 @@ Transition between regimes & Stokes transitions \\
 
 This universality means that resurgent analysis, initially developed for quantum mechanics and QFT, applies directly to classical PDE problems with intermediate asymptotics. Conversely, Barenblatt's physical intuition about self-similar solutions and anomalous dimensions provides guidance for understanding the trans series structure of quantum field theories. The same mathematical tools work in both contexts because both involve perturbative expansions around scale-invariant limits where the expansions inevitably break down due to the singular nature of the limit.
 
+\subsection{PT-Symmetry as a Bridge Between Regimes}
+
+\marginnote{PT-symmetric Hamiltonians provide a natural interpolation between resonance and anti-resonance sectors, with real spectra emerging at the ``crossing point.''}
+
+The comparison table in Section~\ref{sec:resurgence_triangle} reveals an asymmetry between even and odd oscillators: even oscillators have stable regimes for $g > 0$, while odd oscillators would naively appear unstable for all real $g$. The resolution involves \textbf{PT-symmetry}---a profound concept that unifies the treatment of all anharmonic oscillators.
+
+\textbf{The problem with odd oscillators:} For the odd Hamiltonian $h_M(g) = -\frac{1}{2}\partial_q^2 + \frac{1}{2}q^2 + \sqrt{g}\,q^M$, the potential $V(q) = \frac{1}{2}q^2 + \sqrt{g}\,q^M$ is unbounded below for either sign of $q$ (depending on the sign of $\sqrt{g}$). This suggests there should be no bound states.
+
+\textbf{The resolution via PT-symmetry:} For \emph{negative} coupling $g = -|g| < 0$, we have $\sqrt{g} = \pm i\sqrt{|g|}$. The Hamiltonian becomes:
+\begin{equation}
+h_M(-|g|) = -\frac{1}{2}\frac{\partial^2}{\partial q^2} + \frac{1}{2}q^2 \pm i\sqrt{|g|}\,q^M
+\label{eq:pt_hamiltonian}
+\end{equation}
+This is not Hermitian, but it is \textbf{PT-symmetric}: invariant under the combined operation of parity ($\mathcal{P}: q \to -q$) and time reversal ($\mathcal{T}: i \to -i$).
+
+\textbf{Key properties of PT-symmetric oscillators:}
+\begin{itemize}
+\item The spectrum is \textbf{real and discrete}, bounded from below
+\item The perturbation series is \textbf{Borel-Leroy summable} to the real eigenvalues
+\item The eigenfunctions are normalizable with respect to a modified inner product
+\item The theory is equivalent to a Hermitian theory via a similarity transformation
+\end{itemize}
+
+\textbf{The unifying dispersion relation:} PT-symmetry provides the ``bridge'' connecting resonances and anti-resonances. The dispersion relation for odd oscillators:
+\begin{equation}
+\epsilon_n^{(M)}(g) = n + \frac{1}{2} + \frac{g}{\pi}\int_0^\infty ds\,\frac{\text{Im}\,\epsilon_n^{(M)}(s + i0)}{s(s - g)}
+\end{equation}
+connects:
+\begin{itemize}
+\item \textbf{Positive real $g$:} Resonances (complex energies with $\text{Im}\,E < 0$ for $g + i0$)
+\item \textbf{Negative real $g$:} PT-symmetric regime (real energies)
+\item \textbf{Positive real $g$:} Anti-resonances (complex energies with $\text{Im}\,E > 0$ for $g - i0$)
+\end{itemize}
+
+The analytic continuation through the PT-symmetric point $g < 0$ smoothly transforms resonances into anti-resonances.
+
+\textbf{Strong-coupling persistence:} A remarkable consequence of this structure is that resonances \textbf{persist for arbitrarily large coupling}. Even as $|g| \to \infty$, the resonance energies remain well-defined complex numbers. The strong-coupling asymptotics are:
+\begin{align}
+\epsilon_n^{(M)}(g \to \infty) &= g^{1/(M+2)}\,\epsilon_{\ell,n}^{(M)} + O(g^{-1/(M+2)}) \\
+E_n^{(N)}(g \to -\infty) &= (-g)^{2/(N+2)}\,E_{\ell,n}^{(N)} + O(g^{-2/(N+2)})
+\end{align}
+where $\epsilon_{\ell,n}^{(M)}$ and $E_{\ell,n}^{(N)}$ are complex constants (with well-defined phases) determined by the spectrum of the limiting Hamiltonians.
+
+\textbf{Example: Cubic oscillator.} For $M = 3$:
+\begin{align}
+\epsilon_{\ell,0}^{(3)} &= 0.762851775\,e^{-i\pi/5} \\
+\epsilon_{\ell,1}^{(3)} &= 2.711079923\,e^{-i\pi/5} \\
+\epsilon_{\ell,2}^{(3)} &= 4.989240088\,e^{-i\pi/5}
+\end{align}
+All resonances have the \emph{same} phase $e^{-i\pi/5}$ in the strong-coupling limit.
+
+\textbf{Physical interpretation:} PT-symmetric quantum mechanics provides a consistent extension of Hermitian quantum mechanics. The odd anharmonic oscillators, which might appear pathological from a naive Hermitian perspective, are as well-behaved as their even counterparts when viewed through the lens of PT-symmetry. The resurgent structure---transseries, Stokes phenomena, alien calculus---applies uniformly to both classes.
+
 %-------------------------------------------------------------------------------
 \section{When to Trust Perturbation Theory}
 \label{sec:when_trust}
@@ -732,6 +1262,51 @@ Beta functions and anomalous dimensions are scheme-dependent. Only scheme-indepe
 
 \textbf{Overlooking Non-Perturbative Fixed Points:}
 If only perturbative fixed points are sought, non-perturbative ones are missed. For some problems, the physically relevant fixed point may be non-perturbative.
+
+\subsection{The Extreme Case: Vanishing Perturbation Series}
+
+\marginnote{The most dramatic demonstration of resurgence's necessity: systems where perturbation theory gives \emph{exactly zero} to all orders, yet the true answer is nonzero.}
+
+The most striking examples of resurgence's power arise when the perturbation series \textbf{vanishes identically}:
+\begin{equation}
+\sum_{n=0}^\infty a_n g^n = 0 \quad \text{(exactly, to all orders)}
+\end{equation}
+yet the physical quantity is nonzero.
+
+\textbf{Example: Fokker-Planck analogy.} Consider potentials with special symmetries analogous to the Fokker-Planck equation. For certain such potentials:
+\begin{itemize}
+\item Every perturbative coefficient $a_n = 0$ exactly
+\item The ground-state energy $E_0 > 0$
+\item $E_0$ is \textbf{purely non-perturbative}: $E_0 \sim e^{-A/g}$
+\end{itemize}
+
+\textbf{Physical interpretation:} The perturbative vacuum is an \emph{exact} eigenstate of some symmetry-related operator, but not the true ground state. The true ground state involves tunneling, which perturbation theory cannot see.
+
+\begin{workedbox}[Box 6.8: Invisible to Perturbation Theory]
+\textbf{Problem:} Explain how a physical quantity can be exactly zero in perturbation theory yet nonzero.
+
+\tcblower
+
+\textbf{Setup:} Consider a potential $V(x)$ with the property that the ``false vacuum'' at $x = 0$ is an exact eigenstate of some auxiliary operator $\hat{O}$, but the true ground state is a superposition involving tunneling.
+
+\textbf{Perturbative expansion:} Expanding around $x = 0$:
+\[
+E_0 = E_0^{(0)} + g E_0^{(1)} + g^2 E_0^{(2)} + \cdots
+\]
+Each term $E_0^{(n)}$ involves only local properties at $x = 0$. If the potential is engineered such that all these vanish (by symmetry or fine-tuning):
+\[
+E_0^{(n)} = 0 \quad \forall n
+\]
+
+\textbf{True answer:} The physical ground state involves tunneling:
+\[
+\boxed{E_0 = C\, e^{-A/g}\left[1 + O(g)\right] > 0}
+\]
+
+\textbf{Conclusion:} Perturbation theory gives $E_0 = 0$; the true answer is nonzero and purely non-perturbative. Resurgence is not optional---it is the \textbf{only} way to compute the correct result.
+\end{workedbox}
+
+This extreme case underscores that resurgence is not merely a ``refinement'' of perturbation theory. It can be the \emph{entire} answer when perturbation theory contributes nothing.
 
 %-------------------------------------------------------------------------------
 \section{Summary}
@@ -814,6 +1389,78 @@ Part III applies these tools to specific physical systems: chaotic dynamics, flu
 \item Show that the ratio $\gamma(g)/\beta(g)$ has a $1/g$ singularity when $\gamma(g) = \gamma_1 g + \cdots$.
 \item Derive the large-order behavior of perturbative coefficients from the RG equation.
 \item Identify the position of the leading IR renormalon in the Borel plane.
+\end{enumerate}
+
+\item \textbf{Virial theorem verification.} Starting from the $\phi^4$ action
+\[
+S[\phi] = \int d^D x\left[\frac{1}{2}(\nabla\phi)^2 + \frac{1}{2}\phi^2 + \frac{g}{4}\phi^4\right],
+\]
+derive the virial relation $A = \frac{1}{D}\int(\nabla\xi_{\text{cl}})^2\,d^D x$ by considering the scale transformation $\phi(\vec{x}) \to \phi(\lambda\vec{x})$ and requiring $dS/d\lambda|_{\lambda=1} = 0$.
+
+\item \textbf{$\phi^4$ instanton transseries.} Consider the instanton transseries~\eqref{eq:phi4_transseries}:
+\[
+\xi_{\text{cl}}(r) = C\frac{e^{-r}}{r} + \xi^{(3)}(r) + O(e^{-5r})
+\]
+\begin{enumerate}
+\item Verify that $\xi^{(1)} = Ce^{-r}/r$ solves the linearized equation $[-\nabla^2 + 1]\xi = 0$ in 3D.
+\item Substitute $\xi \approx Ce^{-r}/r$ into the nonlinear term $\xi^3$ and show it generates a source term proportional to $e^{-3r}/r^3$.
+\item Explain why only odd powers of $e^{-r}$ appear in the transseries.
+\end{enumerate}
+
+\item \textbf{Instanton action from virial relations.} The virial relations~\eqref{eq:virial_relations} give
+\[
+A = \frac{1}{4}\int d^D x\,\xi_{\text{cl}}^4.
+\]
+\begin{enumerate}
+\item Using the asymptotic form $\xi_{\text{cl}} \approx Ce^{-r}/r$ for large $r$ in $D = 3$, estimate the contribution to $\int\xi^4$ from $r > R$ for some large $R$.
+\item Explain why this integral is dominated by the region near $r \sim 1$, not the large-$r$ tail.
+\item Look up or compute the numerical value $A(D=3) = 18.897\ldots$ and verify consistency.
+\end{enumerate}
+
+\item \textbf{Multi-instanton ambiguity cancellation.} Consider a system with one-instanton action $S$. The Borel sum of the perturbative sector has an imaginary part $\text{Im}\,\mathcal{S}_+[\hat{f}^{(0)}] \sim e^{-2S/g}$.
+\begin{enumerate}
+\item Explain why the imaginary part is proportional to $e^{-2S/g}$ (not $e^{-S/g}$).
+\item The two-instanton (instanton--anti-instanton) sector also produces an imaginary contribution. Show schematically that these cancel.
+\item What does this cancellation imply about the uniqueness of physical predictions from the transseries?
+\end{enumerate}
+
+\item \textbf{(Challenge) Vanishing perturbation series.} Construct a quantum-mechanical example where the perturbation series for the ground-state energy vanishes identically.
+\begin{enumerate}
+\item Consider the potential $V(x) = \frac{1}{2}\omega^2 x^2 - g\,W(x)$ where $W(x)$ is chosen so that the expansion around $x = 0$ gives $E_0^{(n)} = 0$ for all $n$.
+\item Show that this requires $W(x)$ to satisfy specific constraints related to the harmonic oscillator wavefunctions.
+\item Explain why the true ground-state energy $E_0$ must still be positive (or zero) by general quantum mechanical arguments.
+\item If $E_0 > 0$ despite the vanishing perturbation series, what is the form of $E_0$ in terms of $g$?
+\end{enumerate}
+
+\item \textbf{Unified quantization conditions.} Starting from the quantization condition~\eqref{eq:even_quantization} for even oscillators:
+\begin{enumerate}
+\item Expand the left-hand side around the pole at $B_N = n + 1/2$ for the $n$th excited state.
+\item Show that matching to the right-hand side gives the decay width formula.
+\item Verify that for $n = 0$ (ground state), you recover the expression~\eqref{eq:quartic_triple} for the quartic oscillator.
+\end{enumerate}
+
+\item \textbf{Sextic oscillator special properties.} For the sextic oscillator ($N = 6$):
+\begin{enumerate}
+\item Compute the first three terms of the perturbation series $E_0^{(6)}(g)$ by solving $B_6(E, g) = 1/2$.
+\item Verify that the instanton action~\eqref{eq:sextic_A} has the form $A_6 \propto 1/\sqrt{-g}$.
+\item Using the large-order formula~\eqref{eq:sextic_largeorder}, compute $E_{10}^{(6)}$ and compare to the exact coefficient.
+\item Explain why the missing $1/K$ correction makes the sextic oscillator ``special.''
+\end{enumerate}
+
+\item \textbf{PT-symmetric cubic oscillator.} Consider the PT-symmetric Hamiltonian $h_3(-|g|) = -\frac{1}{2}\partial_q^2 + \frac{1}{2}q^2 + i\sqrt{|g|}\,q^3$.
+\begin{enumerate}
+\item Explain why this Hamiltonian is PT-symmetric but not Hermitian.
+\item The spectrum is real. Sketch how the eigenvalues evolve as $|g|$ increases from 0.
+\item At strong coupling $|g| \to \infty$, verify that $\epsilon_0 \to |g|^{1/5}\epsilon_{\ell,0}$ where $\epsilon_{\ell,0} = 0.7629\ldots$
+\item Explain how the dispersion relation connects this PT-symmetric regime to the resonance regime at $g > 0$.
+\end{enumerate}
+
+\item \textbf{(Challenge) Triple expansion derivation.} Starting from the unified quantization condition~\eqref{eq:even_quantization}:
+\begin{enumerate}
+\item Substitute $E = n + 1/2 + \sum_{J=1}^\infty \eta_J$ where $\eta_J \propto e^{-JS/g}$ is the $J$-instanton correction.
+\item Show that the $J = 2$ sector necessarily involves $\ln g$ terms.
+\item Derive the coefficient of the $\ln(4/g)$ term in~\eqref{eq:quartic_triple} for the quartic oscillator.
+\item Explain why Euler's constant $\gamma_E$ appears alongside the logarithm.
 \end{enumerate}
 \end{enumerate}
 

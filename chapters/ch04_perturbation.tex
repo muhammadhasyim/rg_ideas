@@ -224,7 +224,7 @@ Numerical solution of equation~\eqref{eq:nonlinear_heat} confirms that $u_{\text
 \textbf{Setup:} The Burgers equation is
 \begin{equation}
 \frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} = \nu\frac{\partial^2 u}{\partial x^2}
-\label{eq:burgers}
+\label{eq:burgers_ch04}
 \end{equation}
 This models nonlinear wave propagation with diffusion. The nonlinear term $u\partial_x u$ causes wavefront steepening. The diffusion $\nu\partial_x^2 u$ opposes steepening. For small viscosity $\nu \ll 1$, shocks (discontinuities in $u$) can form.
 
@@ -239,7 +239,7 @@ t_{\text{shock}} \sim \frac{1}{\max|\partial_x u(x,0)|}
 
 \textbf{Step 2: Regularization by diffusion.}
 
-For $\nu > 0$, diffusion smooths the shock. Instead of a true discontinuity, we get a sharp transition layer of width $\delta \sim \sqrt{\nu t}$. Within this layer, $\partial_x u \sim U/\delta$ where $U$ is the jump in $u$ across the shock. Balancing the nonlinear and diffusion terms in equation~\eqref{eq:burgers}:
+For $\nu > 0$, diffusion smooths the shock. Instead of a true discontinuity, we get a sharp transition layer of width $\delta \sim \sqrt{\nu t}$. Within this layer, $\partial_x u \sim U/\delta$ where $U$ is the jump in $u$ across the shock. Balancing the nonlinear and diffusion terms in equation~\eqref{eq:burgers_ch04}:
 \begin{equation}
 U\frac{U}{\delta} \sim \nu\frac{U}{\delta^2} \quad \Rightarrow \quad \delta \sim \frac{\nu}{U}
 \end{equation}
@@ -259,7 +259,7 @@ u(x,t) = u_L + \frac{u_R - u_L}{2}\left[1 + \tanh\left(\frac{x - x_s(t)}{\delta(
 \end{equation}
 where $u_L, u_R$ are the values to the left and right of the shock. This ansatz interpolates smoothly from $u_L$ to $u_R$ over a width $\delta$.
 
-Substituting into Burgers equation~\eqref{eq:burgers} and matching coefficients gives RG equations for $x_s(t)$ and $\delta(t)$:
+Substituting into Burgers equation~\eqref{eq:burgers_ch04} and matching coefficients gives RG equations for $x_s(t)$ and $\delta(t)$:
 \begin{align}
 \frac{dx_s}{dt} &= \frac{u_L + u_R}{2} \\
 \frac{d\delta}{dt} &= \frac{\nu}{\delta} - \frac{(u_R - u_L)\delta}{12}
